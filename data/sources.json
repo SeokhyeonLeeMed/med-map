@@ -1,0 +1,143 @@
+{
+  "_note": "데이터 필드별 출처. 기관 주소의 출처와 병상 수의 출처가 다를 수 있으므로, 레코드마다 sourceId 로 이 목록을 가리킨다.",
+  "sources": [
+    {
+      "id": "src-mohw-sangjong5",
+      "title": "보건복지부 「제5기 상급종합병원 지정 기관현황」 (지정기간 2024-01-01~2026-12-31)",
+      "publisher": "보건복지부",
+      "kind": "공식 고시",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10501010000&bid=0003&list_no=1479570&act=view",
+      "mirrorUrl": "https://www.sisul.or.kr/open_content/calltaxi/introduce/temporary.pdf",
+      "publishedOn": "2023-12-29",
+      "retrievedOn": "2026-10-29",
+      "note": "보건복지부 공고 2023-894호. 본문 표는 복지부 공고 첨부에서 배포된 PDF를 통해 확인했다."
+    },
+    {
+      "id": "src-mohw-emc2026",
+      "title": "보건복지부 「2026~2029년 권역응급의료센터 선정 기관」 (보도참고자료 붙임2)",
+      "publisher": "보건복지부",
+      "kind": "공식 보도참고자료",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1491285",
+      "publishedOn": "2026-07-15",
+      "retrievedOn": "2026-10-29",
+      "note": "지정기간 2026-11-01~2029-10-31, 53개소. 응급의료권역 29개 체계를 확인할 수 있는 1차 자료."
+    },
+    {
+      "id": "src-mohw-emc2023",
+      "title": "보건복지부 「권역응급의료센터 현황」 (보도참고자료 붙임, 추가 선정 5개소 포함 44개소)",
+      "publisher": "보건복지부",
+      "kind": "공식 보도참고자료",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=376063",
+      "publishedOn": "2023-05-01",
+      "retrievedOn": "2026-10-29",
+      "note": "2023년 기준 조사에 대응한다. 응급의료권역 29개와 권역별 적정 개소 수가 함께 실려 있다."
+    },
+    {
+      "id": "src-mohw-recruit-2026h2-intern",
+      "title": "보건복지부 「2026년도 하반기 전공의(인턴) 모집인원」 붙임1",
+      "publisher": "보건복지부",
+      "kind": "공식 모집 공고 첨부",
+      "localFile": "붙임1. 2026년도 하반기 인턴 모집인원.pdf",
+      "publishedOn": "2026-08-30",
+      "retrievedOn": "2026-10-29",
+      "note": "사용자가 보유한 공고 첨부 PDF. 공개 URL은 확인하지 않았다. 103개 모집 단위, 합계 1,830명."
+    },
+    {
+      "id": "src-mohw-recruit-2026h2-resident",
+      "title": "보건복지부 「2026년도 하반기 전공의(레지던트) 모집인원」 붙임2",
+      "publisher": "보건복지부",
+      "kind": "공식 모집 공고 첨부",
+      "localFile": "붙임2. 2026년도 하반기 레지던트 모집인원.pdf",
+      "publishedOn": "2026-08-30",
+      "retrievedOn": "2026-10-29",
+      "note": "109개 모집 단위 × 전문과목 485 레코드, 합계 710명. 모집인원 0명과 '미확인'은 구별해 저장한다."
+    },
+    {
+      "id": "src-xlsx-medical-list",
+      "title": "메디컬 목록 (2026-09-22판)",
+      "publisher": "사용자 작성 (출처는 시트 「기준·출처」에 명시)",
+      "kind": "2차 정리 자료",
+      "localFile": "메디컬 목록_260922.xlsx",
+      "asOf": "2026-09-22",
+      "retrievedOn": "2026-10-29",
+      "note": "소재지는 대학알리미 공시, 정원은 교육부 「2027~2031학년도 의과대학 학생정원 배정(안)」, 병상 수는 건강보험심사평가원 병원정보 공시를 근거로 작성되었다고 기록되어 있다. 원 출처를 직접 재검증하지는 않았다."
+    },
+    {
+      "id": "src-hira-beds",
+      "title": "건강보험심사평가원 병원정보 공시 (병상 수)",
+      "publisher": "건강보험심사평가원",
+      "kind": "공공기관 공시",
+      "url": "https://www.hira.or.kr/",
+      "asOf": "2026-09-22",
+      "retrievedOn": "2026-10-29",
+      "note": "병상 수 = 일반입원실(상급+일반) + 중환자실 + 정신과 + 격리병실 + 무균치료실. 메디컬 목록 엑셀을 통해 간접 수집했으며 허가병상·운영병상 구분은 확인하지 못했다."
+    },
+    {
+      "id": "src-moe-quota-2027",
+      "title": "교육부 「2027학년도~2031학년도 의과대학 학생정원 배정(안)」",
+      "publisher": "교육부",
+      "kind": "공식 발표",
+      "publishedOn": "2026-03",
+      "retrievedOn": "2026-10-29",
+      "note": "정원은 2024학년도 기준(2026학년도 모집 기준) 총 3,058명, 2027학년도 배정 후 총 3,548명. 메디컬 목록 엑셀을 통해 간접 수집했다."
+    },
+    {
+      "id": "src-admdongkor",
+      "title": "vuski/admdongkor 행정구역 경계 (ver20261001)",
+      "publisher": "vuski (원자료: 통계청 SGIS)",
+      "kind": "오픈 데이터",
+      "url": "https://github.com/vuski/admdongkor",
+      "license": "데이터 CC BY 4.0 / 원자료 공공누리 제1유형",
+      "asOf": "2026-10-01",
+      "retrievedOn": "2026-10-29"
+    },
+    {
+      "id": "src-osm",
+      "title": "OpenStreetMap (Overpass API, amenity=hospital)",
+      "publisher": "OpenStreetMap contributors",
+      "kind": "오픈 데이터",
+      "url": "https://www.openstreetmap.org/",
+      "license": "ODbL 1.0",
+      "retrievedOn": "2026-10-29",
+      "note": "좌표 후보 수집에만 사용했고, 채택한 좌표는 소재 시군구 경계 안에 들어오는지 검증했다."
+    },
+    {
+      "id": "src-nominatim",
+      "title": "Nominatim 지오코딩 (OpenStreetMap)",
+      "publisher": "OpenStreetMap Foundation",
+      "kind": "오픈 데이터",
+      "url": "https://nominatim.openstreetmap.org/",
+      "license": "ODbL 1.0",
+      "retrievedOn": "2026-10-29",
+      "note": "이용 정책에 따라 식별 가능한 User-Agent로 초당 1건 이하로 조회했다."
+    },
+    {
+      "id": "src-news-2023-quota",
+      "title": "의사신문 「내년 전공의 모집 인원 확정···인턴 3258명·레지던트 3465명」",
+      "publisher": "의사신문",
+      "kind": "언론 보도 (2차 자료)",
+      "url": "http://www.doctorstimes.com/news/articleView.html?idxno=220892",
+      "retrievedOn": "2026-10-29",
+      "note": "보건복지부 수련환경평가위원회 확정 정원을 인용한 보도다. 공고 원문과 병원별 표는 확인하지 못했다."
+    },
+    {
+      "id": "src-news-2023-h2",
+      "title": "데일리메디 「전국 수련병원 하반기 인턴·전공의 728명 모집」",
+      "publisher": "데일리메디",
+      "kind": "언론 보도 (2차 자료)",
+      "url": "https://www.dailymedi.com/news/news_view.php?wr_id=900848",
+      "publishedOn": "2023-08-08",
+      "retrievedOn": "2026-10-29",
+      "note": "수련환경평가위원회 자료를 인용한 보도다. 기사에 이름이 나온 일부 병원 수치만 옮겼고, 44개 인턴·196개 레지던트 모집 병원 전체 명단은 확보하지 못했다."
+    },
+    {
+      "id": "src-snuh-2023-intern",
+      "title": "서울대학교병원 「2023년도 전공의(인턴) 선발 공고」",
+      "publisher": "서울대학교병원",
+      "kind": "병원 공식 공고",
+      "url": "https://www.snuh.org/about/news/recruit/recruView.do?recruit_id=23008",
+      "retrievedOn": "2026-10-29",
+      "note": "서울대학교병원 수련 단위에 속한 기관별 선발 인원이 적혀 있다."
+    }
+  ]
+}

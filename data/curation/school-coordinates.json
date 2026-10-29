@@ -1,0 +1,72 @@
+{
+ "_note": "의과대학 캠퍼스 좌표. Nominatim 에 '○○대학교 의과대학'으로 등재된 기관만 확정 좌표를 쓰고, 나머지는 소재 시군구 대표점으로 대체하며 precision 에 그 사실을 남긴다.",
+ "_checked": "2026-10-29",
+ "schools": {
+  "경북대학교 의과대학": {
+   "lat": 35.868049,
+   "lon": 128.604788,
+   "source": "src-nominatim",
+   "matchedName": "경북대학교 의과대학"
+  },
+  "고려대학교 의과대학": {
+   "lat": 37.588287,
+   "lon": 127.027469,
+   "source": "src-nominatim",
+   "matchedName": "의과대학"
+  },
+  "순천향대학교 의과대학": {
+   "lat": 36.802764,
+   "lon": 127.134413,
+   "source": "src-nominatim",
+   "matchedName": "순천향대학교 의과대학"
+  },
+  "연세대학교 의과대학": {
+   "lat": 37.561049,
+   "lon": 126.940117,
+   "source": "src-nominatim",
+   "matchedName": "연세대학교 의과대학"
+  },
+  "영남대학교 의과대학": {
+   "lat": 35.846962,
+   "lon": 128.586042,
+   "source": "src-nominatim",
+   "matchedName": "영남대학교 의과대학"
+  },
+  "울산대학교 의과대학": {
+   "lat": 37.525445,
+   "lon": 127.110347,
+   "source": "src-nominatim",
+   "matchedName": "울산대학교 의과대학"
+  },
+  "이화여자대학교 의과대학": {
+   "lat": 37.556248,
+   "lon": 126.836178,
+   "source": "src-nominatim",
+   "matchedName": "이화여자대학교 의과대학"
+  },
+  "인제대학교 의과대학": {
+   "lat": 35.145509,
+   "lon": 129.020876,
+   "source": "src-nominatim",
+   "matchedName": "인제대학교 의과대학"
+  },
+  "전북대학교 의과대학": {
+   "lat": 35.847064,
+   "lon": 127.142676,
+   "source": "src-nominatim",
+   "matchedName": "전북대학교 의과대학"
+  },
+  "충남대학교 의과대학": {
+   "lat": 36.316681,
+   "lon": 127.413396,
+   "source": "src-nominatim",
+   "matchedName": "충남대학교 의과대학"
+  },
+  "충북대학교 의과대학": {
+   "lat": 36.63643,
+   "lon": 127.323953,
+   "source": "src-nominatim",
+   "matchedName": "충북대학교 의과대학 3호관"
+  }
+ }
+}

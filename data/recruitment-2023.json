@@ -1,0 +1,93 @@
+{
+  "_note": "2023년 전공의 모집 자료. 보건복지부·수련환경평가위원회 공고 원문의 병원별 표를 공개 웹에서 확보하지 못해, 전국 총계와 언론이 인용한 일부 병원 수치만 싣는다. 확인하지 못한 병원은 레코드를 만들지 않는다 — 0명이 아니라 자료 없음이다. 2026년 자료로 2023년을 대신 채우지 않는다.",
+  "_checked": "2026-10-29",
+  "coverageWarning": "병원별 수치는 2023년 하반기 44개 인턴 모집 병원 중 10개, 196개 레지던트 모집 병원 중 8개분만 확인되었다. 이 목록을 전체 명단으로 읽어서는 안 된다.",
+  "nationalTotals": [
+    {
+      "year": 2023,
+      "term": "상반기",
+      "track": "인턴",
+      "metric": "정원",
+      "value": 3258,
+      "sourceId": "src-news-2023-quota",
+      "status": "일부확인",
+      "note": "보건복지부 수련환경평가위원회가 확정한 2023년도 정원으로 보도되었다. 공고 원문은 확인하지 못했다."
+    },
+    {
+      "year": 2023,
+      "term": "상반기",
+      "track": "레지던트 1년차",
+      "metric": "정원",
+      "value": 3465,
+      "sourceId": "src-news-2023-quota",
+      "status": "일부확인"
+    },
+    {
+      "year": 2023,
+      "term": "하반기",
+      "track": "인턴",
+      "metric": "모집인원",
+      "value": 114,
+      "institutionCount": 44,
+      "sourceId": "src-news-2023-h2",
+      "status": "일부확인"
+    },
+    {
+      "year": 2023,
+      "term": "하반기",
+      "track": "레지던트 1년차",
+      "metric": "모집인원",
+      "value": 614,
+      "institutionCount": 196,
+      "sourceId": "src-news-2023-h2",
+      "status": "일부확인"
+    }
+  ],
+  "byHospital": [
+    { "hospital": "고신대학교복음병원", "year": 2023, "term": "하반기", "track": "인턴", "quota": 17, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+    { "hospital": "학교법인 건양교육재단 건양대학교병원", "year": 2023, "term": "하반기", "track": "인턴", "quota": 6, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+    { "hospital": "의료법인 길의료재단 길병원", "year": 2023, "term": "하반기", "track": "인턴", "quota": 5, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+    { "hospital": "학교법인 을지학원 대전을지대학교병원", "year": 2023, "term": "하반기", "track": "인턴", "quota": 5, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+    { "hospital": "경상국립대학교병원", "year": 2023, "term": "하반기", "track": "인턴", "quota": 5, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+    { "hospital": "서울대학교병원", "year": 2023, "term": "하반기", "track": "인턴", "quota": 4, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+    { "hospital": "재단법인아산사회복지재단 서울아산병원", "year": 2023, "term": "하반기", "track": "인턴", "quota": 2, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+    { "hospital": "연세대학교의과대학세브란스병원", "year": 2023, "term": "하반기", "track": "인턴", "quota": 2, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+    { "hospital": "삼성서울병원", "year": 2023, "term": "하반기", "track": "인턴", "quota": 0, "sourceId": "src-news-2023-h2", "status": "일부확인", "note": "하반기 인턴을 뽑지 않았다고 보도되었다. 미확인이 아니라 확인된 0명이다." },
+
+    { "hospital": "연세대학교의과대학세브란스병원", "year": 2023, "term": "하반기", "track": "레지던트", "quota": 22, "sourceId": "src-news-2023-h2", "status": "일부확인", "note": "전공과별 내역은 확인하지 못했다." },
+    { "hospital": "아주대학교병원", "year": 2023, "term": "하반기", "track": "레지던트", "quota": 20, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+    { "hospital": "의료법인 길의료재단 길병원", "year": 2023, "term": "하반기", "track": "레지던트", "quota": 18, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+
+    { "hospital": "서울대학교병원", "year": 2023, "term": "하반기", "track": "레지던트", "quota": 12, "sourceId": "src-news-2023-h2", "status": "일부확인",
+      "bySpecialty": [
+        { "specialty": "내과", "quota": 2 }, { "specialty": "가정의학과", "quota": 2 },
+        { "specialty": "산부인과", "quota": 2 }, { "specialty": "소아청소년과", "quota": 1 },
+        { "specialty": "신경과", "quota": 1 }, { "specialty": "외과", "quota": 2 },
+        { "specialty": "응급의학과", "quota": 2 }
+      ]
+    },
+    { "hospital": "재단법인아산사회복지재단 서울아산병원", "year": 2023, "term": "하반기", "track": "레지던트", "quota": 4, "sourceId": "src-news-2023-h2", "status": "일부확인",
+      "bySpecialty": [
+        { "specialty": "가정의학과", "quota": 1 }, { "specialty": "병리과", "quota": 1 },
+        { "specialty": "응급의학과", "quota": 1 }, { "specialty": "심장혈관흉부외과", "quota": 1 }
+      ]
+    },
+    { "hospital": "삼성서울병원", "year": 2023, "term": "하반기", "track": "레지던트", "quota": 4, "sourceId": "src-news-2023-h2", "status": "일부확인",
+      "bySpecialty": [
+        { "specialty": "산부인과", "quota": 1 }, { "specialty": "소아청소년과", "quota": 1 },
+        { "specialty": "정형외과", "quota": 1 }, { "specialty": "핵의학과", "quota": 1 }
+      ]
+    }
+  ],
+  "byTrainingUnit": [
+    { "unitRawName": "가톨릭중앙의료원", "region": "서울", "year": 2023, "term": "하반기", "track": "인턴", "quota": 6, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+    { "unitRawName": "가톨릭중앙의료원", "region": "서울", "year": 2023, "term": "하반기", "track": "레지던트", "quota": 57, "sourceId": "src-news-2023-h2", "status": "일부확인" },
+    { "unitRawName": "고려대의료원", "region": "서울", "year": 2023, "term": "하반기", "track": "레지던트", "quota": 25, "sourceId": "src-news-2023-h2", "status": "일부확인" }
+  ],
+  "firstHalfByHospital": [
+    { "hospital": "서울대학교병원", "year": 2023, "term": "상반기", "track": "인턴", "quota": 86, "sourceId": "src-snuh-2023-intern", "status": "확인됨" },
+    { "hospital": "분당서울대학교병원", "year": 2023, "term": "상반기", "track": "인턴", "quota": 36, "sourceId": "src-snuh-2023-intern", "status": "확인됨" },
+    { "hospital": "서울특별시보라매병원", "year": 2023, "term": "상반기", "track": "인턴", "quota": 22, "sourceId": "src-snuh-2023-intern", "status": "확인됨" }
+  ],
+  "firstHalfNote": "서울대학교병원 2023년도 전공의(인턴) 선발 공고에는 국립암센터 24명·인천광역시의료원 4명도 함께 적혀 있으나, 이 사이트의 기관 목록에 없는 기관이라 싣지 않았다."
+}

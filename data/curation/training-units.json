@@ -1,0 +1,1921 @@
+{
+ "_note": "보건복지부 전공의 모집 공고의 약칭을 기관 정식 명칭에 잇는 표. 모집 단위는 기관과 다르다. 통합수련 기관은 한 단위에 여러 병원이 묶이고, 예방의학과는 병원이 아니라 의과대학이 모집 단위다.",
+ "_sources": [
+  "src-mohw-recruit-2026h2-intern",
+  "src-mohw-recruit-2026h2-resident"
+ ],
+ "_checked": "2026-10-29",
+ "units": [
+  {
+   "id": "tu-gangreungasan",
+   "region": "강원",
+   "rawName": "강릉아산",
+   "name": "강릉아산병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "강릉아산병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gangwondae",
+   "region": "강원",
+   "rawName": "강원대",
+   "name": "강원대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "강원대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-yeonsedaewonjusebeuranseugidok",
+   "region": "강원",
+   "rawName": "연세대원주세브란스기독",
+   "name": "연세대학교 원주세브란스기독병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "연세대학교 원주세브란스기독병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-yeonsedaewonju",
+   "region": "강원",
+   "rawName": "연세대원주의과대학",
+   "name": "연세대학교(미래) 의과대학",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [],
+   "medicalSchools": [
+    "연세대학교(미래) 의과대학"
+   ],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hanrimdaechuncheonseongsim",
+   "region": "강원",
+   "rawName": "한림대춘천성심",
+   "name": "한림대학교춘천성심병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "한림대학교춘천성심병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gyeonggidouiryowonpocheon",
+   "region": "경기",
+   "rawName": "경기도의료원포천",
+   "name": "경기도의료원 포천병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "경기도의료원 포천병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gwangmyeongseongae",
+   "region": "경기",
+   "rawName": "광명성애",
+   "name": "광명성애병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "광명성애병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gukmingeongangboheomgongdanilsan",
+   "region": "경기",
+   "rawName": "국민건강보험공단일산",
+   "name": "국민건강보험공단일산병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "국민건강보험공단일산병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gimpouri",
+   "region": "경기",
+   "rawName": "김포우리",
+   "name": "김포우리병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "김포우리병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-donggukdaeilsanbulgyo",
+   "region": "경기",
+   "rawName": "동국대일산불교",
+   "name": "동국대학교일산불교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "동국대학교일산불교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-dongsuwon",
+   "region": "경기",
+   "rawName": "동수원",
+   "name": "동수원병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "동수원병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-myeongji",
+   "region": "경기",
+   "rawName": "명지",
+   "name": "의료법인명지의료재단명지병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "의료법인명지의료재단명지병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-bucheonsejong",
+   "region": "경기",
+   "rawName": "부천세종",
+   "name": "세종병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "세종병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-bundangseouldae",
+   "region": "경기",
+   "rawName": "분당서울대",
+   "name": "분당서울대학교병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "분당서울대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-bundangjesaeng",
+   "region": "경기",
+   "rawName": "분당제생",
+   "name": "분당제생병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "분당제생병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-seongnamsiuiryowon",
+   "region": "경기",
+   "rawName": "성남시의료원",
+   "name": "성남시의료원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "성남시의료원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-suncheonhyangdaebucheon",
+   "region": "경기",
+   "rawName": "순천향대부천",
+   "name": "순천향대학교부속부천병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "순천향대학교부속부천병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-ajudae",
+   "region": "경기",
+   "rawName": "아주대",
+   "name": "아주대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "아주대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-anyangsaem",
+   "region": "경기",
+   "rawName": "안양샘",
+   "name": "안양샘병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "안양샘병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-yeonsedaeyonginsebeuranseu",
+   "region": "경기",
+   "rawName": "연세대용인세브란스",
+   "name": "연세대학교 의과대학 용인세브란스병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "연세대학교 의과대학 용인세브란스병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-uijeongbueuljidae",
+   "region": "경기",
+   "rawName": "의정부을지대",
+   "name": "학교법인 을지학원 의정부을지대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "학교법인 을지학원 의정부을지대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-injedaeilsanbaek",
+   "region": "경기",
+   "rawName": "인제대일산백",
+   "name": "인제대학교일산백병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "인제대학교일산백병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-jisaem",
+   "region": "경기",
+   "rawName": "지샘",
+   "name": "지샘병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "지샘병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-chauigwahakbundangcha",
+   "region": "경기",
+   "rawName": "차의과학대학분당차",
+   "name": "차의과학대학교분당차병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "차의과학대학교분당차병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-chu",
+   "region": "경기",
+   "rawName": "추",
+   "name": "추병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "추병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hanrimdaedongtanseongsim",
+   "region": "경기",
+   "rawName": "한림대동탄성심",
+   "name": "한림대학교동탄성심병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "한림대학교동탄성심병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hanrimdaeseongsim",
+   "region": "경기",
+   "rawName": "한림대성심",
+   "name": "한림대학교성심병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "한림대학교성심병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gyeongsanggukripdae",
+   "region": "경남",
+   "rawName": "경상국립대",
+   "name": "경상국립대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "경상국립대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-samseongchangwon",
+   "region": "경남",
+   "rawName": "삼성창원",
+   "name": "학교법인성균관대학삼성창원병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "학교법인성균관대학삼성창원병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-yangsanbusandae",
+   "region": "경남",
+   "rawName": "양산부산대",
+   "name": "양산부산대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "양산부산대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-changwongyeongsanggukripdae",
+   "region": "경남",
+   "rawName": "창원경상국립대",
+   "name": "창원경상국립대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "창원경상국립대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hanmaeumchangwon",
+   "region": "경남",
+   "rawName": "한마음(창원)",
+   "name": "창원한마음병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "창원한마음병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-pohangseongmo",
+   "region": "경북",
+   "rawName": "포항성모",
+   "name": "포항성모병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "포항성모병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gwangjugidok",
+   "region": "광주",
+   "rawName": "광주기독",
+   "name": "광주기독병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "광주기독병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gwangjubohun",
+   "region": "광주",
+   "rawName": "광주보훈",
+   "name": "광주보훈병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "광주보훈병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-jeonnamdae",
+   "region": "광주",
+   "rawName": "전남대",
+   "name": "전남대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "전남대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-joseondae",
+   "region": "광주",
+   "rawName": "조선대",
+   "name": "조선대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "조선대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gyeongbukdae",
+   "region": "대구",
+   "rawName": "경북대",
+   "name": "경북대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "경북대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gyemyeongdaedongsan",
+   "region": "대구",
+   "rawName": "계명대동산",
+   "name": "계명대학교동산병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "계명대학교동산병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-nuneangwadaegu",
+   "region": "대구",
+   "rawName": "누네안과(대구)",
+   "name": "누네안과병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "누네안과병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-daegugatolrikdae",
+   "region": "대구",
+   "rawName": "대구가톨릭대",
+   "name": "대구가톨릭대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "대구가톨릭대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-daegubohun",
+   "region": "대구",
+   "rawName": "대구보훈",
+   "name": "대구보훈병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "대구보훈병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-daeguuiryowon",
+   "region": "대구",
+   "rawName": "대구의료원",
+   "name": "대구의료원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "대구의료원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-daegupatima",
+   "region": "대구",
+   "rawName": "대구파티마",
+   "name": "대구파티마병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "대구파티마병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-yeongnamdae",
+   "region": "대구",
+   "rawName": "영남대",
+   "name": "영남대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "영남대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-chilgokgyeongbukdae",
+   "region": "대구",
+   "rawName": "칠곡경북대",
+   "name": "칠곡경북대학교병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "칠곡경북대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-geonyangdae",
+   "region": "대전",
+   "rawName": "건양대",
+   "name": "학교법인 건양교육재단 건양대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "학교법인 건양교육재단 건양대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-daejeonbohun",
+   "region": "대전",
+   "rawName": "대전보훈",
+   "name": "대전보훈병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "대전보훈병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-daejeoneuljidae",
+   "region": "대전",
+   "rawName": "대전을지대",
+   "name": "학교법인 을지학원 대전을지대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "학교법인 을지학원 대전을지대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-chungnamdae",
+   "region": "대전",
+   "rawName": "충남대",
+   "name": "충남대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "충남대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-bhshanseo",
+   "region": "부산",
+   "rawName": "BHS한서",
+   "name": "BHS한서병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "BHS한서병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gosindaebokeum",
+   "region": "부산",
+   "rawName": "고신대복음",
+   "name": "고신대학교복음병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "고신대학교복음병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-daedong",
+   "region": "부산",
+   "rawName": "대동",
+   "name": "대동병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "대동병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-dongadae",
+   "region": "부산",
+   "rawName": "동아대",
+   "name": "동아대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "동아대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-merinol",
+   "region": "부산",
+   "rawName": "메리놀",
+   "name": "메리놀병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "메리놀병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-bongsaengginyeom",
+   "region": "부산",
+   "rawName": "봉생기념",
+   "name": "봉생기념병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "봉생기념병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-bumin",
+   "region": "부산",
+   "rawName": "부민",
+   "name": "부산부민병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "부산부민병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-buminbusan",
+   "region": "부산",
+   "rawName": "부민(부산)",
+   "name": "부산부민병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "부산부민병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-busangwangyeoksiuiryowon",
+   "region": "부산",
+   "rawName": "부산광역시의료원",
+   "name": "부산광역시의료원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "부산광역시의료원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-busandae",
+   "region": "부산",
+   "rawName": "부산대",
+   "name": "부산대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "부산대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-busandae-2",
+   "region": "부산",
+   "rawName": "부산대의과대학",
+   "name": "부산대학교 의과대학",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [],
+   "medicalSchools": [
+    "부산대학교 의과대학"
+   ],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-busanbohun",
+   "region": "부산",
+   "rawName": "부산보훈",
+   "name": "부산보훈병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "부산보훈병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-busanseongmo",
+   "region": "부산",
+   "rawName": "부산성모",
+   "name": "부산성모병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "부산성모병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-samyukbusan",
+   "region": "부산",
+   "rawName": "삼육부산",
+   "name": "부산삼육병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "부산삼육병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-yeongdo",
+   "region": "부산",
+   "rawName": "영도",
+   "name": "영도병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "영도병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-on",
+   "region": "부산",
+   "rawName": "온",
+   "name": "온종합병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "온종합병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-injedaebusanbaek",
+   "region": "부산",
+   "rawName": "인제대부산백",
+   "name": "인제대학교부산백병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "인제대학교부산백병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-injedaehaeundaebaek",
+   "region": "부산",
+   "rawName": "인제대해운대백",
+   "name": "인제대학교 해운대백병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "인제대학교 해운대백병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-joteungangan",
+   "region": "부산",
+   "rawName": "좋은강안",
+   "name": "좋은강안병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "좋은강안병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-joteunmunhwa",
+   "region": "부산",
+   "rawName": "좋은문화",
+   "name": "좋은문화병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "좋은문화병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-joteunsamseon",
+   "region": "부산",
+   "rawName": "좋은삼선",
+   "name": "좋은삼선병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "좋은삼선병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-haeundaebumin",
+   "region": "부산",
+   "rawName": "해운대부민",
+   "name": "해운대부민병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "해운대부민병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gatolrikdae",
+   "region": "서울",
+   "rawName": "가톨릭대의과대학",
+   "name": "가톨릭대학교 의과대학",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [],
+   "medicalSchools": [
+    "가톨릭대학교 의과대학"
+   ],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gatolrikjunganguiryowon",
+   "region": "서울",
+   "rawName": "가톨릭중앙의료원",
+   "name": "가톨릭중앙의료원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "학교법인가톨릭학원가톨릭대학교서울성모병원",
+    "가톨릭대학교 여의도성모병원",
+    "가톨릭대학교 은평성모병원",
+    "가톨릭대학교부천성모병원",
+    "가톨릭대학교의정부성모병원",
+    "가톨릭대학교인천성모병원",
+    "가톨릭대학교 성빈센트병원",
+    "학교법인 가톨릭학원 가톨릭대학교 대전성모병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": true
+  },
+  {
+   "id": "tu-gangdonggyeonghuidae",
+   "region": "서울",
+   "rawName": "강동경희대",
+   "name": "강동경희대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "강동경희대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gangdongseongsim",
+   "region": "서울",
+   "rawName": "강동성심",
+   "name": "강동성심병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "강동성심병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gangbuksamseong",
+   "region": "서울",
+   "rawName": "강북삼성",
+   "name": "강북삼성병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "강북삼성병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-geongukdae",
+   "region": "서울",
+   "rawName": "건국대",
+   "name": "건국대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "건국대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gyeongchal",
+   "region": "서울",
+   "rawName": "경찰",
+   "name": "국립경찰병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "국립경찰병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gyeonghuidae",
+   "region": "서울",
+   "rawName": "경희대",
+   "name": "경희대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "경희대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-goryeodae",
+   "region": "서울",
+   "rawName": "고려대의과대학",
+   "name": "고려대학교 의과대학",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [],
+   "medicalSchools": [
+    "고려대학교 의과대학"
+   ],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-goryeodaeuiryowon",
+   "region": "서울",
+   "rawName": "고려대의료원",
+   "name": "고려대의료원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "학교법인 고려중앙학원 고려대학교의과대학부속병원(안암병원)",
+    "고려대학교의과대학부속구로병원",
+    "고려대학교의과대학부속안산병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": true
+  },
+  {
+   "id": "tu-gukripjunganguiryowon",
+   "region": "서울",
+   "rawName": "국립중앙의료원",
+   "name": "국립중앙의료원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "국립중앙의료원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-nowoneuljidae",
+   "region": "서울",
+   "rawName": "노원을지대",
+   "name": "노원을지대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "노원을지대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-buminseoul",
+   "region": "서울",
+   "rawName": "부민(서울)",
+   "name": "서울부민병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "서울부민병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-samseongseoul",
+   "region": "서울",
+   "rawName": "삼성서울",
+   "name": "삼성서울병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "삼성서울병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-samyukseoul",
+   "region": "서울",
+   "rawName": "삼육서울",
+   "name": "서울삼육병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "서울삼육병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-seouldae",
+   "region": "서울",
+   "rawName": "서울대",
+   "name": "서울대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "서울대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-seoulasan",
+   "region": "서울",
+   "rawName": "서울아산",
+   "name": "재단법인아산사회복지재단 서울아산병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "재단법인아산사회복지재단 서울아산병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-seouljeoksipja",
+   "region": "서울",
+   "rawName": "서울적십자",
+   "name": "서울적십자병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "서울적십자병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-seoulteukbyeolsiseouluiryowon",
+   "region": "서울",
+   "rawName": "서울특별시서울의료원",
+   "name": "서울특별시서울의료원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "서울특별시서울의료원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-seongae",
+   "region": "서울",
+   "rawName": "성애",
+   "name": "성애병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "성애병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-suncheonhyangdaeseoul",
+   "region": "서울",
+   "rawName": "순천향대서울",
+   "name": "순천향대학교 부속 서울병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "순천향대학교 부속 서울병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-eichipeulreoseuyangji",
+   "region": "서울",
+   "rawName": "에이치플러스양지",
+   "name": "에이치플러스 양지병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "에이치플러스 양지병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-yeonsedaegangnamsebeuranseu",
+   "region": "서울",
+   "rawName": "연세대강남세브란스",
+   "name": "연세대학교의과대학 강남세브란스병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "연세대학교의과대학 강남세브란스병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-yeonsedaesebeuranseu",
+   "region": "서울",
+   "rawName": "연세대세브란스",
+   "name": "연세대학교의과대학세브란스병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "연세대학교의과대학세브란스병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-wonjaryeok",
+   "region": "서울",
+   "rawName": "원자력",
+   "name": "원자력병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "원자력병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-idaemokdong",
+   "region": "서울",
+   "rawName": "이대목동",
+   "name": "이화여자대학교의과대학부속목동병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "이화여자대학교의과대학부속목동병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-idaeseoul",
+   "region": "서울",
+   "rawName": "이대서울",
+   "name": "이화여자대학교의과대학부속서울병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "이화여자대학교의과대학부속서울병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-injedaesanggyebaek",
+   "region": "서울",
+   "rawName": "인제대상계백",
+   "name": "인제대학교 상계백병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "인제대학교 상계백병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-jungangdae",
+   "region": "서울",
+   "rawName": "중앙대",
+   "name": "중앙대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "중앙대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-jungangbohun",
+   "region": "서울",
+   "rawName": "중앙보훈",
+   "name": "중앙보훈병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "중앙보훈병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-chauigwahakgangnamcha",
+   "region": "서울",
+   "rawName": "차의과학대학강남차",
+   "name": "차의과학대학교 강남차병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "차의과학대학교 강남차병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hanrimdaegangnamseongsim",
+   "region": "서울",
+   "rawName": "한림대강남성심",
+   "name": "한림대학교 강남성심병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "한림대학교 강남성심병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hanyangdae",
+   "region": "서울",
+   "rawName": "한양대",
+   "name": "한양대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "한양대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hanyangdae-2",
+   "region": "서울",
+   "rawName": "한양대의과대학",
+   "name": "한양대학교 의과대학",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [],
+   "medicalSchools": [
+    "한양대학교 의과대학"
+   ],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hanil",
+   "region": "서울",
+   "rawName": "한일",
+   "name": "한일병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "한일병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hongik",
+   "region": "서울",
+   "rawName": "홍익",
+   "name": "홍익병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "홍익병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-sejongchungnamdae",
+   "region": "세종",
+   "rawName": "세종충남대",
+   "name": "세종충남대학교병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "세종충남대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-ulsandae",
+   "region": "울산",
+   "rawName": "울산대",
+   "name": "학교법인 울산공업학원 울산대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "학교법인 울산공업학원 울산대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gatolrikgwandongdaegukjeseongmo",
+   "region": "인천",
+   "rawName": "가톨릭관동대국제성모",
+   "name": "가톨릭관동대학교 국제성모병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "가톨릭관동대학교 국제성모병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-gil",
+   "region": "인천",
+   "rawName": "길",
+   "name": "의료법인 길의료재단 길병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "의료법인 길의료재단 길병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-bupyeongserim",
+   "region": "인천",
+   "rawName": "부평세림",
+   "name": "부평세림병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "부평세림병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-incheonsarang",
+   "region": "인천",
+   "rawName": "인천사랑",
+   "name": "인천사랑병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "인천사랑병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-incheonsejong",
+   "region": "인천",
+   "rawName": "인천세종",
+   "name": "인천세종병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "인천세종병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-inhadae",
+   "region": "인천",
+   "rawName": "인하대",
+   "name": "인하대학교의과대학부속병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "인하대학교의과대학부속병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hanrim",
+   "region": "인천",
+   "rawName": "한림",
+   "name": "한림병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "한림병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-yeocheonjeonnam",
+   "region": "전남",
+   "rawName": "여천전남",
+   "name": "여천전남병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "여천전남병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hwasunjeonnamdae",
+   "region": "전남",
+   "rawName": "화순전남대",
+   "name": "화순전남대학교병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "화순전남대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-yesu",
+   "region": "전북",
+   "rawName": "예수",
+   "name": "재단법인예수병원유지재단예수병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "재단법인예수병원유지재단예수병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-wongwangdae",
+   "region": "전북",
+   "rawName": "원광대",
+   "name": "원광대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "원광대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-jeonrabukdogunsanuiryowon",
+   "region": "전북",
+   "rawName": "전라북도군산의료원",
+   "name": "전북특별자치도 군산의료원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "전북특별자치도 군산의료원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-jeonbukdae",
+   "region": "전북",
+   "rawName": "전북대",
+   "name": "전북대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "전북대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-jejudae",
+   "region": "제주",
+   "rawName": "제주대",
+   "name": "제주대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "제주대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-jejuhanra",
+   "region": "제주",
+   "rawName": "제주한라",
+   "name": "제주한라병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "제주한라병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-dangukdae",
+   "region": "충남",
+   "rawName": "단국대",
+   "name": "단국대학교의과대학부속병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "단국대학교의과대학부속병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-suncheonhyangdaecheonan",
+   "region": "충남",
+   "rawName": "순천향대천안",
+   "name": "학교법인동은학원순천향대학교부속천안병원",
+   "tracks": [
+    "레지던트"
+   ],
+   "hospitals": [
+    "학교법인동은학원순천향대학교부속천안병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-chungbukdae",
+   "region": "충북",
+   "rawName": "충북대",
+   "name": "충북대학교병원",
+   "tracks": [
+    "레지던트",
+    "인턴"
+   ],
+   "hospitals": [
+    "충북대학교병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hana",
+   "region": "충북",
+   "rawName": "하나",
+   "name": "청주하나병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "청주하나병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  },
+  {
+   "id": "tu-hangukcheongju",
+   "region": "충북",
+   "rawName": "한국(청주)",
+   "name": "청주한국병원",
+   "tracks": [
+    "인턴"
+   ],
+   "hospitals": [
+    "청주한국병원"
+   ],
+   "medicalSchools": [],
+   "integratedTraining": false
+  }
+ ]
+}
