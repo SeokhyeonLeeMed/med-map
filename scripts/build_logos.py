@@ -21,6 +21,8 @@ import os
 import shutil
 import sys
 
+MAX_PX = 512  # 로고는 상세 패널에서 40px 안팎으로 쓰므로 이보다 클 이유가 없다
+
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from normalize import core  # noqa: E402
 
@@ -130,11 +132,40 @@ def main(argv: list[str]) -> int:
             print(f"  !! {iid}: 원본을 찾지 못했습니다 — {e['fileName']}")
             continue
         ext = os.path.splitext(src)[1].lower()
-        dest = os.path.join(OUT_DIR, f"{iid}{ext}")
-        shutil.copy2(src, dest)  # 원본은 그대로 두고 사본만 만든다
+        if ext == ".svg":
+            # 벡터는 그대로 둔다. 어느 크기에서나 또렷하고 배경이 투명하다.
+            dest = os.path.join(OUT_DIR, f"{iid}{ext}")
+            shutil.copy2(src, dest)  # 원본은 읽기만 하고 사본만 만든다
+        else:
+            e["copiedExt"] = shrink_raster(src, os.path.join(OUT_DIR, iid))
         copied += 1
+    for iid, e in entries.items():
+        if e.get("fileName") and "copiedExt" not in e:
+            e["copiedExt"] = ".svg" if e["fileName"].lower().endswith(".svg") else None
+    doc["entries"] = entries
+    json.dump(doc, io.open(MANIFEST, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"  {copied}개 복사 → {OUT_DIR}")
     return 0
+
+
+def shrink_raster(src: str, dest_base: str) -> str:
+    """래스터 로고를 줄여 사본으로 저장하고, 실제로 쓴 확장자를 돌려준다.
+
+    투명도가 있으면 PNG 로 살리고, 없으면 JPEG 로 저장한다. 투명 배경이 없는 사진형
+    로고를 PNG 로 두면 쓸데없이 커지기 때문이다. 원본은 읽기만 한다.
+    """
+    from PIL import Image
+
+    with Image.open(src) as im:
+        has_alpha = im.mode in ("RGBA", "LA") or (im.mode == "P" and "transparency" in im.info)
+        im = im.convert("RGBA" if has_alpha else "RGB")
+        if max(im.size) > MAX_PX:
+            im.thumbnail((MAX_PX, MAX_PX), Image.LANCZOS)
+        if has_alpha:
+            im.save(dest_base + ".png", "PNG", optimize=True)
+            return ".png"
+        im.save(dest_base + ".jpg", "JPEG", quality=86, optimize=True, progressive=True)
+        return ".jpg"
 
 
 def resolve(iid: str, name: str, keys: list[str], index: dict[str, list[str]], existing: dict) -> dict:

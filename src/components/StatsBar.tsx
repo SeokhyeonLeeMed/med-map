@@ -36,8 +36,8 @@ export function StatsBar({ shown }: { shown: Institution[] }) {
         <Item label="상급종합" value={s.tertiary} />
         <Item label="권역응급" value={s.emergency} />
         <Item label="대학병원" value={s.universityHospitals} />
-        <Item label="인턴 모집 확인" value={s.withIntern} />
-        <Item label="레지던트 모집 확인" value={s.withResident} />
+        <Item label="인턴 정원·모집 자료" value={s.withIntern} />
+        <Item label="레지던트 정원·모집 자료" value={s.withResident} />
         {s.coordUnverified > 0 && <Item label="좌표 미확인" value={s.coordUnverified} muted />}
       </dl>
       {chips.length > 0 && (

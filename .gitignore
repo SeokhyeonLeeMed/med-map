@@ -6,8 +6,6 @@ playwright-report/
 *.local
 .env
 .DS_Store
-dbg.mjs
-
-# 기관 로고는 각 기관의 상표다. 사용 권한을 확인하기 전에는 저장소에 올리지 않는다.
-# 로컬에서 보려면 `python scripts/build_logos.py --copy` 로 내려받아 두면 된다.
-public/logos/
+dbg*.mjs
+__pycache__/
+*.pyc

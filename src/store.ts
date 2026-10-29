@@ -20,9 +20,12 @@ export interface AppState {
   selectedId: string | null
   /** 상세 패널에서 기관을 오갈 때 지도를 그 위치로 옮길지. 목록 클릭은 true, 뒤로 가기는 false. */
   flyToken: number
+  /** 전체 모집 기록(큰 파일)을 받아 왔는지 */
+  recruitmentState: 'idle' | 'loading' | 'ready' | 'error'
   filterPanelOpen: boolean
 
   load: () => Promise<void>
+  loadRecruitment: () => Promise<void>
   setQuery: (q: string) => void
   setKinds: (k: Filters['kinds']) => void
   toggleTrait: (t: HospitalTrait) => void
@@ -66,11 +69,17 @@ export function parseUrl(search: string): { filters: Filters; selectedId: string
   }
 }
 
-function pushUrl(filters: Filters, selectedId: string | null) {
+/**
+ * URL 을 현재 상태에 맞춘다.
+ *
+ * 검색어는 글자를 칠 때마다 바뀌므로 히스토리를 쌓지 않고 현재 항목을 바꾼다(replace).
+ * 기관 선택과 필터는 뒤로 가기로 되돌아갈 수 있어야 하므로 항목을 새로 쌓는다(push).
+ */
+function syncUrl(filters: Filters, selectedId: string | null, mode: 'push' | 'replace' = 'push') {
   const next = `${window.location.pathname}${serializeUrl(filters, selectedId)}`
-  if (next !== `${window.location.pathname}${window.location.search}`) {
-    window.history.pushState(null, '', next)
-  }
+  if (next === `${window.location.pathname}${window.location.search}`) return
+  if (mode === 'replace') window.history.replaceState(null, '', next)
+  else window.history.pushState(null, '', next)
 }
 
 export const useStore = create<AppState>((set, get) => ({
@@ -83,22 +92,26 @@ export const useStore = create<AppState>((set, get) => ({
   filters: EMPTY_FILTERS,
   selectedId: null,
   flyToken: 0,
+  recruitmentState: 'idle',
   filterPanelOpen: WIDE_SCREEN,
 
   load: async () => {
     try {
-      const [hospitals, schools, relations, trainingUnits, recruitment, regions, sourcesDoc, coverage] = await Promise.all([
-        fetchJson<Dataset['hospitals']>('hospitals.json'),
-        fetchJson<Dataset['schools']>('medical-schools.json'),
-        fetchJson<Dataset['relations']>('institution-relations.json'),
-        fetchJson<Dataset['trainingUnits']>('training-units.json'),
-        fetchJson<Dataset['recruitment']>('residency-recruitment.json'),
-        fetchJson<Dataset['regions']>('regions.json'),
-        fetchJson<{ sources: Dataset['sources'] }>('sources.json'),
-        fetchJson<Coverage>('recruitment-coverage.json'),
-      ])
+      // 첫 화면에 필요한 것만 받는다. 모집 기록 전체(약 2 MB)는 상세 패널을 열 때 따로 받는다.
+      const [hospitals, schools, relations, trainingUnits, trainingIndex, regions, sourcesDoc, coverage] =
+        await Promise.all([
+          fetchJson<Dataset['hospitals']>('hospitals.json'),
+          fetchJson<Dataset['schools']>('medical-schools.json'),
+          fetchJson<Dataset['relations']>('institution-relations.json'),
+          fetchJson<Dataset['trainingUnits']>('training-units.json'),
+          fetchJson<Dataset['trainingIndex']>('recruitment-index.json'),
+          fetchJson<Dataset['regions']>('regions.json'),
+          fetchJson<{ sources: Dataset['sources'] }>('sources.json'),
+          fetchJson<Coverage>('recruitment-coverage.json'),
+        ])
       const data: Dataset = {
-        hospitals, schools, relations, trainingUnits, recruitment, regions,
+        hospitals, schools, relations, trainingUnits, trainingIndex, regions,
+        recruitment: {},
         sources: sourcesDoc.sources,
       }
       const fromUrl = parseUrl(window.location.search)
@@ -112,33 +125,46 @@ export const useStore = create<AppState>((set, get) => ({
         selectedId: fromUrl.selectedId,
         flyToken: fromUrl.selectedId ? 1 : 0,
       })
+      if (fromUrl.selectedId) void get().loadRecruitment()
     } catch (e) {
       set({ status: 'error', error: e instanceof Error ? e.message : String(e) })
+    }
+  },
+
+  loadRecruitment: async () => {
+    const { recruitmentState, data } = get()
+    if (!data || recruitmentState === 'loading' || recruitmentState === 'ready') return
+    set({ recruitmentState: 'loading' })
+    try {
+      const file = await fetchJson<{ byInstitution: Dataset['recruitment'] }>('residency-recruitment.json')
+      set({ data: { ...get().data!, recruitment: file.byInstitution }, recruitmentState: 'ready' })
+    } catch {
+      set({ recruitmentState: 'error' })
     }
   },
 
   setQuery: (q) => {
     const filters = { ...get().filters, query: q }
     set({ filters })
-    pushUrl(filters, get().selectedId)
+    syncUrl(filters, get().selectedId, 'replace')
   },
   setKinds: (kinds) => {
     const filters = { ...get().filters, kinds }
     set({ filters })
-    pushUrl(filters, get().selectedId)
+    syncUrl(filters, get().selectedId)
   },
   toggleTrait: (t) => {
     const cur = get().filters.traits
     const traits = cur.includes(t) ? cur.filter((x) => x !== t) : [...cur, t]
     const filters = { ...get().filters, traits }
     set({ filters })
-    pushUrl(filters, get().selectedId)
+    syncUrl(filters, get().selectedId)
   },
   toggleSubRegion: (id) => {
     const next = toggleSub(id, new Set(get().filters.subRegions))
     const filters = { ...get().filters, subRegions: [...next] }
     set({ filters })
-    pushUrl(filters, get().selectedId)
+    syncUrl(filters, get().selectedId)
   },
   toggleMacroRegion: (id) => {
     const { data, filters } = get()
@@ -147,31 +173,34 @@ export const useStore = create<AppState>((set, get) => ({
     const next = toggleMacro(macro, new Set(filters.subRegions))
     const nf = { ...filters, subRegions: [...next] }
     set({ filters: nf })
-    pushUrl(nf, get().selectedId)
+    syncUrl(nf, get().selectedId)
   },
   removeSubRegion: (id) => {
     const filters = { ...get().filters, subRegions: get().filters.subRegions.filter((x) => x !== id) }
     set({ filters })
-    pushUrl(filters, get().selectedId)
+    syncUrl(filters, get().selectedId)
   },
   clearFilters: () => {
     set({ filters: EMPTY_FILTERS })
-    pushUrl(EMPTY_FILTERS, get().selectedId)
+    syncUrl(EMPTY_FILTERS, get().selectedId)
   },
   select: (id, fly = true) => {
+    if (id) void get().loadRecruitment()
     set((s) => ({
       selectedId: id,
       flyToken: fly ? s.flyToken + 1 : s.flyToken,
       // 좁은 화면에서 상세 시트와 필터 드로어가 함께 열리면 지도가 가려진다.
       filterPanelOpen: id && !WIDE_SCREEN ? false : s.filterPanelOpen,
     }))
-    pushUrl(get().filters, id)
+    syncUrl(get().filters, id)
   },
   setFilterPanelOpen: (v) => set({ filterPanelOpen: v }),
 
   applyUrl: (search) => {
     const { filters, selectedId } = parseUrl(search)
     set((s) => ({ filters, selectedId, flyToken: s.flyToken + 1 }))
+    // 뒤로·앞으로 가기로 선택 상태에 돌아왔을 때도 수련 탭이 비지 않게 한다.
+    if (selectedId) void get().loadRecruitment()
   },
 }))
 

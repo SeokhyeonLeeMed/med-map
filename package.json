@@ -10,9 +10,14 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "build:geo": "python scripts/build_geo.py",
-    "build:data": "python scripts/extract_sources.py && python scripts/build_data.py",
     "validate": "python scripts/validate_data.py",
-    "e2e": "playwright test"
+    "e2e": "playwright test",
+    "fetch:sources": "node scripts/fetch_sources.mjs",
+    "build:extract": "python scripts/extract_sources.py && python scripts/extract_quota.py",
+    "build:hira": "python scripts/build_hira_index.py && python scripts/match_hira.py",
+    "build:data": "python scripts/build_data.py",
+    "build:logos": "python scripts/build_logos.py --copy && python scripts/build_data.py",
+    "build:all": "npm run build:extract && npm run build:hira && npm run build:data && npm run build:logos && npm run validate"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",

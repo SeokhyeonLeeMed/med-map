@@ -51,8 +51,10 @@ export function AboutDialog({ onClose }: { onClose: () => void }) {
               <Num label="병원" value={data.hospitals.length} />
               <Num label="의과대학·의전원" value={data.schools.length} />
               <Num label="수련 모집 단위" value={data.trainingUnits.length} />
-              <Num label="모집 기록" value={data.recruitment.length} />
+              <Num label="모집 기록" value={coverage?.counts?.recruitmentRecords ?? 0} />
               <Num label="기관 간 관계" value={data.relations.length} />
+              <Num label="진료과목 확인" value={coverage?.counts?.hospitalsWithDepartments ?? 0} />
+              <Num label="공식 주소 확인" value={coverage?.counts?.hospitalsWithAddress ?? 0} />
             </dl>
             <p className="mt-2 text-2xs leading-relaxed text-ink-mute">
               데이터 기준일 <strong className="font-num">{AS_OF}</strong>. 값마다 출처와 기준 시점을 따로 기록하므로,
@@ -66,7 +68,7 @@ export function AboutDialog({ onClose }: { onClose: () => void }) {
                 <thead>
                   <tr className="border-b border-line text-2xs text-ink-mute">
                     <th scope="col" className="py-1 text-left font-medium">연도·학기</th>
-                    <th scope="col" className="py-1 text-left font-medium">과정</th>
+                    <th scope="col" className="py-1 text-left font-medium">과정 · 지표</th>
                     <th scope="col" className="py-1 text-right font-medium">인원</th>
                     <th scope="col" className="py-1 text-right font-medium">상태</th>
                   </tr>
@@ -90,6 +92,9 @@ export function AboutDialog({ onClose }: { onClose: () => void }) {
               <p className="mt-2 rounded border border-amber-300 bg-amber-50 p-2 text-2xs leading-relaxed text-amber-900">
                 {coverage.coverageWarning}
               </p>
+              {coverage.changeNote && (
+                <p className="mt-1.5 text-2xs leading-relaxed text-ink-mute">{coverage.changeNote}</p>
+              )}
             </Section>
           )}
 
@@ -148,7 +153,7 @@ export function AboutDialog({ onClose }: { onClose: () => void }) {
               <a className="text-brand underline" href="https://github.com/vuski/admdongkor" target="_blank" rel="noreferrer">
                 admdongkor
               </a>{' '}
-              (통계청 SGIS, CC BY 4.0), 좌표는 © OpenStreetMap contributors (ODbL) 입니다. 배경 타일 서비스를 쓰지 않으므로
+              (통계청 SGIS, CC BY 4.0), 기관 주소·좌표는 건강보험심사평가원 공시(공공누리 제1유형)이며 심평원 명부에 없는 일부 기관만 © OpenStreetMap contributors (ODbL) 좌표를 씁니다. 배경 타일 서비스를 쓰지 않으므로
               API 키나 사용량 제한이 없습니다.
             </p>
           </Section>

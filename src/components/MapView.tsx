@@ -3,12 +3,31 @@ import maplibregl, { type Map as MlMap } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import type { Institution } from '../types'
 import { activeEmergency, activeTertiary, highlightedSgg, isHospital } from '../lib/domain'
-import type { Institution as Inst } from '../types'
 import { allIconSpecs, drawIcon, iconId } from '../lib/mapIcons'
 import { buildStyle, KOREA_BOUNDS } from '../lib/mapStyle'
 import { useStore } from '../store'
 
 const BASE = import.meta.env.BASE_URL
+
+/**
+ * 시군구 경계(약 1.3 MB)는 권역 하이라이트에서만 다시 쓰므로 한 번만 받아 둔다.
+ * 필터나 선택이 바뀔 때마다 받고 파싱하면 화면이 버벅인다.
+ */
+let sggPromise: Promise<GeoJSON.FeatureCollection> | null = null
+function loadSgg(): Promise<GeoJSON.FeatureCollection> {
+  sggPromise ??= fetch(`${BASE}geo/sgg.json`).then((r) => {
+    if (!r.ok) throw new Error(`geo/sgg.json HTTP ${r.status}`)
+    return r.json() as Promise<GeoJSON.FeatureCollection>
+  })
+  sggPromise.catch(() => {
+    sggPromise = null // 실패하면 다음 번에 다시 시도한다
+  })
+  return sggPromise
+}
+
+function sggFeatures(gj: GeoJSON.FeatureCollection, codes: Set<string>): GeoJSON.FeatureCollection {
+  return { type: 'FeatureCollection', features: gj.features.filter((f) => codes.has(String(f.properties?.sggcd))) }
+}
 
 interface LabelBox {
   id: string
@@ -111,7 +130,7 @@ export function MapView({ shown }: { shown: Institution[] }) {
       new maplibregl.AttributionControl({
         compact: true,
         customAttribution:
-          '경계: <a href="https://github.com/vuski/admdongkor" target="_blank" rel="noreferrer">admdongkor</a> (통계청 SGIS, CC BY 4.0) · 좌표: © OpenStreetMap contributors (ODbL)',
+          '경계: <a href="https://github.com/vuski/admdongkor" target="_blank" rel="noreferrer">admdongkor</a> (통계청 SGIS, CC BY 4.0) · 기관 정보·좌표: 건강보험심사평가원 (공공누리 제1유형), 일부 좌표 © OpenStreetMap contributors (ODbL)',
       }),
       'bottom-left',
     )
@@ -161,15 +180,15 @@ export function MapView({ shown }: { shown: Institution[] }) {
       src.setData({ type: 'FeatureCollection', features: [] })
       return
     }
-    fetch(`${BASE}geo/sgg.json`)
-      .then((r) => r.json())
-      .then((gj: GeoJSON.FeatureCollection) => {
-        src.setData({
-          type: 'FeatureCollection',
-          features: gj.features.filter((f) => codes.has(String(f.properties?.sggcd))),
-        })
+    let cancelled = false
+    loadSgg()
+      .then((gj) => {
+        if (!cancelled) src.setData(sggFeatures(gj, codes))
       })
       .catch(() => undefined)
+    return () => {
+      cancelled = true
+    }
   }, [subRegions, ready, data])
 
   // 권역응급의료센터를 고르면 그 센터가 맡은 공식 관할 권역을 지도에 칠한다.
@@ -192,14 +211,9 @@ export function MapView({ shown }: { shown: Institution[] }) {
     }
     const codes = highlightedSgg(data.regions, new Set(regionIds as string[]))
     let cancelled = false
-    fetch(`${BASE}geo/sgg.json`)
-      .then((r) => r.json())
-      .then((gj: GeoJSON.FeatureCollection) => {
-        if (cancelled) return
-        src.setData({
-          type: 'FeatureCollection',
-          features: gj.features.filter((f) => codes.has(String(f.properties?.sggcd))),
-        })
+    loadSgg()
+      .then((gj) => {
+        if (!cancelled) src.setData(sggFeatures(gj, codes))
       })
       .catch(() => undefined)
     return () => {
@@ -208,11 +222,13 @@ export function MapView({ shown }: { shown: Institution[] }) {
   }, [selectedId, ready, data])
 
   // 선택한 기관이 화면 밖이면 그 위치로 옮긴다. 패널 폭만큼 치우쳐 보이지 않도록 보정한다.
+  // 기관을 새로 고를 때(flyToken 변화)만 움직인다. 필터를 바꿀 때마다 지도가 튀지 않게 shown 에는 묶지 않는다.
   useEffect(() => {
     const map = mapRef.current
-    if (!map || !ready || !selectedId || flyToken === 0) return
-    const target = shown.find((i) => i.id === selectedId)
-    if (!target?.coord.lat || !target.coord.lon) return
+    if (!map || !ready || !selectedId || flyToken === 0 || !data) return
+    const target: Institution | undefined =
+      data.hospitals.find((h) => h.id === selectedId) ?? data.schools.find((s) => s.id === selectedId)
+    if (target?.coord.lat == null || target.coord.lon == null) return
     const point: [number, number] = [target.coord.lon, target.coord.lat]
     // 상세 패널에 가린 영역 밖으로 보이도록 화면 중심을 옮긴다.
     // 넓은 화면은 오른쪽 패널만큼, 좁은 화면은 아래 시트만큼 비켜 둔다.
@@ -222,7 +238,8 @@ export function MapView({ shown }: { shown: Institution[] }) {
     if (!map.getBounds().contains(point) || map.getZoom() < 9) {
       map.easeTo({ center: point, zoom: Math.max(map.getZoom(), 10.5), offset, duration: 650 })
     }
-  }, [selectedId, flyToken, ready, shown])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedId, flyToken, ready])
 
   // 라벨 배치
   useEffect(() => {
@@ -302,8 +319,8 @@ export function MapView({ shown }: { shown: Institution[] }) {
  * 시군구 대표점을 쓰는 의과대학들처럼 같은 점에 모이면 하나만 눌리기 때문이다.
  * 표시 전용 보정이며 데이터의 좌표는 그대로 두고, 상세 패널에는 원래 값을 보여 준다.
  */
-function spreadCoincident(items: Inst[]): Map<string, [number, number]> {
-  const groups = new Map<string, Inst[]>()
+function spreadCoincident(items: Institution[]): Map<string, [number, number]> {
+  const groups = new Map<string, Institution[]>()
   for (const i of items) {
     const key = `${i.coord.lat!.toFixed(4)},${i.coord.lon!.toFixed(4)}`
     groups.set(key, [...(groups.get(key) ?? []), i])

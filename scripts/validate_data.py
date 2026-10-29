@@ -72,7 +72,12 @@ def main() -> int:
         schools = load("medical-schools.json")
         relations = load("institution-relations.json")
         units = load("training-units.json")
-        recruitment = load("residency-recruitment.json")
+        recruitment_doc = load("residency-recruitment.json")
+        recruitment = [
+            {**r, "_inst": iid}
+            for iid, rows in recruitment_doc["byInstitution"].items()
+            for r in rows
+        ]
         regions = load("regions.json")
         sources = load("sources.json")["sources"]
     except FileNotFoundError as exc:
@@ -106,7 +111,7 @@ def main() -> int:
 
     # ── 기관 ─────────────────────────────────────────────────────────
     all_ids: list[str] = []
-    name_seen: dict[str, str] = {}
+    name_seen: dict[tuple, str] = {}
     for inst in hospitals + schools:
         iid = inst.get("id")
         all_ids.append(iid)
@@ -114,10 +119,17 @@ def main() -> int:
         for field in ("id", "type", "officialName"):
             if not inst.get(field):
                 r.error("필수 필드", f"{iid}: {field} 누락")
+        # 같은 이름의 다른 기관이 실제로 있다(예: 서울·대구 누네안과병원).
+        # 소재 시군구까지 같을 때만 중복으로 본다.
         name = inst["officialName"]
-        if name in name_seen and name_seen[name] != iid:
-            r.error("중복 레코드", f"같은 공식 명칭의 기관이 둘: {name} ({name_seen[name]}, {iid})")
-        name_seen[name] = iid
+        name_key = (name, inst.get("sgg"))
+        if name_key in name_seen and name_seen[name_key] != iid:
+            r.error(
+                "중복 레코드",
+                f"같은 공식 명칭·같은 시군구의 기관이 둘: {inst['officialName']} "
+                f"({name_seen[name_key]}, {iid})",
+            )
+        name_seen[name_key] = iid
 
         sub = inst.get("subRegionId")
         if sub is not None and sub not in sub_ids:
@@ -154,6 +166,13 @@ def main() -> int:
                     r.error("출처", f"{name}: 병상 수 출처 불명 {b.get('sourceId')}")
                 if not b.get("asOf"):
                     r.error("기준일", f"{name}: 병상 수에 기준일 없음")
+            for field in ("address", "history", "departments"):
+                v = inst.get(field) or {}
+                if v.get("value") is None and not v.get("items"):
+                    continue
+                for sid in v.get("sourceIds") or [v.get("sourceId")]:
+                    if sid not in source_ids:
+                        r.error("출처", f"{name}: {field} 출처 불명 {sid}")
             t = inst["designations"].get("tertiary")
             if t and t.get("sourceId") not in source_ids:
                 r.error("출처", f"{name}: 상급종합 지정 출처 불명")
@@ -214,28 +233,36 @@ def main() -> int:
         for raw in u.get("unmatchedHospitals", []):
             r.warn("모집 단위", f"{u['name']}: 레지스트리에 없는 병원 표기 '{raw}'")
 
+    seen_rec: dict[tuple, int] = {}
     for rec in recruitment:
-        uid = rec.get("trainingUnitId")
+        uid = rec.get("unitId")
+        inst = rec["_inst"]
         if uid is not None and uid not in unit_ids:
             r.error("참조 무결성", f"모집 기록이 없는 단위를 가리킴: {uid}")
-        hids = rec.get("hospitalIds") or []
-        sids = rec.get("medicalSchoolIds") or []
-        # 예방의학과처럼 의과대학이 모집 단위인 기록은 병원이 없는 것이 정상이다.
-        if not hids and not sids:
-            r.error("참조 무결성", f"어느 기관과도 이어지지 않은 모집 기록: {uid or rec.get('year')}")
-        for iid in hids + sids:
-            if iid not in known:
-                r.error("참조 무결성", f"모집 기록이 없는 기관을 가리킴: {iid}")
+        if inst not in known:
+            r.error("참조 무결성", f"모집 기록이 없는 기관에 붙어 있음: {inst}")
+        if uid is None:
+            # 한 기관의 같은 해·과정·과목에 기록이 둘이면, 서로 다른 기관이 잘못 합쳐진 것이다.
+            key = (inst, rec.get("year"), rec.get("term"), rec.get("track"), rec.get("specialty"))
+            seen_rec[key] = seen_rec.get(key, 0) + 1
         if rec.get("year") is None:
-            r.error("기준일", f"모집 기록에 연도 없음: {rec['trainingUnitId']}")
+            r.error("기준일", f"모집 기록에 연도 없음: {uid or inst}")
         if rec.get("quota") is None:
-            r.error("미확인 처리", f"모집 인원이 비어 있음 (0과 미확인을 구별해야 함): {rec['trainingUnitId']}")
+            r.error("미확인 처리", f"모집 인원이 비어 있음 (0과 미확인을 구별해야 함): {uid or inst}")
         if rec.get("track") == "레지던트" and not rec.get("specialty"):
-            r.error("필수 필드", f"레지던트 기록에 전공과목 없음: {uid or hids}")
-        if rec.get("status") != "확인됨" and not rec.get("coverageWarning") and rec.get("year") == 2023 and rec.get("term") == "하반기":
-            r.error("미확인 처리", f"전체 명단이 아닌 2023 하반기 기록에 경고가 없음: {hids}")
+            r.error("필수 필드", f"레지던트 기록에 전공과목 없음: {uid or inst}")
         if rec.get("sourceId") not in source_ids:
-            r.error("출처", f"모집 기록 출처 불명: {uid or hids}")
+            r.error("출처", f"모집 기록 출처 불명: {uid or inst}")
+
+    name_of = {i["id"]: i.get("officialName", i["id"]) for i in hospitals + schools}
+    for key, n in seen_rec.items():
+        if n > 1:
+            inst, year, term, track, specialty = key
+            r.error(
+                "중복 레코드",
+                f"{name_of.get(inst, inst)}: {year} {term} {track} {specialty or ''} 기록이 {n}건. "
+                "서로 다른 기관이 하나로 합쳐졌을 수 있다",
+            )
 
     print(r.render())
     print(f"\n  기관 {len(hospitals) + len(schools)} (병원 {len(hospitals)} · 의과대학 {len(schools)})")

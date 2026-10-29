@@ -157,7 +157,56 @@ test('데이터 정보 창에 수록 범위와 권역 결정 근거가 있다', 
   await expect(dialog).toBeVisible()
   await expect(dialog).toContainText('강원춘천')
   await expect(dialog).toContainText('세종')
-  await expect(dialog).toContainText('전체 명단으로 읽어서는 안 된다')
+  // 지표를 섞지 말라는 안내와 연도별 총계가 함께 있어야 한다
+  await expect(dialog).toContainText("'정원'과 '모집인원'은 다른 지표")
+  for (const year of ['2023 상반기', '2024 상반기', '2025 상반기', '2026 하반기']) {
+    await expect(dialog).toContainText(year)
+  }
   await page.keyboard.press('Escape')
   await expect(dialog).toBeHidden()
+})
+
+test('진료조직 탭에 진료과목과 과목별 전문의 수가 나온다', async ({ page }) => {
+  await waitForMap(page)
+  await page.getByLabel('기관 검색').fill('서울대학교병원')
+  await page.getByRole('option').first().click()
+  const panel = page.getByRole('complementary', { name: '기관 상세 정보' })
+  await panel.getByRole('tab', { name: '진료조직' }).click()
+  await expect(panel.getByRole('heading', { name: /진료과목/ })).toBeVisible()
+  await expect(panel.getByRole('row').filter({ hasText: '내과' }).first()).toBeVisible()
+  await expect(panel.getByRole('columnheader', { name: '전문의 수' })).toBeVisible()
+  // 인력 블록: 재직 전공의 수와 모집 정원을 구별해 적는다
+  await expect(panel.getByText('재직 레지던트')).toBeVisible()
+  await expect(panel.getByText(/모집 정원과 다른 값/)).toBeVisible()
+})
+
+test('수련 탭에 2023년 정원과 2026년 모집인원이 함께 나온다', async ({ page }) => {
+  await waitForMap(page)
+  await page.getByLabel('기관 검색').fill('전북대학교병원')
+  await page.getByRole('option').first().click()
+  const panel = page.getByRole('complementary', { name: '기관 상세 정보' })
+  await panel.getByRole('tab', { name: '수련' }).click()
+  // 연도별 추이 표가 먼저 나오고, 아래에 시점별 상세가 이어진다
+  const trend = panel.getByRole('table').first()
+  await expect(trend).toContainText('2023 상반기')
+  await expect(trend).toContainText('2026 하반기')
+  await expect(panel.getByRole('heading', { name: /2023년 상반기/ })).toBeVisible()
+  await expect(panel.getByRole('heading', { name: /2026년 하반기/ })).toBeVisible()
+  // 가장 최근 시점이 펼쳐져 있고, 그곳은 '모집인원'이다
+  await expect(panel.getByText('인턴 모집인원').first()).toBeVisible()
+  // 접힌 2023년 섹션을 펼치면 '정원'으로 적힌다. 다른 해에도 같은 문구가 있으므로 그 섹션 안에서만 본다.
+  const section2023 = panel.locator('details').filter({ has: page.getByRole('heading', { name: /2023년 상반기/ }) })
+  await expect(section2023).not.toHaveAttribute('open', '')
+  await section2023.getByRole('heading', { name: /2023년 상반기/ }).click()
+  await expect(section2023).toHaveAttribute('open', '')
+  await expect(section2023.getByText('인턴 정원')).toBeVisible()
+})
+
+test('공식 주소가 상세 패널에 나온다', async ({ page }) => {
+  await waitForMap(page)
+  await page.getByLabel('기관 검색').fill('충북대학교병원')
+  await page.getByRole('option').first().click()
+  const panel = page.getByRole('complementary', { name: '기관 상세 정보' })
+  await expect(panel.getByText(/충청북도 청주시 서원구 .*로/)).toBeVisible()
+  await expect(panel.getByText('상급종합', { exact: true })).toBeVisible()
 })

@@ -28,7 +28,7 @@ export const TRAIT_DEFINITION: Record<HospitalTrait, string> = {
   tertiary:
     '보건복지부가 지정한 상급종합병원. 공식 종별이며 지정 기간이 있다. 이 사이트는 "3차병원"을 상급종합병원 지정과 같은 뜻으로 쓰되, 그 사실을 명시한다.',
   secondary:
-    '상급종합병원으로 지정되지 않은 전공의 수련병원. 의료법상 공식 종별 구분이 아니라 이 사이트가 탐색 편의를 위해 정의한 분류다. 종합병원·병원 종별은 별도로 확인하지 않았다.',
+    '상급종합병원으로 지정되지 않은 전공의 수련병원. 종별은 건강보험심사평가원이 공시한 공식 분류(종합병원·병원 등)를 쓰지만, "2차병원"이라는 묶음 자체는 이 사이트가 탐색 편의를 위해 정의한 것이다.',
   university:
     '의과대학과 부속병원·교육협력병원 관계가 자료로 확인된 병원. 이름이 비슷하거나 같은 법인이라는 이유만으로는 넣지 않는다.',
   emergency:
@@ -43,9 +43,20 @@ export function isSchool(x: Institution): x is MedicalSchool {
   return x.type === 'medicalSchool'
 }
 
-/** 기준일에 유효한 권역응급의료센터 지정. */
-export function activeEmergency(h: Hospital, asOf = AS_OF) {
-  return h.designations.emergency.filter((e) => e.validFrom <= asOf && asOf <= e.validTo)
+/**
+ * 가장 최근 지정 기준의 권역응급의료센터 지정.
+ *
+ * 지정은 3년마다 갱신되고 새 기수의 시행일이 아직 오지 않았을 수 있다. 그럴 때
+ * 날짜만 보면 이미 교체가 확정된 옛 기수를 보여 주게 되므로, 데이터에 있는
+ * 가장 나중 기수를 현재 지정으로 삼는다. 지난 기수는 pastEmergency 로 따로 본다.
+ */
+export function activeEmergency(h: Hospital) {
+  return h.designations.emergency.filter((e) => e.isCurrent)
+}
+
+/** 현재 기수가 아닌 지난 지정 이력. 이번 기수에 빠진 기관은 여기에만 남는다. */
+export function pastEmergency(h: Hospital) {
+  return h.designations.emergency.filter((e) => !e.isCurrent)
 }
 
 /** 기준일에 유효한 상급종합병원 지정. */
@@ -54,21 +65,28 @@ export function activeTertiary(h: Hospital, asOf = AS_OF) {
   return t && t.validFrom <= asOf && asOf <= t.validTo ? t : null
 }
 
+/** 심평원 공시 종별 중 상급종합이 아닌 병원급. 2차병원 분류의 공식 근거다. */
+const SECONDARY_KINDS = new Set(['종합병원', '병원', '정신병원', '요양병원', '치과병원', '한방병원'])
+
 export function hospitalTraits(h: Hospital, trainedIds: Set<string>, asOf = AS_OF): HospitalTrait[] {
   const out: HospitalTrait[] = []
   const tertiary = activeTertiary(h, asOf)
   if (tertiary) out.push('tertiary')
-  else if (trainedIds.has(h.id)) out.push('secondary')
+  // 보건대학원·연구원처럼 요양기관이 아닌 수련기관은 병원이 아니므로 2차병원으로 묶지 않는다.
+  else if (
+    trainedIds.has(h.id) &&
+    !h.institutionKind &&
+    (h.hiraKind === null || SECONDARY_KINDS.has(h.hiraKind))
+  )
+    out.push('secondary')
   if (h.universityRelations.length > 0) out.push('university')
-  if (activeEmergency(h, asOf).length > 0) out.push('emergency')
+  if (activeEmergency(h).length > 0) out.push('emergency')
   return out
 }
 
-/** 전공의 모집 자료가 하나라도 있는 병원 ID. 2차병원 분류의 근거가 된다. */
-export function hospitalsWithTraining(data: Pick<Dataset, 'recruitment'>): Set<string> {
-  const ids = new Set<string>()
-  for (const r of data.recruitment) for (const hid of r.hospitalIds) ids.add(hid)
-  return ids
+/** 전공의 모집 자료가 하나라도 있는 기관 ID. 2차병원 분류의 근거가 된다. */
+export function hospitalsWithTraining(data: Pick<Dataset, 'trainingIndex'>): Set<string> {
+  return new Set(Object.keys(data.trainingIndex))
 }
 
 // ---------------------------------------------------------------- 권역
@@ -267,15 +285,8 @@ export function computeStats(
   data: Dataset,
   trainedIds: Set<string>,
 ): Stats {
-  // 병원마다 '모집 자료가 확인된 과정'을 모아 둔다. 모집 단위를 거치든 병원에 바로 붙든 같게 센다.
-  const tracksByHospital = new Map<string, Set<string>>()
-  for (const r of data.recruitment) {
-    for (const hid of r.hospitalIds) {
-      const set = tracksByHospital.get(hid) ?? new Set<string>()
-      set.add(r.track)
-      tracksByHospital.set(hid, set)
-    }
-  }
+  // 모집 자료가 확인된 과정은 색인에서 읽는다. 전체 모집 기록을 받기 전에도 통계가 맞는다.
+  const tracksOf = (id: string) => data.trainingIndex[id]?.tracks ?? []
 
   // 기관 ID 로 세므로 한 기관이 두 대권역에 걸쳐도 중복 집계되지 않는다.
   const seen = new Set<string>()
@@ -297,9 +308,9 @@ export function computeStats(
     if (traits.includes('tertiary')) s.tertiary += 1
     if (traits.includes('university')) s.universityHospitals += 1
     if (traits.includes('emergency')) s.emergency += 1
-    const tracks = tracksByHospital.get(inst.id) ?? new Set<string>()
-    if (tracks.has('인턴')) s.withIntern += 1
-    if (tracks.has('레지던트')) s.withResident += 1
+    const tracks = tracksOf(inst.id)
+    if (tracks.includes('인턴')) s.withIntern += 1
+    if (tracks.includes('레지던트')) s.withResident += 1
   }
   return s
 }
@@ -313,11 +324,12 @@ export interface RecruitmentSummary {
   term: string
   integratedTraining: boolean
   memberHospitalIds: string[]
-  memberSchoolIds: string[]
-  /** 전체 명단을 확보하지 못한 연도에 붙는 경고 */
-  coverageWarning: string | null
   sourceIds: string[]
   status: string
+  /** '정원' 과 '모집인원' 은 다른 지표다. 화면에도 그대로 적는다. */
+  quotaKind: string
+  /** 기본정원·미충원 별도정원·정책적 별도정원 합계 */
+  breakdown: Record<string, number> | null
   intern: { quota: number | null; status: string }
   resident: {
     total: number | null
@@ -333,16 +345,13 @@ export interface RecruitmentSummary {
  * 의과대학도 모집 단위가 될 수 있다(예방의학과). 그래서 병원 ID 와 의과대학 ID 를 모두 본다.
  */
 export function recruitmentFor(institutionId: string, data: Dataset): RecruitmentSummary[] {
-  const mine = data.recruitment.filter(
-    (r) => r.hospitalIds.includes(institutionId) || r.medicalSchoolIds.includes(institutionId),
-  )
+  const mine = data.recruitment[institutionId] ?? []
   if (mine.length === 0) return []
 
-  const unitName = new Map(data.trainingUnits.map((u) => [u.id, u.name]))
+  // 연도·학기·모집 단위가 같은 기록끼리 묶는다.
   const groups = new Map<string, RecruitmentRecord[]>()
   for (const r of mine) {
-    // 모집 단위를 아는 기록은 단위별로, 모르는 기록은 연도·학기별로 묶는다.
-    const key = `${r.year}|${r.term}|${r.trainingUnitId ?? 'direct'}`
+    const key = `${r.year}|${r.term}|${r.unitId ?? 'direct'}`
     groups.set(key, [...(groups.get(key) ?? []), r])
   }
 
@@ -355,30 +364,41 @@ export function recruitmentFor(institutionId: string, data: Dataset): Recruitmen
     const residentTotal = resident.length ? resident.reduce((a, r) => a + r.quota, 0) : null
     out.push({
       unitId,
-      unitName: unitId ? (unitName.get(unitId) ?? unitId) : '병원 단위',
+      unitName: rs[0].unitName ?? (unitId ?? '병원 단위'),
       year: Number(year),
       term,
-      integratedTraining: rs.some((r) => r.integratedTraining) && unitId !== null,
-      memberHospitalIds: rs[0].hospitalIds,
-      memberSchoolIds: rs[0].medicalSchoolIds,
-      coverageWarning: rs.find((r) => r.coverageWarning)?.coverageWarning ?? null,
+      integratedTraining: rs.some((r) => r.integratedTraining === true),
+      memberHospitalIds: rs.find((r) => r.unitHospitalIds)?.unitHospitalIds ?? [],
       sourceIds: [...new Set(rs.map((r) => r.sourceId))],
       status: rs.every((r) => r.status === '확인됨') ? '확인됨' : '일부확인',
+      quotaKind: rs[0].quotaKind,
+      breakdown: sumBreakdown(rs),
       intern: intern ? { quota: intern.quota, status: intern.status } : { quota: null, status: '미확인' },
       resident: {
         total: residentTotal,
         bySpecialty: resident
           .filter((r) => r.specialty && r.specialty !== '전공과별 미확인')
-          .map((r) => ({ specialty: r.specialty as string, quota: r.quota, flexible: r.flexible }))
+          .map((r) => ({ specialty: r.specialty as string, quota: r.quota, flexible: r.flexible === true }))
           .sort((a, b) => b.quota - a.quota || a.specialty.localeCompare(b.specialty, 'ko')),
-        specialtyBreakdownKnown: resident.length === 0 || resident.some((r) => r.specialty !== '전공과별 미확인'),
+        specialtyBreakdownKnown:
+          resident.length === 0 || resident.some((r) => r.specialty && r.specialty !== '전공과별 미확인'),
       },
     })
   }
-  return out.sort((a, b) => b.year - a.year || a.term.localeCompare(b.term, 'ko'))
+  // 가장 최근 시점이 맨 위로. 같은 해면 하반기가 상반기보다 뒤의 일이므로 먼저 온다.
+  const termRank = (t: string) => (t === '하반기' ? 0 : 1)
+  return out.sort((a, b) => b.year - a.year || termRank(a.term) - termRank(b.term))
 }
 
-// ---------------------------------------------------------------- 권역 하이라이트
+function sumBreakdown(rs: RecruitmentRecord[]): Record<string, number> | null {
+  const out: Record<string, number> = {}
+  for (const r of rs) {
+    for (const [k, v] of Object.entries(r.quotaBreakdown ?? {})) {
+      if (v > 0) out[k] = (out[k] ?? 0) + v
+    }
+  }
+  return Object.keys(out).length ? out : null
+}
 
 /** 선택한 세부권역이 덮는 시군구 코드. 지도 하이라이트에 쓴다. */
 export function highlightedSgg(regions: Regions, selected: ReadonlySet<string>): Set<string> {

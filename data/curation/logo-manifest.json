@@ -4,71 +4,71 @@
  "_sourceDirs": "sourceDir 는 MEDMAP_LOGO_DIRS(또는 기본 로고 폴더) 목록의 순번이다. 개인 PC 의 절대 경로는 남기지 않는다.",
  "_sourceDirCount": 2,
  "entries": {
-  "h-bhshanseobyeongwon": {
-   "institution": "BHS한서병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
-  },
   "h-gatolrikgwandongdaehakgyogukjeseongmobyeongwon": {
    "institution": "가톨릭관동대학교 국제성모병원",
    "sourceDir": 0,
    "fileName": "가톨릭관동대학교국제성모병원.svg",
    "matchedBy": "가톨릭관동국제성모병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-gatolrikdaehakgyoseongbinsenteubyeongwon": {
    "institution": "가톨릭대학교 성빈센트병원",
    "sourceDir": 0,
    "fileName": "가톨릭대학교성빈센트병원.svg",
    "matchedBy": "가톨릭성빈센트병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-gatolrikdaehakgyoyeouidoseongmobyeongwon": {
    "institution": "가톨릭대학교 여의도성모병원",
    "sourceDir": 0,
    "fileName": "가톨릭대학교 여의도성모병원.svg",
    "matchedBy": "가톨릭여의도성모병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-gatolrikdaehakgyoeunpyeongseongmobyeongwon": {
    "institution": "가톨릭대학교 은평성모병원",
    "sourceDir": 0,
    "fileName": "가톨릭대학교은평성모병원.svg",
    "matchedBy": "가톨릭은평성모병원",
-   "manual": false
-  },
-  "h-gatolrikdaehakgyoincheonseongmobyeongwon": {
-   "institution": "가톨릭대학교 인천성모병원",
-   "sourceDir": 0,
-   "fileName": "가톨릭대학교인천성모병원.svg",
-   "matchedBy": "가톨릭인천성모병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-gatolrikdaehakgyobucheonseongmobyeongwon": {
    "institution": "가톨릭대학교부천성모병원",
    "sourceDir": 0,
    "fileName": "가톨릭대학교 부천성모병원.svg",
    "matchedBy": "가톨릭부천성모병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-gatolrikdaehakgyouijeongbuseongmobyeongwon": {
    "institution": "가톨릭대학교의정부성모병원",
    "sourceDir": 0,
    "fileName": "가톨릭대학교의정부성모병원.svg",
    "matchedBy": "가톨릭의정부성모병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
-  "h-gangdonggyeonghuidaehakgyobyeongwon": {
-   "institution": "강동경희대학교병원",
+  "h-gatolrikdaehakgyoincheonseongmobyeongwon": {
+   "institution": "가톨릭대학교인천성모병원",
+   "sourceDir": 0,
+   "fileName": "가톨릭대학교인천성모병원.svg",
+   "matchedBy": "가톨릭인천성모병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-gangnamyonginbyeongwon": {
+   "institution": "강남병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
    "manual": false
   },
-  "h-gangdongseongsimbyeongwon": {
-   "institution": "강동성심병원",
+  "h-gangdonggyeonghuidaehakgyobyeongwon": {
+   "institution": "강동경희대학교병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -86,13 +86,36 @@
    "sourceDir": 0,
    "fileName": "강북삼성병원.svg",
    "matchedBy": "강북삼성병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-gangwondaehakgyobyeongwon": {
    "institution": "강원대학교병원",
    "sourceDir": 0,
    "fileName": "강원대학교병원.svg",
    "matchedBy": "강원병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-gangwondosamcheokuiryowon": {
+   "institution": "강원특별자치도삼척의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gangwondosokchouiryowon": {
+   "institution": "강원특별자치도속초의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gangwondowonjuuiryowon": {
+   "institution": "강원특별자치도원주의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-geongukdaehakgyochungjubyeongwon": {
@@ -107,10 +130,39 @@
    "sourceDir": 0,
    "fileName": "건국대학교병원.svg",
    "matchedBy": "건국병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-gimangwabyeongwon": {
+   "institution": "건양의료재단 김안과병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gyeonggidouiryowonsuwonbyeongwon": {
+   "institution": "경기도의료원 수원병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gyeonggidouiryowonicheonbyeongwon": {
+   "institution": "경기도의료원 이천병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gyeonggidouiryowonpajubyeongwon": {
+   "institution": "경기도의료원파주병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-gyeonggidouiryowonpocheonbyeongwon": {
-   "institution": "경기도의료원 포천병원",
+   "institution": "경기도의료원포천병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -121,13 +173,43 @@
    "sourceDir": 0,
    "fileName": "경북대학교병원.svg",
    "matchedBy": "경북병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-gyeongsanggukripdaehakgyobyeongwon": {
    "institution": "경상국립대학교병원",
    "sourceDir": 1,
    "fileName": "경상국립대학교병원.svg",
    "matchedBy": "경상국립병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-gyeongsangnamdomasanuiryowon": {
+   "institution": "경상남도마산의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gyeongsangbukdogimcheonuiryowon": {
+   "institution": "경상북도김천의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gyeongsangbukdopohanguiryowon": {
+   "institution": "경상북도포항의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gukripgyeongchalbyeongwon": {
+   "institution": "경찰병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-gyeonghuidaehakgyobyeongwon": {
@@ -135,6 +217,14 @@
    "sourceDir": 0,
    "fileName": "경희대학교병원.svg",
    "matchedBy": "경희병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-gyeonghuiuiryowongyoyukhyeopryeokjungangbyeongwon": {
+   "institution": "경희의료원 교육협력 중앙병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-gyemyeongdaehakgyodaegudongsanbyeongwon": {
@@ -142,35 +232,40 @@
    "sourceDir": 0,
    "fileName": "계명대학교대구동산병원.svg",
    "matchedBy": "계명대구동산병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-gyemyeongdaehakgyodongsanbyeongwon": {
    "institution": "계명대학교동산병원",
    "sourceDir": 0,
    "fileName": "계명대학교동산병원.svg",
    "matchedBy": "계명동산병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-goryeodaehakgyouigwadaehakbusokgurobyeongwon": {
    "institution": "고려대학교의과대학부속구로병원",
    "sourceDir": 0,
    "fileName": "고려대학교구로병원.svg",
    "matchedBy": "고려구로병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-goryeodaehakgyouigwadaehakbusokansanbyeongwon": {
    "institution": "고려대학교의과대학부속안산병원",
    "sourceDir": 0,
    "fileName": "고려대학교안산병원.svg",
    "matchedBy": "고려안산병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-gosindaehakgyobokeumbyeongwon": {
    "institution": "고신대학교복음병원",
    "sourceDir": 0,
    "fileName": "고신대학교복음병원.svg",
    "matchedBy": "고신복음병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-gwangmyeongseongaebyeongwon": {
    "institution": "광명성애병원",
@@ -193,8 +288,71 @@
    "matchedBy": null,
    "manual": false
   },
-  "h-gukripgyeongchalbyeongwon": {
-   "institution": "국립경찰병원",
+  "h-gukgunsudobyeongwon": {
+   "institution": "국군수도병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gukripgongjubyeongwon": {
+   "institution": "국립공주병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gukripgyotongjaehwalbyeongwon": {
+   "institution": "국립교통재활병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gukripnajubyeongwon": {
+   "institution": "국립나주병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gukripbeopmubyeongwon": {
+   "institution": "국립법무병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gukripbugokbyeongwon": {
+   "institution": "국립부곡병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gukripamsenteo": {
+   "institution": "국립암센터",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gukripamsenteoyeonguso": {
+   "institution": "국립암센터연구소",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gukripjaehwalbyeongwon": {
+   "institution": "국립재활원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gukripjeongsingeongangsenteo": {
+   "institution": "국립정신건강센터",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -207,6 +365,13 @@
    "matchedBy": null,
    "manual": false
   },
+  "h-gukripchuncheonbyeongwon": {
+   "institution": "국립춘천병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
   "h-gukmingeongangboheomgongdanilsanbyeongwon": {
    "institution": "국민건강보험공단일산병원",
    "sourceDir": null,
@@ -214,8 +379,22 @@
    "matchedBy": null,
    "manual": false
   },
-  "h-gimpouribyeongwon": {
-   "institution": "김포우리병원",
+  "h-geunrobokjigongdandaejeonbyeongwon": {
+   "institution": "근로복지공단 대전병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-geunrobokjigongdantaebaekbyeongwon": {
+   "institution": "근로복지공단 태백병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-namyangjuhanyangbyeongwon": {
+   "institution": "남양주 한양병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -226,9 +405,24 @@
    "sourceDir": 0,
    "fileName": "노원을지대학교병원.svg",
    "matchedBy": "노원을지병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-noksaekbyeongwon": {
+   "institution": "녹색병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-nuneangwabyeongwon": {
+   "institution": "누네안과병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-nuneangwadaegu": {
    "institution": "누네안과병원",
    "sourceDir": null,
    "fileName": null,
@@ -240,21 +434,16 @@
    "sourceDir": 0,
    "fileName": "단국대학교병원.svg",
    "matchedBy": "단국병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-daegugatolrikdaehakgyobyeongwon": {
    "institution": "대구가톨릭대학교병원",
    "sourceDir": 0,
    "fileName": "대구가톨릭대학교병원.svg",
    "matchedBy": "대구가톨릭병원",
-   "manual": false
-  },
-  "h-daegubohunbyeongwon": {
-   "institution": "대구보훈병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-daeguuiryowon": {
    "institution": "대구의료원",
@@ -277,6 +466,20 @@
    "matchedBy": null,
    "manual": false
   },
+  "h-handobyeongwon": {
+   "institution": "대아의료재단한도병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-daejainbyeongwon": {
+   "institution": "대자인병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
   "h-daejeonbohunbyeongwon": {
    "institution": "대전보훈병원",
    "sourceDir": null,
@@ -284,12 +487,27 @@
    "matchedBy": null,
    "manual": false
   },
-  "h-donggukdaehakgyouigwadaehakgyeongjubyeongwon": {
+  "h-daejeonhangukbyeongwon": {
+   "institution": "대전한국병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-daejinuiryojaedanbundangjesaengbyeongwon": {
+   "institution": "대진의료재단 분당제생병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-donggukdaehakgyogyeongjubyeongwon": {
    "institution": "동국대학교의과대학경주병원",
    "sourceDir": 0,
    "fileName": "동국대학교경주병원.svg",
    "matchedBy": "동국경주병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-donggukdaehakgyoilsanbulgyobyeongwon": {
    "institution": "동국대학교일산불교병원",
@@ -298,8 +516,8 @@
    "matchedBy": null,
    "manual": false
   },
-  "h-dongsuwonbyeongwon": {
-   "institution": "동수원병원",
+  "h-dongnamgwonwonjaryeokuihakwon": {
+   "institution": "동남권원자력의학원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -310,14 +528,8 @@
    "sourceDir": 0,
    "fileName": "동아대학교병원.svg",
    "matchedBy": "동아병원",
-   "manual": false
-  },
-  "h-merinolbyeongwon": {
-   "institution": "메리놀병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-mokpohangukbyeongwon": {
    "institution": "목포한국병원",
@@ -326,8 +538,8 @@
    "matchedBy": null,
    "manual": false
   },
-  "h-bongsaengginyeombyeongwon": {
-   "institution": "봉생기념병원",
+  "h-buminbyeongwonseoul": {
+   "institution": "부민병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -345,31 +557,25 @@
    "sourceDir": 0,
    "fileName": "부산대학교병원.svg",
    "matchedBy": "부산병원",
-   "manual": false
-  },
-  "h-busanbohunbyeongwon": {
-   "institution": "부산보훈병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
-  },
-  "h-busanbuminbyeongwon": {
-   "institution": "부산부민병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
-  },
-  "h-busansamyukbyeongwon": {
-   "institution": "부산삼육병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-busanseongmobyeongwon": {
-   "institution": "부산성모병원",
+   "institution": "부산성모병원(재단법인 천주교부산교구유지재단)",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-busanseongmoangwabyeongwon": {
+   "institution": "부산성모안과병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-bucheonsejongbyeongwon": {
+   "institution": "부천세종병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -387,10 +593,11 @@
    "sourceDir": 0,
    "fileName": "분당서울대학교병원.svg",
    "matchedBy": "분당서울병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
-  "h-bundangjesaengbyeongwon": {
-   "institution": "분당제생병원",
+  "h-bhshanseobyeongwon": {
+   "institution": "비에이치에스한서병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -401,6 +608,14 @@
    "sourceDir": 0,
    "fileName": "빛고을전남대학교병원.jpg",
    "matchedBy": "빛고을전남병원",
+   "manual": false,
+   "copiedExt": ".jpg"
+  },
+  "h-saneopanjeonbogeonyeonguwon": {
+   "institution": "산업안전보건연구원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-samseongseoulbyeongwon": {
@@ -408,6 +623,28 @@
    "sourceDir": 0,
    "fileName": "삼성서울병원.svg",
    "matchedBy": "삼성서울병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-busansamyukbyeongwon": {
+   "institution": "삼육부산병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-samyukseoulbyeongwon": {
+   "institution": "삼육서울병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-sangjujeoksipjabyeongwon": {
+   "institution": "상주적십자병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-seouldaehakgyobyeongwon": {
@@ -415,17 +652,18 @@
    "sourceDir": 0,
    "fileName": "서울대학교병원.svg",
    "matchedBy": "서울병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
-  "h-seoulbuminbyeongwon": {
-   "institution": "서울부민병원",
+  "h-seouldaehakgyobogeondaehakwon": {
+   "institution": "서울대학교보건대학원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
    "manual": false
   },
-  "h-seoulsamyukbyeongwon": {
-   "institution": "서울삼육병원",
+  "h-seoulseongsimbyeongwon": {
+   "institution": "서울성심병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -438,15 +676,44 @@
    "matchedBy": null,
    "manual": false
   },
+  "h-seoulteukbyeolsidongbubyeongwon": {
+   "institution": "서울특별시 동부병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
   "h-seoulteukbyeolsiboramaebyeongwon": {
    "institution": "서울특별시보라매병원",
    "sourceDir": 0,
    "fileName": "서울특별시보라매병원.svg",
    "matchedBy": "서울특별시보라매병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-seoulteukbyeolsiseonambyeongwon": {
+   "institution": "서울특별시서남병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-seoulteukbyeolsiseobukbyeongwon": {
+   "institution": "서울특별시서북병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-seoulteukbyeolsiseouluiryowon": {
    "institution": "서울특별시서울의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-seoulteukbyeolsieunpyeongbyeongwon": {
+   "institution": "서울특별시은평병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -466,15 +733,15 @@
    "matchedBy": null,
    "manual": false
   },
-  "h-seongaebyeongwon": {
-   "institution": "성애병원",
+  "h-gangdongseongsimbyeongwon": {
+   "institution": "성심의료재단강동성심병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
    "manual": false
   },
-  "h-sejongbyeongwon": {
-   "institution": "세종병원",
+  "h-seongaebyeongwon": {
+   "institution": "성애의료재단 성애병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -485,27 +752,53 @@
    "sourceDir": 0,
    "fileName": "세종충남대학교병원.svg",
    "matchedBy": "세종충남병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-suncheonhyangdaehakgyobusokgumibyeongwon": {
    "institution": "순천향대학교 부속 구미병원",
    "sourceDir": 0,
    "fileName": "순천향대학교구미병원.svg",
    "matchedBy": "순천향구미병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-suncheonhyangdaehakgyobusokseoulbyeongwon": {
    "institution": "순천향대학교 부속 서울병원",
    "sourceDir": 0,
    "fileName": "순천향대학교서울병원.svg",
    "matchedBy": "순천향서울병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-suncheonhyangdaehakgyobusokcheonanbyeongwon": {
+   "institution": "순천향대학교부속 천안병원",
+   "sourceDir": 0,
+   "fileName": "순천향대학교천안병원.svg",
+   "matchedBy": "순천향천안병원",
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-suncheonhyangdaehakgyobusokbucheonbyeongwon": {
    "institution": "순천향대학교부속부천병원",
    "sourceDir": 0,
    "fileName": "순천향대학교부천병원.svg",
    "matchedBy": "순천향부천병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-silroamangwabyeongwon": {
+   "institution": "실로암안과병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-asanchungmubyeongwon": {
+   "institution": "아산충무병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-ajudaehakgyobyeongwon": {
@@ -513,17 +806,18 @@
    "sourceDir": 0,
    "fileName": "아주대학교병원.svg",
    "matchedBy": "아주병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
-  "h-andongbyeongwon": {
-   "institution": "안동의료재단안동병원",
+  "h-andongseongsobyeongwon": {
+   "institution": "안동성소병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
    "manual": false
   },
-  "h-anyangsaembyeongwon": {
-   "institution": "안양샘병원",
+  "h-yangsanbyeongwon": {
+   "institution": "양산병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -534,10 +828,11 @@
    "sourceDir": 0,
    "fileName": "양산부산대학교병원.svg",
    "matchedBy": "양산부산병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
-  "h-eichipeulreoseuyangjibyeongwon": {
-   "institution": "에이치플러스 양지병원",
+  "h-yeosujeonnambyeongwon": {
+   "institution": "여수전남병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -555,10 +850,18 @@
    "sourceDir": 1,
    "fileName": "원주세브란스기독병원.svg",
    "matchedBy": "원주세브란스기독병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-yeonsedaehakgyouigwadaehakyonginsebeuranseubyeongwon": {
    "institution": "연세대학교 의과대학 용인세브란스병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-yeonsedaehakgyobogeondaehakwon": {
+   "institution": "연세대학교보건대학원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -583,14 +886,16 @@
    "sourceDir": 0,
    "fileName": "영남대학교병원.svg",
    "matchedBy": "영남병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-yeongnamdaehakgyouigwadaehakbusokyeongcheonbyeongwon": {
    "institution": "영남대학교의과대학부속영천병원",
    "sourceDir": 0,
    "fileName": "영남대학교영천병원.svg",
    "matchedBy": "영남영천병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-yeongdobyeongwon": {
    "institution": "영도병원",
@@ -599,14 +904,21 @@
    "matchedBy": null,
    "manual": false
   },
-  "h-onjonghapbyeongwon": {
-   "institution": "온종합병원",
+  "h-osanhangukbyeongwon": {
+   "institution": "오산한국병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
    "manual": false
   },
-  "h-wongwangdaehakgyosanbonbyeongwon": {
+  "h-yonginjeongsinbyeongwon": {
+   "institution": "용인정신병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-wongwangdaehakgyouigwadaehaksanbonbyeongwon": {
    "institution": "원광대학교 산본병원",
    "sourceDir": null,
    "fileName": null,
@@ -618,10 +930,11 @@
    "sourceDir": 0,
    "fileName": "원광대학교병원.svg",
    "matchedBy": "원광병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
-  "h-wonjaryeokbyeongwon": {
-   "institution": "원자력병원",
+  "h-gyeyouiryojaedangyeyobyeongwon": {
+   "institution": "의료법인 계요의료재단 계요병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -634,8 +947,169 @@
    "matchedBy": null,
    "manual": false
   },
+  "h-noksanuiryojaedandongsuwonbyeongwon": {
+   "institution": "의료법인 녹산의료재단동수원병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-daeuuiryojaedandaeubyeongwon": {
+   "institution": "의료법인 대우의료재단대우병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-donggangbyeongwon": {
+   "institution": "의료법인 동강의료재단 동강병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-hwahongbyeongwon": {
+   "institution": "의료법인 명인의료재단 화홍병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-jecheonmyeongjibyeongwon": {
+   "institution": "의료법인 명지의료재단 명지병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-saebitangwabyeongwon": {
+   "institution": "의료법인 세경의료재단 새빛안과병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-yeongseouiryojaedancheonanchungmubyeongwon": {
+   "institution": "의료법인 영서의료재단 천안충무병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-sejongbyeongwon": {
+   "institution": "의료법인 영제 의료재단 엔케이세종병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-yeonghunuiryojaedandaejeonseonbyeongwon": {
+   "institution": "의료법인 영훈의료재단 대전선병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-ongeurupuiryojaedanonbyeongwon": {
+   "institution": "의료법인 온병원그룹의료재단 온병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-joteunganganbyeongwon": {
+   "institution": "의료법인 은성의료재단 좋은강안병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-joteunsamseonbyeongwon": {
+   "institution": "의료법인 은성의료재단 좋은삼선병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-buminbyeongwon": {
+   "institution": "의료법인 인당의료재단 부민병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-haeundaebuminbyeongwon": {
+   "institution": "의료법인 인당의료재단 해운대부민병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-incheonsarangbyeongwon": {
+   "institution": "의료법인 인천사랑병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-inhwajaedanhangukbyeongwon": {
+   "institution": "의료법인 인화재단 한국병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-jecheonseoulbyeongwon": {
+   "institution": "의료법인 자산의료재단 제천서울병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-jeongsanjaedanhyoseongbyeongwon": {
+   "institution": "의료법인 정산의료재단 효성병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-junganguiryojaedanjungangbyeongwon": {
+   "institution": "의료법인 중앙의료재단 중앙병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-wilseuginyeombyeongwon": {
+   "institution": "의료법인 토마스의료재단 윌스기념병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-hyeinuiryojaedanhangukbyeongwon": {
+   "institution": "의료법인 혜인의료재단 한국병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-rugauiryojaedannaeunbyeongwon": {
+   "institution": "의료법인루가의료재단 나은병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
   "h-myeongjibyeongwon": {
    "institution": "의료법인명지의료재단명지병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-eichipeulreoseuyangjibyeongwon": {
+   "institution": "의료법인서울효천의료재단 에이치플러스양지병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -646,6 +1120,77 @@
    "sourceDir": 0,
    "fileName": "일산차병원.svg",
    "matchedBy": "일산차병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-andongbyeongwon": {
+   "institution": "의료법인안동병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-yeonghunuiryojaedanyuseongseonbyeongwon": {
+   "institution": "의료법인영훈의료재단 유성선병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-ongeurupuiryojaedanonjonghapbyeongwon": {
+   "institution": "의료법인온그룹의료재단온종합병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gimpouribyeongwon": {
+   "institution": "의료법인우리의료재단김포우리병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-jeongseonuiryojaedanonjonghapbyeongwon": {
+   "institution": "의료법인정선의료재단온종합병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-gimwonmukginyeombongsaengbyeongwon": {
+   "institution": "의료법인정화의료재단 봉생기념병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-hanhangilangwabyeongwon": {
+   "institution": "의료법인한길의료재단한길안과병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-cheongjuhanabyeongwon": {
+   "institution": "의료법인한마음의료재단하나병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-pohangsemyeonggidokbyeongwon": {
+   "institution": "의료법인한성재단포항세명기독병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-hanjeonuiryojaedanhanilbyeongwon": {
+   "institution": "의료법인한전의료재단 한일병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-ihwayeojadaehakgyouigwadaehakbusokmokdongbyeongwon": {
@@ -667,20 +1212,30 @@
    "sourceDir": 0,
    "fileName": "인제대학교상계백병원.svg",
    "matchedBy": "인제상계백병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
-  "h-injedaehakgyohaeundaebaekbyeongwon": {
+  "h-injedaehaeundaebaekbyeongwon": {
    "institution": "인제대학교 해운대백병원",
    "sourceDir": 0,
    "fileName": "인제대학교해운대백병원.svg",
    "matchedBy": "인제해운대백병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-injedaehakgyobusanbaekbyeongwon": {
    "institution": "인제대학교부산백병원",
    "sourceDir": 0,
    "fileName": "인제대학교부산백병원.svg",
    "matchedBy": "인제부산백병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-injedaehakgyoseoulbaekbyeongwon": {
+   "institution": "인제대학교서울백병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-injedaehakgyoilsanbaekbyeongwon": {
@@ -688,10 +1243,11 @@
    "sourceDir": 0,
    "fileName": "인제대학교일산백병원.svg",
    "matchedBy": "인제일산백병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
-  "h-incheonsarangbyeongwon": {
-   "institution": "인천사랑병원",
+  "h-incheongwangyeoksiuiryowon": {
+   "institution": "인천광역시의료원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -711,15 +1267,30 @@
    "matchedBy": null,
    "manual": false
   },
+  "h-jeongeupasanbyeongwon": {
+   "institution": "재단법인 아산사회복지재단 정읍아산병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
   "h-seoulasanbyeongwon": {
    "institution": "재단법인아산사회복지재단 서울아산병원",
    "sourceDir": 0,
    "fileName": "서울아산병원.svg",
    "matchedBy": "서울아산병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-yesubyeongwon": {
    "institution": "재단법인예수병원유지재단예수병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-merinolbyeongwon": {
+   "institution": "재단법인천주교부산교구유지재단 메리놀병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -730,17 +1301,40 @@
    "sourceDir": 1,
    "fileName": "전남대학교병원.svg",
    "matchedBy": "전남병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-jeonbukdaehakgyobyeongwon": {
    "institution": "전북대학교병원",
    "sourceDir": 0,
    "fileName": "전북대학교병원.svg",
    "matchedBy": "전북병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-jeonrabukdogunsanuiryowon": {
+   "institution": "전북특별자치도 군산의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
-  "h-jeonbukteukbyeoljachidogunsanuiryowon": {
-   "institution": "전북특별자치도 군산의료원",
+  "h-jeonrabukdonamwonuiryowon": {
+   "institution": "전북특별자치도 남원의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-jeonrabukdomaeumsarangbyeongwon": {
+   "institution": "전북특별자치도마음사랑병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-jeilangwabyeongwon": {
+   "institution": "제일안과병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -751,6 +1345,14 @@
    "sourceDir": 0,
    "fileName": "제주대학교병원.svg",
    "matchedBy": "제주병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-jejuteukbyeoljachidoseogwipouiryowon": {
+   "institution": "제주특별자치도 서귀포의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-jejuhanrabyeongwon": {
@@ -765,24 +1367,11 @@
    "sourceDir": 0,
    "fileName": "조선대학교병원.svg",
    "matchedBy": "조선병원",
-   "manual": false
-  },
-  "h-joteunganganbyeongwon": {
-   "institution": "좋은강안병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-joteunmunhwabyeongwon": {
    "institution": "좋은문화병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
-  },
-  "h-joteunsamseonbyeongwon": {
-   "institution": "좋은삼선병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -793,28 +1382,16 @@
    "sourceDir": 0,
    "fileName": "중앙대학교광명병원.svg",
    "matchedBy": "중앙광명병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-jungangdaehakgyobyeongwon": {
    "institution": "중앙대학교병원",
    "sourceDir": 0,
    "fileName": "중앙대학교병원.svg",
    "matchedBy": "중앙병원",
-   "manual": false
-  },
-  "h-jungangbohunbyeongwon": {
-   "institution": "중앙보훈병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
-  },
-  "h-jisaembyeongwon": {
-   "institution": "지샘병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-chauigwahakdaehakgyogangnamchabyeongwon": {
    "institution": "차의과학대학교 강남차병원",
@@ -837,8 +1414,22 @@
    "matchedBy": null,
    "manual": false
   },
+  "h-chamjoeunbyeongwon": {
+   "institution": "참조은병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
   "h-changwongyeongsanggukripdaehakgyobyeongwon": {
    "institution": "창원경상국립대학교병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-changwonpatimabyeongwon": {
+   "institution": "창원파티마병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -851,15 +1442,8 @@
    "matchedBy": null,
    "manual": false
   },
-  "h-cheongjuhanabyeongwon": {
-   "institution": "청주하나병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
-  },
-  "h-cheongjuhangukbyeongwon": {
-   "institution": "청주한국병원",
+  "h-cheongjuseongmobyeongwon": {
+   "institution": "청주성모병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -877,13 +1461,50 @@
    "sourceDir": 0,
    "fileName": "충남대학교병원.svg",
    "matchedBy": "충남병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-chungbukdaehakgyobyeongwon": {
    "institution": "충북대학교병원",
    "sourceDir": 0,
    "fileName": "충북대학교병원.svg",
    "matchedBy": "충북병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-chungcheongnamdogongjuuiryowon": {
+   "institution": "충청남도 공주의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-chungcheongnamdoseosanuiryowon": {
+   "institution": "충청남도 서산의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-chungcheongnamdohongseonguiryowon": {
+   "institution": "충청남도 홍성의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-chungcheongbukdocheongjuuiryowon": {
+   "institution": "충청북도 청주의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-chungcheongbukdochungjuuiryowon": {
+   "institution": "충청북도 충주의료원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-chilgokgyeongbukdaehakgyobyeongwon": {
@@ -891,7 +1512,8 @@
    "sourceDir": 0,
    "fileName": "칠곡경북대학교병원.svg",
    "matchedBy": "칠곡경북병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-pohangseongmobyeongwon": {
    "institution": "포항성모병원",
@@ -905,14 +1527,16 @@
    "sourceDir": 0,
    "fileName": "가톨릭대학교대전성모병원.svg",
    "matchedBy": "가톨릭대전성모병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-geonyangdaehakgyobyeongwon": {
    "institution": "학교법인 건양교육재단 건양대학교병원",
    "sourceDir": 0,
    "fileName": "건양대학교병원.svg",
    "matchedBy": "건양병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-geonyangdaehakgyobuyeobyeongwon": {
    "institution": "학교법인 건양교육재단 건양대학교부여병원",
@@ -926,27 +1550,38 @@
    "sourceDir": 0,
    "fileName": "고려대학교안암병원.svg",
    "matchedBy": "고려안암병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-ulsandaehakgyobyeongwon": {
    "institution": "학교법인 울산공업학원 울산대학교병원",
    "sourceDir": 0,
    "fileName": "울산대학교병원.svg",
    "matchedBy": "울산병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-daejeoneuljidaehakgyobyeongwon": {
    "institution": "학교법인 을지학원 대전을지대학교병원",
    "sourceDir": 0,
    "fileName": "대전을지대학교병원.svg",
    "matchedBy": "대전을지병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-uijeongbueuljidaehakgyobyeongwon": {
    "institution": "학교법인 을지학원 의정부을지대학교병원",
    "sourceDir": 0,
    "fileName": "의정부을지대학교병원.svg",
    "matchedBy": "의정부을지병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-donguibyeongwon": {
+   "institution": "학교법인)동의병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-gatolrikdaehakgyoseoulseongmobyeongwon": {
@@ -954,20 +1589,43 @@
    "sourceDir": 0,
    "fileName": "가톨릭대학교서울성모병원.svg",
    "matchedBy": "가톨릭서울성모병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
-  "h-suncheonhyangdaehakgyobusokcheonanbyeongwon": {
-   "institution": "학교법인동은학원순천향대학교부속천안병원",
-   "sourceDir": 0,
-   "fileName": "순천향대학교천안병원.svg",
-   "matchedBy": "순천향천안병원",
-   "manual": false
-  },
-  "h-samseongchangwonbyeongwon": {
+  "h-gyosamseongchangwonbyeongwon": {
    "institution": "학교법인성균관대학삼성창원병원",
    "sourceDir": 0,
    "fileName": "삼성창원병원.svg",
    "matchedBy": "삼성창원병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-daegubohunbyeongwon": {
+   "institution": "한국보훈복지의료공단 대구보훈병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-busanbohunbyeongwon": {
+   "institution": "한국보훈복지의료공단 부산보훈병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-jungangbohunbyeongwon": {
+   "institution": "한국보훈복지의료공단 중앙보훈병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-wonjaryeokbyeongwon": {
+   "institution": "한국원자력의학원원자력병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "h-hanrimdaehakgyogangnamseongsimbyeongwon": {
@@ -975,38 +1633,50 @@
    "sourceDir": 0,
    "fileName": "한림대학교강남성심병원.svg",
    "matchedBy": "한림강남성심병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-hanrimdaehakgyohangangseongsimbyeongwon": {
    "institution": "한림대학교 한강성심병원",
    "sourceDir": 0,
    "fileName": "한림대학교한강성심병원.svg",
    "matchedBy": "한림한강성심병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-hanrimdaehakgyodongtanseongsimbyeongwon": {
    "institution": "한림대학교동탄성심병원",
    "sourceDir": 0,
    "fileName": "한림대학교동탄성심병원.svg",
    "matchedBy": "한림동탄성심병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-hanrimdaehakgyoseongsimbyeongwon": {
    "institution": "한림대학교성심병원",
    "sourceDir": 0,
    "fileName": "한림대학교성심병원.svg",
    "matchedBy": "한림성심병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-hanrimdaehakgyochuncheonseongsimbyeongwon": {
    "institution": "한림대학교춘천성심병원",
    "sourceDir": 0,
    "fileName": "한림대학교춘천성심병원.svg",
    "matchedBy": "한림춘천성심병원",
+   "manual": false,
+   "copiedExt": ".svg"
+  },
+  "h-inseonguiryojaedanincheonhanrimbyeongwon": {
+   "institution": "한림병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
-  "h-hanrimbyeongwon": {
-   "institution": "한림병원",
+  "h-hanmaeumjejubyeongwon": {
+   "institution": "한마음병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -1017,14 +1687,16 @@
    "sourceDir": 0,
    "fileName": "한양대학교구리병원.svg",
    "matchedBy": "한양구리병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-hanyangdaehakgyobyeongwon": {
    "institution": "한양대학교병원",
    "sourceDir": 0,
    "fileName": "한양대학교병원.svg",
    "matchedBy": "한양병원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "h-hanilbyeongwon": {
    "institution": "한일병원",
@@ -1033,8 +1705,8 @@
    "matchedBy": null,
    "manual": false
   },
-  "h-haeundaebuminbyeongwon": {
-   "institution": "해운대부민병원",
+  "h-hyeondaebyeongwon": {
+   "institution": "현대병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -1047,11 +1719,33 @@
    "matchedBy": null,
    "manual": false
   },
+  "h-hongcheonasanbyeongwon": {
+   "institution": "홍천아산병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
   "h-hwasunjeonnamdaehakgyobyeongwon": {
    "institution": "화순전남대학교병원",
    "sourceDir": 0,
    "fileName": "화순전남대학교병원.jpg",
    "matchedBy": "화순전남병원",
+   "manual": false,
+   "copiedExt": ".jpg"
+  },
+  "h-saemanyangbyeongwon": {
+   "institution": "효산의료재단 안양샘병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
+   "manual": false
+  },
+  "h-jisaembyeongwon": {
+   "institution": "효산의료재단 지샘병원",
+   "sourceDir": null,
+   "fileName": null,
+   "matchedBy": null,
    "manual": false
   },
   "ms-gacheon": {
@@ -1059,28 +1753,32 @@
    "sourceDir": 0,
    "fileName": "가천대학교.svg",
    "matchedBy": "가천",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-gatolrikgwandong": {
    "institution": "가톨릭관동대학교 의과대학",
    "sourceDir": 0,
    "fileName": "가톨릭관동대학교.svg",
    "matchedBy": "가톨릭관동",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-gatolrik": {
    "institution": "가톨릭대학교 의과대학",
    "sourceDir": 0,
    "fileName": "가톨릭대학교.svg",
    "matchedBy": "가톨릭",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-gangwon": {
    "institution": "강원대학교 의과대학",
    "sourceDir": 0,
    "fileName": "강원대학교.svg",
    "matchedBy": "강원",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-geongukgeulrokeol": {
    "institution": "건국대학교(글로컬) 의과대학",
@@ -1094,63 +1792,72 @@
    "sourceDir": 0,
    "fileName": "건양대학교.svg",
    "matchedBy": "건양",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-gyeongbuk": {
    "institution": "경북대학교 의과대학",
    "sourceDir": 0,
    "fileName": "경북대학교.svg",
    "matchedBy": "경북",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-gyeongsanggukrip": {
    "institution": "경상국립대학교 의과대학",
    "sourceDir": 0,
    "fileName": "경상국립대학교.svg",
    "matchedBy": "경상국립",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-gyeonghui": {
    "institution": "경희대학교 의과대학",
    "sourceDir": 0,
    "fileName": "경희대학교.svg",
    "matchedBy": "경희",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-gyemyeong": {
    "institution": "계명대학교 의과대학",
    "sourceDir": 0,
    "fileName": "계명대학교.svg",
    "matchedBy": "계명",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-goryeo": {
    "institution": "고려대학교 의과대학",
    "sourceDir": 0,
    "fileName": "고려대학교.svg",
    "matchedBy": "고려",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-gosin": {
    "institution": "고신대학교 의과대학",
    "sourceDir": 0,
    "fileName": "고신대학교.svg",
    "matchedBy": "고신",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-danguk": {
    "institution": "단국대학교 의과대학",
    "sourceDir": 0,
    "fileName": "단국대학교.svg",
    "matchedBy": "단국",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-daegugatolrik": {
    "institution": "대구가톨릭대학교 의과대학",
    "sourceDir": 0,
    "fileName": "대구가톨릭대학교.svg",
    "matchedBy": "대구가톨릭",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-donggukwise": {
    "institution": "동국대학교(WISE) 의과대학",
@@ -1164,49 +1871,56 @@
    "sourceDir": 0,
    "fileName": "동아대학교.svg",
    "matchedBy": "동아",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-busan": {
    "institution": "부산대학교 의과대학",
    "sourceDir": 0,
    "fileName": "부산대학교.svg",
    "matchedBy": "부산",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-seoul": {
    "institution": "서울대학교 의과대학",
    "sourceDir": 0,
    "fileName": "서울대학교.svg",
    "matchedBy": "서울",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-gyo": {
    "institution": "성균관대학교 의과대학",
    "sourceDir": 0,
    "fileName": "성균관대학교.svg",
    "matchedBy": "교",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-suncheonhyang": {
    "institution": "순천향대학교 의과대학",
    "sourceDir": 0,
    "fileName": "순천향대학교.svg",
    "matchedBy": "순천향",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-aju": {
    "institution": "아주대학교 의과대학",
    "sourceDir": 0,
    "fileName": "아주대학교.svg",
    "matchedBy": "아주",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-yeonse": {
    "institution": "연세대학교 의과대학",
    "sourceDir": 0,
    "fileName": "연세대학교.svg",
    "matchedBy": "연세",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-yeonsemirae": {
    "institution": "연세대학교(미래) 의과대학",
@@ -1220,119 +1934,136 @@
    "sourceDir": 0,
    "fileName": "영남대학교.svg",
    "matchedBy": "영남",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-ulsan": {
    "institution": "울산대학교 의과대학",
    "sourceDir": 0,
    "fileName": "울산대학교.svg",
    "matchedBy": "울산",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-wongwang": {
    "institution": "원광대학교 의과대학",
    "sourceDir": 0,
    "fileName": "원광대학교.svg",
    "matchedBy": "원광",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-eulji": {
    "institution": "을지대학교 의과대학",
    "sourceDir": 0,
    "fileName": "을지대학교.svg",
    "matchedBy": "을지",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-ihwayeoja": {
    "institution": "이화여자대학교 의과대학",
    "sourceDir": 0,
    "fileName": "이화여자대학교.svg",
    "matchedBy": "이화여자",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-inje": {
    "institution": "인제대학교 의과대학",
    "sourceDir": 0,
    "fileName": "인제대학교.svg",
    "matchedBy": "인제",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-inha": {
    "institution": "인하대학교 의과대학",
    "sourceDir": 0,
    "fileName": "인하대학교.svg",
    "matchedBy": "인하",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-jeonnam": {
    "institution": "전남대학교 의과대학",
    "sourceDir": 0,
    "fileName": "전남대학교.svg",
    "matchedBy": "전남",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-jeonbuk": {
    "institution": "전북대학교 의과대학",
    "sourceDir": 0,
    "fileName": "전북대학교.svg",
    "matchedBy": "전북",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-jeju": {
    "institution": "제주대학교 의과대학",
    "sourceDir": 0,
    "fileName": "제주대학교.svg",
    "matchedBy": "제주",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-joseon": {
    "institution": "조선대학교 의과대학",
    "sourceDir": 0,
    "fileName": "조선대학교.svg",
    "matchedBy": "조선",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-jungang": {
    "institution": "중앙대학교 의과대학",
    "sourceDir": 0,
    "fileName": "중앙대학교.svg",
    "matchedBy": "중앙",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-chauigwahakuijeonwon": {
    "institution": "차의과학대학교 의학전문대학원",
    "sourceDir": 0,
    "fileName": "차의과학대학교.svg",
    "matchedBy": "차의과학",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-chungnam": {
    "institution": "충남대학교 의과대학",
    "sourceDir": 0,
    "fileName": "충남대학교.svg",
    "matchedBy": "충남",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-chungbuk": {
    "institution": "충북대학교 의과대학",
    "sourceDir": 0,
    "fileName": "충북대학교.svg",
    "matchedBy": "충북",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-hanrim": {
    "institution": "한림대학교 의과대학",
    "sourceDir": 0,
    "fileName": "한림대학교.svg",
    "matchedBy": "한림",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   },
   "ms-hanyang": {
    "institution": "한양대학교 의과대학",
    "sourceDir": 0,
    "fileName": "한양대학교.svg",
    "matchedBy": "한양",
-   "manual": false
+   "manual": false,
+   "copiedExt": ".svg"
   }
  }
 }

@@ -49,6 +49,8 @@ export interface EmergencyDesignation {
   validTo: string
   newlyDesignated: boolean
   pendingUntil?: string | null
+  /** 가장 나중 지정 기수인지. 이 값이 참인 것만 '현재 지정'으로 센다. */
+  isCurrent: boolean
   sourceId: string
   status: VerificationStatus
 }
@@ -59,6 +61,50 @@ export interface UniversityRelation {
   relationType: string
 }
 
+export interface Address {
+  value?: string
+  postcode?: string | null
+  sourceId?: string
+  asOf?: string
+  status: VerificationStatus
+}
+
+export interface Department {
+  name: string
+  code: string
+  /** 그 과목의 전문의 수. 의사 수·교수 수와 다른 지표다. */
+  specialists: number | null
+}
+
+export interface DepartmentBlock {
+  status: VerificationStatus
+  sourceId?: string
+  asOf?: string
+  items: Department[]
+  note?: string
+}
+
+export interface Staffing {
+  status: VerificationStatus
+  sourceId?: string
+  asOf?: string
+  metric?: string
+  totalDoctors?: number | null
+  totalSpecialists?: number | null
+  residentsOnDuty?: number | null
+  internsOnDuty?: number | null
+  note?: string
+}
+
+export interface BedDetail {
+  total: number
+  breakdown: Record<string, number>
+  sourceId: string
+  asOf: string
+  status: VerificationStatus
+  note?: string
+}
+
 export interface Hospital {
   id: string
   type: 'hospital'
@@ -66,12 +112,24 @@ export interface Hospital {
   commonName: string
   preferredName?: string
   aliases: string[]
+  variantNames?: string[]
   coord: Coord
   sgg: string | null
   sggName?: string
   subRegionId: string | null
   macroRegionIds: string[]
+  address: Address
+  phone?: string | null
+  openedOn?: string | null
+  /** 심평원 종별: 상급종합 · 종합병원 · 병원 등. 공식 분류다. */
+  hiraKind: string | null
+  /** 요양기관이 아닌 수련기관(보건대학원·연구원 등)일 때만 채워진다. */
+  institutionKind?: string
+  /** 같은 이름의 다른 기관이 있어 표시명에 소재지를 덧붙였는지 */
+  nameDisambiguated?: boolean
+  hiraId?: string
   beds: BedCount[]
+  bedDetail: BedDetail | null
   designations: {
     tertiary: TertiaryDesignation | null
     emergency: EmergencyDesignation[]
@@ -79,10 +137,11 @@ export interface Hospital {
   universityRelations: UniversityRelation[]
   homepage: string | null
   logo: string | null
-  history: Sourced<string>
+  /** 출처가 여럿이면 sourceIds 에 모두 적는다. */
+  history: Sourced<string> & { sourceIds?: string[] }
   centers: { status: VerificationStatus; items: unknown[]; note?: string }
-  departments: { status: VerificationStatus; items: unknown[]; note?: string }
-  staffing: { status: VerificationStatus; note?: string }
+  departments: DepartmentBlock
+  staffing: Staffing
 }
 
 export interface Quota {
@@ -141,29 +200,39 @@ export interface TrainingUnit {
   note?: string | null
 }
 
+/**
+ * 한 기관의 모집 기록 한 줄.
+ *
+ * 파일에서는 비어 있는 칸을 싣지 않으므로 대부분의 필드가 선택적이다.
+ * '정원'(한 해 배정)과 '모집인원'(한 차례 모집)은 다른 지표라 quotaKind 로 구별한다.
+ */
 export interface RecruitmentRecord {
-  /** 모집 단위를 아는 경우. 2023년 일부 자료처럼 단위를 모르면 null 이고 hospitalIds 로만 잇는다. */
-  trainingUnitId: string | null
   year: number
   term: string
   track: '인턴' | '레지던트'
-  specialty: string | null
   quotaKind: string
   quota: number
-  flexible: boolean
-  integratedTraining: boolean
-  mojaAgreement: boolean
-  appliedCount: { status: VerificationStatus; value?: number }
-  matchedCount: { status: VerificationStatus; value?: number }
+  specialty?: string
+  quotaBreakdown?: Record<string, number>
+  flexible?: boolean
+  integratedTraining?: boolean
+  mojaAgreement?: boolean
+  /** 통합수련 단위의 수치인 경우 그 단위 */
+  unitId?: string
+  unitName?: string
+  unitHospitalIds?: string[]
   sourceId: string
   asOf: string
   status: VerificationStatus
-  /** 2023년처럼 전체 명단을 확보하지 못한 자료에 붙는 경고 */
-  coverageWarning?: string | null
-  note?: string | null
-  hospitalIds: string[]
-  /** 예방의학과처럼 의과대학이 모집 단위인 경우 */
-  medicalSchoolIds: string[]
+  note?: string
+}
+
+/** 기관 ID → 그 기관의 모집 기록. 상세 패널을 처음 열 때 받아 온다. */
+export type RecruitmentByInstitution = Record<string, RecruitmentRecord[]>
+
+export interface RecruitmentFile {
+  meta: { note: string; unverified: string; records: number }
+  byInstitution: RecruitmentByInstitution
 }
 
 export interface SubRegion {
@@ -222,14 +291,26 @@ export interface Coverage {
   nationalTotals: NationalTotal[]
   coverageWarning: string
   note: string
+  changeNote?: string
+  /** 빌드 시점 집계. 모집 기록을 지연 로딩하더라도 수록 범위를 정확히 보여 주기 위해 둔다. */
+  counts?: Record<string, number>
 }
+
+/** 기관별 '어느 해 어떤 과정의 모집 자료가 있는가'. 첫 화면은 이것만으로 그린다. */
+export interface TrainingIndexEntry {
+  tracks: string[]
+  years: number[]
+}
+export type TrainingIndex = Record<string, TrainingIndexEntry>
 
 export interface Dataset {
   hospitals: Hospital[]
   schools: MedicalSchool[]
   relations: Relation[]
   trainingUnits: TrainingUnit[]
-  recruitment: RecruitmentRecord[]
+  trainingIndex: TrainingIndex
+  /** 상세 패널을 처음 열 때 받아 온다. 그 전에는 빈 객체다. */
+  recruitment: RecruitmentByInstitution
   regions: Regions
   sources: SourceRef[]
 }
