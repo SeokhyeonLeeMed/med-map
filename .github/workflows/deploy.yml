@@ -27,7 +27,7 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - name: Validate data
-        run: python scripts/validate_data.py
+        run: python3 scripts/validate_data.py
       - name: Build
         # 프로젝트 사이트는 /<repo>/ 아래에 놓인다.
         run: MEDMAP_BASE="/${GITHUB_REPOSITORY#*/}/" npm run build

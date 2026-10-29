@@ -67,6 +67,12 @@ GitHub Pages 처럼 하위 경로에 올릴 때는 base 를 지정한다.
 MEDMAP_BASE=/medmap/ npm run build
 ```
 
+Windows 의 Git Bash 에서는 앞의 `/` 를 Windows 경로로 바꿔 버리므로 `MSYS_NO_PATHCONV=1` 을 함께 준다.
+
+```bash
+MSYS_NO_PATHCONV=1 MEDMAP_BASE=/medmap/ npm run build
+```
+
 ### 테스트
 
 ```bash
