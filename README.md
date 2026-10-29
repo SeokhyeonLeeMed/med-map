@@ -69,16 +69,16 @@ npm run build        # 타입 검사 후 dist/ 생성
 npm run preview      # 빌드 결과 미리보기
 ```
 
-GitHub Pages 처럼 하위 경로에 올릴 때는 base 를 지정한다.
+GitHub Pages 처럼 하위 경로에 올릴 때는 base 를 지정한다. 저장소는 https://github.com/SeokhyeonLeeMed/med-map 이고, `main` 에 push 하면 `.github/workflows/deploy.yml` 이 저장소 이름으로 base 를 잡아 Pages 에 배포한다(저장소 Settings → Pages 의 Source 가 **GitHub Actions** 여야 한다).
 
 ```bash
-MEDMAP_BASE=/medmap/ npm run build
+MEDMAP_BASE=/med-map/ npm run build
 ```
 
 Windows 의 Git Bash 에서는 앞의 `/` 를 Windows 경로로 바꿔 버리므로 `MSYS_NO_PATHCONV=1` 을 함께 준다.
 
 ```bash
-MSYS_NO_PATHCONV=1 MEDMAP_BASE=/medmap/ npm run build
+MSYS_NO_PATHCONV=1 MEDMAP_BASE=/med-map/ npm run build
 ```
 
 ### 테스트
