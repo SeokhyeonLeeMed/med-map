@@ -206,6 +206,24 @@ export interface SourceRef {
   note?: string
 }
 
+export interface NationalTotal {
+  year: number
+  term: string
+  track: string
+  metric: string
+  value: number
+  institutionCount?: number
+  sourceId: string
+  status: VerificationStatus
+  note?: string
+}
+
+export interface Coverage {
+  nationalTotals: NationalTotal[]
+  coverageWarning: string
+  note: string
+}
+
 export interface Dataset {
   hospitals: Hospital[]
   schools: MedicalSchool[]

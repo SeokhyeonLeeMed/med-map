@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { Dataset, Hospital, Institution, MedicalSchool, SourceRef } from '../types'
 import { activeEmergency, activeTertiary, isHospital, recruitmentFor } from '../lib/domain'
 import { useStore } from '../store'
@@ -9,6 +9,19 @@ export function DetailPanel({ institution }: { institution: Institution }) {
   const data = useStore((s) => s.data)!
   const select = useStore((s) => s.select)
   const [tab, setTab] = useState<Tab>('개요')
+
+  // Esc 로 상세 패널을 닫는다. 검색창이나 입력에 포커스가 있을 때는 그쪽이 먼저 처리한다.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const el = document.activeElement
+      if (e.key !== 'Escape' || el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) return
+      // 위에 열린 대화상자가 있으면 그쪽이 먼저 닫히도록 둔다.
+      if (document.querySelector('[role="dialog"]')) return
+      select(null)
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [select])
   const hospital = isHospital(institution)
   // 예방의학과처럼 의과대학이 모집 단위인 경우가 있어, 자료가 있는 대학에도 수련 탭을 둔다.
   const schoolHasTraining =
@@ -64,7 +77,7 @@ export function DetailPanel({ institution }: { institution: Institution }) {
       <div className="flex-1 overflow-y-auto px-4 py-3 text-sm">
         {tab === '개요' && (hospital ? <HospitalOverview h={institution} /> : <SchoolOverview s={institution} />)}
         {tab === '수련' && <Training institutionId={institution.id} data={data} />}
-        {tab === '진료조직' && hospital && <Organization h={institution} />}
+        {tab === '진료조직' && hospital && <Organization h={institution} data={data} />}
         {tab === '관련기관' && <Related institution={institution} data={data} />}
         {tab === '출처' && <Sources institution={institution} data={data} />}
       </div>
@@ -340,7 +353,18 @@ function Stat({ label, value, unit, unknown }: { label: string; value: number | 
   )
 }
 
-function Organization({ h }: { h: Hospital }) {
+function Organization({ h, data }: { h: Hospital; data: Dataset }) {
+  // 모집 공고에 나온 전공과목. 병원이 운영하는 진료과 전체와 같지 않다.
+  const recruitedSpecialties = useMemo(() => {
+    const set = new Set<string>()
+    for (const r of data.recruitment) {
+      if (!r.hospitalIds.includes(h.id) || !r.specialty) continue
+      if (r.specialty === '전공과별 미확인') continue
+      set.add(r.specialty)
+    }
+    return [...set].sort((a, b) => a.localeCompare(b, 'ko'))
+  }, [h.id, data])
+
   return (
     <div className="space-y-3">
       <section>
@@ -355,9 +379,24 @@ function Organization({ h }: { h: Hospital }) {
         <h4 className="mb-1 text-xs font-semibold">센터·전문과별 근무 인원</h4>
         <p className="text-xs leading-relaxed text-ink-faint">{h.staffing.note ?? h.staffing.status}</p>
       </section>
+      {recruitedSpecialties.length > 0 && (
+        <section>
+          <h4 className="mb-1 text-xs font-semibold">모집 공고로 확인된 전공과목</h4>
+          <ul className="flex flex-wrap gap-1">
+            {recruitedSpecialties.map((sp) => (
+              <li key={sp} className="rounded-sm border border-line-strong bg-paper px-1.5 py-0.5 text-2xs text-ink-soft">
+                {sp}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-1.5 text-2xs leading-relaxed text-ink-faint">
+            레지던트를 모집한 과목일 뿐, 병원이 운영하는 진료과 전체가 아닙니다. 모집인원은 「수련」 탭에 있습니다.
+          </p>
+        </section>
+      )}
       <p className="rounded border border-line bg-paper-sunk p-2.5 text-2xs leading-relaxed text-ink-mute">
-        전공의 모집 공고로 확인되는 <strong>전공과목</strong>은 「수련」 탭에 있습니다. 그 목록은 모집을 한 과일 뿐,
-        병원이 운영하는 진료과 전체와 같지 않습니다.
+        센터·전문과 조직과 근무 인원은 병원 공식 자료로 확인된 것만 싣습니다. 홈페이지에 조직이 있다는 사실만으로
+        인원을 추정하지 않습니다.
       </p>
     </div>
   )

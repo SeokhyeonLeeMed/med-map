@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { Dataset, Filters, HospitalTrait, Institution } from './types'
+import type { Coverage, Dataset, Filters, HospitalTrait, Institution } from './types'
 import { buildSearchIndex, hospitalsWithTraining, toggleMacro, toggleSub, type SearchIndexEntry } from './lib/domain'
 
 const BASE = import.meta.env.BASE_URL
@@ -13,6 +13,7 @@ export interface AppState {
   status: 'loading' | 'ready' | 'error'
   error: string | null
   data: Dataset | null
+  coverage: Coverage | null
   trainedIds: Set<string>
   searchIndex: SearchIndexEntry[]
   filters: Filters
@@ -76,6 +77,7 @@ export const useStore = create<AppState>((set, get) => ({
   status: 'loading',
   error: null,
   data: null,
+  coverage: null,
   trainedIds: new Set(),
   searchIndex: [],
   filters: EMPTY_FILTERS,
@@ -85,7 +87,7 @@ export const useStore = create<AppState>((set, get) => ({
 
   load: async () => {
     try {
-      const [hospitals, schools, relations, trainingUnits, recruitment, regions, sourcesDoc] = await Promise.all([
+      const [hospitals, schools, relations, trainingUnits, recruitment, regions, sourcesDoc, coverage] = await Promise.all([
         fetchJson<Dataset['hospitals']>('hospitals.json'),
         fetchJson<Dataset['schools']>('medical-schools.json'),
         fetchJson<Dataset['relations']>('institution-relations.json'),
@@ -93,6 +95,7 @@ export const useStore = create<AppState>((set, get) => ({
         fetchJson<Dataset['recruitment']>('residency-recruitment.json'),
         fetchJson<Dataset['regions']>('regions.json'),
         fetchJson<{ sources: Dataset['sources'] }>('sources.json'),
+        fetchJson<Coverage>('recruitment-coverage.json'),
       ])
       const data: Dataset = {
         hospitals, schools, relations, trainingUnits, recruitment, regions,
@@ -102,6 +105,7 @@ export const useStore = create<AppState>((set, get) => ({
       set({
         status: 'ready',
         data,
+        coverage,
         trainedIds: hospitalsWithTraining(data),
         searchIndex: buildSearchIndex(data),
         filters: fromUrl.filters,

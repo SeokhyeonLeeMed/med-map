@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { AboutDialog } from './components/AboutDialog'
 import { DetailPanel } from './components/DetailPanel'
 import { FilterPanel } from './components/FilterPanel'
 import { Header } from './components/Header'
@@ -10,6 +11,7 @@ import { selectedInstitution, useStore } from './store'
 
 export default function App() {
   const state = useStore()
+  const [aboutOpen, setAboutOpen] = useState(false)
   const { status, error, data, filters, trainedIds, searchIndex, filterPanelOpen } = state
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export default function App() {
 
   return (
     <div className="flex h-dvh flex-col bg-paper text-ink">
-      <Header shown={shown} total={total} />
+      <Header shown={shown} total={total} onOpenAbout={() => setAboutOpen(true)} />
       <StatsBar shown={shown} />
 
       <div className="relative flex min-h-0 flex-1">
@@ -90,6 +92,7 @@ export default function App() {
           </div>
         )}
       </div>
+      {aboutOpen && <AboutDialog onClose={() => setAboutOpen(false)} />}
     </div>
   )
 }

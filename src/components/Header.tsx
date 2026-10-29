@@ -5,7 +5,15 @@ import { useStore } from '../store'
 
 const AS_OF_LABEL = '2026-10-29'
 
-export function Header({ shown, total }: { shown: Institution[]; total: number }) {
+export function Header({
+  shown,
+  total,
+  onOpenAbout,
+}: {
+  shown: Institution[]
+  total: number
+  onOpenAbout: () => void
+}) {
   const query = useStore((s) => s.filters.query)
   const setQuery = useStore((s) => s.setQuery)
   const select = useStore((s) => s.select)
@@ -133,6 +141,13 @@ export function Header({ shown, total }: { shown: Institution[]; total: number }
           <dd className="font-num tabular-nums">{AS_OF_LABEL}</dd>
         </div>
       </dl>
+
+      <button
+        onClick={onOpenAbout}
+        className="ml-auto shrink-0 rounded border border-line px-2 py-1 text-2xs text-ink-soft hover:border-line-strong hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand md:ml-0"
+      >
+        데이터 정보
+      </button>
     </header>
   )
 }

@@ -48,6 +48,7 @@ export function MapView({ shown }: { shown: Institution[] }) {
   const [ready, setReady] = useState(false)
   const [labels, setLabels] = useState<LabelBox[]>([])
   const [mapError, setMapError] = useState<string | null>(null)
+  const [emergencyRegions, setEmergencyRegions] = useState<string[]>([])
 
   const data = useStore((s) => s.data)
   const selectedId = useStore((s) => s.selectedId)
@@ -182,6 +183,9 @@ export function MapView({ shown }: { shown: Institution[] }) {
     const regionIds = hospital
       ? [...new Set(activeEmergency(hospital).map((e) => e.emergencyRegionId).filter(Boolean))]
       : []
+    setEmergencyRegions(
+      hospital ? [...new Set(activeEmergency(hospital).map((e) => e.emergencyRegionName))] : [],
+    )
     if (regionIds.length === 0) {
       src.setData({ type: 'FeatureCollection', features: [] })
       return
@@ -262,6 +266,14 @@ export function MapView({ shown }: { shown: Institution[] }) {
             새로고침
           </button>
         </div>
+      )}
+      {emergencyRegions.length > 0 && (
+        <p
+          data-testid="emergency-region-caption"
+          className="pointer-events-none absolute right-3 top-3 z-10 rounded border border-alert/30 bg-paper-raised/95 px-2 py-1 text-2xs text-alert shadow-sm backdrop-blur"
+        >
+          권역응급의료센터 관할 권역 <strong className="font-semibold">{emergencyRegions.join(' · ')}</strong>
+        </p>
       )}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         {labels.map((l) => (
