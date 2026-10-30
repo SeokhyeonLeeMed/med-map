@@ -81,6 +81,11 @@ class Build:
         self.hira = {r["hiraId"]: r for r in hira_rows}
         self.hira_match = read_opt(ROOT, ".cache", "hira_match.json") or {}
         self.logos = self.load_logos()
+        # 흰 글자 로고처럼 어두운 배경에서만 보이는 로고
+        self.logo_dark = {
+            iid for iid, e in (read_opt(DATA, "curation", "logo-manifest.json") or {}).get("entries", {}).items()
+            if e.get("background") == "dark"
+        }
 
         self.sgg_to_sub = {}
         for sr in self.regions["subRegions"]:
@@ -824,6 +829,8 @@ class Build:
         for h in hospitals:
             h["variantNames"] = sorted(set(h.pop("sourceNames", [])))
             h["logo"] = self.logos.get(h["id"])
+            if h["id"] in self.logo_dark and h["logo"]:
+                h["logoOnDark"] = True
             if h.get("bedDetail"):
                 # 심평원 합계를 1차 값으로 올리고, 엑셀 경유 값은 뒤에 남겨 둔다.
                 primary = {
@@ -834,6 +841,8 @@ class Build:
                 h["beds"] = [primary] + [b for b in h["beds"] if b["value"] != primary["value"]]
         for s in schools:
             s["logo"] = self.logos.get(s["id"])
+            if s["id"] in self.logo_dark and s["logo"]:
+                s["logoOnDark"] = True
 
         with_dept = sum(1 for h in hospitals if h["departments"]["status"] == VERIFIED)
         with_addr = sum(1 for h in hospitals if h["address"].get("status") == VERIFIED)

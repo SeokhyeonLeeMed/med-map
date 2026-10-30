@@ -62,24 +62,33 @@
   },
   "h-gangnamyonginbyeongwon": {
    "institution": "강남병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gangnamyonginbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.knmc.or.kr/imgs/comm/logo.png?ver=6ae3e32f28ba9",
+   "pageUrl": "https://www.knmc.or.kr/main/main.php",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-gangdonggyeonghuidaehakgyobyeongwon": {
    "institution": "강동경희대학교병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "강동경희대학교의대병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-gangreungasanbyeongwon": {
    "institution": "강릉아산병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gangreungasanbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.gnah.co.kr/attach/IMAGE/TopDesignMgr/LogoImgUpload/2020/8/kUi2WpIG8c7jcOn9.PNG",
+   "pageUrl": "https://www.gnah.co.kr/kor/Main.do",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-gangbuksamseongbyeongwon": {
    "institution": "강북삼성병원",
@@ -106,24 +115,37 @@
   },
   "h-gangwondosokchouiryowon": {
    "institution": "강원특별자치도속초의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gangwondosokchouiryowon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.sokchomc.co.kr/img/logo.png",
+   "pageUrl": "https://www.sokchomc.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gangwondowonjuuiryowon": {
    "institution": "강원특별자치도원주의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gangwondowonjuuiryowon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.kwmc.or.kr/images/t_logo.png?v=1.03",
+   "pageUrl": "http://www.kwmc.or.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-geongukdaehakgyochungjubyeongwon": {
    "institution": "건국대학교 충주병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-geongukdaehakgyochungjubyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.kuh.co.kr/index.do",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-geongukdaehakgyobyeongwon": {
    "institution": "건국대학교병원",
@@ -135,38 +157,61 @@
   },
   "h-gimangwabyeongwon": {
    "institution": "건양의료재단 김안과병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gimangwabyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.kimeye.com/theme/kimeye/img/common/img_logo.png",
+   "pageUrl": "https://www.kimeye.com/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-gyeonggidouiryowonsuwonbyeongwon": {
    "institution": "경기도의료원 수원병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gyeonggidouiryowonsuwonbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.medical.or.kr/suwon/images/suwon_logo.png",
+   "pageUrl": "https://www.medical.or.kr/suwon/index.do",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-gyeonggidouiryowonicheonbyeongwon": {
    "institution": "경기도의료원 이천병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gyeonggidouiryowonicheonbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.medical.or.kr/icheon/index.do",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gyeonggidouiryowonpajubyeongwon": {
    "institution": "경기도의료원파주병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gyeonggidouiryowonpajubyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.medical.or.kr/paju/index.do",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gyeonggidouiryowonpocheonbyeongwon": {
    "institution": "경기도의료원포천병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gyeonggidouiryowonpocheonbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.medical.or.kr/pocheon/index.do",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gyeongbukdaehakgyobyeongwon": {
    "institution": "경북대학교병원",
@@ -193,24 +238,38 @@
   },
   "h-gyeongsangbukdogimcheonuiryowon": {
    "institution": "경상북도김천의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gyeongsangbukdogimcheonuiryowon/topcrop.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.gcmc.or.kr/",
+   "capture": "브라우저로 연 공식 누리집 첫 화면에서 로고 부분을 사람이 잘라 냄",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gyeongsangbukdopohanguiryowon": {
    "institution": "경상북도포항의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gyeongsangbukdopohanguiryowon/cand0.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.pmc.or.kr/pub/images/logo.svg",
+   "pageUrl": "http://www.pmc.or.kr/front/main.do",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".svg"
   },
   "h-gukripgyeongchalbyeongwon": {
    "institution": "경찰병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripgyeongchalbyeongwon/topcrop.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.nph.go.kr/nph/main/main.do",
+   "capture": "브라우저로 연 공식 누리집 첫 화면에서 로고 부분을 사람이 잘라 냄",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gyeonghuidaehakgyobyeongwon": {
    "institution": "경희대학교병원",
@@ -276,17 +335,26 @@
   },
   "h-gwangjugidokbyeongwon": {
    "institution": "광주기독병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gwangjugidokbyeongwon/topcrop.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.kch.or.kr/",
+   "capture": "브라우저로 연 공식 누리집 첫 화면에서 로고 부분을 사람이 잘라 냄",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gwangjubohunbyeongwon": {
    "institution": "광주보훈병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gwangjubohunbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.bohun.or.kr/images/web/gwangju/common/logo.png",
+   "pageUrl": "https://www.bohun.or.kr/gwangju/main.do",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-gukgunsudobyeongwon": {
    "institution": "국군수도병원",
@@ -297,24 +365,36 @@
   },
   "h-gukripgongjubyeongwon": {
    "institution": "국립공주병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripgongjubyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.knmh.go.kr:443/main/img/layout/logo.png",
+   "pageUrl": "https://www.knmh.go.kr:443/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-gukripgyotongjaehwalbyeongwon": {
    "institution": "국립교통재활병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripgyotongjaehwalbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.ntrh.or.kr/images/common/footlogo.png",
+   "pageUrl": "http://www.ntrh.or.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-gukripnajubyeongwon": {
    "institution": "국립나주병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripnajubyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.najumh.go.kr:443/static/image/header/nj.png",
+   "pageUrl": "https://www.najumh.go.kr:443/main.do",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-gukripbeopmubyeongwon": {
    "institution": "국립법무병원",
@@ -325,66 +405,110 @@
   },
   "h-gukripbugokbyeongwon": {
    "institution": "국립부곡병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripbugokbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.bgnmh.go.kr/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gukripamsenteo": {
    "institution": "국립암센터",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripamsenteo/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.ncc.re.kr/images/main/intro_logo_2026.png",
+   "pageUrl": "https://www.ncc.re.kr/",
+   "retrievedOn": "2026-10-30",
+   "background": "dark",
+   "note": "공식 누리집의 로고는 어두운 배경용(흰 글자)이라 화면에서 어두운 판 위에 놓는다.",
+   "copiedExt": ".png"
   },
   "h-gukripamsenteoyeonguso": {
    "institution": "국립암센터연구소",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripamsenteo/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.ncc.re.kr/images/main/intro_logo_2026.png",
+   "pageUrl": "https://www.ncc.re.kr/",
+   "retrievedOn": "2026-10-30",
+   "background": "dark",
+   "note": "공식 누리집의 로고는 어두운 배경용(흰 글자)이라 화면에서 어두운 판 위에 놓는다. 연구소는 국립암센터 로고를 쓴다.",
+   "copiedExt": ".png"
   },
   "h-gukripjaehwalbyeongwon": {
    "institution": "국립재활원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripjaehwalbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.nrc.go.kr:443/static/nrc/image/header/nrc.png",
+   "pageUrl": "https://www.nrc.go.kr:443/nrc/main.do",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-gukripjeongsingeongangsenteo": {
    "institution": "국립정신건강센터",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripjeongsingeongangsenteo/topcrop.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.ncmh.go.kr/ncmh/main.do",
+   "capture": "브라우저로 연 공식 누리집 첫 화면에서 로고 부분을 사람이 잘라 냄",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gukripjunganguiryowon": {
    "institution": "국립중앙의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripjunganguiryowon/cand0.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.nmc.or.kr:443/styles/assets/logo.svg",
+   "pageUrl": "https://www.nmc.or.kr:443/nmc/main",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".svg"
   },
   "h-gukripchuncheonbyeongwon": {
    "institution": "국립춘천병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripchuncheonbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.cnmh.go.kr/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gukmingeongangboheomgongdanilsanbyeongwon": {
    "institution": "국민건강보험공단일산병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukmingeongangboheomgongdanilsanbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.nhimc.or.kr/common/front/kor/images/comm/logo_hd.png",
+   "pageUrl": "https://www.nhimc.or.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-geunrobokjigongdandaejeonbyeongwon": {
    "institution": "근로복지공단 대전병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-geunrobokjigongdandaejeonbyeongwon/topcrop.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.comwel.or.kr/daejeon/index.jsp",
+   "capture": "브라우저로 연 공식 누리집 첫 화면에서 로고 부분을 사람이 잘라 냄",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-geunrobokjigongdantaebaekbyeongwon": {
    "institution": "근로복지공단 태백병원",
@@ -395,10 +519,14 @@
   },
   "h-namyangjuhanyangbyeongwon": {
    "institution": "남양주 한양병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-namyangjuhanyangbyeongwon/cand0.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.hynyj.co.kr/images/intro/ny_logo.svg",
+   "pageUrl": "https://www.hynyj.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".svg"
   },
   "h-nowoneuljidaehakgyobyeongwon": {
    "institution": "노원을지대학교병원",
@@ -410,10 +538,14 @@
   },
   "h-noksaekbyeongwon": {
    "institution": "녹색병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-noksaekbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.greenhospital.co.kr/images/main/head_logo_pc.png",
+   "pageUrl": "https://www.greenhospital.co.kr/main.php",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-nuneangwabyeongwon": {
    "institution": "누네안과병원",
@@ -447,31 +579,48 @@
   },
   "h-daeguuiryowon": {
    "institution": "대구의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-daeguuiryowon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.daegumc.co.kr/main/main.do",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-daegupatimabyeongwon": {
    "institution": "대구파티마병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-daegupatimabyeongwon/cand0.jpg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.fatima.or.kr/data/builder/logo_3.jpg",
+   "pageUrl": "https://www.fatima.or.kr/main/main.do",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-daedongbyeongwon": {
    "institution": "대동병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-daedongbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.ddh.co.kr/images/common/top_logo.png",
+   "pageUrl": "https://www.ddh.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-handobyeongwon": {
    "institution": "대아의료재단한도병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-handobyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.handoh.com/images/inc/logo_new.png",
+   "pageUrl": "https://www.handoh.com/main/index.php",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-daejainbyeongwon": {
    "institution": "대자인병원",
@@ -482,24 +631,36 @@
   },
   "h-daejeonbohunbyeongwon": {
    "institution": "대전보훈병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-daejeonbohunbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.bohun.or.kr/images/web/daejeon/common/logo.png",
+   "pageUrl": "https://www.bohun.or.kr/daejeon/main.do",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-daejeonhangukbyeongwon": {
    "institution": "대전한국병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-daejeonhangukbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.djh.kr/resources/img/site/header_logo.png",
+   "pageUrl": "https://www.djh.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-daejinuiryojaedanbundangjesaengbyeongwon": {
    "institution": "대진의료재단 분당제생병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-daejinuiryojaedanbundangjesaengbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.dmc.or.kr/common/front/kor/images/common/logo_top.png",
+   "pageUrl": "https://www.dmc.or.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-donggukdaehakgyogyeongjubyeongwon": {
    "institution": "동국대학교의과대학경주병원",
@@ -511,17 +672,23 @@
   },
   "h-donggukdaehakgyoilsanbulgyobyeongwon": {
    "institution": "동국대학교일산불교병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "동국대학교일산병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-dongnamgwonwonjaryeokuihakwon": {
    "institution": "동남권원자력의학원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-dongnamgwonwonjaryeokuihakwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.dirams.re.kr/kor/main.do",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-dongadaehakgyobyeongwon": {
    "institution": "동아대학교병원",
@@ -547,10 +714,14 @@
   },
   "h-busangwangyeoksiuiryowon": {
    "institution": "부산광역시의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-busangwangyeoksiuiryowon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.busanmc.or.kr/_Template/Layout/busanmc/_Img/logo.png",
+   "pageUrl": "https://www.busanmc.or.kr/busanmc/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-busandaehakgyobyeongwon": {
    "institution": "부산대학교병원",
@@ -569,24 +740,36 @@
   },
   "h-busanseongmoangwabyeongwon": {
    "institution": "부산성모안과병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-busanseongmoangwabyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://sungmo.co.kr/public/img/index_logo.png",
+   "pageUrl": "http://sungmo.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-bucheonsejongbyeongwon": {
    "institution": "부천세종병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-bucheonsejongbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.sejongh.co.kr/site.png",
+   "pageUrl": "http://www.sejongh.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-bupyeongserimbyeongwon": {
    "institution": "부평세림병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-bupyeongserimbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.iserim.co.kr/inc/css/favicon_400x210.png",
+   "pageUrl": "https://www.iserim.co.kr/html/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-bundangseouldaehakgyobyeongwon": {
    "institution": "분당서울대학교병원",
@@ -598,10 +781,14 @@
   },
   "h-bhshanseobyeongwon": {
    "institution": "비에이치에스한서병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-bhshanseobyeongwon/cand0.gif",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.hanseohospital.or.kr/images/main_logo_01.gif",
+   "pageUrl": "http://www.hanseohospital.or.kr/index.asp",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-bitgoeuljeonnamdaehakgyobyeongwon": {
    "institution": "빛고을전남대학교병원",
@@ -635,10 +822,15 @@
   },
   "h-samyukseoulbyeongwon": {
    "institution": "삼육서울병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-samyukseoulbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.symcs.co.kr/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-sangjujeoksipjabyeongwon": {
    "institution": "상주적십자병원",
@@ -657,31 +849,47 @@
   },
   "h-seouldaehakgyobogeondaehakwon": {
    "institution": "서울대학교보건대학원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "서울대학교.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "note": "대학원 자체 로고가 없어 소속 대학교 로고를 쓴다.",
+   "copiedExt": ".svg"
   },
   "h-seoulseongsimbyeongwon": {
    "institution": "서울성심병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-seoulseongsimbyeongwon/cand0.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.sshosp.co.kr/assets/images/main/logo.svg",
+   "pageUrl": "http://www.sshosp.co.kr/main/main.html",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".svg"
   },
   "h-seouljeoksipjabyeongwon": {
    "institution": "서울적십자병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-seouljeoksipjabyeongwon/topcrop.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.rch.or.kr/web/rchseoul/main/",
+   "capture": "브라우저로 연 공식 누리집 첫 화면(팝업 제거)에서 로고 부분을 사람이 잘라 냄",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-seoulteukbyeolsidongbubyeongwon": {
    "institution": "서울특별시 동부병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-seoulteukbyeolsidongbubyeongwon/browser1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.dbhosp.go.kr/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-seoulteukbyeolsiboramaebyeongwon": {
    "institution": "서울특별시보라매병원",
@@ -693,24 +901,46 @@
   },
   "h-seoulteukbyeolsiseonambyeongwon": {
    "institution": "서울특별시서남병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-seoulteukbyeolsiseonambyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.seoulsnh.or.kr/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-seoulteukbyeolsiseobukbyeongwon": {
    "institution": "서울특별시서북병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-seoulteukbyeolsiseobukbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://sbhosp.seoul.go.kr/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-seoulteukbyeolsiseouluiryowon": {
    "institution": "서울특별시서울의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-seoulteukbyeolsiseouluiryowon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.seoulmc.or.kr/site/kr/index.jsp",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg",
+   "crop": [
+    0,
+    2,
+    300,
+    118
+   ],
+   "note": "캡처에 함께 잡힌 페이지 구분선을 잘라 냈다."
   },
   "h-seoulteukbyeolsieunpyeongbyeongwon": {
    "institution": "서울특별시은평병원",
@@ -721,39 +951,64 @@
   },
   "h-seonggarolrobyeongwon": {
    "institution": "성가롤로병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-seonggarolrobyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.stcarollo.or.kr/img/layout/logo.png",
+   "pageUrl": "https://www.stcarollo.or.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-seongnamsiuiryowon": {
    "institution": "성남시의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-seongnamsiuiryowon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.scmc.kr/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg",
+   "crop": [
+    0,
+    22,
+    392,
+    140
+   ],
+   "note": "캡처 아래쪽 페이지 구분선과 위쪽 배경 그라데이션을 잘라 냈다."
   },
   "h-gangdongseongsimbyeongwon": {
    "institution": "성심의료재단강동성심병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gangdongseongsimbyeongwon/cand1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.kdh.or.kr/images/logo/kangdong_logo.svg",
+   "pageUrl": "https://www.kdh.or.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".svg"
   },
   "h-seongaebyeongwon": {
    "institution": "성애의료재단 성애병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-seongaebyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.sungae.co.kr/images/intro/logo.png",
+   "pageUrl": "https://www.sungae.co.kr/intro/index.do",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-sejongchungnamdaehakgyobyeongwon": {
    "institution": "세종충남대학교병원",
    "sourceDir": 0,
-   "fileName": "세종충남대학교병원.svg",
-   "matchedBy": "세종충남병원",
-   "manual": false,
-   "copiedExt": ".svg"
+   "fileName": "세종충남대학교병원.jpg",
+   "matchedBy": "manual",
+   "manual": true,
+   "note": "svg 원본은 둘레 여백이 커서 화면에서 작게 보여 같은 로고의 jpg 를 여백을 잘라 쓴다.",
+   "copiedExt": ".jpg"
   },
   "h-suncheonhyangdaehakgyobusokgumibyeongwon": {
    "institution": "순천향대학교 부속 구미병원",
@@ -789,10 +1044,14 @@
   },
   "h-silroamangwabyeongwon": {
    "institution": "실로암안과병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-silroamangwabyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://siloam.co.kr/wp/wp-content/uploads/2022/06/logo_n.png",
+   "pageUrl": "https://siloam.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-asanchungmubyeongwon": {
    "institution": "아산충무병원",
@@ -811,17 +1070,25 @@
   },
   "h-andongseongsobyeongwon": {
    "institution": "안동성소병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-andongseongsobyeongwon/cand0.gif",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.sungso.com/main_images/logo2.gif",
+   "pageUrl": "https://www.sungso.com/index_main.html",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-yangsanbyeongwon": {
    "institution": "양산병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-yangsanbyeongwon/cand1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.how2care.co.kr/main/assets/images/common/main_logo_c.svg",
+   "pageUrl": "http://www.how2care.co.kr/main/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".svg"
   },
   "h-yangsanbusandaehakgyobyeongwon": {
    "institution": "양산부산대학교병원",
@@ -833,10 +1100,14 @@
   },
   "h-yeosujeonnambyeongwon": {
    "institution": "여수전남병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-yeosujeonnambyeongwon/cand1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.yscnhosp.com/img/ych/logo/logo_pc.png",
+   "pageUrl": "https://www.yscnhosp.com/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-yeocheonjeonnambyeongwon": {
    "institution": "여천전남병원",
@@ -855,31 +1126,36 @@
   },
   "h-yeonsedaehakgyouigwadaehakyonginsebeuranseubyeongwon": {
    "institution": "연세대학교 의과대학 용인세브란스병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "용인세브란스병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-yeonsedaehakgyobogeondaehakwon": {
    "institution": "연세대학교보건대학원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "연세대학교.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "note": "대학원 자체 로고가 없어 소속 대학교 로고를 쓴다.",
+   "copiedExt": ".svg"
   },
   "h-yeonsedaehakgyouigwadaehakgangnamsebeuranseubyeongwon": {
    "institution": "연세대학교의과대학 강남세브란스병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "강남세브란스병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-yeonsedaehakgyouigwadaehaksebeuranseubyeongwon": {
    "institution": "연세대학교의과대학세브란스병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "세브란스병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-yeongnamdaehakgyobyeongwon": {
    "institution": "영남대학교병원",
@@ -899,17 +1175,25 @@
   },
   "h-yeongdobyeongwon": {
    "institution": "영도병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-yeongdobyeongwon/cand0.jpg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.ydh.co.kr/images/common/logo.jpg",
+   "pageUrl": "https://www.ydh.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-osanhangukbyeongwon": {
    "institution": "오산한국병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-osanhangukbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.oshankook.net/images/main/logo.png",
+   "pageUrl": "http://www.oshankook.net/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-yonginjeongsinbyeongwon": {
    "institution": "용인정신병원",
@@ -920,10 +1204,14 @@
   },
   "h-wongwangdaehakgyouigwadaehaksanbonbyeongwon": {
    "institution": "원광대학교 산본병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-wongwangdaehakgyouigwadaehaksanbonbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.wmcsb.co.kr/theme/sanbon_t/img/logo_2.png",
+   "pageUrl": "https://www.wmcsb.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-wongwangdaehakgyobyeongwon": {
    "institution": "원광대학교병원",
@@ -935,38 +1223,56 @@
   },
   "h-gyeyouiryojaedangyeyobyeongwon": {
    "institution": "의료법인 계요의료재단 계요병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gyeyouiryojaedangyeyobyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.keyo.co.kr/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gilbyeongwon": {
    "institution": "의료법인 길의료재단 길병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "가천대길병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-noksanuiryojaedandongsuwonbyeongwon": {
    "institution": "의료법인 녹산의료재단동수원병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-noksanuiryojaedandongsuwonbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.dswhosp.co.kr/common/img/layout/logo_color.png",
+   "pageUrl": "https://www.dswhosp.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-daeuuiryojaedandaeubyeongwon": {
    "institution": "의료법인 대우의료재단대우병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-daeuuiryojaedandaeubyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.dwho.or.kr/eyoom/theme/company_h4/image/dwho_nlogo.png",
+   "pageUrl": "http://www.dwho.or.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-donggangbyeongwon": {
    "institution": "의료법인 동강의료재단 동강병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-donggangbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.dkmc.or.kr/images/common/logo_head.png",
+   "pageUrl": "https://www.dkmc.or.kr/index.php",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-hwahongbyeongwon": {
    "institution": "의료법인 명인의료재단 화홍병원",
@@ -977,24 +1283,36 @@
   },
   "h-jecheonmyeongjibyeongwon": {
    "institution": "의료법인 명지의료재단 명지병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-jecheonmyeongjibyeongwon/cand1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.jcmj.co.kr/web/theme/d_nanum/html/image/top_logo.png",
+   "pageUrl": "http://www.jcmj.co.kr/web/index.php",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-saebitangwabyeongwon": {
    "institution": "의료법인 세경의료재단 새빛안과병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-saebitangwabyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.saeviteye.com/img/comm/on_logo.png",
+   "pageUrl": "https://www.saeviteye.com/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-yeongseouiryojaedancheonanchungmubyeongwon": {
    "institution": "의료법인 영서의료재단 천안충무병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-yeongseouiryojaedancheonanchungmubyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://m.cmhos.co.kr/img/logo.png",
+   "pageUrl": "http://m.cmhos.co.kr/main.asp",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-sejongbyeongwon": {
    "institution": "의료법인 영제 의료재단 엔케이세종병원",
@@ -1005,17 +1323,26 @@
   },
   "h-yeonghunuiryojaedandaejeonseonbyeongwon": {
    "institution": "의료법인 영훈의료재단 대전선병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-yeonghunuiryojaedandaejeonseonbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.sunhospital.com/main.html",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-ongeurupuiryojaedanonbyeongwon": {
    "institution": "의료법인 온병원그룹의료재단 온병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-ongeurupuiryojaedanonbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://onhospital.org/files/attach/xeicon/1039/default_image.png?t=1773981956",
+   "pageUrl": "https://onhospital.org/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-joteunganganbyeongwon": {
    "institution": "의료법인 은성의료재단 좋은강안병원",
@@ -1026,52 +1353,81 @@
   },
   "h-joteunsamseonbyeongwon": {
    "institution": "의료법인 은성의료재단 좋은삼선병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-joteunsamseonbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.samsun.or.kr/samsun/images/layout/logo.png",
+   "pageUrl": "https://www.samsun.or.kr/samsun/main/main.do?mId=1",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-buminbyeongwon": {
    "institution": "의료법인 인당의료재단 부민병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-buminbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.bumin.co.kr/common/front/busan/images/logo/logo_busan.png",
+   "pageUrl": "http://www.bumin.co.kr/busan/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-haeundaebuminbyeongwon": {
    "institution": "의료법인 인당의료재단 해운대부민병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-haeundaebuminbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.bumin.co.kr/haeundae/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-incheonsarangbyeongwon": {
    "institution": "의료법인 인천사랑병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-incheonsarangbyeongwon/cand0.gif",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.saranghospital.com/aboutstyle/images/main/logo_01.gif",
+   "pageUrl": "http://www.saranghospital.com/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-inhwajaedanhangukbyeongwon": {
    "institution": "의료법인 인화재단 한국병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-inhwajaedanhangukbyeongwon/cand0.gif",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.hanhsp.co.kr/images/logo.gif",
+   "pageUrl": "http://www.hanhsp.co.kr/index.asp",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-jecheonseoulbyeongwon": {
    "institution": "의료법인 자산의료재단 제천서울병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-jecheonseoulbyeongwon/cand1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.seoulhp.co.kr/img/logo_m.png",
+   "pageUrl": "http://www.seoulhp.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-jeongsanjaedanhyoseongbyeongwon": {
    "institution": "의료법인 정산의료재단 효성병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-jeongsanjaedanhyoseongbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://106.248.126.61/hyosung/img/demos/medical/logo.png",
+   "pageUrl": "http://106.248.126.61/hyosung/default.cfm?CFID=1b5a2704-671a-4edd-9726-4b5f2933c5d7&CFTOKEN=0&id=default",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-junganguiryojaedanjungangbyeongwon": {
    "institution": "의료법인 중앙의료재단 중앙병원",
@@ -1089,10 +1445,15 @@
   },
   "h-hyeinuiryojaedanhangukbyeongwon": {
    "institution": "의료법인 혜인의료재단 한국병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-hyeinuiryojaedanhangukbyeongwon/topcrop.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "http://www.hankookhospital.co.kr/",
+   "capture": "브라우저로 연 공식 누리집 첫 화면에서 로고 부분을 사람이 잘라 냄",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-rugauiryojaedannaeunbyeongwon": {
    "institution": "의료법인루가의료재단 나은병원",
@@ -1110,10 +1471,14 @@
   },
   "h-eichipeulreoseuyangjibyeongwon": {
    "institution": "의료법인서울효천의료재단 에이치플러스양지병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-eichipeulreoseuyangjibyeongwon/cand0.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.newyjh.com/images/main_new/logo.svg",
+   "pageUrl": "https://www.newyjh.com/main/index.htm",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".svg"
   },
   "h-ilsanchabyeongwon": {
    "institution": "의료법인성광의료재단일산차병원",
@@ -1125,34 +1490,28 @@
   },
   "h-andongbyeongwon": {
    "institution": "의료법인안동병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-andongbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.andonghospital.co.kr:443/common/front/kor/images/layout/logo_hd.png",
+   "pageUrl": "https://www.andonghospital.co.kr:443/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-yeonghunuiryojaedanyuseongseonbyeongwon": {
    "institution": "의료법인영훈의료재단 유성선병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
-  },
-  "h-ongeurupuiryojaedanonjonghapbyeongwon": {
-   "institution": "의료법인온그룹의료재단온종합병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-yeonghunuiryojaedanyuseongseonbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://yuseongsunhospital.com/img/common/logo_yu.png",
+   "pageUrl": "http://yuseongsunhospital.com/index.html",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-gimpouribyeongwon": {
    "institution": "의료법인우리의료재단김포우리병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
-  },
-  "h-jeongseonuiryojaedanonjonghapbyeongwon": {
-   "institution": "의료법인정선의료재단온종합병원",
    "sourceDir": null,
    "fileName": null,
    "matchedBy": null,
@@ -1167,45 +1526,72 @@
   },
   "h-hanhangilangwabyeongwon": {
    "institution": "의료법인한길의료재단한길안과병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-hanhangilangwabyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://hangileye.co.kr/img/common/hangileye.png",
+   "pageUrl": "https://hangileye.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-cheongjuhanabyeongwon": {
    "institution": "의료법인한마음의료재단하나병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-cheongjuhanabyeongwon/topcrop.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.cjhana.co.kr/main/index.php",
+   "capture": "브라우저로 연 공식 누리집 첫 화면에서 로고 부분을 사람이 잘라 냄",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-pohangsemyeonggidokbyeongwon": {
    "institution": "의료법인한성재단포항세명기독병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-pohangsemyeonggidokbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.phgidok.com/Ivyimages/site/open_content/main/logo.png",
+   "pageUrl": "https://www.phgidok.com/main",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-hanjeonuiryojaedanhanilbyeongwon": {
    "institution": "의료법인한전의료재단 한일병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-hanjeonuiryojaedanhanilbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "http://www.kepcomedi.co.kr/portal/index.do;jsessionid=bTtxQfPvRUQX5qW7lYXlLaZ1W9BhMPLTboscVahZhkrErVrATzbL4d1x8ecLFfCQ.hpwebr01_servlet_hompg",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "crop": [
+    0,
+    0,
+    334,
+    112
+   ],
+   "note": "캡처에 붙어 있던 대표전화 번호를 잘라 냈다.",
+   "copiedExt": ".jpg"
   },
   "h-ihwayeojadaehakgyouigwadaehakbusokmokdongbyeongwon": {
    "institution": "이화여자대학교의과대학부속목동병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "이대목동병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-ihwayeojadaehakgyouigwadaehakbusokseoulbyeongwon": {
    "institution": "이화여자대학교의과대학부속서울병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "이대서울병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-injedaehakgyosanggyebaekbyeongwon": {
    "institution": "인제대학교 상계백병원",
@@ -1233,10 +1619,11 @@
   },
   "h-injedaehakgyoseoulbaekbyeongwon": {
    "institution": "인제대학교서울백병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "인제대학교백병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-injedaehakgyoilsanbaekbyeongwon": {
    "institution": "인제대학교일산백병원",
@@ -1248,24 +1635,34 @@
   },
   "h-incheongwangyeoksiuiryowon": {
    "institution": "인천광역시의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-incheongwangyeoksiuiryowon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.icmc.or.kr/images/common/head_logo2.png",
+   "pageUrl": "https://www.icmc.or.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-incheonsejongbyeongwon": {
    "institution": "인천세종병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-incheonsejongbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://incheon.sejongh.co.kr/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-inhadaehakgyouigwadaehakbusokbyeongwon": {
    "institution": "인하대학교의과대학부속병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "인하대병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-jeongeupasanbyeongwon": {
    "institution": "재단법인 아산사회복지재단 정읍아산병원",
@@ -1284,17 +1681,25 @@
   },
   "h-yesubyeongwon": {
    "institution": "재단법인예수병원유지재단예수병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-yesubyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.jesushospital.com/assets/images/kor/common/header-logo-2022(2).png",
+   "pageUrl": "http://www.jesushospital.com/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-merinolbyeongwon": {
    "institution": "재단법인천주교부산교구유지재단 메리놀병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-merinolbyeongwon/cand0.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.maryknoll.co.kr/images/00common/t_main_logo.svg",
+   "pageUrl": "https://www.maryknoll.co.kr/00main/main.php",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".svg"
   },
   "h-jeonnamdaehakgyobyeongwon": {
    "institution": "전남대학교병원",
@@ -1321,10 +1726,14 @@
   },
   "h-jeonrabukdonamwonuiryowon": {
    "institution": "전북특별자치도 남원의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-jeonrabukdonamwonuiryowon/cand1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.namwonmed.or.kr/assets/img/logo.svg",
+   "pageUrl": "http://www.namwonmed.or.kr/index",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".svg"
   },
   "h-jeonrabukdomaeumsarangbyeongwon": {
    "institution": "전북특별자치도마음사랑병원",
@@ -1335,10 +1744,14 @@
   },
   "h-jeilangwabyeongwon": {
    "institution": "제일안과병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-jeilangwabyeongwon/cand0.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://eyehosp.co.kr/img/logo.svg",
+   "pageUrl": "http://eyehosp.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".svg"
   },
   "h-jejudaehakgyobyeongwon": {
    "institution": "제주대학교병원",
@@ -1357,10 +1770,14 @@
   },
   "h-jejuhanrabyeongwon": {
    "institution": "제주한라병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-jejuhanrabyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.hallahosp.co.kr/images/top/logo.png",
+   "pageUrl": "https://www.hallahosp.co.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-joseondaehakgyobyeongwon": {
    "institution": "조선대학교병원",
@@ -1372,10 +1789,14 @@
   },
   "h-joteunmunhwabyeongwon": {
    "institution": "좋은문화병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-joteunmunhwabyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.moonhwa.or.kr/icons/logo-default.png",
+   "pageUrl": "https://www.moonhwa.or.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-jungangdaehakgyogwangmyeongbyeongwon": {
    "institution": "중앙대학교광명병원",
@@ -1395,24 +1816,27 @@
   },
   "h-chauigwahakdaehakgyogangnamchabyeongwon": {
    "institution": "차의과학대학교 강남차병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "강남차병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-chauigwahakdaehakgyobusokgumichabyeongwon": {
    "institution": "차의과학대학교부속구미차병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "구미차병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-chauigwahakdaehakgyobundangchabyeongwon": {
    "institution": "차의과학대학교분당차병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "분당차병원.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "h-chamjoeunbyeongwon": {
    "institution": "참조은병원",
@@ -1437,17 +1861,25 @@
   },
   "h-changwonhanmaeumbyeongwon": {
    "institution": "창원한마음병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-changwonhanmaeumbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.hanheart.co.kr/img/public_health/hanmaeum_logo.png",
+   "pageUrl": "https://www.hanheart.co.kr/index.html",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-cheongjuseongmobyeongwon": {
    "institution": "청주성모병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-cheongjuseongmobyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.ccmc.or.kr/img/main/logo.png",
+   "pageUrl": "https://www.ccmc.or.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-chubyeongwon": {
    "institution": "추병원",
@@ -1474,38 +1906,59 @@
   },
   "h-chungcheongnamdogongjuuiryowon": {
    "institution": "충청남도 공주의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-chungcheongnamdogongjuuiryowon/cand0.jpg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://gjmc.or.kr/gongjuImg/logo_color.jpg",
+   "pageUrl": "https://gjmc.or.kr/index",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-chungcheongnamdoseosanuiryowon": {
    "institution": "충청남도 서산의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-chungcheongnamdoseosanuiryowon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.seosanmc.or.kr/assets/images/logo.png",
+   "pageUrl": "http://www.seosanmc.or.kr/index",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-chungcheongnamdohongseonguiryowon": {
    "institution": "충청남도 홍성의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-chungcheongnamdohongseonguiryowon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.hsmc.or.kr/assets/images/logo.png",
+   "pageUrl": "http://www.hsmc.or.kr/index",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-chungcheongbukdocheongjuuiryowon": {
    "institution": "충청북도 청주의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-chungcheongbukdocheongjuuiryowon/topcrop.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.cjmc.or.kr/intro.php",
+   "capture": "브라우저로 연 공식 누리집 첫 화면에서 로고 부분을 사람이 잘라 냄",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-chungcheongbukdochungjuuiryowon": {
    "institution": "충청북도 충주의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-chungcheongbukdochungjuuiryowon/cand0.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.cjmct.or.kr/assets/img/logo.svg",
+   "pageUrl": "http://www.cjmct.or.kr/index",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".svg"
   },
   "h-chilgokgyeongbukdaehakgyobyeongwon": {
    "institution": "칠곡경북대학교병원",
@@ -1517,10 +1970,15 @@
   },
   "h-pohangseongmobyeongwon": {
    "institution": "포항성모병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-pohangseongmobyeongwon/topcrop.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://www.pohangsmh.co.kr/",
+   "capture": "브라우저로 연 공식 누리집 첫 화면(팝업 제거)에서 로고 부분을 사람이 잘라 냄",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-gatolrikdaehakgyodaejeonseongmobyeongwon": {
    "institution": "학교법인 가톨릭학원 가톨릭대학교 대전성모병원",
@@ -1602,10 +2060,14 @@
   },
   "h-daegubohunbyeongwon": {
    "institution": "한국보훈복지의료공단 대구보훈병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-daegubohunbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.bohun.or.kr/images/web/daegu/common/logo.png",
+   "pageUrl": "https://www.bohun.or.kr/daegu/main.do",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-busanbohunbyeongwon": {
    "institution": "한국보훈복지의료공단 부산보훈병원",
@@ -1616,17 +2078,25 @@
   },
   "h-jungangbohunbyeongwon": {
    "institution": "한국보훈복지의료공단 중앙보훈병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-jungangbohunbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.bohun.or.kr/images/web/seoul/common/logo.png",
+   "pageUrl": "https://www.bohun.or.kr/seoul/main.do",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-wonjaryeokbyeongwon": {
    "institution": "한국원자력의학원원자력병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-wonjaryeokbyeongwon/cand1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.kcch.re.kr/common/front/kor/images/comm/logo_hd.png",
+   "pageUrl": "http://www.kcch.re.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-hanrimdaehakgyogangnamseongsimbyeongwon": {
    "institution": "한림대학교 강남성심병원",
@@ -1670,10 +2140,15 @@
   },
   "h-inseonguiryojaedanincheonhanrimbyeongwon": {
    "institution": "한림병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-inseonguiryojaedanincheonhanrimbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "http://www.hallym.net/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-hanmaeumjejubyeongwon": {
    "institution": "한마음병원",
@@ -1707,24 +2182,37 @@
   },
   "h-hyeondaebyeongwon": {
    "institution": "현대병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-hyeondaebyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.hdgh.co.kr/img/common/logo_hdgh.png",
+   "pageUrl": "https://www.hdgh.co.kr",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".png"
   },
   "h-hongikbyeongwon": {
    "institution": "홍익병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-hongikbyeongwon/cand0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.hih.or.kr/images/Thumbnail.png",
+   "pageUrl": "http://www.hih.or.kr/",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-hongcheonasanbyeongwon": {
    "institution": "홍천아산병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-hongcheonasanbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://hch.asanfoundation.or.kr/asan/depts/hch/K/deptMain.do",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-hwasunjeonnamdaehakgyobyeongwon": {
    "institution": "화순전남대학교병원",
@@ -1736,17 +2224,27 @@
   },
   "h-saemanyangbyeongwon": {
    "institution": "효산의료재단 안양샘병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-saemanyangbyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://anyang.samhospital.com/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "h-jisaembyeongwon": {
    "institution": "효산의료재단 지샘병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-jisaembyeongwon/browser0.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": null,
+   "pageUrl": "https://gsamhospital.com/",
+   "capture": "브라우저로 연 공식 누리집에서 로고 요소만 캡처",
+   "retrievedOn": "2026-10-30",
+   "copiedExt": ".jpg"
   },
   "ms-gacheon": {
    "institution": "가천대학교 의과대학",
@@ -1782,10 +2280,11 @@
   },
   "ms-geongukgeulrokeol": {
    "institution": "건국대학교(글로컬) 의과대학",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "건국대학교.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "ms-geonyang": {
    "institution": "건양대학교 의과대학",
@@ -1861,10 +2360,11 @@
   },
   "ms-donggukwise": {
    "institution": "동국대학교(WISE) 의과대학",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "동국대학교 와이즈캠퍼스.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "ms-donga": {
    "institution": "동아대학교 의과대학",
@@ -1924,10 +2424,11 @@
   },
   "ms-yeonsemirae": {
    "institution": "연세대학교(미래) 의과대학",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "연세대학교.svg",
+   "matchedBy": "manual",
+   "manual": true,
+   "copiedExt": ".svg"
   },
   "ms-yeongnam": {
    "institution": "영남대학교 의과대학",

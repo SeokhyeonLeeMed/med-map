@@ -137,6 +137,8 @@ export interface Hospital {
   universityRelations: UniversityRelation[]
   homepage: string | null
   logo: string | null
+  /** 흰 글자 로고라 어두운 판 위에 놓아야 보인다 */
+  logoOnDark?: boolean
   /** 출처가 여럿이면 sourceIds 에 모두 적는다. */
   history: Sourced<string> & { sourceIds?: string[] }
   centers: { status: VerificationStatus; items: unknown[]; note?: string }
@@ -171,6 +173,8 @@ export interface MedicalSchool {
   founded: Sourced<string>
   quota: Quota[]
   logo: string | null
+  /** 흰 글자 로고라 어두운 판 위에 놓아야 보인다 */
+  logoOnDark?: boolean
   sourceId: string
   asOf: string
 }

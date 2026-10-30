@@ -97,7 +97,7 @@ npm run fetch:sources    # 심평원 ZIP + 2023~2026년 정원 PDF 내려받기 
 npm run build:geo        # 행정구역 경계 GeoJSON 내려받아 변환 → public/geo/
 npm run build:hira       # 심평원 병원 색인 + 기관명 매칭 → .cache/hira/
 npm run build:data       # 원자료 추출 + 조립 → public/data/
-npm run build:logos      # 로고 사본 복사 → public/logos/
+npm run build:logos      # 로고 사본 복사(여백 자르기) → public/logos/
 npm run validate
 ```
 
@@ -150,7 +150,7 @@ public/data/                앱이 읽는 산출물 (빌드로 생성, 저장소
   regions.json / sources.json
 
 public/geo/                 sido.json (16) · sgg.json (256)
-public/logos/               로고 사본 (기본 .gitignore 대상, 아래 참고)
+public/logos/               로고 사본 (저장소에 포함, 아래 "로고" 참고)
 ```
 
 ### 모델에서 구별하는 것들
@@ -276,7 +276,19 @@ public/logos/               로고 사본 (기본 .gitignore 대상, 아래 참�
 
 병원·대학 로고는 각 기관의 **상표**다. 저장소와 배포본에 포함하되, 상표권은 각 기관에 있고 이 프로젝트가 사용 허락을 받은 것은 아니다. 기관 식별 목적으로만 쓰며, 기관을 사칭하거나 후원 관계를 암시하는 데 쓰지 않는다. 기관의 요청이 있으면 해당 로고를 뺀다.
 
-로고가 없는 기관은 화면에서 기관명 머리글자를 쓴 공통 기본 표식으로 그려진다.
+**수록 범위: 277곳 중 235곳.** 상세 패널 맨 위에 높이 64px 로 크게 보인다.
+
+| 출처 | 기관 수 | 방법 |
+|---|---|---|
+| 사용자가 모아 둔 로고 폴더 | 126 | 파일명 자동 대조 108곳 + 이름이 달라 사람이 짝지은 18곳(보건대학원 2곳 포함) |
+| 기관 공식 누리집 | 109 | `fetch_logos.py`·`fetch_logos_browser.mjs` 로 후보를 받고, **사람이 한 장씩 눈으로 확인해 고른 것만** 썼다 |
+
+- 누리집에서 받은 로고는 manifest 에 이미지 주소(`sourceUrl`)나 받은 페이지(`pageUrl`)를 남긴다. 페이지 첫 화면에서 잘라 낸 것은 `capture` 에 그렇게 적었다.
+- 전화번호·구분선이 같이 잡힌 2~3곳은 `crop` 으로 잘라 냈고, 모든 래스터 로고는 둘레 빈 여백을 자동으로 잘라 화면에서 작아 보이지 않게 했다.
+- 흰 글자 로고(국립암센터)는 `background: "dark"` 로 표시해 화면에서 어두운 판 위에 놓는다.
+- 보건대학원 두 곳과 국립암센터연구소는 자체 로고가 없어 소속 기관 로고를 쓴다.
+
+**로고가 없는 42곳**과 이유: 누리집이 robots.txt 로 수집을 막음(근로복지공단 태백병원·목포한국병원·상주적십자병원·명지병원), 누리집이 열리지 않거나 오류·도메인 만료(국군수도병원·대자인병원·창원경상국립대학교병원·건양대학교부여병원·봉생기념병원·부산보훈병원 등), 로고가 사진 위에 흰 글자로만 있어 깨끗이 떼어 낼 수 없음(누네안과병원·삼척의료원 등), 폐원(경희의료원 교육협력 중앙병원), 확인한 공식 누리집이 없음(한마음병원·추병원·참조은병원 등). 이런 기관은 화면에서 기관명 머리글자를 쓴 공통 기본 표식으로 그려진다.
 
 ```bash
 python scripts/build_logos.py          # 매핑 manifest 만 미리 만든다
@@ -393,7 +405,7 @@ medmap/
   public/
     data/          앱이 읽는 산출물 JSON
     geo/           행정구역 경계 GeoJSON
-    logos/         로고 사본 (.gitignore 대상)
+    logos/         로고 사본 (저장소에 포함)
   scripts/         Python 데이터 파이프라인
     build_geo.py            경계 GeoJSON 생성
     extract_sources.py      xlsx·2026 공고 PDF → 중간 JSON
@@ -402,7 +414,9 @@ medmap/
     build_hira_index.py     심평원 CSV → 병원급 색인 (주소·좌표·진료과목·병상·인력)
     match_hira.py           기관명 ↔ 심평원 요양기관 매칭
     build_data.py           조립 + 중복 병합 → public/data/
-    build_logos.py          로고 매핑·복사
+    build_logos.py          로고 매핑·복사(여백 자르기, 지정 영역 자르기)
+    fetch_logos.py          공식 누리집에서 로고 후보 내려받기(robots.txt 준수)
+    fetch_logos_browser.mjs 자바스크립트 누리집은 브라우저로 열어 로고 요소만 캡처
     validate_data.py        데이터 검증
     geo_match.py            좌표 후보 매칭 + 시군구 판정
     geocode_batch.py        남은 기관 일괄 지오코딩

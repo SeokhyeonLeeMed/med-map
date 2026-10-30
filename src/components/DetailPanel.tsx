@@ -39,13 +39,28 @@ export function DetailPanel({ institution }: { institution: Institution }) {
       : ['개요', '관련기관', '출처']
   // 병원에서 '진료조직' 탭을 보다가 의과대학으로 넘어가면 그 탭이 없다. 빈 화면 대신 개요를 보여 준다.
   const activeTab: Tab = tabs.includes(tab) ? tab : '개요'
+  // 로고 파일을 못 읽으면 머리글자 표식으로 돌아간다. 기관마다 따로 기억한다.
+  const [logoFailed, setLogoFailed] = useState<string | null>(null)
+  const showLogo = !!institution.logo && logoFailed !== institution.id
 
   return (
     <aside className="flex h-full flex-col bg-paper-raised" aria-label="기관 상세 정보">
       <header className="border-b border-line px-4 pb-3 pt-3">
         <div className="flex items-start gap-3">
-          <Logo institution={institution} />
+          {!showLogo && <Monogram institution={institution} />}
           <div className="min-w-0 flex-1">
+            {showLogo && (
+              <img
+                key={institution.id}
+                src={institution.logo!}
+                alt={`${institution.officialName} 로고`}
+                onError={() => setLogoFailed(institution.id)}
+                className={
+                  'mb-2 h-16 w-auto max-w-full object-contain object-left' +
+                  (institution.logoOnDark ? ' rounded bg-[#26313d] px-2 py-1.5' : '')
+                }
+              />
+            )}
             <h2 className="text-[15px] font-semibold leading-snug text-ink">{institution.officialName}</h2>
             <p className="mt-0.5 text-2xs text-ink-mute">
               {institution.sggName ?? '소재지 미확인'}
@@ -93,31 +108,19 @@ export function DetailPanel({ institution }: { institution: Institution }) {
   )
 }
 
-function Logo({ institution }: { institution: Institution }) {
-  const [failed, setFailed] = useState(false)
-  const label = institution.officialName.slice(0, 2)
-  if (!institution.logo || failed) {
-    return (
-      <div
-        className={
-          'grid h-10 w-10 shrink-0 place-items-center rounded border text-[11px] font-semibold ' +
-          (isHospital(institution)
-            ? 'border-brand/25 bg-brand-soft text-brand'
-            : 'border-school/25 bg-[#f5efe4] text-school')
-        }
-        aria-hidden="true"
-      >
-        {label}
-      </div>
-    )
-  }
+function Monogram({ institution }: { institution: Institution }) {
   return (
-    <img
-      src={institution.logo}
-      alt={`${institution.officialName} 로고`}
-      onError={() => setFailed(true)}
-      className="h-10 w-10 shrink-0 rounded border border-line object-contain p-0.5"
-    />
+    <div
+      className={
+        'grid h-12 w-12 shrink-0 place-items-center rounded border text-[13px] font-semibold ' +
+        (isHospital(institution)
+          ? 'border-brand/25 bg-brand-soft text-brand'
+          : 'border-school/25 bg-[#f5efe4] text-school')
+      }
+      aria-hidden="true"
+    >
+      {institution.officialName.replace(/^(의료법인|재단법인|학교법인|사회복지법인)\s*/, '').slice(0, 2)}
+    </div>
   )
 }
 
