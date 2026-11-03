@@ -797,6 +797,64 @@ class Build:
 
     # ---------------------------------------------------------- 실행
 
+    def build_networks(self, hospitals: list, schools: list, relations: list) -> list[dict]:
+        """병원끼리의 계열(같은 대학 부속병원·같은 법인·공공 병원망). 규칙은 hospital-networks.json."""
+        cfg = read(DATA, "curation", "hospital-networks.json")
+        by_id = {h["id"]: h for h in hospitals}
+        school_name = {s["id"]: s["universityName"] for s in schools}
+        out: list[dict] = []
+
+        def add(nid, name, kind, members, source, note):
+            members = sorted(dict.fromkeys(m for m in members if m in by_id))
+            if len(members) < 2:
+                return
+            ms = set(members)
+            # 같은 구성이거나 이미 있는 계열 안에 다 들어가면(학교법인 = 같은 대학 부속병원 등) 싣지 않는다.
+            if any(ms <= set(n["memberIds"]) for n in out):
+                return
+            # 이름이 같은 더 작은 계열(재단명이 이름에 있는 일부 병원만 잡힌 것)은 큰 쪽으로 바꾼다.
+            out[:] = [n for n in out if not (n["name"] == name and set(n["memberIds"]) < ms)]
+            out.append({"id": nid, "country": "KR", "name": name, "kind": kind, "memberIds": members,
+                        "sourceId": source, "status": VERIFIED, "note": note})
+
+        su = cfg["sameUniversity"]
+        by_school: dict[str, list[str]] = {}
+        types_of: dict[str, set[str]] = {}
+        for r in relations:
+            if r["relationType"] in su["relationTypes"] and r["fromType"] == "medicalSchool":
+                by_school.setdefault(r["fromId"], []).append(r["toId"])
+                types_of.setdefault(r["fromId"], set()).add(r["relationType"])
+        for sid, ids in sorted(by_school.items()):
+            mixed = "교육협력병원" in types_of[sid]
+            add(f"net-{sid}", f"{school_name.get(sid, sid)} {'교육병원' if mixed else '부속병원'}",
+                "같은 대학 교육병원" if mixed else "같은 대학 부속병원", ids, su["sourceId"], su["note"])
+
+        pat = re.compile(r"^(?:의료법인|재단법인|학교법인|사회복지법인)\s*(\S+?(?:재단|학원|법인))")
+        by_found: dict[str, list[str]] = {}
+        for h in hospitals:
+            m = pat.match(h["officialName"])
+            if m:
+                by_found.setdefault(m.group(1), []).append(h["id"])
+        ff = cfg["foundationFromName"]
+        for found, ids in sorted(by_found.items()):
+            add(f"net-found-{normalize(found)}", found, "같은 법인", ids, ff["sourceId"], ff["note"])
+
+        for rule in cfg["rules"]:
+            ids = [h["id"] for h in hospitals if any(k in h["officialName"] for k in rule["nameContains"])]
+            add(rule["id"], rule["name"], rule["kind"], ids, rule["sourceId"], rule["note"])
+        for m in cfg["manual"]:
+            ids = []
+            for name in m["members"]:
+                rec = next((h for h in hospitals if name in (h["officialName"], h["commonName"])
+                            or name in h.get("sourceNames", [])), None)
+                if rec is None:
+                    self.warnings.append(f"계열 구성 기관을 찾지 못함: {m['name']} → {name}")
+                else:
+                    ids.append(rec["id"])
+            add(m["id"], m["name"], m["kind"], ids, m["sourceId"], m["note"])
+        print(f"  병원 계열 {len(out)}개 (병원 {len({i for n in out for i in n['memberIds']})}곳)")
+        return out
+
     def run(self) -> int:
         self.attach_designations()
         self.add_extra_hospitals()
@@ -826,6 +884,7 @@ class Build:
                 if where:
                     rec["commonName"] = f"{name} ({where})"
                     rec["nameDisambiguated"] = True
+        networks = self.build_networks(hospitals, schools, relations)
         for h in hospitals:
             h["variantNames"] = sorted(set(h.pop("sourceNames", [])))
             h["logo"] = self.logos.get(h["id"])
@@ -850,6 +909,7 @@ class Build:
         write(hospitals, "hospitals.json")
         write(schools, "medical-schools.json")
         write(relations, "institution-relations.json")
+        write(networks, "hospital-networks.json")
         write(units, "training-units.json")
         write(self.group_recruitment(recruitment, units), "residency-recruitment.json")
         write(self.recruitment_index(recruitment), "recruitment-index.json")

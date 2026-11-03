@@ -116,7 +116,7 @@ def candidates(url: str, html: str, names: list[str]) -> list[tuple[int, str, st
             + [" ".join(p.get("class") or []) + " " + (p.get("id") or "") for p in img.parents if p.name][:4]
         ).lower()
         score = 0
-        if "logo" in attrs or "로고" in attrs:
+        if "logo" in attrs or "로고" in attrs or "ロゴ" in attrs:
             score += 10
         if any(p.name in ("header", "h1") for p in img.parents):
             score += 4
@@ -174,9 +174,14 @@ def main(argv: list[str]) -> int:
     manifest = json.load(io.open(MANIFEST, encoding="utf-8"))["entries"]
     insts = json.load(io.open(os.path.join(ROOT, "public", "data", "hospitals.json"), encoding="utf-8"))
     insts += json.load(io.open(os.path.join(ROOT, "public", "data", "medical-schools.json"), encoding="utf-8"))
+    jp_path = os.path.join(ROOT, "public", "data", "jp.json")
+    if os.path.exists(jp_path):
+        jp = json.load(io.open(jp_path, encoding="utf-8"))
+        insts += jp["hospitals"] + jp["schools"]
     targets = [
         i for i in insts
-        if (i["id"] in argv) or (not argv and not (manifest.get(i["id"]) or {}).get("fileName"))
+        if (i["id"] in argv) or (argv == ["--jp"] and i["id"].startswith("jp-") and not (manifest.get(i["id"]) or {}).get("fileName"))
+        or (not argv and not (manifest.get(i["id"]) or {}).get("fileName"))
     ]
     log_path = os.path.join(OUT, "candidates.json")
     log = json.load(io.open(log_path, encoding="utf-8")) if os.path.exists(log_path) else {}

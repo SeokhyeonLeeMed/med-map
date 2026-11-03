@@ -101,6 +101,11 @@ def main(argv: list[str]) -> int:
         entries[inst["id"]] = resolve(inst["id"], inst["officialName"], keys, index, existing)
         matched += 1 if entries[inst["id"]]["fileName"] else 0
 
+    # 일본 기관(jp-…)은 public/data/jp.json 에 있어 위 순회에 없다. 기존 항목을 그대로 이어 간다.
+    for iid, e in existing.items():
+        if iid.startswith("jp-"):
+            entries[iid] = e
+
     doc = {
         "_note": (
             "기관 ID ↔ 로고 원본 파일 매핑. 파일명과 기관명이 어긋나면 fileName 을 손으로 고치고, "

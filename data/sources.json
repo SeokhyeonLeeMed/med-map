@@ -238,6 +238,14 @@
    "publishedOn": "2026-06-24",
    "retrievedOn": "2026-10-30",
    "note": "'울산 동구 전하동 구 한마음회관 건물을 무상 기부받아 아산의학관을 개관했다', 2025년 3월 1차 개관 후 2026년 6월 확장. 좌표는 OpenStreetMap 의 한마음회관 건물(way 471669153)에서 땄다."
+  },
+  {
+   "id": "src-official-websites",
+   "title": "각 기관 공식 누리집",
+   "publisher": "각 병원",
+   "kind": "기관 공식 누리집",
+   "retrievedOn": "2026-11-03",
+   "note": "로고와 계열 표기(예: 아산재단)를 확인한 공식 누리집. 기관마다 주소는 data/curation/logo-manifest.json 의 pageUrl 에 있다."
   }
  ]
 }

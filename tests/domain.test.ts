@@ -10,6 +10,7 @@ import {
   hospitalsWithTraining,
   hospitalTraits,
   macroState,
+  networksOf,
   normalizeQuery,
   pastEmergency,
   recruitmentFor,
@@ -18,6 +19,8 @@ import {
   toggleMacro,
   toggleSub,
 } from '../src/lib/domain'
+import type { JapanFile } from '../src/lib/japan'
+import { parseUrl, serializeUrl } from '../src/store'
 import type { Dataset, Filters, Hospital } from '../src/types'
 
 const ROOT = join(__dirname, '..')
@@ -32,11 +35,12 @@ const data: Dataset = {
   recruitment: read<{ byInstitution: Dataset['recruitment'] }>('residency-recruitment.json').byInstitution,
   regions: read('regions.json'),
   sources: read<{ sources: Dataset['sources'] }>('sources.json').sources,
+  networks: read('hospital-networks.json'),
 }
 const trainedIds = hospitalsWithTraining(data)
 const searchIndex = buildSearchIndex(data)
 const ctx = { trainedIds, searchIndex }
-const ALL: Filters = { subRegions: [], kinds: ['hospital', 'medicalSchool'], traits: [], query: '' }
+const ALL: Filters = { countries: ['KR'], subRegions: [], kinds: ['hospital', 'medicalSchool'], traits: [], query: '' }
 
 /** 기관별로 묶인 기록을 한 줄로 펼친다. 통합수련 기록은 소속 병원 수만큼 중복된다. */
 const allRecords = Object.values(data.recruitment).flat()
@@ -409,5 +413,107 @@ describe('지도 하이라이트', () => {
     const codes = highlightedSgg(data.regions, new Set(['wonju-chungju']))
     expect([...codes].some((c) => c.startsWith('51'))).toBe(true)
     expect([...codes].some((c) => c.startsWith('43'))).toBe(true)
+  })
+})
+
+
+// ---------------------------------------------------------------- 일본 · 병원 계열
+
+const jp = read<JapanFile>('jp.json')
+const both: Dataset = {
+  ...data,
+  hospitals: [...data.hospitals, ...jp.hospitals],
+  schools: [...data.schools, ...jp.schools],
+  relations: [...data.relations, ...jp.relations],
+  networks: [...data.networks, ...jp.networks],
+  regions: {
+    meta: data.regions.meta,
+    macroRegions: [...data.regions.macroRegions, ...jp.regions.macroRegions],
+    subRegions: [...data.regions.subRegions, ...jp.regions.subRegions],
+  },
+}
+const bothCtx = { trainedIds, searchIndex: buildSearchIndex(both) }
+
+describe('일본 데이터', () => {
+  it('82개 의학부(防衛医科大学校 포함)와 대학병원·특정기능병원을 싣는다', () => {
+    expect(jp.schools).toHaveLength(82)
+    expect(jp.hospitals.every((h) => h.country === 'JP' && h.id.startsWith('jp-'))).toBe(true)
+    // 특정기능병원 명부 88곳이 모두 들어 있다(2026-10-01).
+    expect(jp.hospitals.filter((h) => h.jp?.tokutei)).toHaveLength(88)
+  })
+
+  it('대학마다 본원이 정확히 하나다', () => {
+    const mains = new Map<string, number>()
+    for (const h of jp.hospitals) if (h.jp?.role === '本院') mains.set(h.jp.university!, (mains.get(h.jp.university!) ?? 0) + 1)
+    expect(mains.size).toBe(82)
+    expect([...mains.values()].every((n) => n === 1)).toBe(true)
+  })
+
+  it('2026학년도 의학부 입학정원 합계가 문부과학성 표(9,376)와 같다', () => {
+    const sum = jp.schools.reduce((a, s) => a + (s.quota.find((q) => q.admissionYear === 2026)?.value ?? 0), 0)
+    expect(sum).toBe(9376)
+  })
+
+  it('시구정촌 코드에 jp 를 붙여 한국 시군구 코드와 겹치지 않는다', () => {
+    const kr = new Set(data.regions.subRegions.flatMap((s) => s.sgg))
+    const jpCodes = jp.regions.subRegions.flatMap((s) => s.sgg)
+    expect(jpCodes.every((c) => c.startsWith('jp') && !kr.has(c))).toBe(true)
+    expect(jp.regions.macroRegions).toHaveLength(47)
+  })
+
+  it('수련 정보는 싣지 않고, 일본어 원문 이름만 쓴다', () => {
+    expect(jp.hospitals.some((h) => (data.trainingIndex as Record<string, unknown>)[h.id])).toBe(false)
+    expect(jp.hospitals.every((h) => !/[가-힣]/.test(h.officialName))).toBe(true)
+  })
+})
+
+describe('나라 필터', () => {
+  it('한국만 고르면 일본 기관이 없고, 둘 다 고르면 모두 나온다', () => {
+    const kr = applyFilters(both, ALL, bothCtx)
+    expect(kr.some((i) => i.country === 'JP')).toBe(false)
+    const all = applyFilters(both, { ...ALL, countries: ['KR', 'JP'] }, bothCtx)
+    expect(all).toHaveLength(both.hospitals.length + both.schools.length)
+  })
+
+  it('병원 분류는 나라별로 걸린다: 한국 분류만 고르면 일본 기관은 그대로 둔다', () => {
+    const f: Filters = { ...ALL, countries: ['KR', 'JP'], traits: ['tertiary'] }
+    const out = applyFilters(both, f, bothCtx)
+    expect(out.filter((i) => i.country === 'JP')).toHaveLength(jp.hospitals.length + jp.schools.length)
+    expect(out.filter((i) => i.country !== 'JP').every((i) => i.type === 'hospital')).toBe(true)
+    const tokutei = applyFilters(both, { ...f, traits: ['jpTokutei'] }, bothCtx).filter((i) => i.country === 'JP')
+    expect(tokutei).toHaveLength(88)
+  })
+
+  it('일본 기관 링크로 들어오면 일본을 켠다', () => {
+    const { filters } = parseUrl(`?sel=${jp.hospitals[0].id}`)
+    expect(filters.countries).toContain('JP')
+    expect(parseUrl('').filters.countries).toEqual(['KR'])
+    const url = serializeUrl({ ...ALL, countries: ['KR', 'JP'] }, null)
+    expect([...parseUrl(url).filters.countries].sort()).toEqual(['JP', 'KR'])
+    expect(serializeUrl(ALL, null)).toBe('')
+  })
+})
+
+describe('병원 계열', () => {
+  it('가톨릭대 부속병원(서울성모·여의도성모 등)을 한 계열로 잇는다', () => {
+    const seoul = data.hospitals.find((h) => h.officialName.includes('서울성모'))!
+    const yeouido = data.hospitals.find((h) => h.officialName.includes('여의도성모'))!
+    const nets = networksOf(seoul.id, data)
+    expect(nets.some((n) => n.memberIds.includes(yeouido.id))).toBe(true)
+  })
+
+  it('계열 구성원은 모두 실제 병원이고, 근거 출처가 있다', () => {
+    const ids = new Set(both.hospitals.map((h) => h.id))
+    const sourceIds = new Set([...data.sources, ...jp.sources].map((s) => s.id))
+    for (const n of both.networks) {
+      expect(n.memberIds.length).toBeGreaterThan(1)
+      expect(n.memberIds.every((id) => ids.has(id))).toBe(true)
+      expect(sourceIds.has(n.sourceId)).toBe(true)
+    }
+  })
+
+  it('일본 대학병원 본원과 분원을 같은 대학 계열로 잇는다', () => {
+    const juntendo = jp.networks.find((n) => n.name.startsWith('順天堂大学'))!
+    expect(juntendo.memberIds.length).toBeGreaterThanOrEqual(6)
   })
 })

@@ -66,7 +66,7 @@ export function Header({
 
       <div className="flex min-w-0 items-baseline gap-2">
         <h1 className="shrink-0 text-[15px] font-semibold tracking-tight text-ink">메디컬 맵</h1>
-        <p className="hidden truncate text-2xs text-ink-mute sm:block">의과대학 · 전공의 수련병원</p>
+        <p className="hidden truncate text-2xs text-ink-mute sm:block">한국·일본 의과대학 · 병원</p>
       </div>
 
       <div ref={boxRef} className="relative order-last w-full min-w-0 flex-1 basis-full md:order-none md:basis-auto">

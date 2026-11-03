@@ -4,10 +4,12 @@ import {
   activeEmergency,
   activeTertiary,
   isHospital,
+  networksOf,
   pastEmergency,
   recruitmentFor,
   type RecruitmentSummary,
 } from '../lib/domain'
+import { JP_STAFF_ROWS } from '../lib/japan'
 import { useStore } from '../store'
 
 type Tab = '개요' | '수련' | '진료조직' | '관련기관' | '출처'
@@ -30,13 +32,19 @@ export function DetailPanel({ institution }: { institution: Institution }) {
     return () => document.removeEventListener('keydown', onKey)
   }, [select])
   const hospital = isHospital(institution)
+  const japan = institution.country === 'JP'
   // 예방의학과처럼 의과대학이 모집 단위인 경우가 있어, 자료가 있는 대학에도 수련 탭을 둔다.
   const schoolHasTraining = !hospital && (data.recruitment[institution.id]?.length ?? 0) > 0
-  const tabs: Tab[] = hospital
-    ? ['개요', '수련', '진료조직', '관련기관', '출처']
-    : schoolHasTraining
-      ? ['개요', '수련', '관련기관', '출처']
+  // 일본은 수련 정보를 싣지 않는다(조사 범위 밖).
+  const tabs: Tab[] = japan
+    ? hospital
+      ? ['개요', '진료조직', '관련기관', '출처']
       : ['개요', '관련기관', '출처']
+    : hospital
+      ? ['개요', '수련', '진료조직', '관련기관', '출처']
+      : schoolHasTraining
+        ? ['개요', '수련', '관련기관', '출처']
+        : ['개요', '관련기관', '출처']
   // 병원에서 '진료조직' 탭을 보다가 의과대학으로 넘어가면 그 탭이 없다. 빈 화면 대신 개요를 보여 준다.
   const activeTab: Tab = tabs.includes(tab) ? tab : '개요'
   // 로고 파일을 못 읽으면 머리글자 표식으로 돌아간다. 기관마다 따로 기억한다.
@@ -98,9 +106,16 @@ export function DetailPanel({ institution }: { institution: Institution }) {
       </nav>
 
       <div className="flex-1 overflow-y-auto px-4 py-3 text-sm">
-        {activeTab === '개요' && (hospital ? <HospitalOverview h={institution} /> : <SchoolOverview s={institution} />)}
+        {activeTab === '개요' &&
+          (hospital ? (
+            japan ? <JapanHospitalOverview h={institution} /> : <HospitalOverview h={institution} />
+          ) : (
+            <SchoolOverview s={institution} />
+          ))}
         {activeTab === '수련' && <Training institutionId={institution.id} data={data} />}
-        {activeTab === '진료조직' && hospital && <Organization h={institution} data={data} />}
+        {activeTab === '진료조직' &&
+          hospital &&
+          (japan ? <JapanOrganization h={institution} /> : <Organization h={institution} data={data} />)}
         {activeTab === '관련기관' && <Related institution={institution} data={data} />}
         {activeTab === '출처' && <Sources institution={institution} data={data} />}
       </div>
@@ -119,7 +134,9 @@ function Monogram({ institution }: { institution: Institution }) {
       }
       aria-hidden="true"
     >
-      {institution.officialName.replace(/^(의료법인|재단법인|학교법인|사회복지법인)\s*/, '').slice(0, 2)}
+      {institution.officialName
+        .replace(/^(의료법인|재단법인|학교법인|사회복지법인|国立大学法人|公立大学法人|学校法人|国立研究開発法人|地方独立行政法人|公益財団法人)\s*/, '')
+        .slice(0, 2)}
     </div>
   )
 }
@@ -128,7 +145,20 @@ function Badges({ institution }: { institution: Institution }) {
   if (!isHospital(institution)) {
     return (
       <div className="mt-2 flex flex-wrap gap-1">
+        {institution.country === 'JP' && <Badge tone="plain">일본</Badge>}
         <Badge tone="school">{institution.schoolKind}</Badge>
+        {institution.jp?.establishmentType && <Badge tone="plain">{institution.jp.establishmentType}</Badge>}
+      </div>
+    )
+  }
+  if (institution.country === 'JP') {
+    const jp = institution.jp
+    return (
+      <div className="mt-2 flex flex-wrap gap-1">
+        <Badge tone="plain">일본</Badge>
+        {jp?.tokutei && <Badge tone="brand">特定機能病院{jp.tokutei.category !== 'その他' ? ` ${jp.tokutei.category}` : ''}</Badge>}
+        {jp?.role && <Badge tone="plain">{jp.role === '本院' ? '大学病院 本院' : `大学病院 ${jp.role}`}</Badge>}
+        {institution.coord.status !== '확인됨' && <Badge tone="warn">좌표 {institution.coord.status}</Badge>}
       </div>
     )
   }
@@ -275,12 +305,165 @@ function HospitalOverview({ h }: { h: Hospital }) {
   )
 }
 
+function JapanHospitalOverview({ h }: { h: Hospital }) {
+  const jp = h.jp!
+  return (
+    <dl>
+      <Field label="구분">
+        {jp.roleLabel ?? '대학과 무관한 병원'}
+        {jp.university && <span className="ml-1 text-2xs text-ink-mute">· {jp.university}</span>}
+        {jp.roleNote && <p className="text-2xs leading-snug text-ink-faint">{jp.roleNote}</p>}
+      </Field>
+      <Field label="特定機能病院">
+        {jp.tokutei ? (
+          <span>
+            {jp.tokutei.category === 'その他' ? '그 밖의 특정기능병원' : `특정기능병원 ${jp.tokutei.category}`}
+            <span className="ml-1 text-2xs text-ink-mute">
+              ({jp.tokutei.approvedOn ?? '승인일 미확인'} 승인 · {jp.tokutei.asOf} 명부)
+            </span>
+          </span>
+        ) : (
+          <Unknown what="승인 없음" />
+        )}
+      </Field>
+      <Field label="설치 주체">{jp.establisher ?? <Unknown />}</Field>
+      <Field label="주소">
+        {h.address.value ?? <Unknown what="주소 미확인" />}
+        {h.coord.lat != null && (
+          <div className="font-num text-2xs text-ink-faint">
+            {h.coord.lat.toFixed(5)}, {h.coord.lon!.toFixed(5)}
+          </div>
+        )}
+        {h.coord.note && <p className="text-2xs leading-snug text-ink-faint">{h.coord.note}</p>}
+      </Field>
+      <Field label="병상 (정원)">
+        {h.bedDetail ? (
+          <>
+            <span className="font-num text-[15px] font-semibold tabular-nums">{h.bedDetail.total.toLocaleString('ko-KR')}</span>
+            <span className="ml-1 text-2xs text-ink-mute">許可病床 · {h.bedDetail.asOf} 기준</span>
+            <ul className="mt-1 flex flex-wrap gap-x-2 gap-y-0.5 text-2xs text-ink-mute">
+              {Object.entries(h.bedDetail.breakdown).map(([k, v]) => (
+                <li key={k}>
+                  {k} <span className="font-num tabular-nums text-ink-soft">{v}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <Unknown />
+        )}
+      </Field>
+      <Field label="의사 수">
+        {jp.staff?.doctorsFull != null ? (
+          <>
+            <span className="font-num text-[15px] font-semibold tabular-nums">{Math.round(jp.staff.doctorsFull)}</span>
+            <span className="ml-1 text-2xs text-ink-mute">상근 · {jp.staffAsOf} 기준 (진료조직 탭에 전체 의료인)</span>
+          </>
+        ) : (
+          <Unknown />
+        )}
+      </Field>
+      <Field label="개설">
+        {jp.founded.value ? (
+          <>
+            <span className="font-num">{jp.founded.value}</span>
+            <span className="ml-1 text-2xs text-ink-mute">({jp.founded.status})</span>
+            {jp.founded.note && <p className="text-2xs leading-snug text-ink-faint">{jp.founded.note}</p>}
+          </>
+        ) : (
+          <Unknown />
+        )}
+      </Field>
+      <Field label="홈페이지">
+        {h.homepage ? (
+          <a className="break-all text-brand underline" href={h.homepage} target="_blank" rel="noreferrer">
+            {h.homepage}
+          </a>
+        ) : (
+          <Unknown />
+        )}
+      </Field>
+    </dl>
+  )
+}
+
+/** 일본 병원의 조직(진료과)과 의료인 수. 과목별 전문의 수는 공개 자료에 없다. */
+function JapanOrganization({ h }: { h: Hospital }) {
+  const jp = h.jp!
+  const depts = h.departments.items
+  const fmt = (v: number | null | undefined) => (v == null ? '—' : Number.isInteger(v) ? v : v.toFixed(1))
+  return (
+    <div className="space-y-4">
+      <section>
+        <h4 className="mb-1.5 text-xs font-semibold">의료인 수</h4>
+        {jp.staff ? (
+          <>
+            <table className="w-full border-collapse text-xs">
+              <thead>
+                <tr className="border-b border-line text-2xs text-ink-mute">
+                  <th scope="col" className="py-1 text-left font-medium">직종</th>
+                  <th scope="col" className="py-1 text-right font-medium">상근</th>
+                  <th scope="col" className="py-1 text-right font-medium">비상근 (상근 환산)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {JP_STAFF_ROWS.map((r) => (
+                  <tr key={r.key} className="border-b border-line/60">
+                    <td className="py-1">{r.label}</td>
+                    <td className="py-1 text-right font-num tabular-nums">{fmt(jp.staff![`${r.key}Full`])}</td>
+                    <td className="py-1 text-right font-num tabular-nums">{fmt(jp.staff![`${r.key}Part`])}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="mt-1.5 text-2xs leading-relaxed text-ink-faint">
+              病床機能報告 施設票의 '施設全体' 값({jp.staffAsOf} 시점)입니다. 한국 자료의 '총 의사 수'와 집계 기준이 달라 바로
+              견주지 마세요.
+              {jp.staffNote && ` ${jp.staffNote}`}
+            </p>
+          </>
+        ) : (
+          <p className="text-xs text-ink-faint">미확인 — 病床機能報告에 이 병원의 보고가 없습니다.</p>
+        )}
+      </section>
+      <section>
+        <h4 className="mb-1.5 flex items-baseline gap-2 text-xs font-semibold">
+          진료과목
+          {depts.length > 0 && <span className="font-num text-2xs font-normal text-ink-mute">{depts.length}개</span>}
+        </h4>
+        {depts.length === 0 ? (
+          <p className="text-xs text-ink-faint">미확인</p>
+        ) : (
+          <ul className="flex flex-wrap gap-1">
+            {depts.map((d) => (
+              <li key={d.name} className="rounded-sm border border-line bg-paper px-1.5 py-0.5 text-2xs text-ink-soft">
+                {d.name}
+              </li>
+            ))}
+          </ul>
+        )}
+        {h.departments.note && <p className="mt-1.5 text-2xs leading-relaxed text-ink-faint">{h.departments.note}</p>}
+      </section>
+    </div>
+  )
+}
+
 function SchoolOverview({ s }: { s: MedicalSchool }) {
   return (
     <dl>
       <Field label="구분">{s.schoolKind}</Field>
       <Field label="소재지">{s.sggName ?? <Unknown />}</Field>
-      <Field label="설립">{s.founded.value ?? <Unknown />}</Field>
+      <Field label="설립">
+        {s.founded.value ? (
+          <>
+            <span className="font-num">{s.founded.value}</span>
+            {s.founded.status !== '확인됨' && <span className="ml-1 text-2xs text-ink-mute">({s.founded.status})</span>}
+            {s.founded.note && <p className="text-2xs leading-snug text-ink-faint">{s.founded.note}</p>}
+          </>
+        ) : (
+          <Unknown />
+        )}
+      </Field>
       {s.quota.map((q) => (
         <Field key={q.admissionYear} label={`${q.admissionYear}학년도`}>
           {q.value == null ? (
@@ -297,9 +480,11 @@ function SchoolOverview({ s }: { s: MedicalSchool }) {
       <Field label="대학">
         {s.universityUrl ? <a className="text-brand underline" href={s.universityUrl} target="_blank" rel="noreferrer">{s.universityUrl}</a> : <Unknown />}
       </Field>
-      <Field label="의과대학">
-        {s.schoolUrl ? <a className="text-brand underline" href={s.schoolUrl} target="_blank" rel="noreferrer">{s.schoolUrl}</a> : <Unknown />}
-      </Field>
+      {s.country !== 'JP' && (
+        <Field label="의과대학">
+          {s.schoolUrl ? <a className="text-brand underline" href={s.schoolUrl} target="_blank" rel="noreferrer">{s.schoolUrl}</a> : <Unknown />}
+        </Field>
+      )}
       <Field label="위치 정밀도">
         <span className="text-2xs text-ink-mute">{s.coord.precision ?? s.coord.status}</span>
         {s.coord.note && <p className="text-2xs leading-snug text-ink-faint">{s.coord.note}</p>}
@@ -596,9 +781,57 @@ function Organization({ h, data }: { h: Hospital; data: Dataset }) {
 function Related({ institution, data }: { institution: Institution; data: Dataset }) {
   const select = useStore((s) => s.select)
   const rels = data.relations.filter((r) => r.fromId === institution.id || r.toId === institution.id)
-  if (rels.length === 0) return <p className="text-xs text-ink-faint">자료로 확인된 관련 기관이 없습니다.</p>
+  const nets = isHospital(institution) ? networksOf(institution.id, data) : []
+  if (rels.length === 0 && nets.length === 0)
+    return <p className="text-xs text-ink-faint">자료로 확인된 관련 기관이 없습니다.</p>
   const nameOf = (id: string) =>
     data.hospitals.find((h) => h.id === id)?.officialName ?? data.schools.find((s) => s.id === id)?.officialName ?? id
+  return (
+    <div className="space-y-4">
+      {rels.length > 0 && (
+        <section>
+          <h4 className="mb-1.5 text-xs font-semibold">{isHospital(institution) ? '대학' : '부속·교육 병원'}</h4>
+          <RelationList rels={rels} institution={institution} nameOf={nameOf} select={select} />
+        </section>
+      )}
+      {nets.map((n) => (
+        <section key={n.id}>
+          <h4 className="mb-1.5 flex flex-wrap items-baseline gap-x-2 text-xs font-semibold">
+            같은 계열 · {n.name}
+            <span className="rounded-sm border border-line-strong px-1 py-px text-[10px] font-normal text-ink-mute">{n.kind}</span>
+          </h4>
+          <ul className="space-y-1">
+            {n.memberIds
+              .filter((id) => id !== institution.id)
+              .map((id) => (
+                <li key={id}>
+                  <button
+                    onClick={() => select(id)}
+                    className="flex w-full items-start gap-2 rounded border border-line px-2.5 py-2 text-left hover:border-brand/40 hover:bg-brand-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand"
+                  >
+                    <span className="min-w-0 flex-1 text-xs leading-snug">{nameOf(id)}</span>
+                  </button>
+                </li>
+              ))}
+          </ul>
+          {n.note && <p className="mt-1 text-2xs leading-snug text-ink-faint">{n.note}</p>}
+        </section>
+      ))}
+    </div>
+  )
+}
+
+function RelationList({
+  rels,
+  institution,
+  nameOf,
+  select,
+}: {
+  rels: Dataset['relations']
+  institution: Institution
+  nameOf: (id: string) => string
+  select: (id: string | null) => void
+}) {
   return (
     <ul className="space-y-1">
       {rels.map((r, i) => {
@@ -632,9 +865,15 @@ function Sources({ institution, data }: { institution: Institution; data: Datase
     institution.beds.forEach((b) => ids.add(b.sourceId))
     if (institution.designations.tertiary) ids.add(institution.designations.tertiary.sourceId)
     institution.designations.emergency.forEach((e) => ids.add(e.sourceId))
+    const jp = institution.jp
+    if (jp?.tokutei) ids.add(jp.tokutei.sourceId)
+    if (jp?.founded.sourceId) ids.add(jp.founded.sourceId)
+    if (jp?.staffSourceId) ids.add(jp.staffSourceId)
+    for (const n of networksOf(institution.id, data)) ids.add(n.sourceId)
   } else {
     if (institution.coord.sourceId) ids.add(institution.coord.sourceId)
     ids.add(institution.sourceId)
+    if (institution.founded.sourceId) ids.add(institution.founded.sourceId)
     institution.quota.forEach((q) => ids.add(q.sourceId))
   }
   for (const r of data.recruitment[institution.id] ?? []) ids.add(r.sourceId)

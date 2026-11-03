@@ -1,0 +1,95 @@
+{
+ "_note": "병원끼리의 관계(같은 대학 부속병원·같은 법인·공공 병원망). 빌드(build_data.py)가 아래 규칙으로 한국 계열을 계산한다. 일본 계열은 jp_build.py 가 만든다. 이름이나 로고가 비슷하다는 것만으로는 묶지 않고, 근거(sourceId)가 있는 것만 싣는다.",
+ "_checked": "2026-11-03",
+ "sameUniversity": {
+  "relationTypes": [
+   "부속병원",
+   "위탁운영병원",
+   "교육협력병원"
+  ],
+  "sourceId": "src-xlsx-medical-list",
+  "note": "메디컬 목록 엑셀의 대학-병원 관계에서 같은 의과대학의 부속병원·교육협력병원(위탁운영 포함)끼리 묶는다. 교육협력병원이 섞이면 '교육병원'이라고 부른다."
+ },
+ "foundationFromName": {
+  "sourceId": "src-hira-file-2026",
+  "note": "심평원 요양기관명 앞에 붙은 법인명(의료법인·재단법인·학교법인 ○○)이 같은 병원끼리 묶는다."
+ },
+ "rules": [
+  {
+   "id": "net-kr-seoul-city",
+   "name": "서울특별시 시립병원",
+   "kind": "공공 병원망",
+   "nameContains": [
+    "서울특별시"
+   ],
+   "sourceId": "src-hira-file-2026",
+   "note": "요양기관명에 '서울특별시'가 들어간 서울시 시립병원. 보라매병원은 서울대학교병원이 위탁 운영한다."
+  },
+  {
+   "id": "net-kr-gyeonggi-mc",
+   "name": "경기도의료원",
+   "kind": "공공 병원망",
+   "nameContains": [
+    "경기도의료원"
+   ],
+   "sourceId": "src-hira-file-2026",
+   "note": "경기도의료원 산하 병원."
+  },
+  {
+   "id": "net-kr-bohun",
+   "name": "한국보훈복지의료공단 보훈병원",
+   "kind": "공공 병원망",
+   "nameContains": [
+    "보훈병원"
+   ],
+   "sourceId": "src-hira-file-2026",
+   "note": "요양기관명이 '보훈병원'인 병원. 모두 한국보훈복지의료공단이 운영한다."
+  },
+  {
+   "id": "net-kr-comwel",
+   "name": "근로복지공단 병원",
+   "kind": "공공 병원망",
+   "nameContains": [
+    "근로복지공단"
+   ],
+   "sourceId": "src-hira-file-2026",
+   "note": "근로복지공단 소속 병원."
+  },
+  {
+   "id": "net-kr-redcross",
+   "name": "대한적십자사 적십자병원",
+   "kind": "공공 병원망",
+   "nameContains": [
+    "적십자병원"
+   ],
+   "sourceId": "src-hira-file-2026",
+   "note": "대한적십자사가 운영하는 적십자병원."
+  }
+ ],
+ "manual": [
+  {
+   "id": "net-kr-asan",
+   "name": "아산사회복지재단",
+   "kind": "같은 법인",
+   "members": [
+    "재단법인아산사회복지재단 서울아산병원",
+    "재단법인 아산사회복지재단 정읍아산병원",
+    "강릉아산병원",
+    "홍천아산병원"
+   ],
+   "sourceId": "src-official-websites",
+   "note": "서울아산·정읍아산은 요양기관명에 재단명이 있고, 강릉아산·홍천아산은 공식 누리집 로고에 아산재단(ASAN FOUNDATION) 표기가 있다."
+  },
+  {
+   "id": "net-kr-hyosan",
+   "name": "효산의료재단 샘병원",
+   "kind": "같은 법인",
+   "members": [
+    "효산의료재단 안양샘병원",
+    "효산의료재단 지샘병원"
+   ],
+   "sourceId": "src-hira-file-2026",
+   "note": "요양기관명에 '효산의료재단'이 들어 있다."
+  }
+ ]
+}

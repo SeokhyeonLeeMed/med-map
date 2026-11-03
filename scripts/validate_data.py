@@ -264,10 +264,70 @@ def main() -> int:
                 "서로 다른 기관이 하나로 합쳐졌을 수 있다",
             )
 
+    # ------------------------------------------------------------ 병원 계열(한국)
+    networks = load("hospital-networks.json")
+    hosp_ids = {h["id"] for h in hospitals}
+    for n in networks:
+        if len(n["memberIds"]) < 2:
+            r.error("병원 계열", f"{n['name']}: 구성 병원이 둘보다 적다")
+        for m in n["memberIds"]:
+            if m not in hosp_ids:
+                r.error("참조 무결성", f"{n['name']}: 없는 병원 {m}")
+        if n.get("sourceId") not in source_ids:
+            r.error("출처", f"{n['name']}: 계열 근거 출처 불명")
+
+    # ------------------------------------------------------------ 일본
+    jp_path = os.path.join(ROOT, "public", "data", "jp.json")
+    jp_counts = ""
+    if os.path.exists(jp_path):
+        jp = json.load(io.open(jp_path, encoding="utf-8"))
+        jp_sources = {x["id"] for x in jp["sources"]}
+        jp_insts = jp["hospitals"] + jp["schools"]
+        jp_ids = {i["id"] for i in jp_insts}
+        if len(jp_ids) != len(jp_insts):
+            r.error("중복 ID", "일본 기관 ID 가 겹친다")
+        if jp_ids & (hosp_ids | {s["id"] for s in schools}):
+            r.error("중복 ID", "일본 기관 ID 가 한국 기관 ID 와 겹친다")
+        jp_subs = {s["id"] for s in jp["regions"]["subRegions"]}
+        for i in jp_insts:
+            name = i["officialName"]
+            c = i.get("coord") or {}
+            if c.get("lat") is None:
+                r.warn("좌표", f"[일본] {name}: 좌표 미확인")
+            elif not (20 <= c["lat"] <= 46 and 122 <= c["lon"] <= 154):
+                r.error("좌표 범위", f"[일본] {name}: 일본 밖 좌표 {c['lat']}, {c['lon']}")
+            if c.get("sourceId") and c["sourceId"] not in jp_sources:
+                r.error("출처", f"[일본] {name}: 좌표 출처 불명")
+            if i.get("subRegionId") not in jp_subs:
+                r.error("권역 ID", f"[일본] {name}: 알 수 없는 시구정촌 {i.get('subRegionId')}")
+            if not str(i.get("sgg") or "").startswith("jp"):
+                r.error("권역 ID", f"[일본] {name}: 시구정촌 코드에 jp 접두어가 없다(한국 코드와 겹칠 수 있다)")
+            logo = i.get("logo")
+            if logo and not os.path.exists(os.path.join(ROOT, "public", logo)):
+                r.error("로고", f"[일본] {name}: 로고 파일 없음 {logo}")
+            if i["type"] == "hospital":
+                t = i["jp"].get("tokutei")
+                if t and t.get("sourceId") not in jp_sources:
+                    r.error("출처", f"[일본] {name}: 특정기능병원 출처 불명")
+                if i["jp"].get("staff") is None:
+                    r.warn("의료인 수", f"[일본] {name}: 의료인 수 미확인")
+        for rel in jp["relations"]:
+            if rel["fromId"] not in jp_ids or rel["toId"] not in jp_ids:
+                r.error("참조 무결성", f"[일본] 관계가 없는 기관을 가리킴: {rel['fromId']} → {rel['toId']}")
+        for n in jp["networks"]:
+            if any(m not in jp_ids for m in n["memberIds"]) or n.get("sourceId") not in jp_sources:
+                r.error("병원 계열", f"[일본] {n['name']}: 구성 병원이나 출처가 맞지 않는다")
+        tok = sum(1 for h in jp["hospitals"] if h["jp"].get("tokutei"))
+        if tok != 88:
+            r.error("일본 범위", f"특정기능병원이 {tok}곳이다(명부 88곳)")
+        jp_counts = (f" · 일본 기관 {len(jp_insts)} (병원 {len(jp['hospitals'])} · 의학부 {len(jp['schools'])}), "
+                     f"관계 {len(jp['relations'])}, 계열 {len(jp['networks'])}, 시구정촌 {len(jp_subs)}")
+
     print(r.render())
     print(f"\n  기관 {len(hospitals) + len(schools)} (병원 {len(hospitals)} · 의과대학 {len(schools)})")
     print(f"  관계 {len(relations)} · 모집 단위 {len(units)} · 모집 기록 {len(recruitment)}")
     print(f"  세부권역 {len(regions['subRegions'])} · 대권역 {len(regions['macroRegions'])} · 출처 {len(sources)}")
+    print(f"  병원 계열 {len(networks)}{jp_counts}")
     return 1 if r.errors else 0
 
 

@@ -1,10 +1,17 @@
 import { create } from 'zustand'
-import type { Coverage, Dataset, Filters, HospitalTrait, Institution } from './types'
+import type { Country, Coverage, Dataset, Filters, HospitalTrait, Institution } from './types'
 import { buildSearchIndex, hospitalsWithTraining, toggleMacro, toggleSub, type SearchIndexEntry } from './lib/domain'
+import type { JapanFile } from './lib/japan'
 
 const BASE = import.meta.env.BASE_URL
 
-const EMPTY_FILTERS: Filters = { subRegions: [], kinds: ['hospital', 'medicalSchool'], traits: [], query: '' }
+const EMPTY_FILTERS: Filters = {
+  countries: ['KR'],
+  subRegions: [],
+  kinds: ['hospital', 'medicalSchool'],
+  traits: [],
+  query: '',
+}
 
 /** 좁은 화면에서는 필터가 드로어로 지도를 덮으므로 처음에는 닫아 둔다. */
 const WIDE_SCREEN = typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches
@@ -23,8 +30,12 @@ export interface AppState {
   /** 전체 모집 기록(큰 파일)을 받아 왔는지 */
   recruitmentState: 'idle' | 'loading' | 'ready' | 'error'
   filterPanelOpen: boolean
+  /** 일본 데이터(약 800 KB)는 일본을 처음 켤 때 받는다 */
+  japanState: 'idle' | 'loading' | 'ready' | 'error'
 
   load: () => Promise<void>
+  loadJapan: () => Promise<void>
+  setCountries: (c: Country[]) => void
   loadRecruitment: () => Promise<void>
   setQuery: (q: string) => void
   setKinds: (k: Filters['kinds']) => void
@@ -46,6 +57,8 @@ async function fetchJson<T>(name: string): Promise<T> {
 
 export function serializeUrl(filters: Filters, selectedId: string | null): string {
   const p = new URLSearchParams()
+  const countries = [...filters.countries].sort()
+  if (!(countries.length === 1 && countries[0] === 'KR')) p.set('country', countries.join(',').toLowerCase())
   if (filters.subRegions.length) p.set('region', [...filters.subRegions].sort().join(','))
   if (filters.traits.length) p.set('trait', [...filters.traits].sort().join(','))
   if (filters.kinds.length === 1) p.set('kind', filters.kinds[0])
@@ -58,14 +71,22 @@ export function serializeUrl(filters: Filters, selectedId: string | null): strin
 export function parseUrl(search: string): { filters: Filters; selectedId: string | null } {
   const p = new URLSearchParams(search)
   const kind = p.get('kind')
+  const sel = p.get('sel')
+  const countries = (p.get('country') ?? 'kr')
+    .split(',')
+    .map((c) => c.trim().toUpperCase())
+    .filter((c): c is Country => c === 'KR' || c === 'JP')
+  // 일본 기관을 가리키는 링크로 들어오면 일본을 켠다.
+  if (sel?.startsWith('jp-') && !countries.includes('JP')) countries.push('JP')
   return {
     filters: {
+      countries: countries.length ? [...new Set(countries)] : ['KR'],
       subRegions: (p.get('region') ?? '').split(',').filter(Boolean),
       traits: (p.get('trait') ?? '').split(',').filter(Boolean) as HospitalTrait[],
       kinds: kind === 'hospital' || kind === 'medicalSchool' ? [kind] : ['hospital', 'medicalSchool'],
       query: p.get('q') ?? '',
     },
-    selectedId: p.get('sel'),
+    selectedId: sel,
   }
 }
 
@@ -94,11 +115,12 @@ export const useStore = create<AppState>((set, get) => ({
   flyToken: 0,
   recruitmentState: 'idle',
   filterPanelOpen: WIDE_SCREEN,
+  japanState: 'idle',
 
   load: async () => {
     try {
       // 첫 화면에 필요한 것만 받는다. 모집 기록 전체(약 2 MB)는 상세 패널을 열 때 따로 받는다.
-      const [hospitals, schools, relations, trainingUnits, trainingIndex, regions, sourcesDoc, coverage] =
+      const [hospitals, schools, relations, trainingUnits, trainingIndex, regions, sourcesDoc, coverage, networks] =
         await Promise.all([
           fetchJson<Dataset['hospitals']>('hospitals.json'),
           fetchJson<Dataset['schools']>('medical-schools.json'),
@@ -108,11 +130,13 @@ export const useStore = create<AppState>((set, get) => ({
           fetchJson<Dataset['regions']>('regions.json'),
           fetchJson<{ sources: Dataset['sources'] }>('sources.json'),
           fetchJson<Coverage>('recruitment-coverage.json'),
+          fetchJson<Dataset['networks']>('hospital-networks.json'),
         ])
       const data: Dataset = {
         hospitals, schools, relations, trainingUnits, trainingIndex, regions,
         recruitment: {},
         sources: sourcesDoc.sources,
+        networks,
       }
       const fromUrl = parseUrl(window.location.search)
       set({
@@ -126,6 +150,7 @@ export const useStore = create<AppState>((set, get) => ({
         flyToken: fromUrl.selectedId ? 1 : 0,
       })
       if (fromUrl.selectedId) void get().loadRecruitment()
+      if (fromUrl.filters.countries.includes('JP')) void get().loadJapan()
     } catch (e) {
       set({ status: 'error', error: e instanceof Error ? e.message : String(e) })
     }
@@ -143,6 +168,48 @@ export const useStore = create<AppState>((set, get) => ({
     }
   },
 
+  loadJapan: async () => {
+    const { japanState, data } = get()
+    if (!data || japanState === 'loading' || japanState === 'ready') return
+    set({ japanState: 'loading' })
+    try {
+      const jp = await fetchJson<JapanFile>('jp.json')
+      const cur = get().data!
+      const known = new Set(cur.sources.map((x) => x.id))
+      const merged: Dataset = {
+        ...cur,
+        hospitals: [...cur.hospitals, ...jp.hospitals],
+        schools: [...cur.schools, ...jp.schools],
+        relations: [...cur.relations, ...jp.relations],
+        networks: [...cur.networks, ...jp.networks],
+        regions: {
+          meta: cur.regions.meta,
+          macroRegions: [...cur.regions.macroRegions, ...jp.regions.macroRegions],
+          subRegions: [...cur.regions.subRegions, ...jp.regions.subRegions],
+        },
+        sources: [...cur.sources, ...jp.sources.filter((x) => !known.has(x.id))],
+      }
+      set({ data: merged, searchIndex: buildSearchIndex(merged), japanState: 'ready' })
+    } catch {
+      set({ japanState: 'error' })
+    }
+  },
+  setCountries: (countries) => {
+    if (countries.length === 0) return
+    if (countries.includes('JP')) void get().loadJapan()
+    // 끈 나라의 지역·분류 선택은 함께 지운다. 화면에 안 보이는 조건이 남아 있으면 헷갈린다.
+    const keepRegion = (id: string) => countries.includes(id.startsWith('jp-') ? 'JP' : 'KR')
+    const keepTrait = (t: HospitalTrait) => countries.includes(t.startsWith('jp') ? 'JP' : 'KR')
+    const cur = get().filters
+    const filters = {
+      ...cur,
+      countries,
+      subRegions: cur.subRegions.filter(keepRegion),
+      traits: cur.traits.filter(keepTrait),
+    }
+    set({ filters })
+    syncUrl(filters, get().selectedId)
+  },
   setQuery: (q) => {
     const filters = { ...get().filters, query: q }
     set({ filters })
@@ -181,8 +248,10 @@ export const useStore = create<AppState>((set, get) => ({
     syncUrl(filters, get().selectedId)
   },
   clearFilters: () => {
-    set({ filters: EMPTY_FILTERS })
-    syncUrl(EMPTY_FILTERS, get().selectedId)
+    // 나라 선택은 '보는 범위'라서 초기화해도 유지한다.
+    const filters = { ...EMPTY_FILTERS, countries: get().filters.countries }
+    set({ filters })
+    syncUrl(filters, get().selectedId)
   },
   select: (id, fly = true) => {
     if (id) void get().loadRecruitment()
@@ -201,6 +270,7 @@ export const useStore = create<AppState>((set, get) => ({
     set((s) => ({ filters, selectedId, flyToken: s.flyToken + 1 }))
     // 뒤로·앞으로 가기로 선택 상태에 돌아왔을 때도 수련 탭이 비지 않게 한다.
     if (selectedId) void get().loadRecruitment()
+    if (filters.countries.includes('JP')) void get().loadJapan()
   },
 }))
 

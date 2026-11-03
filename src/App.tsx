@@ -48,7 +48,7 @@ export default function App() {
             (filterPanelOpen ? 'max-lg:translate-x-0' : 'max-lg:-translate-x-full')
           }
         >
-          <FilterPanel shown={shown} />
+          <FilterPanel />
         </div>
         {filterPanelOpen && (
           <button

@@ -92,7 +92,7 @@ test('필터를 조합하면 결과가 함께 좁아진다', async ({ page }) =>
   await openFilters(page)
   await page.getByRole('checkbox', { name: '경기서남' }).check()
   const regionOnly = await countOf()
-  await page.getByRole('checkbox', { name: /권역응급의료센터/ }).check()
+  await page.getByRole('button', { name: /권역응급의료센터/ }).click()
   const combined = await countOf()
   expect(combined).toBeLessThanOrEqual(regionOnly)
   expect(combined).toBeGreaterThan(0)
@@ -209,4 +209,35 @@ test('공식 주소가 상세 패널에 나온다', async ({ page }) => {
   const panel = page.getByRole('complementary', { name: '기관 상세 정보' })
   await expect(panel.getByText(/충청북도 청주시 서원구 .*로/)).toBeVisible()
   await expect(panel.getByText('상급종합', { exact: true })).toBeVisible()
+})
+
+test('일본을 켜면 일본 기관이 함께 나오고 상세 패널에 일본 정보가 보인다', async ({ page }) => {
+  await page.goto('./')
+  await openFilters(page)
+  await page.getByRole('button', { name: /^일본/ }).click()
+  await expect(page.locator('dt', { hasText: /^일본$/ })).toBeVisible({ timeout: 20_000 })
+  await page.getByLabel('기관 검색').fill('東京大学医学部附属病院')
+  await page.getByRole('option').first().click()
+  const panel = page.getByRole('complementary', { name: '기관 상세 정보' })
+  await expect(panel.getByRole('heading').first()).toContainText('東京大学医学部附属病院')
+  await expect(panel.getByText(/특정기능병원 A/)).toBeVisible()
+  // 일본은 수련 탭이 없다
+  await expect(panel.getByRole('tab', { name: '수련' })).toHaveCount(0)
+  await panel.getByRole('tab', { name: '관련기관' }).click()
+  await expect(panel.getByText(/같은 계열/).first()).toBeVisible()
+})
+
+test('같은 계열 병원(서울성모 ↔ 여의도성모)으로 이동할 수 있다', async ({ page }) => {
+  await page.goto('./')
+  await page.getByLabel('기관 검색').fill('서울성모병원')
+  await page.getByRole('option').first().click()
+  const panel = page.getByRole('complementary', { name: '기관 상세 정보' })
+  await panel.getByRole('tab', { name: '관련기관' }).click()
+  await panel.getByRole('button', { name: /여의도성모병원/ }).click()
+  await expect(panel.getByRole('heading').first()).toContainText('여의도성모병원')
+})
+
+test('지도에 북쪽을 되돌리는 나침반 버튼이 있다', async ({ page }) => {
+  await page.goto('./')
+  await expect(page.getByRole('button', { name: /Reset bearing to north|북쪽/ })).toBeVisible()
 })

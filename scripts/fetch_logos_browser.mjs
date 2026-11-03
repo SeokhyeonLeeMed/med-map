@@ -18,6 +18,9 @@ const UA = 'medmap-logo-fetch/0.1 (+https://github.com/SeokhyeonLeeMed/med-map)'
 const insts = [
   ...JSON.parse(fs.readFileSync(path.join(root, 'public/data/hospitals.json'), 'utf8')),
   ...JSON.parse(fs.readFileSync(path.join(root, 'public/data/medical-schools.json'), 'utf8')),
+  ...(fs.existsSync(path.join(root, 'public/data/jp.json'))
+    ? (({ hospitals, schools }) => [...hospitals, ...schools])(JSON.parse(fs.readFileSync(path.join(root, 'public/data/jp.json'), 'utf8')))
+    : []),
 ]
 const byId = Object.fromEntries(insts.map((i) => [i.id, i]))
 const log = fs.existsSync(logPath) ? JSON.parse(fs.readFileSync(logPath, 'utf8')) : {}
@@ -50,7 +53,7 @@ async function allowed(url) {
 
 const targets = process.argv.slice(2).map((a) => {
   const [id, ...rest] = a.split('=')
-  return { id, url: rest.join('=') || byId[id]?.homepage }
+  return { id, url: rest.join('=') || byId[id]?.homepage || byId[id]?.universityUrl }
 })
 
 const browser = await chromium.launch({ channel: 'chrome' })
@@ -88,7 +91,7 @@ for (const { id, url: raw } of targets) {
         .toLowerCase()
       const bg = s.backgroundImage !== 'none'
       const hasImg = el.tagName === 'IMG' || el.tagName === 'svg' || bg || el.querySelector('img, svg')
-      if (!/logo|로고/.test(attrs) || !hasImg) continue
+      if (!/logo|로고|ロゴ/.test(attrs) || !hasImg) continue
       if (/foot|bottom|btm|sns|banner|popup/.test(attrs)) continue
       const key = `${Math.round(r.left)},${Math.round(r.top)},${Math.round(r.width)}`
       if (seen.has(key)) continue

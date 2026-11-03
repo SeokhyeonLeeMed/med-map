@@ -1,0 +1,1489 @@
+{
+ "_note": "지도에 올리는 일본 병원. 82개 의대(防衛医科大学校 포함)의 대학병원과 特定機能病院(2026-10-01, 88곳). openDataId 는 医療情報ネット オープンデータ ID. role: 本院(特定機能病院A 승인 대학병원 또는 roleNote 의 근거로 지정)·分院·研究所附属·指定管理.",
+ "_checked": "2026-11-03",
+ "hospitals": [
+  {
+   "openDataId": "0111010000010",
+   "name": "札幌医科大学附属病院",
+   "university": "札幌医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "北海道公立大学法人札幌医科大学附属病院",
+    "approvedOn": "H19.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "0111010000420",
+   "name": "北海道大学病院",
+   "university": "北海道大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人北海道大学病院",
+    "approvedOn": "H6.10.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "0111010002130",
+   "name": "旭川医科大学病院",
+   "university": "旭川医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人旭川医科大学病院",
+    "approvedOn": "H6.10.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "0210210000026",
+   "name": "弘前大学医学部附属病院",
+   "university": "弘前大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人弘前大学医学部附属病院",
+    "approvedOn": "H6.8.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "03103101064",
+   "name": "岩手医科大学附属病院",
+   "university": "岩手医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人岩手医科大学附属病院",
+    "approvedOn": "R1.9.21"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "03103101065",
+   "name": "岩手医科大学附属内丸メディカルセンター",
+   "university": "岩手医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "041800936",
+   "name": "東北医科薬科大学病院",
+   "university": "東北医科薬科大学",
+   "tokutei": null,
+   "role": "本院",
+   "roleNote": "特定機能病院 승인이 없는 대학의 대학병원 본원(東北医科薬科大学 医学部 교육 병원)."
+  },
+  {
+   "openDataId": "041801848",
+   "name": "東北大学病院",
+   "university": "東北大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人東北大学病院",
+    "approvedOn": "H6.8.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "041802108",
+   "name": "東北医科薬科大学　若林病院",
+   "university": "東北医科薬科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "0511050500200",
+   "name": "秋田大学医学部附属病院",
+   "university": "秋田大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人秋田大学医学部附属病院",
+    "approvedOn": "H6.1.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "061106510157",
+   "name": "国立大学法人山形大学医学部附属病院",
+   "university": "山形大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人山形大学医学部附属病院",
+    "approvedOn": "H6.11.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "0710710000016",
+   "name": "公立大学法人　福島県立医科大学附属病院",
+   "university": "福島県立医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "公立大学法人福島県立医科大学附属病院",
+    "approvedOn": "H18.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "0710710000059",
+   "name": "公立大学法人福島県立医科大学会津医療センター附属病院",
+   "university": "福島県立医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "081108590171",
+   "name": "東京医科大学茨城医療センター",
+   "university": "東京医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "081108610019",
+   "name": "筑波大学附属病院",
+   "university": "筑波大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人筑波大学附属病院",
+    "approvedOn": "H7.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "0911090006051",
+   "name": "国際医療福祉大学病院",
+   "university": "国際医療福祉大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "0911090007051",
+   "name": "自治医科大学附属病院",
+   "university": "自治医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人自治医科大学附属病院",
+    "approvedOn": "H6.1.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "0911090007052",
+   "name": "獨協医科大学病院",
+   "university": "獨協医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人獨協学園獨協医科大学病院",
+    "approvedOn": "H6.3.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "0911091000008",
+   "name": "国際医療福祉大学塩谷病院",
+   "university": "国際医療福祉大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1011100000001",
+   "name": "群馬大学医学部附属病院",
+   "university": "群馬大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人群馬大学医学部附属病院",
+    "approvedOn": "H31.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1111103558700",
+   "name": "埼玉医科大学国際医療センター",
+   "university": "埼玉医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1111103872100",
+   "name": "自治医科大学附属さいたま医療センター",
+   "university": "自治医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1111108163500",
+   "name": "北里大学メディカルセンター",
+   "university": "北里大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1111108678500",
+   "name": "防衛医科大学校病院",
+   "university": "防衛医科大学校",
+   "tokutei": {
+    "category": "A",
+    "listedName": "防衛医科大学校病院",
+    "approvedOn": "H9.2.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1111108994600",
+   "name": "順天堂大学医学部附属順天堂越谷病院",
+   "university": "順天堂大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1111109003000",
+   "name": "獨協医科大学埼玉医療センター",
+   "university": "獨協医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1111110041900",
+   "name": "埼玉医科大学病院",
+   "university": "埼玉医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人埼玉医科大学病院",
+    "approvedOn": "H6.3.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1111110121000",
+   "name": "埼玉医科大学総合医療センター",
+   "university": "埼玉医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1211200019100",
+   "name": "東京女子医科大学附属八千代医療センター",
+   "university": "東京女子医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1211200586000",
+   "name": "順天堂大学医学部附属浦安病院",
+   "university": "順天堂大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1211200589400",
+   "name": "国際医療福祉大学市川病院",
+   "university": "国際医療福祉大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1211202429500",
+   "name": "東邦大学医療センター佐倉病院",
+   "university": "東邦大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1211202431700",
+   "name": "日本医科大学千葉北総病院",
+   "university": "日本医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1211204532200",
+   "name": "帝京大学ちば総合医療センター",
+   "university": "帝京大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1211204931000",
+   "name": "東京慈恵会医科大学附属柏病院",
+   "university": "東京慈恵会医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1211205424000",
+   "name": "千葉大学医学部附属病院",
+   "university": "千葉大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人千葉大学医学部附属病院",
+    "approvedOn": "H6.7.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1211226716300",
+   "name": "国際医療福祉大学成田病院",
+   "university": "国際医療福祉大学",
+   "tokutei": null,
+   "role": "本院",
+   "roleNote": "医学部(成田キャンパス)의 主たる教育病院. 같은 대학의 다른 附属病院은 분원으로 둔다."
+  },
+  {
+   "openDataId": "1311130200720",
+   "name": "日本大学病院",
+   "university": "日本大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311130500130",
+   "name": "東京大学医科学研究所附属病院",
+   "university": "東京大学",
+   "tokutei": null,
+   "role": "研究所附属"
+  },
+  {
+   "openDataId": "1311130500260",
+   "name": "国際医療福祉大学三田病院",
+   "university": "国際医療福祉大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311130500710",
+   "name": "北里大学　北里研究所病院",
+   "university": "北里大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311130501010",
+   "name": "東京慈恵会医科大学附属病院",
+   "university": "東京慈恵会医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人慈恵大学東京慈恵会医科大学附属病院",
+    "approvedOn": "H6.2.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311130800410",
+   "name": "東京女子医科大学病院",
+   "university": "東京女子医科大学",
+   "tokutei": null,
+   "role": "本院",
+   "roleNote": "2021년 特定機能病院 승인이 취소되었으나 東京女子医科大学의 본원이다."
+  },
+  {
+   "openDataId": "1311130900280",
+   "name": "慶應義塾大学病院",
+   "university": "慶應義塾大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人慶應義塾大学病院",
+    "approvedOn": "H6.2.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311131000640",
+   "name": "東京医科大学病院",
+   "university": "東京医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人東京医科大学病院",
+    "approvedOn": "H21.2.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311131200150",
+   "name": "東京大学医学部附属病院",
+   "university": "東京大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人東京大学病院",
+    "approvedOn": "H7.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311131200280",
+   "name": "東京科学大学病院",
+   "university": "東京科学大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人東京科学大学病院",
+    "approvedOn": "H6.7.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311131200600",
+   "name": "順天堂大学医学部附属順天堂医院",
+   "university": "順天堂大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人順天堂大学医学部附属順天堂医院",
+    "approvedOn": "H5.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311131200730",
+   "name": "日本医科大学付属病院",
+   "university": "日本医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人日本医科大学付属病院",
+    "approvedOn": "H5.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311131800710",
+   "name": "昭和医科大学江東豊洲病院",
+   "university": "昭和医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311131902180",
+   "name": "昭和医科大学病院附属東病院",
+   "university": "昭和医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311132000230",
+   "name": "昭和医科大学病院",
+   "university": "昭和医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人昭和医科大学病院",
+    "approvedOn": "H6.3.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311132100840",
+   "name": "東邦大学医療センター大橋病院",
+   "university": "東邦大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311132301100",
+   "name": "東邦大学医療センター大森病院",
+   "university": "東邦大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人東邦大学医療センター大森病院",
+    "approvedOn": "H5.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311133000530",
+   "name": "昭和医科大学烏山病院",
+   "university": "昭和医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311134301090",
+   "name": "学校法人日本大学　日本大学医学部附属板橋病院",
+   "university": "日本大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人日本大学医学部附属板橋病院",
+    "approvedOn": "H5.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311134301120",
+   "name": "学校法人帝京大学　帝京大学医学部附属病院",
+   "university": "帝京大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人帝京大学医学部附属病院",
+    "approvedOn": "H6.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311134800009",
+   "name": "東京女子医科大学附属足立医療センター",
+   "university": "東京女子医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311135000680",
+   "name": "東京慈恵会医科大学葛飾医療センター",
+   "university": "東京慈恵会医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311136500190",
+   "name": "順天堂大学医学部附属練馬病院",
+   "university": "順天堂大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311136800180",
+   "name": "順天堂大学医学部附属　順天堂東京江東高齢者医療センター",
+   "university": "順天堂大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311137303620",
+   "name": "東京医科大学八王子医療センター",
+   "university": "東京医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311137304890",
+   "name": "東海大学医学部付属八王子病院",
+   "university": "東海大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311137401470",
+   "name": "学校法人日本医科大学　日本医科大学多摩永山病院",
+   "university": "日本医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311137700900",
+   "name": "東京慈恵会医科大学附属第三病院",
+   "university": "東京慈恵会医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1311138100770",
+   "name": "杏林大学医学部付属病院",
+   "university": "杏林大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人杏林学園杏林大学医学部付属病院",
+    "approvedOn": "H6.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311315970009",
+   "name": "杏林大学医学部付属杉並病院",
+   "university": "杏林大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1411402004100",
+   "name": "東海大学医学部付属病院",
+   "university": "東海大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人東海大学医学部付属病院",
+    "approvedOn": "H5.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1411404222300",
+   "name": "公立大学法人横浜市立大学附属市民総合医療センター",
+   "university": "横浜市立大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1411405027700",
+   "name": "聖マリアンナ医科大学横浜市西部病院",
+   "university": "聖マリアンナ医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1411405511200",
+   "name": "公立大学法人横浜市立大学附属病院",
+   "university": "横浜市立大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "公立大学法人横浜市立大学附属病院",
+    "approvedOn": "H17.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1411408288800",
+   "name": "日本医科大学武蔵小杉病院",
+   "university": "日本医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1411408642500",
+   "name": "帝京大学医学部附属溝口病院",
+   "university": "帝京大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1411408856800",
+   "name": "聖マリアンナ医科大学病院",
+   "university": "聖マリアンナ医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人聖マリアンナ医科大学病院",
+    "approvedOn": "H5.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1411410724400",
+   "name": "北里大学病院",
+   "university": "北里大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人北里研究所北里大学病院",
+    "approvedOn": "H5.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1411431000634",
+   "name": "昭和大学藤が丘リハビリテーション病院",
+   "university": "昭和医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1411431000635",
+   "name": "昭和大学横浜市北部病院",
+   "university": "昭和医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "1411431000636",
+   "name": "昭和医科大学藤が丘病院",
+   "university": "昭和医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "151BYNCX00003",
+   "name": "新潟大学医歯学総合病院",
+   "university": "新潟大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人新潟大学医歯学総合病院",
+    "approvedOn": "H6.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1611160510032",
+   "name": "金沢医科大学氷見市民病院",
+   "university": "金沢医科大学",
+   "tokutei": null,
+   "role": "指定管理",
+   "roleNote": "氷見市가 설치하고 金沢医科大学가 指定管理者로 운영한다."
+  },
+  {
+   "openDataId": "1611168010035",
+   "name": "国立大学法人　富山大学附属病院",
+   "university": "富山大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人富山大学附属病院",
+    "approvedOn": "H6.7.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1712210002",
+   "name": "金沢医科大学病院",
+   "university": "金沢医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人金沢医科大学病院",
+    "approvedOn": "H6.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1715110002",
+   "name": "国立大学法人金沢大学附属病院",
+   "university": "金沢大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人金沢大学附属病院",
+    "approvedOn": "H6.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1811180000210",
+   "name": "福井大学医学部附属病院",
+   "university": "福井大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人福井大学医学部附属病院",
+    "approvedOn": "H6.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1911190000003",
+   "name": "国立大学法人山梨大学医学部附属病院",
+   "university": "山梨大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人山梨大学医学部附属病院",
+    "approvedOn": "H7.3.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2011205900410",
+   "name": "信州大学医学部附属病院",
+   "university": "信州大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人信州大学医学部附属病院",
+    "approvedOn": "H6.7.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2111341000136",
+   "name": "岐阜大学医学部附属病院",
+   "university": "岐阜大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人東海国立大学機構岐阜大学医学部附属病院",
+    "approvedOn": "H16.5.20"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2211223300320",
+   "name": "浜松医科大学医学部附属病院",
+   "university": "浜松医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人浜松医科大学医学部附属病院",
+    "approvedOn": "H7.3.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2211225300180",
+   "name": "国際医療福祉大学熱海病院",
+   "university": "国際医療福祉大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2211225602060",
+   "name": "順天堂大学医学部附属静岡病院",
+   "university": "順天堂大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2311230300120",
+   "name": "愛知医科大学病院",
+   "university": "愛知医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人愛知医科大学病院",
+    "approvedOn": "H6.2.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2311230400030",
+   "name": "藤田医科大学病院",
+   "university": "藤田医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人藤田学園藤田医科大学病院",
+    "approvedOn": "H6.5.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2311232200130",
+   "name": "名古屋大学医学部附属病院",
+   "university": "名古屋大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人東海国立大学機構名古屋大学医学部附属病院",
+    "approvedOn": "H7.2.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2311232200290",
+   "name": "名古屋市立大学病院",
+   "university": "名古屋市立大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "公立大学法人名古屋市立大学病院",
+    "approvedOn": "H18.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2311232200390",
+   "name": "名古屋市立大学医学部附属東部医療センター",
+   "university": "名古屋市立大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2311232200400",
+   "name": "名古屋市立大学医学部附属みらい光生病院",
+   "university": "名古屋市立大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2311232200410",
+   "name": "名古屋市立大学医学部附属リハビリテーション病院",
+   "university": "名古屋市立大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2311232300250",
+   "name": "藤田医科大学ばんたね病院",
+   "university": "藤田医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2311232400430",
+   "name": "名古屋市立大学医学部附属西部医療センター",
+   "university": "名古屋市立大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2311232500310",
+   "name": "名古屋市立大学医学部附属みどり市民病院",
+   "university": "名古屋市立大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2311232700230",
+   "name": "藤田医科大学岡崎医療センター",
+   "university": "藤田医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2311232700250",
+   "name": "愛知医科大学メディカルセンター",
+   "university": "愛知医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2411240000550",
+   "name": "国立大学法人　三重大学医学部附属病院",
+   "university": "三重大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人三重大学医学部附属病院",
+    "approvedOn": "H6.11.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2411240000770",
+   "name": "藤田医科大学七栗記念病院",
+   "university": "藤田医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2511250000030",
+   "name": "滋賀医科大学医学部附属病院",
+   "university": "滋賀医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人滋賀医科大学医学部附属病院",
+    "approvedOn": "H7.2.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2612610000046",
+   "name": "京都府立医科大学附属病院",
+   "university": "京都府立医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "京都府公立大学法人京都府立医科大学附属病院",
+    "approvedOn": "H20.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2612610000147",
+   "name": "京都大学医学部附属病院",
+   "university": "京都大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人京都大学医学部附属病院",
+    "approvedOn": "H7.2.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2711270001080",
+   "name": "大阪公立大学医学部附属病院",
+   "university": "大阪公立大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "公立大学法人大阪大阪公立大学医学部附属病院",
+    "approvedOn": "H18.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2711270002440",
+   "name": "大阪大学医学部附属病院",
+   "university": "大阪大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人大阪大学医学部附属病院",
+    "approvedOn": "H6.11.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2711270002850",
+   "name": "大阪医科薬科大学病院",
+   "university": "大阪医科薬科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人大阪医科薬科大学病院",
+    "approvedOn": "H6.2.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2711270002930",
+   "name": "学校法人　関西医科大学　関西医科大学総合医療センター",
+   "university": "関西医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2711270003350",
+   "name": "関西医科大学附属病院",
+   "university": "関西医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人関西医科大学附属病院",
+    "approvedOn": "H18.1.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2711270004300",
+   "name": "近畿大学病院",
+   "university": "近畿大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人近畿大学病院",
+    "approvedOn": "H6.1.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2711270005770",
+   "name": "関西医科大学香里病院",
+   "university": "関西医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2711270006390",
+   "name": "大阪医科薬科大学三島南病院",
+   "university": "大阪医科薬科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2711270006620",
+   "name": "関西医科大学　くずは病院",
+   "university": "関西医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2811280000220",
+   "name": "神戸大学医学部附属病院",
+   "university": "神戸大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人神戸大学医学部附属病院",
+    "approvedOn": "H6.7.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2811280001860",
+   "name": "兵庫医科大学病院",
+   "university": "兵庫医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人兵庫医科大学病院",
+    "approvedOn": "H6.3.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "2811280003360",
+   "name": "兵庫医科大学ささやま医療センター",
+   "university": "兵庫医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2811280003920",
+   "name": "神戸大学医学部附属病院国際がん医療・研究センター",
+   "university": "神戸大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2911004000000",
+   "name": "近畿大学奈良病院",
+   "university": "近畿大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "2911004300000",
+   "name": "公立大学法人　奈良県立医科大学附属病院",
+   "university": "奈良県立医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "公立大学法人奈良県立医科大学附属病院",
+    "approvedOn": "H19.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "3011004100000",
+   "name": "和歌山県立医科大学附属病院",
+   "university": "和歌山県立医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "公立大学法人和歌山県立医科大学附属病院",
+    "approvedOn": "H18.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "3011005900000",
+   "name": "和歌山県立医科大学附属病院紀北分院",
+   "university": "和歌山県立医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "3113113000002",
+   "name": "鳥取大学医学部附属病院",
+   "university": "鳥取大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人鳥取大学医学部附属病院",
+    "approvedOn": "H6.10.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "3211325400690",
+   "name": "国立大学法人島根大学医学部附属病院",
+   "university": "島根大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人島根大学医学部附属病院",
+    "approvedOn": "H7.2.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "3311330000790",
+   "name": "岡山大学病院",
+   "university": "岡山大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人岡山大学病院",
+    "approvedOn": "H6.11.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "3311330000850",
+   "name": "川崎医科大学総合医療センター",
+   "university": "川崎医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "3311330001210",
+   "name": "川崎医科大学附属病院",
+   "university": "川崎医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人川崎学園川崎医科大学附属病院",
+    "approvedOn": "H6.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "3312023121101",
+   "name": "川崎医科大学高齢者医療センター",
+   "university": "川崎医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "3411340011220",
+   "name": "広島大学病院",
+   "university": "広島大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人広島大学病院",
+    "approvedOn": "H6.8.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "3511355800590",
+   "name": "山口大学医学部附属病院",
+   "university": "山口大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人山口大学医学部附属病院",
+    "approvedOn": "H6.1.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "3611365100680",
+   "name": "徳島大学病院",
+   "university": "徳島大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人徳島大学病院",
+    "approvedOn": "H6.8.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "3711370100060",
+   "name": "香川大学医学部附属病院",
+   "university": "香川大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人香川大学医学部附属病院",
+    "approvedOn": "H6.7.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "3811385605750",
+   "name": "愛媛大学医学部附属病院",
+   "university": "愛媛大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人愛媛大学医学部附属病院",
+    "approvedOn": "H6.10.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "3911395108830",
+   "name": "高知大学医学部附属病院",
+   "university": "高知大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人高知大学医学部附属病院",
+    "approvedOn": "H6.1.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "4011400000540",
+   "name": "学校法人福岡大学　福岡大学西新病院",
+   "university": "福岡大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "4011400000910",
+   "name": "福岡大学筑紫病院",
+   "university": "福岡大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "4011400001320",
+   "name": "久留米大学医療センター",
+   "university": "久留米大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "4011400600280",
+   "name": "産業医科大学若松病院",
+   "university": "産業医科大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "4012400100050",
+   "name": "九州大学病院",
+   "university": "九州大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人九州大学病院",
+    "approvedOn": "H7.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "4012400100150",
+   "name": "福岡大学病院",
+   "university": "福岡大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人福岡大学病院",
+    "approvedOn": "H6.2.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "4012400200020",
+   "name": "久留米大学病院",
+   "university": "久留米大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人久留米大学病院",
+    "approvedOn": "H5.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "4012400500100",
+   "name": "産業医科大学病院",
+   "university": "産業医科大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "学校法人産業医科大学病院",
+    "approvedOn": "H6.4.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "4111415102260",
+   "name": "佐賀大学医学部附属病院",
+   "university": "佐賀大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人佐賀大学医学部附属病院",
+    "approvedOn": "H7.3.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "421hna0039",
+   "name": "長崎大学病院",
+   "university": "長崎大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人長崎大学病院",
+    "approvedOn": "H6.1.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "431143310114",
+   "name": "熊本大学病院",
+   "university": "熊本大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人熊本大学病院",
+    "approvedOn": "H6.12.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "4411006300000",
+   "name": "九州大学病院別府病院",
+   "university": "九州大学",
+   "tokutei": null,
+   "role": "分院"
+  },
+  {
+   "openDataId": "4411015400000",
+   "name": "大分大学医学部附属病院",
+   "university": "大分大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人大分大学医学部附属病院",
+    "approvedOn": "H6.11.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "4511450105220",
+   "name": "宮崎大学医学部附属病院",
+   "university": "宮崎大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人宮崎大学医学部附属病院",
+    "approvedOn": "H6.10.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "46110029",
+   "name": "鹿児島大学病院",
+   "university": "鹿児島大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人鹿児島大学病院",
+    "approvedOn": "H6.10.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "47199",
+   "name": "国立大学法人琉球大学　琉球大学病院",
+   "university": "琉球大学",
+   "tokutei": {
+    "category": "A",
+    "listedName": "国立大学法人琉球大学病院",
+    "approvedOn": "H6.8.1"
+   },
+   "role": "本院"
+  },
+  {
+   "openDataId": "1311130300170",
+   "name": "国立研究開発法人国立がん研究センター中央病院",
+   "university": null,
+   "tokutei": {
+    "category": "B",
+    "listedName": "国立研究開発法人国立がん研究センター中央病院",
+    "approvedOn": "H5.9.1"
+   },
+   "role": null
+  },
+  {
+   "openDataId": "1311130800120",
+   "name": "国立健康危機管理研究機構国立国際医療センター",
+   "university": null,
+   "tokutei": {
+    "category": "B",
+    "listedName": "国立健康危機管理研究機構国立国際医療センター",
+    "approvedOn": "H24.11.1"
+   },
+   "role": null
+  },
+  {
+   "openDataId": "1211204939500",
+   "name": "国立研究開発法人 国立がん研究センター東病院",
+   "university": null,
+   "tokutei": {
+    "category": "B",
+    "listedName": "国立研究開発法人国立がん研究センター東病院",
+    "approvedOn": "H29.3.17"
+   },
+   "role": null
+  },
+  {
+   "openDataId": "2711270006880",
+   "name": "国立研究開発法人 国立循環器病研究センター",
+   "university": null,
+   "tokutei": {
+    "category": "B",
+    "listedName": "国立研究開発法人国立循環器病研究センター",
+    "approvedOn": "R1.7.1"
+   },
+   "role": null
+  },
+  {
+   "openDataId": "1311136800470",
+   "name": "公益財団法人がん研究会 有明病院",
+   "university": null,
+   "tokutei": {
+    "category": "その他",
+    "listedName": "公益財団法人がん研究会有明病院",
+    "approvedOn": "H23.10.1"
+   },
+   "role": null
+  },
+  {
+   "openDataId": "2211227100690",
+   "name": "静岡県立静岡がんセンター",
+   "university": null,
+   "tokutei": {
+    "category": "その他",
+    "listedName": "静岡県立静岡がんセンター",
+    "approvedOn": "H25.4.1"
+   },
+   "role": null
+  },
+  {
+   "openDataId": "2711270006540",
+   "name": "地方独立行政法人 大阪府立病院機構 大阪国際がんセンター",
+   "university": null,
+   "tokutei": {
+    "category": "その他",
+    "listedName": "地方独立行政法人大阪府立病院機構大阪国際がんセンター",
+    "approvedOn": "H29.3.25"
+   },
+   "role": null
+  },
+  {
+   "openDataId": "1311130300460",
+   "name": "聖路加国際病院",
+   "university": null,
+   "tokutei": {
+    "category": "その他",
+    "listedName": "学校法人聖路加国際大学聖路加国際病院",
+    "approvedOn": "R2.12.1"
+   },
+   "role": null
+  },
+  {
+   "openDataId": "2311232200020",
+   "name": "愛知県がんセンター",
+   "university": null,
+   "tokutei": {
+    "category": "その他",
+    "listedName": "愛知県がんセンター",
+    "approvedOn": "R4.12.1"
+   },
+   "role": null
+  }
+ ]
+}

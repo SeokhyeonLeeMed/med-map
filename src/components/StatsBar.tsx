@@ -1,5 +1,5 @@
 import type { Institution } from '../types'
-import { computeStats } from '../lib/domain'
+import { computeStats, TRAIT_SHORT } from '../lib/domain'
 import { useStore } from '../store'
 
 export function StatsBar({ shown }: { shown: Institution[] }) {
@@ -12,6 +12,9 @@ export function StatsBar({ shown }: { shown: Institution[] }) {
   if (!data) return null
 
   const s = computeStats(shown, data, trainedIds)
+  const kr = filters.countries.includes('KR')
+  const jp = filters.countries.includes('JP')
+  const both = kr && jp
   const subById = new Map(data.regions.subRegions.map((x) => [x.id, x]))
   const chips: Array<{ key: string; label: string; onRemove: () => void }> = [
     ...filters.subRegions.map((id) => ({
@@ -21,7 +24,7 @@ export function StatsBar({ shown }: { shown: Institution[] }) {
     })),
     ...filters.traits.map((t) => ({
       key: `t:${t}`,
-      label: { tertiary: '상급종합', secondary: '2차병원', university: '대학병원', emergency: '권역응급' }[t],
+      label: TRAIT_SHORT[t],
       onRemove: () => toggleTrait(t),
     })),
   ]
@@ -31,13 +34,32 @@ export function StatsBar({ shown }: { shown: Institution[] }) {
       {/* 좁은 화면에서는 줄바꿈 대신 가로 스크롤로 한 줄을 유지해 지도 높이를 지킨다 */}
       <dl className="flex items-baseline gap-x-4 gap-y-1 overflow-x-auto px-3 py-2 md:flex-wrap md:overflow-visible md:px-4">
         <Item label="기관" value={s.total} strong />
+        {both && (
+          <>
+            <Item label="한국" value={s.korea} />
+            <Item label="일본" value={s.japan} />
+          </>
+        )}
         <Item label="병원" value={s.hospitals} />
-        <Item label="의과대학·의전원" value={s.schools} />
-        <Item label="상급종합" value={s.tertiary} />
-        <Item label="권역응급" value={s.emergency} />
-        <Item label="대학병원" value={s.universityHospitals} />
-        <Item label="인턴 정원·모집 자료" value={s.withIntern} />
-        <Item label="레지던트 정원·모집 자료" value={s.withResident} />
+        <Item label="의과대학" value={s.schools} />
+        {kr && (
+          <>
+            <Group label={both ? '한국' : null} />
+            <Item label="상급종합" value={s.tertiary} />
+            <Item label="권역응급" value={s.emergency} />
+            <Item label="대학병원" value={s.universityHospitals} />
+            <Item label="인턴 정원·모집 자료" value={s.withIntern} />
+            <Item label="레지던트 정원·모집 자료" value={s.withResident} />
+          </>
+        )}
+        {jp && (
+          <>
+            <Group label={both ? '일본' : null} />
+            <Item label="特定機能病院" value={s.jpTokutei} />
+            <Item label="大学病院 本院" value={s.jpUnivMain} />
+            <Item label="分院" value={s.jpUnivBranch} />
+          </>
+        )}
         {s.coordUnverified > 0 && <Item label="좌표 미확인" value={s.coordUnverified} muted />}
       </dl>
       {chips.length > 0 && (
@@ -60,6 +82,16 @@ export function StatsBar({ shown }: { shown: Institution[] }) {
         </div>
       )}
     </div>
+  )
+}
+
+/** 두 나라를 함께 볼 때 나라별 통계 앞에 붙는 작은 머리표 */
+function Group({ label }: { label: string | null }) {
+  if (!label) return null
+  return (
+    <span className="shrink-0 self-center rounded-sm bg-paper-sunk px-1.5 py-px text-[10px] font-medium text-ink-mute">
+      {label}
+    </span>
   )
 }
 

@@ -2,6 +2,7 @@
  * 필터·통계·검색의 순수 함수 모음. UI 와 떼어 두어 단위 테스트가 가능하게 한다.
  */
 import type {
+  Country,
   Dataset,
   Filters,
   Hospital,
@@ -21,6 +22,35 @@ export const TRAIT_LABEL: Record<HospitalTrait, string> = {
   secondary: '2차병원 (종합병원급 수련병원)',
   university: '대학병원 (의과대학 부속·협력)',
   emergency: '권역응급의료센터',
+  jpTokutei: '特定機能病院',
+  jpUnivMain: '大学病院 本院',
+  jpUnivBranch: '大学病院 分院',
+}
+
+/** 필터 칩에 쓰는 짧은 이름 */
+export const TRAIT_SHORT: Record<HospitalTrait, string> = {
+  tertiary: '상급종합',
+  secondary: '2차병원',
+  university: '대학병원',
+  emergency: '권역응급',
+  jpTokutei: '特定機能病院',
+  jpUnivMain: '大学病院 本院',
+  jpUnivBranch: '大学病院 分院',
+}
+
+export const TRAITS_BY_COUNTRY: Record<Country, HospitalTrait[]> = {
+  KR: ['tertiary', 'secondary', 'university', 'emergency'],
+  JP: ['jpTokutei', 'jpUnivMain', 'jpUnivBranch'],
+}
+
+export const COUNTRY_LABEL: Record<Country, string> = { KR: '한국', JP: '일본' }
+
+export function countryOf(x: Institution): Country {
+  return x.country ?? 'KR'
+}
+
+export function traitCountry(t: HospitalTrait): Country {
+  return t.startsWith('jp') ? 'JP' : 'KR'
 }
 
 /** 각 특성이 무엇을 근거로 한 분류인지. 화면에도 그대로 보여 준다. */
@@ -33,6 +63,10 @@ export const TRAIT_DEFINITION: Record<HospitalTrait, string> = {
     '의과대학과 부속병원·교육협력병원 관계가 자료로 확인된 병원. 이름이 비슷하거나 같은 법인이라는 이유만으로는 넣지 않는다.',
   emergency:
     '보건복지부가 지정한 권역응급의료센터. 기관이 있는 지리적 권역이 아니라 공식 관할 응급의료권역을 함께 보여 준다.',
+  jpTokutei:
+    '후생노동성이 승인한 특정기능병원(2026-10-01 기준 88곳). 한국의 상급종합병원과 비슷한 제도이지만 기준이 달라 같은 것으로 묶지 않는다.',
+  jpUnivMain: '의학부를 둔 대학의 본원. 특정기능병원 A 로 승인된 대학병원을 본원으로 보고, 승인이 없는 대학은 근거를 적어 지정했다.',
+  jpUnivBranch: '대학병원의 분원. 대학 연구소 부속병원과 대학이 지정관리자로 운영하는 병원도 포함한다.',
 }
 
 export function isHospital(x: Institution): x is Hospital {
@@ -70,6 +104,12 @@ const SECONDARY_KINDS = new Set(['종합병원', '병원', '정신병원', '요�
 
 export function hospitalTraits(h: Hospital, trainedIds: Set<string>, asOf = AS_OF): HospitalTrait[] {
   const out: HospitalTrait[] = []
+  if (h.country === 'JP') {
+    if (h.jp?.tokutei) out.push('jpTokutei')
+    if (h.jp?.role === '本院') out.push('jpUnivMain')
+    else if (h.jp?.role) out.push('jpUnivBranch')
+    return out
+  }
   const tertiary = activeTertiary(h, asOf)
   if (tertiary) out.push('tertiary')
   // 보건대학원·연구원처럼 요양기관이 아닌 수련기관은 병원이 아니므로 2차병원으로 묶지 않는다.
@@ -131,6 +171,7 @@ export function toggleSub(subId: string, selected: ReadonlySet<string>): Set<str
  */
 export function normalizeQuery(s: string): string {
   return s
+    .normalize('NFKC')
     .toLowerCase()
     .replace(/[()[\]{}（）]/g, '')
     .replace(/[\s·ㆍ・,.'"\-_]/g, '')
@@ -247,19 +288,27 @@ export function applyFilters(data: Dataset, filters: Filters, ctx: FilterContext
   // 검색어는 지도를 걸러내지 않는다. 결과 목록을 좁히는 데만 쓴다(rankedSearch).
   const selected = new Set(filters.subRegions)
   const kinds = new Set(filters.kinds)
-  const traits = new Set(filters.traits)
+  const countries = new Set(filters.countries)
+  // 분류 필터는 나라별로 따로 건다. 한국 분류만 골랐다면 일본 기관은 그대로 둔다.
+  const traitsOf: Record<Country, HospitalTrait[]> = { KR: [], JP: [] }
+  for (const t of filters.traits) traitsOf[traitCountry(t)].push(t)
+  // 지역도 나라별이다. 한국 권역만 골랐다면 일본 기관은 지역으로 거르지 않는다.
+  const regionCountry = (id: string): Country => (id.startsWith('jp-') ? 'JP' : 'KR')
+  const regionsOf: Record<Country, number> = { KR: 0, JP: 0 }
+  for (const id of selected) regionsOf[regionCountry(id)] += 1
 
   const out: Institution[] = []
   for (const inst of [...data.hospitals, ...data.schools] as Institution[]) {
+    const c = countryOf(inst)
+    if (!countries.has(c)) continue
     if (!kinds.has(inst.type)) continue
-    if (selected.size > 0 && !(inst.subRegionId && selected.has(inst.subRegionId))) continue
-    if (traits.size > 0) {
+    if (regionsOf[c] > 0 && !(inst.subRegionId && selected.has(inst.subRegionId))) continue
+    const traits = traitsOf[c]
+    if (traits.length > 0) {
       if (!isHospital(inst)) continue
       const own = hospitalTraits(inst, ctx.trainedIds)
       // 서로 다른 특성은 AND 로 겹친다. "경기서남 + 대학병원 + 권역응급" 같은 조합을 위해서다.
-      let ok = true
-      for (const t of traits) if (!own.includes(t)) ok = false
-      if (!ok) continue
+      if (!traits.every((t) => own.includes(t))) continue
     }
     out.push(inst)
   }
@@ -269,6 +318,11 @@ export function applyFilters(data: Dataset, filters: Filters, ctx: FilterContext
 // ---------------------------------------------------------------- 통계
 
 export interface Stats {
+  korea: number
+  japan: number
+  jpTokutei: number
+  jpUnivMain: number
+  jpUnivBranch: number
   total: number
   hospitals: number
   schools: number
@@ -291,6 +345,7 @@ export function computeStats(
   // 기관 ID 로 세므로 한 기관이 두 대권역에 걸쳐도 중복 집계되지 않는다.
   const seen = new Set<string>()
   const s: Stats = {
+    korea: 0, japan: 0, jpTokutei: 0, jpUnivMain: 0, jpUnivBranch: 0,
     total: 0, hospitals: 0, schools: 0, emergency: 0, tertiary: 0,
     universityHospitals: 0, withIntern: 0, withResident: 0, coordUnverified: 0,
   }
@@ -298,6 +353,8 @@ export function computeStats(
     if (seen.has(inst.id)) continue
     seen.add(inst.id)
     s.total += 1
+    if (countryOf(inst) === 'JP') s.japan += 1
+    else s.korea += 1
     if (inst.coord.status === '미확인') s.coordUnverified += 1
     if (isSchool(inst)) {
       s.schools += 1
@@ -305,6 +362,9 @@ export function computeStats(
     }
     s.hospitals += 1
     const traits = hospitalTraits(inst, trainedIds)
+    if (traits.includes('jpTokutei')) s.jpTokutei += 1
+    if (traits.includes('jpUnivMain')) s.jpUnivMain += 1
+    if (traits.includes('jpUnivBranch')) s.jpUnivBranch += 1
     if (traits.includes('tertiary')) s.tertiary += 1
     if (traits.includes('university')) s.universityHospitals += 1
     if (traits.includes('emergency')) s.emergency += 1
@@ -408,4 +468,9 @@ export function highlightedSgg(regions: Regions, selected: ReadonlySet<string>):
     for (const code of sr.sgg) out.add(code)
   }
   return out
+}
+
+/** 한 병원이 속한 계열(같은 대학·같은 법인·공공 병원망). */
+export function networksOf(id: string, data: Pick<Dataset, 'networks'>) {
+  return data.networks.filter((n) => n.memberIds.includes(id))
 }

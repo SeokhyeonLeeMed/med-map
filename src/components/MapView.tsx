@@ -4,7 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import type { Institution } from '../types'
 import { activeEmergency, activeTertiary, highlightedSgg, isHospital } from '../lib/domain'
 import { allIconSpecs, drawIcon, iconId } from '../lib/mapIcons'
-import { buildStyle, KOREA_BOUNDS } from '../lib/mapStyle'
+import { BOTH_BOUNDS, buildStyle, JAPAN_BOUNDS, KOREA_BOUNDS } from '../lib/mapStyle'
 import { useStore } from '../store'
 
 const BASE = import.meta.env.BASE_URL
@@ -23,6 +23,50 @@ function loadSgg(): Promise<GeoJSON.FeatureCollection> {
     sggPromise = null // 실패하면 다음 번에 다시 시도한다
   })
   return sggPromise
+}
+
+/**
+ * 일본 경계(도도부현·시구정촌)는 일본을 처음 켤 때 한 번만 받는다.
+ * 한국 경계와 같은 속성 이름(sggcd·sidocd)으로 맞춰 하이라이트 코드를 그대로 쓴다.
+ * 시구정촌 코드는 한국 시군구 코드와 숫자가 겹칠 수 있어 'jp' 를 붙인다.
+ */
+let jpPromise: Promise<{ pref: GeoJSON.FeatureCollection; muni: GeoJSON.FeatureCollection }> | null = null
+function loadJapanGeo() {
+  const get = (name: string) =>
+    fetch(`${BASE}geo/${name}`).then((r) => {
+      if (!r.ok) throw new Error(`geo/${name} HTTP ${r.status}`)
+      return r.json() as Promise<GeoJSON.FeatureCollection>
+    })
+  jpPromise ??= Promise.all([get('jp_pref.json'), get('jp_muni.json')]).then(([pref, muni]) => {
+    for (const f of pref.features) f.properties = { ...f.properties, sidocd: `jp${f.properties?.prefCode}` }
+    for (const f of muni.features) {
+      f.properties = { ...f.properties, sggcd: `jp${f.properties?.code}`, sidocd: `jp${f.properties?.prefCode}` }
+    }
+    return { pref, muni }
+  })
+  jpPromise.catch(() => {
+    jpPromise = null
+  })
+  return jpPromise
+}
+
+/** 하이라이트할 코드에 맞는 경계. 일본 코드가 섞여 있으면 일본 경계도 받는다. */
+async function boundaryFeatures(codes: Set<string>): Promise<GeoJSON.FeatureCollection> {
+  const needJp = [...codes].some((c) => c.startsWith('jp'))
+  const needKr = [...codes].some((c) => !c.startsWith('jp'))
+  const parts = await Promise.all([
+    needKr ? loadSgg() : null,
+    needJp ? loadJapanGeo().then((g) => g.muni) : null,
+  ])
+  return {
+    type: 'FeatureCollection',
+    features: parts.flatMap((gj) => (gj ? sggFeatures(gj, codes).features : [])),
+  }
+}
+
+function boundsFor(countries: string[]): [[number, number], [number, number]] {
+  if (countries.includes('KR') && countries.includes('JP')) return BOTH_BOUNDS
+  return countries.includes('JP') ? JAPAN_BOUNDS : KOREA_BOUNDS
 }
 
 function sggFeatures(gj: GeoJSON.FeatureCollection, codes: Set<string>): GeoJSON.FeatureCollection {
@@ -73,6 +117,7 @@ export function MapView({ shown }: { shown: Institution[] }) {
   const selectedId = useStore((s) => s.selectedId)
   const flyToken = useStore((s) => s.flyToken)
   const subRegions = useStore((s) => s.filters.subRegions)
+  const countries = useStore((s) => s.filters.countries)
   const select = useStore((s) => s.select)
 
   const features = useMemo(() => {
@@ -81,7 +126,8 @@ export function MapView({ shown }: { shown: Institution[] }) {
     return placed
       .map((i) => {
         const hospital = isHospital(i)
-        const tertiary = hospital ? !!activeTertiary(i) : false
+        // 일본 特定機能病院은 한국 상급종합병원과 같은 진한 표식으로 그린다(범례에 함께 적는다).
+        const tertiary = hospital ? !!activeTertiary(i) || !!i.jp?.tokutei : false
         const emergency = hospital ? activeEmergency(i).length > 0 : false
         const name = hospital ? i.commonName || i.officialName : `${i.universityName} ${i.schoolKind}`
         // 중요한 기관일수록 작은 값 → 라벨과 아이콘에서 우선권을 갖는다.
@@ -114,9 +160,9 @@ export function MapView({ shown }: { shown: Institution[] }) {
       map = new maplibregl.Map({
         container: containerRef.current,
         style: buildStyle(BASE),
-        bounds: KOREA_BOUNDS,
+        bounds: boundsFor(useStore.getState().filters.countries),
         fitBoundsOptions: { padding: 36 },
-        minZoom: 5,
+        minZoom: 3,
         maxZoom: 17,
         attributionControl: false,
       })
@@ -125,12 +171,13 @@ export function MapView({ shown }: { shown: Institution[] }) {
       return
     }
     mapRef.current = map
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-right')
+    // 나침반: 지도를 돌리거나(오른쪽 끌기·두 손가락) 기울인 뒤 누르면 북쪽이 위로 오게 되돌린다.
+    map.addControl(new maplibregl.NavigationControl({ showCompass: true, visualizePitch: true }), 'bottom-right')
     map.addControl(
       new maplibregl.AttributionControl({
         compact: true,
         customAttribution:
-          '경계: <a href="https://github.com/vuski/admdongkor" target="_blank" rel="noreferrer">admdongkor</a> (통계청 SGIS, CC BY 4.0) · 기관 정보·좌표: 건강보험심사평가원 (공공누리 제1유형), 일부 좌표 © OpenStreetMap contributors (ODbL)',
+          '경계: <a href="https://github.com/vuski/admdongkor" target="_blank" rel="noreferrer">admdongkor</a> (통계청 SGIS, CC BY 4.0) · 国土数値情報 N03 (国土交通省) · 기관 정보·좌표: 건강보험심사평가원 (공공누리 제1유형), 医療情報ネット (厚生労働省, CC BY 4.0), 일부 좌표 © OpenStreetMap contributors (ODbL)',
       }),
       'bottom-left',
     )
@@ -161,6 +208,42 @@ export function MapView({ shown }: { shown: Institution[] }) {
     }
   }, [select])
 
+  // 일본을 켜면 일본 경계를 채운다. 끄면 비운다(그리기 부담을 줄이고, 꺼진 나라가 보이지 않게).
+  const showJp = countries.includes('JP')
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map || !ready) return
+    const pref = map.getSource('jp-pref') as maplibregl.GeoJSONSource | undefined
+    const muni = map.getSource('jp-muni') as maplibregl.GeoJSONSource | undefined
+    const empty: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: [] }
+    if (!showJp) {
+      pref?.setData(empty)
+      muni?.setData(empty)
+      return
+    }
+    let cancelled = false
+    loadJapanGeo()
+      .then((g) => {
+        if (cancelled) return
+        pref?.setData(g.pref)
+        muni?.setData(g.muni)
+      })
+      .catch((e) => setMapError(e instanceof Error ? e.message : String(e)))
+    return () => {
+      cancelled = true
+    }
+  }, [showJp, ready])
+
+  // 나라 선택이 바뀌면 그 나라가 화면에 꽉 차게 옮긴다. 처음 그릴 때는 이미 맞춰 두었으므로 건너뛴다.
+  const countryKey = [...countries].sort().join(',')
+  const lastCountryKey = useRef(countryKey)
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map || !ready || lastCountryKey.current === countryKey) return
+    lastCountryKey.current = countryKey
+    map.fitBounds(boundsFor(countryKey.split(',')), { padding: 36, duration: 700, bearing: map.getBearing() })
+  }, [countryKey, ready])
+
   // 마커 갱신
   useEffect(() => {
     const map = mapRef.current
@@ -181,9 +264,9 @@ export function MapView({ shown }: { shown: Institution[] }) {
       return
     }
     let cancelled = false
-    loadSgg()
-      .then((gj) => {
-        if (!cancelled) src.setData(sggFeatures(gj, codes))
+    boundaryFeatures(codes)
+      .then((fc) => {
+        if (!cancelled) src.setData(fc)
       })
       .catch(() => undefined)
     return () => {
@@ -211,9 +294,9 @@ export function MapView({ shown }: { shown: Institution[] }) {
     }
     const codes = highlightedSgg(data.regions, new Set(regionIds as string[]))
     let cancelled = false
-    loadSgg()
-      .then((gj) => {
-        if (!cancelled) src.setData(sggFeatures(gj, codes))
+    boundaryFeatures(codes)
+      .then((fc) => {
+        if (!cancelled) src.setData(fc)
       })
       .catch(() => undefined)
     return () => {

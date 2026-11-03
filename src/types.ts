@@ -105,9 +105,40 @@ export interface BedDetail {
   note?: string
 }
 
+export type Country = 'KR' | 'JP'
+
+/** 일본 병원 전용 정보. 한국 필드와 뜻이 다른 값은 섞지 않고 여기 따로 둔다. */
+export interface JapanHospitalInfo {
+  openDataId: string
+  /** 本院·分院·研究所附属·指定管理. 대학과 무관한 특정기능병원은 null */
+  role: string | null
+  roleLabel: string | null
+  roleNote?: string | null
+  university: string | null
+  /** 設置主体(病床機能報告 2024-07-01) */
+  establisher: string | null
+  tokutei: {
+    category: 'A' | 'B' | 'その他'
+    listedName: string
+    approvedOn: string | null
+    sourceId: string
+    asOf: string
+    status: VerificationStatus
+  } | null
+  founded: Sourced<string>
+  /** 施設全体 의료인 수. Full = 상근, Part = 비상근(상근 환산) */
+  staff: Record<string, number | null> | null
+  staffSourceId: string | null
+  staffAsOf: string | null
+  staffNote?: string | null
+}
+
 export interface Hospital {
   id: string
   type: 'hospital'
+  /** 없으면 한국 */
+  country?: Country
+  jp?: JapanHospitalInfo
   officialName: string
   commonName: string
   preferredName?: string
@@ -159,6 +190,9 @@ export interface Quota {
 export interface MedicalSchool {
   id: string
   type: 'medicalSchool'
+  /** 없으면 한국 */
+  country?: Country
+  jp?: { establishmentType: string | null }
   officialName: string
   universityName: string
   schoolKind: string
@@ -190,6 +224,19 @@ export interface Relation {
   sourceId: string
   asOf: string
   status: VerificationStatus
+  note?: string
+}
+
+/** 병원끼리의 계열(같은 대학 부속·교육병원, 같은 법인, 공공 병원망) */
+export interface HospitalNetwork {
+  id: string
+  country: Country
+  name: string
+  kind: string
+  memberIds: string[]
+  sourceId: string
+  status: VerificationStatus
+  note?: string
 }
 
 export interface TrainingUnit {
@@ -317,12 +364,25 @@ export interface Dataset {
   recruitment: RecruitmentByInstitution
   regions: Regions
   sources: SourceRef[]
+  networks: HospitalNetwork[]
 }
 
 /** 병원 특성 필터 키. 공식 지정과 서비스 편의 분류를 섞지 않도록 의미를 분리해 둔다. */
-export type HospitalTrait = 'tertiary' | 'secondary' | 'university' | 'emergency'
+export type HospitalTrait =
+  | 'tertiary'
+  | 'secondary'
+  | 'university'
+  | 'emergency'
+  /** 일본: 特定機能病院 */
+  | 'jpTokutei'
+  /** 일본: 大学病院 本院 */
+  | 'jpUnivMain'
+  /** 일본: 大学病院 分院(研究所附属·指定管理 포함) */
+  | 'jpUnivBranch'
 
 export interface Filters {
+  /** 보여 줄 나라. 하나 이상. */
+  countries: Country[]
   subRegions: string[]
   kinds: Array<'hospital' | 'medicalSchool'>
   traits: HospitalTrait[]

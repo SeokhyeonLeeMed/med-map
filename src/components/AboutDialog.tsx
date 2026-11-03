@@ -62,6 +62,25 @@ export function AboutDialog({ onClose }: { onClose: () => void }) {
             </p>
           </Section>
 
+          <Section title="일본">
+            <ul className="list-disc space-y-1 pl-4 text-xs leading-relaxed text-ink-soft">
+              <li>
+                82개 의학부(防衛医科大学校 포함)와 그 대학병원(본원·분원), 그리고 特定機能病院 88곳(2026-10-01 명부)을
+                싣습니다. 필터의 <strong>나라</strong>에서 일본을 켜면 보입니다.
+              </li>
+              <li>
+                지역은 都道府県(47)을 광역, 市区町村을 기초 단위로 다룹니다. 경계는 国土数値情報 N03(2025-01-01)입니다.
+              </li>
+              <li>
+                병상·진료과·주소·좌표는 厚生労働省 医療情報ネット 공개 데이터(2025-12-01), 의료인 수는 令和6年度
+                病床機能報告(2024-07-01), 입학정원은 文部科学省 표(令和8年度 계획)입니다. 설립·개설 연도는 위키백과(2차 자료)라
+                '일부확인'으로 표시합니다.
+              </li>
+              <li>전공의 수련 정보는 싣지 않습니다. 기관 이름은 일본어 원문 그대로 씁니다.</li>
+              <li>特定機能病院은 한국 상급종합병원과 비슷한 제도이지만 기준이 달라 같은 분류로 묶지 않습니다.</li>
+            </ul>
+          </Section>
+
           {coverage && (
             <Section title="전공의 모집 전국 총계">
               <table className="w-full border-collapse text-xs">

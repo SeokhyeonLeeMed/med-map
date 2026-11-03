@@ -26,7 +26,7 @@ export function Legend() {
               </span>
             }
           >
-            상급종합병원 (바깥 테두리)
+            상급종합병원 · 特定機能病院 (바깥 테두리)
           </Row>
           <Row
             swatch={
