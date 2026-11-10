@@ -82,12 +82,14 @@
   "h-gangdonggyeonghuidaehakgyochigwabyeongwon": {
    "institution": "강동경희대학교치과병원",
    "sourceDir": "web",
-   "fileName": "h-gangdonggyeonghuidaehakgyochigwabyeongwon/h4.png",
+   "fileName": "h-gangdonggyeonghuidaehakgyochigwabyeongwon/h1.png",
    "matchedBy": "manual-review",
    "manual": true,
-   "sourceUrl": "https://dent.khnmc.or.kr/resources/KR/medical/images/common/top_logo.png",
+   "sourceUrl": "https://dent.khnmc.or.kr/resources/KR/dental/images/common/logo_top01.png",
    "pageUrl": "https://dent.khnmc.or.kr/kr/main.do",
    "retrievedOn": "2026-11-09",
+   "background": "dark",
+   "note": "치과병원 전용 로고(흰 글자). 같은 누리집 머리에 걸린 강동경희대학교병원 로고와 다르다.",
    "copiedExt": ".png"
   },
   "h-gangreungasanbyeongwon": {

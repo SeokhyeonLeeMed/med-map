@@ -141,7 +141,7 @@ SVG(벡터)가 아니라 PNG·JPG 같은 비트맵으로 들어간 로고다. �
 | 한국 | 병원 | 화순전남대학교병원 | `logos/h-hwasunjeonnamdaehakgyobyeongwon.jpg` | 512×86 | 로고 폴더 0: 화순전남대학교병원.jpg |
 | 한국 | 병원 | 효산의료재단 안양샘병원 | `logos/h-saemanyangbyeongwon.jpg` | 440×82 | https://anyang.samhospital.com/ |
 | 한국 | 병원 | 효산의료재단 지샘병원 | `logos/h-jisaembyeongwon.jpg` | 440×82 | https://gsamhospital.com/ |
-| 한국 | 치과병원 | 강동경희대학교치과병원 | `logos/h-gangdonggyeonghuidaehakgyochigwabyeongwon.png` | 142×99 | https://dent.khnmc.or.kr/resources/KR/medical/images/common/top_logo.png |
+| 한국 | 치과병원 | 강동경희대학교치과병원 | `logos/h-gangdonggyeonghuidaehakgyochigwabyeongwon.png` | 359×51 | https://dent.khnmc.or.kr/resources/KR/dental/images/common/logo_top01.png |
 | 한국 | 치과병원 | 강원대학교치과병원 | `logos/h-gangwondaehakgyochigwabyeongwon.png` | 370×65 | https://www.knudh.or.kr/images/common/logo.gif |
 | 한국 | 치과병원 | 경북대학교치과병원 | `logos/h-gyeongbukdaehakgyochigwabyeongwon.png` | 227×31 | https://www.knudh.kr/img/intro/logo4.png |
 | 한국 | 치과병원 | 경희대학교치과병원 | `logos/h-gyeonghuidaehakgyochigwabyeongwon.png` | 308×51 | https://dent.khmc.or.kr/resources/KR/dental/images/common/logo_top01.png |
