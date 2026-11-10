@@ -5,7 +5,19 @@
    "name": "경희의료원 교육협력 중앙병원",
    "reason": "옛 김해중앙병원. 2023년 10월 경영난으로 진료를 멈췄다(사실상 폐업). 2025년 3월 공매로 더복음병원 측이 낙찰받아 2027~2028년 재개원을 계획했으나 2026년 7월 기준 잔금을 마련하지 못해 인수가 불투명하다. 심평원 2026-09 명부에도 없다.",
    "checkedOn": "2026-11-10",
-   "sources": ["src-news-gimhae-jungang", "https://www.dailymedi.com/news/news_view.php?wr_id=904423", "https://kormedi.com/1626530/"]
+   "sources": [
+    "src-news-gimhae-jungang",
+    "https://www.dailymedi.com/news/news_view.php?wr_id=904423",
+    "https://kormedi.com/1626530/"
+   ]
+  },
+  {
+   "name": "인제대학교서울백병원",
+   "reason": "2023-08-31 폐원했다(서울 중구 저동). 2023년 정원 표에는 있으나 심평원 2026-09 명부에 없다.",
+   "checkedOn": "2026-11-10",
+   "sources": [
+    "data/curation/hira-overrides.json 의 폐원 기록"
+   ]
   }
  ]
 }
