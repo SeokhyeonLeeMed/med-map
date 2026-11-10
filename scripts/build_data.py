@@ -954,6 +954,29 @@ class Build:
             unique.setdefault(rec["id"], rec)
         hospitals = sorted(unique.values(), key=lambda h: h["officialName"])
 
+        # 지금 운영하지 않는 기관(폐업 등)은 지도에서 뺀다. 관계·모집 기록도 함께 뺀다.
+        excluded_names = {e["name"] for e in read(DATA, "curation", "excluded-institutions.json")["institutions"]}
+        gone = {
+            h["id"] for h in hospitals
+            if h["officialName"] in excluded_names or excluded_names & set(h.get("sourceNames", []))
+        }
+        if len(gone) != len(excluded_names):
+            self.warnings.append(f"제외 목록과 맞는 기관 수가 다름: 목록 {len(excluded_names)} · 찾음 {len(gone)}")
+        hospitals = [h for h in hospitals if h["id"] not in gone]
+        relations = [r for r in relations if r["fromId"] not in gone and r["toId"] not in gone]
+        for u in units:
+            u["hospitalIds"] = [i for i in u["hospitalIds"] if i not in gone]
+        kept = []
+        for r in recruitment:
+            ids = [i for i in r.get("hospitalIds") or [] if i not in gone]
+            if not ids and not r.get("medicalSchoolIds"):
+                continue
+            r["hospitalIds"] = ids
+            kept.append(r)
+        recruitment = kept
+        if gone:
+            print(f"  운영하지 않아 뺀 기관 {len(gone)}곳: {', '.join(sorted(gone))}")
+
         # 같은 이름의 다른 기관이 있으면(서울·대구 누네안과병원 등) 표시명에 소재지를 덧붙인다.
         by_name: dict[str, list[dict]] = {}
         for rec in hospitals:

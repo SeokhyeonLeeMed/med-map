@@ -4,7 +4,7 @@ SVG(벡터)가 아니라 PNG·JPG 같은 비트맵으로 들어간 로고다. �
 벡터 원본을 구하면 `data/curation/logo-manifest.json` 의 해당 항목을 바꾸고
 `python scripts/build_logos.py --copy` 로 다시 복사한다. 이 문서는 `python scripts/list_bitmap_logos.py` 로 다시 만든다.
 
-로고가 있는 기관 594곳 중 비트맵 **349곳**, SVG 245곳. 로고가 없는 기관 0곳.
+로고가 있는 기관 593곳 중 비트맵 **349곳**, SVG 244곳. 로고가 없는 기관 0곳.
 
 | 나라 | 종류 | 기관 | 파일 | 크기(px) | 원본 |
 |---|---|---|---|---|---|

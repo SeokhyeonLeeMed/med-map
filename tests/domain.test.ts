@@ -267,7 +267,9 @@ describe('수련 모집', () => {
         .filter((r) => r.year === year && r.term === '상반기' && r.track === track)
         .reduce((a, r) => a + r.quota, 0)
     // 2023: 보도 총계(3,258·3,465)에서 공고 변경 이력(동강병원 인턴 -3, 국립정신건강센터 -1)을 뺀 값
-    expect(sum(2023, '인턴')).toBe(3255)
+    // 폐업해 지도에서 뺀 경희의료원 교육협력 중앙병원(옛 김해중앙병원)의 2023년 인턴 정원 3명은 빠져 있다
+    // (data/curation/excluded-institutions.json). 원문 총계는 3,255명이다.
+    expect(sum(2023, '인턴') + 3).toBe(3255)
     expect(sum(2024, '인턴')).toBe(3258)
     // 2025·2026: 원문 표의 '최종정원' 열 합계와 같아야 한다
     expect(sum(2025, '인턴')).toBe(3356)
