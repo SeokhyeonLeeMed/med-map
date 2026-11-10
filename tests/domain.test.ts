@@ -40,7 +40,7 @@ const data: Dataset = {
 const trainedIds = hospitalsWithTraining(data)
 const searchIndex = buildSearchIndex(data)
 const ctx = { trainedIds, searchIndex }
-const ALL: Filters = { countries: ['KR'], subRegions: [], kinds: ['hospital', 'medicalSchool'], traits: [], query: '' }
+const ALL: Filters = { countries: ['KR'], disciplines: ['medical', 'dental'], subRegions: [], kinds: ['hospital', 'medicalSchool'], traits: [], query: '' }
 
 /** 기관별로 묶인 기록을 한 줄로 펼친다. 통합수련 기록은 소속 병원 수만큼 중복된다. */
 const allRecords = Object.values(data.recruitment).flat()
@@ -436,7 +436,7 @@ const bothCtx = { trainedIds, searchIndex: buildSearchIndex(both) }
 
 describe('일본 데이터', () => {
   it('82개 의학부(防衛医科大学校 포함)와 대학병원·특정기능병원을 싣는다', () => {
-    expect(jp.schools).toHaveLength(82)
+    expect(jp.schools.filter((x) => x.discipline !== 'dental')).toHaveLength(82)
     expect(jp.hospitals.every((h) => h.country === 'JP' && h.id.startsWith('jp-'))).toBe(true)
     // 특정기능병원 명부 88곳이 모두 들어 있다(2026-10-01).
     expect(jp.hospitals.filter((h) => h.jp?.tokutei)).toHaveLength(88)
@@ -450,7 +450,9 @@ describe('일본 데이터', () => {
   })
 
   it('2026학년도 의학부 입학정원 합계가 문부과학성 표(9,376)와 같다', () => {
-    const sum = jp.schools.reduce((a, s) => a + (s.quota.find((q) => q.admissionYear === 2026)?.value ?? 0), 0)
+    const sum = jp.schools
+      .filter((x) => x.discipline !== 'dental')
+      .reduce((a, s) => a + (s.quota.find((q) => q.admissionYear === 2026)?.value ?? 0), 0)
     expect(sum).toBe(9376)
   })
 
@@ -464,6 +466,41 @@ describe('일본 데이터', () => {
   it('수련 정보는 싣지 않고, 일본어 원문 이름만 쓴다', () => {
     expect(jp.hospitals.some((h) => (data.trainingIndex as Record<string, unknown>)[h.id])).toBe(false)
     expect(jp.hospitals.every((h) => !/[가-힣]/.test(h.officialName))).toBe(true)
+  })
+})
+
+describe('치과', () => {
+  const krDental = data.schools.filter((x) => x.discipline === 'dental')
+  const jpDental = jp.schools.filter((x) => x.discipline === 'dental')
+
+  it('한국 치과대학 11곳, 2027학년도 정원 내 모집인원 합계 670명', () => {
+    expect(krDental).toHaveLength(11)
+    expect(krDental.reduce((a, s) => a + Number(s.quota[0]?.value ?? 0), 0)).toBe(670)
+  })
+
+  it('한국 치과병원은 모두 심평원 종별이 치과병원이고 공식 주소·좌표가 있으며 치과대학과 이어진다', () => {
+    const hs = data.hospitals.filter((h) => h.discipline === 'dental')
+    expect(hs).toHaveLength(17)
+    for (const h of hs) {
+      expect(h.hiraKind).toBe('치과병원')
+      expect(h.address.status).toBe('확인됨')
+      expect(h.coord.lat).toBeTypeOf('number')
+      expect(h.universityRelations.some((r) => r.schoolId.startsWith('ds-'))).toBe(true)
+    }
+  })
+
+  it('일본 歯学部 29곳(27개 대학), 모두 위치가 있다', () => {
+    expect(jpDental).toHaveLength(29)
+    expect(new Set(jpDental.map((s) => s.universityName)).size).toBe(27)
+    expect(jpDental.every((s) => s.subRegionId && s.coord.lat != null)).toBe(true)
+  })
+
+  it('분야 필터: 치과만 고르면 치과 기관과 医歯 통합 대학병원만 남는다', () => {
+    const only = applyFilters(both, { ...ALL, countries: ['KR', 'JP'], disciplines: ['dental'] }, bothCtx)
+    expect(only.length).toBe(17 + 11 + 29 + jp.hospitals.filter((h) => h.discipline).length)
+    expect(only.every((i) => i.discipline === 'dental' || i.discipline === 'both')).toBe(true)
+    const medical = applyFilters(both, { ...ALL, countries: ['KR', 'JP'], disciplines: ['medical'] }, bothCtx)
+    expect(medical.some((i) => i.discipline === 'dental')).toBe(false)
   })
 })
 

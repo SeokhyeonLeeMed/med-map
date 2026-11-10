@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { Country, Coverage, Dataset, Filters, HospitalTrait, Institution } from './types'
+import type { Country, Coverage, Dataset, Discipline, Filters, HospitalTrait, Institution } from './types'
 import { buildSearchIndex, hospitalsWithTraining, toggleMacro, toggleSub, type SearchIndexEntry } from './lib/domain'
 import type { JapanFile } from './lib/japan'
 
@@ -7,6 +7,7 @@ const BASE = import.meta.env.BASE_URL
 
 const EMPTY_FILTERS: Filters = {
   countries: ['KR'],
+  disciplines: ['medical', 'dental'],
   subRegions: [],
   kinds: ['hospital', 'medicalSchool'],
   traits: [],
@@ -39,6 +40,7 @@ export interface AppState {
   loadRecruitment: () => Promise<void>
   setQuery: (q: string) => void
   setKinds: (k: Filters['kinds']) => void
+  setDisciplines: (d: Discipline[]) => void
   toggleTrait: (t: HospitalTrait) => void
   toggleSubRegion: (id: string) => void
   toggleMacroRegion: (id: string) => void
@@ -62,6 +64,7 @@ export function serializeUrl(filters: Filters, selectedId: string | null): strin
   if (filters.subRegions.length) p.set('region', [...filters.subRegions].sort().join(','))
   if (filters.traits.length) p.set('trait', [...filters.traits].sort().join(','))
   if (filters.kinds.length === 1) p.set('kind', filters.kinds[0])
+  if (filters.disciplines.length === 1) p.set('field', filters.disciplines[0])
   if (filters.query.trim()) p.set('q', filters.query.trim())
   if (selectedId) p.set('sel', selectedId)
   const s = p.toString()
@@ -71,6 +74,7 @@ export function serializeUrl(filters: Filters, selectedId: string | null): strin
 export function parseUrl(search: string): { filters: Filters; selectedId: string | null } {
   const p = new URLSearchParams(search)
   const kind = p.get('kind')
+  const field = p.get('field')
   const sel = p.get('sel')
   const countries = (p.get('country') ?? 'kr')
     .split(',')
@@ -81,6 +85,7 @@ export function parseUrl(search: string): { filters: Filters; selectedId: string
   return {
     filters: {
       countries: countries.length ? [...new Set(countries)] : ['KR'],
+      disciplines: field === 'medical' || field === 'dental' ? [field] : ['medical', 'dental'],
       subRegions: (p.get('region') ?? '').split(',').filter(Boolean),
       traits: (p.get('trait') ?? '').split(',').filter(Boolean) as HospitalTrait[],
       kinds: kind === 'hospital' || kind === 'medicalSchool' ? [kind] : ['hospital', 'medicalSchool'],
@@ -217,6 +222,11 @@ export const useStore = create<AppState>((set, get) => ({
   },
   setKinds: (kinds) => {
     const filters = { ...get().filters, kinds }
+    set({ filters })
+    syncUrl(filters, get().selectedId)
+  },
+  setDisciplines: (disciplines) => {
+    const filters = { ...get().filters, disciplines }
     set({ filters })
     syncUrl(filters, get().selectedId)
   },

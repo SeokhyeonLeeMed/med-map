@@ -21,6 +21,24 @@ export function Legend() {
           </Row>
           <Row
             swatch={
+              <span className="grid h-[11px] w-[11px] place-items-center rounded-full border-2 border-white bg-dental shadow">
+                <span className="h-[3px] w-[3px] rounded-full bg-white" />
+              </span>
+            }
+          >
+            치과병원 (가운데 흰 점)
+          </Row>
+          <Row
+            swatch={
+              <span className="grid h-[11px] w-[11px] place-items-center rounded-[2px] border-2 border-white bg-dentalSchool shadow">
+                <span className="h-[3px] w-[3px] rounded-full bg-white" />
+              </span>
+            }
+          >
+            치과대학 · 치의학(전문)대학원 · 歯学部
+          </Row>
+          <Row
+            swatch={
               <span className="grid h-[15px] w-[15px] place-items-center rounded-full border border-hosp">
                 <span className="h-[9px] w-[9px] rounded-full border border-white bg-hosp" />
               </span>

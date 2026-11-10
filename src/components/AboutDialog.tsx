@@ -49,7 +49,9 @@ export function AboutDialog({ onClose }: { onClose: () => void }) {
             <dl className="grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3">
               <Num label="기관" value={data.hospitals.length + data.schools.length} />
               <Num label="병원" value={data.hospitals.length} />
-              <Num label="의과대학·의전원" value={data.schools.length} />
+              <Num label="의과대학·의전원" value={data.schools.filter((x) => x.discipline !== 'dental').length} />
+              <Num label="치과대학·치전원" value={data.schools.filter((x) => x.discipline === 'dental').length} />
+              <Num label="치과병원" value={data.hospitals.filter((x) => x.discipline === 'dental').length} />
               <Num label="수련 모집 단위" value={data.trainingUnits.length} />
               <Num label="모집 기록" value={coverage?.counts?.recruitmentRecords ?? 0} />
               <Num label="기관 간 관계" value={data.relations.length} />

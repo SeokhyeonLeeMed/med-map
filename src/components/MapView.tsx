@@ -144,6 +144,7 @@ export function MapView({ shown }: { shown: Institution[] }) {
               kind: hospital ? 'hospital' : 'school',
               tertiary,
               emergency,
+              dental: i.discipline === 'dental',
               selected: i.id === selectedId,
             }),
           },

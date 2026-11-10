@@ -6,7 +6,7 @@
 
 뽑는 것
   기본: 요양기관명, 종별, 시도·시군구, 도로명주소, 전화, 홈페이지, 개설일자, 좌표
-  인력: 총의사수, 의과전문의 수, 의과인턴·레지던트 수(현재 재직)
+  인력: 총의사수, 의과전문의 수, 의과인턴·레지던트 수(현재 재직), 치과 일반의·전문의·인턴·레지던트 수
   진료과목: 과목명 + 과목별 전문의 수
   병상: 일반입원실(상급·일반), 중환자실(성인·소아·신생아), 정신과, 격리, 무균치료실 등
 
@@ -162,6 +162,11 @@ def main(argv: list[str]) -> int:
             "specialists": to_int(row.get("의과전문의 인원수")),
             "interns": to_int(row.get("의과인턴 인원수")),
             "residents": to_int(row.get("의과레지던트 인원수")),
+            # 치과의사 인력. 의과 인력과 따로 센다(치과병원·종합병원 치과).
+            "dentalGeneral": to_int(row.get("치과일반의 인원수")),
+            "dentalSpecialists": to_int(row.get("치과전문의 인원수")),
+            "dentalInterns": to_int(row.get("치과인턴 인원수")),
+            "dentalResidents": to_int(row.get("치과레지던트 인원수")),
             "lon": to_float(row.get("좌표(X)")),
             "lat": to_float(row.get("좌표(Y)")),
             "departments": [],

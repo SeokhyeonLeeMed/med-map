@@ -183,6 +183,8 @@ class Build:
             rec["aliases"] = sorted({n for n in names if n != rec["officialName"]} | set(rec["aliases"]))
 
     def hira_row(self, rec: dict) -> dict | None:
+        if rec.get("hiraForce"):
+            return self.hira.get(rec["hiraForce"])
         for name in rec["sourceNames"]:
             m = self.hira_match.get(name)
             if m and m.get("hiraId"):
@@ -242,6 +244,12 @@ class Build:
                     "totalSpecialists": row.get("specialists"),
                     "residentsOnDuty": row.get("residents"),
                     "internsOnDuty": row.get("interns"),
+                    **({"dental": {
+                        "general": row.get("dentalGeneral"),
+                        "specialists": row.get("dentalSpecialists"),
+                        "interns": row.get("dentalInterns"),
+                        "residents": row.get("dentalResidents"),
+                    }} if any(row.get(k) for k in ("dentalGeneral", "dentalSpecialists", "dentalInterns", "dentalResidents")) else {}),
                     "note": (
                         "심평원이 집계한 과목별 전문의 수다. 의사 수·교수 수·전체 직원 수와 다르고, "
                         "재직 중인 인턴·레지던트 수는 모집 정원과 다른 값이다."
@@ -797,6 +805,71 @@ class Build:
 
     # ---------------------------------------------------------- 실행
 
+    # ---------------------------------------------------------- 치과
+    def add_dental(self, schools: list, relations: list) -> None:
+        """치과대학 11곳과 부속 치과병원을 더한다(data/curation/dental.json).
+
+        치과병원은 의과 전공의 정원 표에 없으므로 심평원 명부에서 이름으로 직접 찾는다.
+        대학 좌표는 같은 부지의 본원 치과병원 좌표를 근사로 쓴다.
+        """
+        cfg = read(DATA, "curation", "dental.json")
+        by_name = {}
+        for r in self.hira.values():
+            by_name.setdefault(r["name"], []).append(r)
+        hosp_of: dict[str, dict] = {}
+        for h in cfg["hospitals"]:
+            rows = [r for r in by_name.get(h["hiraName"], []) if r["kind"] == "치과병원"]
+            if len(rows) != 1:
+                self.warnings.append(f"치과병원을 심평원 명부에서 하나로 찾지 못함: {h['hiraName']} ({len(rows)}곳)")
+                continue
+            rec = self.hospital_for(h["hiraName"])
+            rec["hiraForce"] = rows[0]["hiraId"]
+            rec["discipline"] = "dental"
+            rec["aliases"] = sorted(set(rec["aliases"]) | set(h.get("aliases", [])))
+            hosp_of[h["hiraName"]] = rec
+        for s in cfg["schools"]:
+            main = hosp_of.get(s["mainHospital"])
+            row = self.hira.get(main["hiraForce"]) if main else None
+            coord = {"status": UNVERIFIED}
+            if row and row.get("lat"):
+                coord = {
+                    "lat": round(row["lat"], 6), "lon": round(row["lon"], 6), "sourceId": HIRA_SOURCE,
+                    "precision": "approximate", "status": PARTIAL, "asOf": HIRA_AS_OF,
+                    "note": f"치과대학 건물을 따로 찍지 않고 같은 부지의 {s['mainHospital']} 좌표(심평원)를 썼다.",
+                }
+            rec = {
+                "id": s["id"], "type": "medicalSchool", "discipline": "dental",
+                "officialName": s["officialName"], "universityName": s["university"], "schoolKind": s["schoolKind"],
+                "aliases": sorted({s["university"], s["officialName"].replace(" ", ""), *s.get("aliases", [])}),
+                "sgg": None, "sggName": None, "subRegionId": None, "macroRegionIds": [],
+                "coord": coord,
+                "universityUrl": s["universityUrl"], "schoolUrl": s["schoolUrl"],
+                "founded": {"status": UNVERIFIED},
+                "quota": [{
+                    "admissionYear": 2027, "kind": "치의학 정원 내 모집인원", "value": str(s["quota2027"]),
+                    "sourceId": cfg["_quotaSource"], "asOf": "2026-07-15", "status": PARTIAL,
+                    "note": f"{s['program']}. 대학입학전형 시행계획의 정원 내 모집인원을 옮긴 언론 보도 값이며, 정원 외 모집은 빠져 있다.",
+                }],
+                "logo": None, "sourceId": "src-dental-curation", "asOf": "2026-11-09",
+            }
+            self.set_region(rec)
+            schools.append(rec)
+        for h in cfg["hospitals"]:
+            hosp = hosp_of.get(h["hiraName"])
+            school = next((x for x in schools if x["id"] == h["school"]), None)
+            if not hosp or not school:
+                continue
+            relations.append({
+                "fromId": school["id"], "fromType": "medicalSchool", "toId": hosp["id"], "toType": "hospital",
+                "relationType": h["relationType"], "sourceId": "src-dental-curation", "asOf": "2026-11-09",
+                "status": PARTIAL,
+                "note": "병원 정식 명칭(심평원)에 대학명이 들어 있는 치과병원이다.",
+            })
+            hosp["universityRelations"].append(
+                {"schoolId": school["id"], "universityName": school["universityName"], "relationType": h["relationType"]}
+            )
+        print(f"  치과대학 {len(cfg['schools'])} · 치과병원 {len(hosp_of)}")
+
     def build_networks(self, hospitals: list, schools: list, relations: list) -> list[dict]:
         """병원끼리의 계열(같은 대학 부속병원·같은 법인·공공 병원망). 규칙은 hospital-networks.json."""
         cfg = read(DATA, "curation", "hospital-networks.json")
@@ -829,6 +902,14 @@ class Build:
             add(f"net-{sid}", f"{school_name.get(sid, sid)} {'교육병원' if mixed else '부속병원'}",
                 "같은 대학 교육병원" if mixed else "같은 대학 부속병원", ids, su["sourceId"], su["note"])
 
+        by_dental: dict[str, list[str]] = {}
+        for r in relations:
+            if r["relationType"].startswith("부속치과병원"):
+                by_dental.setdefault(r["fromId"], []).append(r["toId"])
+        for sid, ids in sorted(by_dental.items()):
+            add(f"net-{sid}", f"{school_name.get(sid, sid)} 치과병원", "같은 대학 치과병원", ids, "src-dental-curation",
+                "같은 치과대학의 본원·분원 치과병원이다. 심평원 요양기관명에 대학명이 들어 있다.")
+
         pat = re.compile(r"^(?:의료법인|재단법인|학교법인|사회복지법인)\s*(\S+?(?:재단|학원|법인))")
         by_found: dict[str, list[str]] = {}
         for h in hospitals:
@@ -860,6 +941,7 @@ class Build:
         self.add_extra_hospitals()
         self.add_quota_hospitals()
         schools, relations = self.build_schools()
+        self.add_dental(schools, relations)
         self.pick_official_name()
         self.attach_hira()
         relations = self.apply_remap(relations, self.merge_by_hira())
@@ -887,6 +969,7 @@ class Build:
         networks = self.build_networks(hospitals, schools, relations)
         for h in hospitals:
             h["variantNames"] = sorted(set(h.pop("sourceNames", [])))
+            h.pop("hiraForce", None)
             h["logo"] = self.logos.get(h["id"])
             if h["id"] in self.logo_dark and h["logo"]:
                 h["logoOnDark"] = True

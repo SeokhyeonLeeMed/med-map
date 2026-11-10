@@ -41,7 +41,13 @@ export function StatsBar({ shown }: { shown: Institution[] }) {
           </>
         )}
         <Item label="병원" value={s.hospitals} />
-        <Item label="의과대학" value={s.schools} />
+        <Item label="대학" value={s.schools} />
+        {s.dentalHospitals + s.dentalSchools > 0 && (
+          <>
+            <Item label="치과병원" value={s.dentalHospitals} />
+            <Item label="치과대학" value={s.dentalSchools} />
+          </>
+        )}
         {kr && (
           <>
             <Group label={both ? '한국' : null} />

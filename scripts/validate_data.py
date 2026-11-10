@@ -320,11 +320,11 @@ def main() -> int:
         tok = sum(1 for h in jp["hospitals"] if h["jp"].get("tokutei"))
         if tok != 88:
             r.error("일본 범위", f"특정기능병원이 {tok}곳이다(명부 88곳)")
-        jp_counts = (f" · 일본 기관 {len(jp_insts)} (병원 {len(jp['hospitals'])} · 의학부 {len(jp['schools'])}), "
+        jp_counts = (f" · 일본 기관 {len(jp_insts)} (병원 {len(jp['hospitals'])} · 의학부·歯学部 {len(jp['schools'])}), "
                      f"관계 {len(jp['relations'])}, 계열 {len(jp['networks'])}, 시구정촌 {len(jp_subs)}")
 
     print(r.render())
-    print(f"\n  기관 {len(hospitals) + len(schools)} (병원 {len(hospitals)} · 의과대학 {len(schools)})")
+    print(f"\n  기관 {len(hospitals) + len(schools)} (병원 {len(hospitals)} · 의과·치과대학 {len(schools)})")
     print(f"  관계 {len(relations)} · 모집 단위 {len(units)} · 모집 기록 {len(recruitment)}")
     print(f"  세부권역 {len(regions['subRegions'])} · 대권역 {len(regions['macroRegions'])} · 출처 {len(sources)}")
     print(f"  병원 계열 {len(networks)}{jp_counts}")

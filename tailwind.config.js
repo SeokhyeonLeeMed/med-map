@@ -10,6 +10,8 @@ export default {
         brand: { DEFAULT: '#1f5f4f', soft: '#e7f0ec' },
         hosp: '#1f5f4f',
         school: '#8a5a1f',
+        dental: '#2b5d8f',
+        dentalSchool: '#5b4a8f',
         alert: '#a8342a',
       },
       fontFamily: {

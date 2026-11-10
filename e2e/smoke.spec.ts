@@ -241,3 +241,19 @@ test('지도에 북쪽을 되돌리는 나침반 버튼이 있다', async ({ pag
   await page.goto('./')
   await expect(page.getByRole('button', { name: /Reset bearing to north|북쪽/ })).toBeVisible()
 })
+
+test('분야 필터에서 치과만 고르면 치과대학·치과병원이 나오고 치과 인력이 보인다', async ({ page }) => {
+  await page.goto('/?field=dental&sel=h-seouldaehakgyochigwabyeongwon')
+  await waitForMap(page)
+  const panel = page.getByRole('complementary', { name: '기관 상세 정보' })
+  await expect(panel.getByRole('heading')).toContainText('서울대학교치과병원')
+  await expect(panel.getByText('치과병원', { exact: true }).first()).toBeVisible()
+  await panel.getByRole('tab', { name: '진료조직' }).click()
+  await expect(panel.getByText('재직 치과 레지던트')).toBeVisible()
+  // 관련 기관에서 치의학대학원으로 넘어간다
+  await panel.getByRole('tab', { name: '관련기관' }).click()
+  await panel.getByRole('button', { name: /서울대학교 치의학대학원/ }).first().click()
+  await expect(page).toHaveURL(/sel=ds-seoul/)
+  await panel.getByRole('tab', { name: '개요' }).click()
+  await expect(panel.getByText('치의학 정원 내 모집인원', { exact: false })).toBeVisible()
+})

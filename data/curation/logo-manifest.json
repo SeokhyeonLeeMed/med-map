@@ -79,6 +79,17 @@
    "manual": true,
    "copiedExt": ".svg"
   },
+  "h-gangdonggyeonghuidaehakgyochigwabyeongwon": {
+   "institution": "강동경희대학교치과병원",
+   "sourceDir": "web",
+   "fileName": "h-gangdonggyeonghuidaehakgyochigwabyeongwon/h4.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://dent.khnmc.or.kr/resources/KR/medical/images/common/top_logo.png",
+   "pageUrl": "https://dent.khnmc.or.kr/kr/main.do",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
   "h-gangreungasanbyeongwon": {
    "institution": "강릉아산병원",
    "sourceDir": "web",
@@ -106,12 +117,28 @@
    "manual": false,
    "copiedExt": ".svg"
   },
+  "h-gangwondaehakgyochigwabyeongwon": {
+   "institution": "강원대학교치과병원",
+   "sourceDir": "web",
+   "fileName": "h-gangwondaehakgyochigwabyeongwon/h1.gif",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.knudh.or.kr/images/common/logo.gif",
+   "pageUrl": "https://www.knudh.or.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
   "h-gangwondosamcheokuiryowon": {
    "institution": "강원특별자치도삼척의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gangwondosamcheokuiryowon/h3.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.ksmc.or.kr/img/slogo.png",
+   "pageUrl": "https://www.ksmc.or.kr/",
+   "retrievedOn": "2026-11-09",
+   "background": "dark",
+   "copiedExt": ".png"
   },
   "h-gangwondosokchouiryowon": {
    "institution": "강원특별자치도속초의료원",
@@ -221,6 +248,18 @@
    "manual": false,
    "copiedExt": ".svg"
   },
+  "h-gyeongbukdaehakgyochigwabyeongwon": {
+   "institution": "경북대학교치과병원",
+   "sourceDir": "web",
+   "fileName": "h-gyeongbukdaehakgyochigwabyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.knudh.kr/img/intro/logo4.png",
+   "pageUrl": "https://www.knudh.kr/",
+   "retrievedOn": "2026-11-09",
+   "background": "dark",
+   "copiedExt": ".png"
+  },
   "h-gyeongsanggukripdaehakgyobyeongwon": {
    "institution": "경상국립대학교병원",
    "sourceDir": 1,
@@ -284,12 +323,26 @@
    "manual": false,
    "copiedExt": ".svg"
   },
+  "h-gyeonghuidaehakgyochigwabyeongwon": {
+   "institution": "경희대학교치과병원",
+   "sourceDir": "web",
+   "fileName": "h-gyeonghuidaehakgyochigwabyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://dent.khmc.or.kr/resources/KR/dental/images/common/logo_top01.png",
+   "pageUrl": "https://dent.khmc.or.kr/kr/main.do",
+   "retrievedOn": "2026-11-09",
+   "background": "dark",
+   "copiedExt": ".png"
+  },
   "h-gyeonghuiuiryowongyoyukhyeopryeokjungangbyeongwon": {
    "institution": "경희의료원 교육협력 중앙병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "경희대학교병원.svg",
+   "matchedBy": "same-logo:h-gyeonghuidaehakgyobyeongwon",
+   "manual": true,
+   "note": "2018-03 경희의료원과 교육협력을 맺고 경희의료원 브랜드 사용을 허가받아 병원명을 바꿨다(2023-10 사실상 폐업). 폐업으로 누리집이 없어 브랜드 주인인 경희의료원 로고를 쓴다.",
+   "copiedExt": ".svg"
   },
   "h-gyemyeongdaehakgyodaegudongsanbyeongwon": {
    "institution": "계명대학교대구동산병원",
@@ -331,12 +384,27 @@
    "manual": false,
    "copiedExt": ".svg"
   },
+  "h-gwanakseouldaehakgyochigwabyeongwon": {
+   "institution": "관악서울대학교치과병원",
+   "sourceDir": "web",
+   "fileName": "h-gwanakseouldaehakgyochigwabyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.snudhgw.org/static/img/gw/intro/logo.png",
+   "pageUrl": "https://www.snudhgw.org/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
   "h-gwangmyeongseongaebyeongwon": {
    "institution": "광명성애병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gwangmyeongseongaebyeongwon/h2.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://h.ksungae.co.kr/images/gm/logo.png",
+   "pageUrl": "https://h.ksungae.co.kr/index.do",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-gwangjugidokbyeongwon": {
    "institution": "광주기독병원",
@@ -363,10 +431,14 @@
   },
   "h-gukgunsudobyeongwon": {
    "institution": "국군수도병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukgunsudobyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://afmd.mnd.go.kr/sites/afmd/images/logo.png",
+   "pageUrl": "https://afmd.mnd.go.kr/afmd/index.do",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-gukripgongjubyeongwon": {
    "institution": "국립공주병원",
@@ -403,10 +475,15 @@
   },
   "h-gukripbeopmubyeongwon": {
    "institution": "국립법무병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gukripbeopmubyeongwon/h4.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.moj.go.kr/sites/moj/images/logo_main_2.png",
+   "pageUrl": "https://www.moj.go.kr/moj/index.do",
+   "retrievedOn": "2026-11-09",
+   "note": "자체 로고를 찾지 못해 소속 기관인 법무부 로고를 쓴다(국립법무병원은 법무부 소속 기관).",
+   "copiedExt": ".png"
   },
   "h-gukripbugokbyeongwon": {
    "institution": "국립부곡병원",
@@ -559,17 +636,48 @@
   },
   "h-nuneangwabyeongwon": {
    "institution": "누네안과병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-nuneangwabyeongwon/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.noon.co.kr/assets/img/logo-wt.svg",
+   "pageUrl": "https://www.noon.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "background": "dark",
+   "copiedExt": ".svg"
   },
   "h-nuneangwadaegu": {
    "institution": "누네안과병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-nuneangwadaegu/h2.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://vision.noon.co.kr/src/img/logo_c.png",
+   "pageUrl": "https://vision.noon.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "h-dangukdaehakgyochigwadaehaksejongchigwabyeongwon": {
+   "institution": "단국대학교 치과대학 세종치과병원",
+   "sourceDir": "web",
+   "fileName": "h-dangukdaehakgyochigwadaehaksejongchigwabyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://sjdh.dankook.ac.kr/imgs/sejong_logo_100h.png",
+   "pageUrl": "https://sjdh.dankook.ac.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "h-dangukdaehakgyochigwadaehakjukjeonchigwabyeongwon": {
+   "institution": "단국대학교 치과대학 죽전치과병원",
+   "sourceDir": "web",
+   "fileName": "h-dangukdaehakgyochigwadaehakjukjeonchigwabyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://dkdh.dankook.ac.kr/imgs/logo_dkdh_100h.png",
+   "pageUrl": "https://dkdh.dankook.ac.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-dangukdaehakgyouigwadaehakbusokbyeongwon": {
    "institution": "단국대학교의과대학부속병원",
@@ -578,6 +686,18 @@
    "matchedBy": "단국병원",
    "manual": false,
    "copiedExt": ".svg"
+  },
+  "h-dangukdaehakgyochigwadaehakchigwabyeongwon": {
+   "institution": "단국대학교치과대학치과병원",
+   "sourceDir": "web",
+   "fileName": "h-dangukdaehakgyochigwadaehakchigwabyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://dudh.dankook.ac.kr/images/logo_top.png",
+   "pageUrl": "https://dudh.dankook.ac.kr/",
+   "retrievedOn": "2026-11-09",
+   "background": "dark",
+   "copiedExt": ".png"
   },
   "h-daegugatolrikdaehakgyobyeongwon": {
    "institution": "대구가톨릭대학교병원",
@@ -634,10 +754,14 @@
   },
   "h-daejainbyeongwon": {
    "institution": "대자인병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-daejainbyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.designhospital.co.kr/images/common/header-logo-on.png",
+   "pageUrl": "https://www.designhospital.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-daejeonbohunbyeongwon": {
    "institution": "대전보훈병원",
@@ -710,10 +834,14 @@
   },
   "h-mokpohangukbyeongwon": {
    "institution": "목포한국병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-mokpohangukbyeongwon/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.hank.co.kr/theme/basic/img/logo.svg",
+   "pageUrl": "http://www.hank.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
   },
   "h-buminbyeongwonseoul": {
    "institution": "부민병원",
@@ -746,12 +874,27 @@
    "manual": false,
    "copiedExt": ".svg"
   },
+  "h-busandaehakgyochigwabyeongwon": {
+   "institution": "부산대학교치과병원",
+   "sourceDir": "web",
+   "fileName": "h-busandaehakgyochigwabyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.pnudh.co.kr/resources/pnudh/images/layout/logo.png",
+   "pageUrl": "https://www.pnudh.co.kr/pnudh/main/main.do?cmnx=1",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
   "h-busanseongmobyeongwon": {
    "institution": "부산성모병원(재단법인 천주교부산교구유지재단)",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-busanseongmobyeongwon/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.bsm.or.kr/images/common/t_main_logo.svg",
+   "pageUrl": "https://www.bsm.or.kr/00main/main.asp",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
   },
   "h-busanseongmoangwabyeongwon": {
    "institution": "부산성모안과병원",
@@ -815,10 +958,15 @@
   },
   "h-saneopanjeonbogeonyeonguwon": {
    "institution": "산업안전보건연구원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-saneopanjeonbogeonyeonguwon/h6.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://kosha.or.kr/images/common/logo2.png",
+   "pageUrl": "https://kosha.or.kr/landing",
+   "retrievedOn": "2026-11-09",
+   "note": "자체 로고 대신 운영 기관인 한국산업안전보건공단 로고를 쓴다.",
+   "copiedExt": ".png"
   },
   "h-samseongseoulbyeongwon": {
    "institution": "삼성서울병원",
@@ -830,10 +978,14 @@
   },
   "h-busansamyukbyeongwon": {
    "institution": "삼육부산병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-busansamyukbyeongwon/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.symcb.co.kr/theme/basic/img/svg/logo.svg",
+   "pageUrl": "https://www.symcb.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
   },
   "h-samyukseoulbyeongwon": {
    "institution": "삼육서울병원",
@@ -849,10 +1001,15 @@
   },
   "h-sangjujeoksipjabyeongwon": {
    "institution": "상주적십자병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-sangjujeoksipjabyeongwon/h3.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.redcross.or.kr/images/common/layout/logo.svg",
+   "pageUrl": "https://www.redcross.or.kr/main/main.do",
+   "retrievedOn": "2026-11-09",
+   "note": "적십자병원은 대한적십자사 표장을 쓴다(대한적십자사 누리집의 로고).",
+   "copiedExt": ".svg"
   },
   "h-seouldaehakgyobyeongwon": {
    "institution": "서울대학교병원",
@@ -870,6 +1027,17 @@
    "manual": true,
    "note": "대학원 자체 로고가 없어 소속 대학교 로고를 쓴다.",
    "copiedExt": ".svg"
+  },
+  "h-seouldaehakgyochigwabyeongwon": {
+   "institution": "서울대학교치과병원",
+   "sourceDir": "web",
+   "fileName": "h-seouldaehakgyochigwabyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.snudh.org/static/img/gw/intro/logo.png",
+   "pageUrl": "https://www.snudh.org/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-seoulseongsimbyeongwon": {
    "institution": "서울성심병원",
@@ -959,10 +1127,14 @@
   },
   "h-seoulteukbyeolsieunpyeongbyeongwon": {
    "institution": "서울특별시은평병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-seoulteukbyeolsieunpyeongbyeongwon/h3.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://ephosp.seoul.go.kr/wp-content/themes/ephosp/images/common/footer_logo_new.png",
+   "pageUrl": "https://ephosp.seoul.go.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-seonggarolrobyeongwon": {
    "institution": "성가롤로병원",
@@ -1070,10 +1242,14 @@
   },
   "h-asanchungmubyeongwon": {
    "institution": "아산충무병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-asanchungmubyeongwon/h4.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.asancm.co.kr/static/common/images/logo.6b9318b55184.png",
+   "pageUrl": "https://www.asancm.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-ajudaehakgyobyeongwon": {
    "institution": "아주대학교병원",
@@ -1126,10 +1302,14 @@
   },
   "h-yeocheonjeonnambyeongwon": {
    "institution": "여천전남병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-yeocheonjeonnambyeongwon/h1.gif",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.yccnhosp.com/images/main_logo_01.gif",
+   "pageUrl": "http://www.yccnhosp.com/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".jpg"
   },
   "h-yeonsedaehakgyowonjusebeuranseugidokbyeongwon": {
    "institution": "연세대학교 원주세브란스기독병원",
@@ -1172,6 +1352,17 @@
    "manual": true,
    "copiedExt": ".svg"
   },
+  "h-yeonsedaehakgyochigwadaehakchigwabyeongwon": {
+   "institution": "연세대학교치과대학치과병원",
+   "sourceDir": "web",
+   "fileName": "h-yeonsedaehakgyochigwadaehakchigwabyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://dental.severance.healthcare/_res/yuhs/dental/img/common/dental_logo@2x.png",
+   "pageUrl": "https://dental.severance.healthcare/dental/index.do",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
   "h-yeongnamdaehakgyobyeongwon": {
    "institution": "영남대학교병원",
    "sourceDir": 0,
@@ -1212,10 +1403,25 @@
   },
   "h-yonginjeongsinbyeongwon": {
    "institution": "용인정신병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-yonginjeongsinbyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.yonginmh.co.kr/files/attach/images/167/7b7cadf68827554e0dc692e9590b2ef0.png",
+   "pageUrl": "https://www.yonginmh.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "h-wongwangdaehakgyodaejeonchigwabyeongwon": {
+   "institution": "원광대학교 대전치과병원",
+   "sourceDir": "web",
+   "fileName": "h-wongwangdaehakgyodaejeonchigwabyeongwon/h1.gif",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.wkudh.ac.kr/gnuwd2/contents/common/images/main/logo.gif",
+   "pageUrl": "http://www.wkudh.ac.kr/gnuwd2/contents/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".jpg"
   },
   "h-wongwangdaehakgyouigwadaehaksanbonbyeongwon": {
    "institution": "원광대학교 산본병원",
@@ -1228,6 +1434,17 @@
    "retrievedOn": "2026-10-30",
    "copiedExt": ".png"
   },
+  "h-wongwangdaehakgyochigwabyeongwon": {
+   "institution": "원광대학교 치과병원",
+   "sourceDir": "web",
+   "fileName": "h-wongwangdaehakgyochigwabyeongwon/h1.gif",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.wkdh.ac.kr/img/topmenu/logo.gif",
+   "pageUrl": "http://www.wkdh.ac.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
   "h-wongwangdaehakgyobyeongwon": {
    "institution": "원광대학교병원",
    "sourceDir": 0,
@@ -1235,6 +1452,17 @@
    "matchedBy": "원광병원",
    "manual": false,
    "copiedExt": ".svg"
+  },
+  "h-wongwangdaehakgyochigwadaehaksanbonchigwabyeongwon": {
+   "institution": "원광대학교치과대학산본치과병원",
+   "sourceDir": "web",
+   "fileName": "h-wongwangdaehakgyochigwadaehaksanbonchigwabyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.sbdh.co.kr/img/logo_footer.png",
+   "pageUrl": "http://www.sbdh.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-gyeyouiryojaedangyeyobyeongwon": {
    "institution": "의료법인 계요의료재단 계요병원",
@@ -1291,10 +1519,14 @@
   },
   "h-hwahongbyeongwon": {
    "institution": "의료법인 명인의료재단 화홍병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-hwahongbyeongwon/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.hwahonghospital.com/img/logo.svg",
+   "pageUrl": "https://www.hwahonghospital.com/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
   },
   "h-jecheonmyeongjibyeongwon": {
    "institution": "의료법인 명지의료재단 명지병원",
@@ -1331,10 +1563,14 @@
   },
   "h-sejongbyeongwon": {
    "institution": "의료법인 영제 의료재단 엔케이세종병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-sejongbyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.nksjhsp.co.kr/img/logo.png",
+   "pageUrl": "https://www.nksjhsp.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".jpg"
   },
   "h-yeonghunuiryojaedandaejeonseonbyeongwon": {
    "institution": "의료법인 영훈의료재단 대전선병원",
@@ -1451,17 +1687,25 @@
   },
   "h-junganguiryojaedanjungangbyeongwon": {
    "institution": "의료법인 중앙의료재단 중앙병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-junganguiryojaedanjungangbyeongwon/h4.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.jeju-jungangh.com/kor/_wpcomm/HomeType/basic/image/main/logo_on.png",
+   "pageUrl": "https://www.jeju-jungangh.com/kor/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-wilseuginyeombyeongwon": {
    "institution": "의료법인 토마스의료재단 윌스기념병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-wilseuginyeombyeongwon/h1.gif",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://allspine.com/common/logo/16166533772544.gif",
+   "pageUrl": "https://allspine.com/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".jpg"
   },
   "h-hyeinuiryojaedanhangukbyeongwon": {
    "institution": "의료법인 혜인의료재단 한국병원",
@@ -1477,10 +1721,14 @@
   },
   "h-rugauiryojaedannaeunbyeongwon": {
    "institution": "의료법인루가의료재단 나은병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-rugauiryojaedannaeunbyeongwon/h10.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.luga.co.kr/wp-content/uploads/2014/09/logo.png",
+   "pageUrl": "https://www.luga.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-myeongjibyeongwon": {
    "institution": "의료법인명지의료재단명지병원",
@@ -1537,17 +1785,25 @@
   },
   "h-gimpouribyeongwon": {
    "institution": "의료법인우리의료재단김포우리병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gimpouribyeongwon/h2.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.gwhospital.co.kr/images/common/f_logo.png",
+   "pageUrl": "https://www.gwhospital.co.kr/main/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-gimwonmukginyeombongsaengbyeongwon": {
    "institution": "의료법인정화의료재단 봉생기념병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-gimwonmukginyeombongsaengbyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.bsmh.or.kr/page/img/common/logo@2x.png",
+   "pageUrl": "http://www.bsmh.or.kr/page/main/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-hanhangilangwabyeongwon": {
    "institution": "의료법인한길의료재단한길안과병원",
@@ -1739,6 +1995,17 @@
    "manual": false,
    "copiedExt": ".svg"
   },
+  "h-jeonnamdaehakgyochigwabyeongwon": {
+   "institution": "전남대학교치과병원",
+   "sourceDir": "web",
+   "fileName": "h-jeonnamdaehakgyochigwabyeongwon/h2.jpg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.cnudh.co.kr/sites/cnudh/images/common/logo.jpg",
+   "pageUrl": "https://www.cnudh.co.kr/intro.cs",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".jpg"
+  },
   "h-jeonbukdaehakgyobyeongwon": {
    "institution": "전북대학교병원",
    "sourceDir": 0,
@@ -1747,12 +2014,28 @@
    "manual": false,
    "copiedExt": ".svg"
   },
+  "h-jeonbukdaehakgyochigwabyeongwon": {
+   "institution": "전북대학교치과병원",
+   "sourceDir": "web",
+   "fileName": "h-jeonbukdaehakgyochigwabyeongwon/h3.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.jbuh.co.kr/pcms/common/images/logo.svg",
+   "pageUrl": "https://www.jbuh.co.kr/main.do",
+   "retrievedOn": "2026-11-09",
+   "note": "치과병원이 전북대학교병원 누리집 안에 있어 전북대학교병원 로고를 쓴다.",
+   "copiedExt": ".svg"
+  },
   "h-jeonrabukdogunsanuiryowon": {
    "institution": "전북특별자치도 군산의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-jeonrabukdogunsanuiryowon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.kunmed.or.kr/data/img_logo.png",
+   "pageUrl": "https://www.kunmed.or.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".jpg"
   },
   "h-jeonrabukdonamwonuiryowon": {
    "institution": "전북특별자치도 남원의료원",
@@ -1767,10 +2050,14 @@
   },
   "h-jeonrabukdomaeumsarangbyeongwon": {
    "institution": "전북특별자치도마음사랑병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-jeonrabukdomaeumsarangbyeongwon/h3.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.maeumsarang.co.kr/layouts/bluebDesign/_var/home/logo_home.png",
+   "pageUrl": "https://www.maeumsarang.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-jeilangwabyeongwon": {
    "institution": "제일안과병원",
@@ -1793,10 +2080,14 @@
   },
   "h-jejuteukbyeoljachidoseogwipouiryowon": {
    "institution": "제주특별자치도 서귀포의료원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-jejuteukbyeoljachidoseogwipouiryowon/h2.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.jjsmc.or.kr/res/images/copy/ci.png",
+   "pageUrl": "http://www.smed.or.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".jpg"
   },
   "h-jejuhanrabyeongwon": {
    "institution": "제주한라병원",
@@ -1816,6 +2107,17 @@
    "matchedBy": "조선병원",
    "manual": false,
    "copiedExt": ".svg"
+  },
+  "h-joseondaehakgyochigwabyeongwon": {
+   "institution": "조선대학교치과병원",
+   "sourceDir": "web",
+   "fileName": "h-joseondaehakgyochigwabyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://dent.chosun.ac.kr:1443/groups/www/images/comm/h_logo_01.png",
+   "pageUrl": "https://dent.chosun.ac.kr:1443/index.9is",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-joteunmunhwabyeongwon": {
    "institution": "좋은문화병원",
@@ -1870,24 +2172,36 @@
   },
   "h-chamjoeunbyeongwon": {
    "institution": "참조은병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-chamjoeunbyeongwon/h2.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://chamhosp.co.kr/inc/img/common/old_logo.svg",
+   "pageUrl": "https://chamhosp.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
   },
   "h-changwongyeongsanggukripdaehakgyobyeongwon": {
    "institution": "창원경상국립대학교병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-changwongyeongsanggukripdaehakgyobyeongwon/h2.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.gnuch.co.kr/gnuh/images/layout/logo.png",
+   "pageUrl": "https://www.gnuch.co.kr/gnuh/main/main.do?rbsIdx=1",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-changwonpatimabyeongwon": {
    "institution": "창원파티마병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-changwonpatimabyeongwon/h2.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARoAAAAoCAYAAAAhdjWoAAAACXBIWXMAAAsTAAALEwEAmpwYAAAViElEQVR4nO2de9hUVbnAf8CniBpgtbwkeb8kR5JMMzuZeKnMTE3H1uCI7hE1yi6evIB2Uksrj4pxKs1KmUU2OrsmM0lF7ZAJJ8tLkeUF9RgIGrbBQEVU4OP88a5h9tqXmb3n+z7Bmt/zzAN77bXX2vPN3u9+13vbgxhISvVhwL8BY+y/O9jP1sBWwMjIEb3AstDnGeAJ4F",
+   "pageUrl": "https://www.fatimahosp.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-changwonhanmaeumbyeongwon": {
    "institution": "창원한마음병원",
@@ -1913,10 +2227,20 @@
   },
   "h-chubyeongwon": {
    "institution": "추병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-chubyeongwon/h1.jpg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.choomc.com/new_images/main_img/logo.jpg",
+   "pageUrl": "https://www.choomc.com/",
+   "retrievedOn": "2026-11-09",
+   "crop": [
+    0,
+    0,
+    205,
+    84
+   ],
+   "copiedExt": ".jpg"
   },
   "h-chungnamdaehakgyobyeongwon": {
    "institution": "충남대학교병원",
@@ -2028,10 +2352,12 @@
   },
   "h-geonyangdaehakgyobuyeobyeongwon": {
    "institution": "학교법인 건양교육재단 건양대학교부여병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": 0,
+   "fileName": "건양대학교병원.svg",
+   "matchedBy": "same-logo:h-geonyangdaehakgyobyeongwon",
+   "manual": true,
+   "note": "옛 누리집(kyuh.co.kr) 도메인이 만료되어, 부여병원을 안내하는 건양대학교병원 누리집(kyuh.ac.kr)의 로고를 쓴다.",
+   "copiedExt": ".svg"
   },
   "h-goryeodaehakgyouigwadaehakbusokbyeongwonanambyeongwon": {
    "institution": "학교법인 고려중앙학원 고려대학교의과대학부속병원(안암병원)",
@@ -2067,10 +2393,15 @@
   },
   "h-donguibyeongwon": {
    "institution": "학교법인)동의병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-donguibyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.demc.kr/images/intro/ci.png",
+   "pageUrl": "https://www.demc.kr/intro/",
+   "retrievedOn": "2026-11-09",
+   "note": "동의병원 누리집(demc.kr)이 쓰는 동의의료원 로고다.",
+   "copiedExt": ".png"
   },
   "h-gatolrikdaehakgyoseoulseongmobyeongwon": {
    "institution": "학교법인가톨릭학원가톨릭대학교서울성모병원",
@@ -2101,10 +2432,14 @@
   },
   "h-busanbohunbyeongwon": {
    "institution": "한국보훈복지의료공단 부산보훈병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-busanbohunbyeongwon/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.bohun.or.kr/images/web/busan/common/logo.png",
+   "pageUrl": "https://www.bohun.or.kr/busan/main.do",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
   },
   "h-jungangbohunbyeongwon": {
    "institution": "한국보훈복지의료공단 중앙보훈병원",
@@ -2182,10 +2517,14 @@
   },
   "h-hanmaeumjejubyeongwon": {
    "institution": "한마음병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-hanmaeumjejubyeongwon/h3.jpg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.hanmaeum.jeju.kr/img/top_logo.jpg",
+   "pageUrl": "http://www.hanmaeum.jeju.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".jpg"
   },
   "h-hanyangdaehakgyoguribyeongwon": {
    "institution": "한양대학교구리병원",
@@ -2205,10 +2544,14 @@
   },
   "h-hanilbyeongwon": {
    "institution": "한일병원",
-   "sourceDir": null,
-   "fileName": null,
-   "matchedBy": null,
-   "manual": false
+   "sourceDir": "web",
+   "fileName": "h-hanilbyeongwon/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.hanilhosp.co.kr/images/common/logo.svg",
+   "pageUrl": "https://www.hanilhosp.co.kr/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
   },
   "h-hyeondaebyeongwon": {
    "institution": "현대병원",
@@ -2594,6 +2937,94 @@
    "fileName": "한양대학교.svg",
    "matchedBy": "한양",
    "manual": false,
+   "copiedExt": ".svg"
+  },
+  "ds-seoul": {
+   "institution": "서울대학교 치의학대학원",
+   "sourceDir": 0,
+   "fileName": "서울대학교.svg",
+   "matchedBy": "same-logo:ms-seoul",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "ds-yeonse": {
+   "institution": "연세대학교 치과대학",
+   "sourceDir": 0,
+   "fileName": "연세대학교.svg",
+   "matchedBy": "same-logo:ms-yeonse",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "ds-gyeonghui": {
+   "institution": "경희대학교 치과대학",
+   "sourceDir": 0,
+   "fileName": "경희대학교.svg",
+   "matchedBy": "same-logo:ms-gyeonghui",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "ds-danguk": {
+   "institution": "단국대학교 치과대학",
+   "sourceDir": 0,
+   "fileName": "단국대학교.svg",
+   "matchedBy": "same-logo:ms-danguk",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "ds-joseon": {
+   "institution": "조선대학교 치과대학",
+   "sourceDir": 0,
+   "fileName": "조선대학교.svg",
+   "matchedBy": "same-logo:ms-joseon",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "ds-wongwang": {
+   "institution": "원광대학교 치과대학",
+   "sourceDir": 0,
+   "fileName": "원광대학교.svg",
+   "matchedBy": "same-logo:ms-wongwang",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "ds-jeonnam": {
+   "institution": "전남대학교 치의학전문대학원",
+   "sourceDir": 0,
+   "fileName": "전남대학교.svg",
+   "matchedBy": "same-logo:ms-jeonnam",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "ds-jeonbuk": {
+   "institution": "전북대학교 치과대학",
+   "sourceDir": 0,
+   "fileName": "전북대학교.svg",
+   "matchedBy": "same-logo:ms-jeonbuk",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "ds-busan": {
+   "institution": "부산대학교 치과대학",
+   "sourceDir": 0,
+   "fileName": "부산대학교.svg",
+   "matchedBy": "same-logo:ms-busan",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "ds-gyeongbuk": {
+   "institution": "경북대학교 치과대학",
+   "sourceDir": 0,
+   "fileName": "경북대학교.svg",
+   "matchedBy": "same-logo:ms-gyeongbuk",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "ds-gangwon": {
+   "institution": "강원대학교 치과대학",
+   "sourceDir": 0,
+   "fileName": "강원대학교.svg",
+   "matchedBy": "same-logo:ms-gangwon",
+   "manual": true,
    "copiedExt": ".svg"
   },
   "jp-h-0111010000420": {
@@ -5302,6 +5733,609 @@
    "manual": true,
    "note": "국립암연구센터(법인) 로고. 중앙병원·동병원이 함께 쓴다.",
    "copiedExt": ".jpg"
+  },
+  "jp-h-2311230300120": {
+   "institution": "愛知医科大学病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-2311230300120/h6.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.aichi-med-u.ac.jp/hospital/img/f_logo.svg",
+   "pageUrl": "https://www.aichi-med-u.ac.jp/hospital/index.html",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-h-2311232700250": {
+   "institution": "愛知医科大学メディカルセンター",
+   "sourceDir": "web",
+   "fileName": "jp-h-2311232700250/h3.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.aichi-med-u.ac.jp/medicalcenter/img/f_logo.svg",
+   "pageUrl": "https://www.aichi-med-u.ac.jp/medicalcenter/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-s-df27e26eea": {
+   "institution": "愛知医科大学医学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-df27e26eea/h4.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.aichi-med-u.ac.jp/img/f_logo.svg",
+   "pageUrl": "https://www.aichi-med-u.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-ds-311a7f35ab": {
+   "institution": "北海道大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-b0977d93a5/cand0.png",
+   "sourceUrl": "https://www.hokudai.ac.jp/common/img/h_logo.png",
+   "pageUrl": "https://www.hokudai.ac.jp/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-b0977d93a5",
+   "manual": true,
+   "copiedExt": ".jpg"
+  },
+  "jp-ds-579692ad4a": {
+   "institution": "東北大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-4772f8d14e/cand0.svg",
+   "sourceUrl": "https://www.tohoku.ac.jp/assets/img/svgs/logo.svg",
+   "pageUrl": "https://www.tohoku.ac.jp/en/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-4772f8d14e",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "jp-ds-9ce92cb71e": {
+   "institution": "東京科学大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-fc2d61c712/cand1.png",
+   "sourceUrl": "https://www.isct.ac.jp/apple-touch-icon.png",
+   "pageUrl": "https://www.isct.ac.jp/ja",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-fc2d61c712",
+   "manual": true,
+   "copiedExt": ".jpg"
+  },
+  "jp-ds-889a58712a": {
+   "institution": "新潟大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-1f287bdf1e/cand0.svg",
+   "sourceUrl": "http://www.niigata-u.ac.jp/img/common/logo.svg",
+   "pageUrl": "http://www.niigata-u.ac.jp/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-1f287bdf1e",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "jp-ds-5524e9afd5": {
+   "institution": "大阪大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-01e6263638/cand0.svg",
+   "sourceUrl": "https://www.osaka-u.ac.jp/assets/images/header/logo_for_folder.svg",
+   "pageUrl": "https://www.osaka-u.ac.jp/ja",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-01e6263638",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "jp-ds-08a1ca38ba": {
+   "institution": "岡山大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-dea49489f2/cand1.png",
+   "sourceUrl": "https://www.okayama-u.ac.jp/_common6/_img/favicon/apple-touch-icon.png",
+   "pageUrl": "https://www.okayama-u.ac.jp/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-dea49489f2",
+   "manual": true,
+   "copiedExt": ".jpg"
+  },
+  "jp-ds-80fea38a3a": {
+   "institution": "広島大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-570435958d/cand0.png",
+   "sourceUrl": "https://www.hiroshima-u.ac.jp/themes/custom/hu_theme/images/common/h1_title.png",
+   "pageUrl": "https://www.hiroshima-u.ac.jp/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-570435958d",
+   "manual": true,
+   "copiedExt": ".png"
+  },
+  "jp-ds-f87d2ba574": {
+   "institution": "徳島大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-f96ddf5995/cand0.png",
+   "sourceUrl": "https://www.tokushima-u.ac.jp/img/logo-pc.png",
+   "pageUrl": "https://www.tokushima-u.ac.jp/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-f96ddf5995",
+   "manual": true,
+   "copiedExt": ".png"
+  },
+  "jp-ds-f853269f7f": {
+   "institution": "九州大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-1e40265473/cand0.png",
+   "sourceUrl": "https://www.kyushu-u.ac.jp/img/header_common/logo_header_en.png",
+   "pageUrl": "https://www.kyushu-u.ac.jp/en/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-1e40265473",
+   "manual": true,
+   "copiedExt": ".png"
+  },
+  "jp-ds-3cc5bf4697": {
+   "institution": "長崎大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-604cedcd15/cand0.svg",
+   "sourceUrl": "http://www.nagasaki-u.ac.jp/images/common/logo.svg",
+   "pageUrl": "http://www.nagasaki-u.ac.jp/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-604cedcd15",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "jp-ds-61dec9634b": {
+   "institution": "鹿児島大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-f47eb71b5b/topcrop.png",
+   "sourceUrl": null,
+   "pageUrl": "https://www.kagoshima-u.ac.jp/",
+   "capture": "브라우저로 연 공식 누리집 첫 화면에서 로고 부분을 사람이 잘라 냄",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-f47eb71b5b",
+   "manual": true,
+   "copiedExt": ".jpg"
+  },
+  "jp-ds-a57b454785": {
+   "institution": "岩手医科大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-7e81c15727/cand0.svg",
+   "sourceUrl": "https://www.iwate-med.ac.jp/wp/wp-content/themes/lab-iwatemed/assets/img/logo.svg",
+   "pageUrl": "https://www.iwate-med.ac.jp/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-7e81c15727",
+   "manual": true,
+   "copiedExt": ".svg"
+  },
+  "jp-ds-0493161b81": {
+   "institution": "日本大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-428fe44b53/cand0.png",
+   "sourceUrl": "https://www.nihon-u.ac.jp/assets/img/ogp.png",
+   "pageUrl": "https://www.nihon-u.ac.jp/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-428fe44b53",
+   "manual": true,
+   "copiedExt": ".jpg"
+  },
+  "jp-ds-349860b18e": {
+   "institution": "日本大学松戸歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-428fe44b53/cand0.png",
+   "sourceUrl": "https://www.nihon-u.ac.jp/assets/img/ogp.png",
+   "pageUrl": "https://www.nihon-u.ac.jp/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-428fe44b53",
+   "manual": true,
+   "copiedExt": ".jpg"
+  },
+  "jp-ds-7cc618057a": {
+   "institution": "昭和医科大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-737962e6b6/cand2.png",
+   "sourceUrl": "https://www.showa-u.ac.jp/apple-touch-icon.png",
+   "pageUrl": "https://www.showa-u.ac.jp/",
+   "retrievedOn": "2026-11-03",
+   "matchedBy": "same-logo:jp-s-737962e6b6",
+   "manual": true,
+   "copiedExt": ".png"
+  },
+  "jp-h-2711270002430": {
+   "institution": "大阪大学歯学部附属病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-2711270002430/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://hospital.dent.osaka-u.ac.jp/wp-content/uploads/2024/11/oudh_logo.png",
+   "pageUrl": "https://hospital.dent.osaka-u.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-h-4011400004360": {
+   "institution": "公立大学法人 九州歯科大学附属病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-4011400004360/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.kyu-dent.ac.jp/wp/wp-content/themes/fv_kyu-dent_2025/assets/images/common/logo.svg",
+   "pageUrl": "https://www.kyu-dent.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-h-0710710000105": {
+   "institution": "奥羽大学歯学部附属病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-0710710000105/h1.gif",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.ohu-dent.jp/img/logo.gif",
+   "pageUrl": "https://www.ohu-dent.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-h-1111103553600": {
+   "institution": "明海大学歯学部付属明海大学病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-1111103553600/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.meikai.ac.jp/hospital/common/image/logo001.png",
+   "pageUrl": "https://www.meikai.ac.jp/hospital/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-h-1311130200980": {
+   "institution": "日本大学歯学部付属歯科病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-1311130200980/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://dentalhospital-nusd.jp/data/media/japan_dentistry_recruitment/layout/header/logo.png",
+   "pageUrl": "https://dentalhospital-nusd.jp/cms/404.html",
+   "retrievedOn": "2026-11-09",
+   "erase": [
+    [
+     190,
+     52,
+     540,
+     94
+    ]
+   ],
+   "note": "로고 아래 '研修歯科医採用サイト' 안내 상자는 지웠다.",
+   "copiedExt": ".png"
+  },
+  "jp-h-1211201376500": {
+   "institution": "日本大学松戸歯学部付属病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-1211201376500/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.mascat.nihon-u.ac.jp/images/hospital/toindex.png",
+   "pageUrl": "https://www.mascat.nihon-u.ac.jp/hospital/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-h-1311130200850": {
+   "institution": "東京歯科大学水道橋病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-1311130200850/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.tdc.ac.jp/sh/images/common/logo.png",
+   "pageUrl": "https://www.tdc.ac.jp/sh/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-h-1311130101090": {
+   "institution": "日本歯科大学附属病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-1311130101090/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.tky.ndu.ac.jp/hospital/img/common/logo.svg",
+   "pageUrl": "https://www.tky.ndu.ac.jp/hospital/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-h-151byncx00042": {
+   "institution": "日本歯科大学新潟病院",
+   "sourceDir": "web",
+   "fileName": "jp-ds-9c6d86cfd0/h3.svg",
+   "matchedBy": "same-logo:jp-ds-9c6d86cfd0",
+   "manual": true,
+   "sourceUrl": "https://www.ndu.ac.jp/img/common/logo04.svg",
+   "pageUrl": "https://www.ndu.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "note": "병원 누리집에 쓸 만한 크기의 병원 로고가 없어 日本歯科大学 로고를 쓴다.",
+   "copiedExt": ".svg"
+  },
+  "jp-h-1311132400700": {
+   "institution": "昭和医科大学歯科病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-1311132400700/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.showa-u.ac.jp/SUHD/albums/component/base-header/abm00018676.svg",
+   "pageUrl": "https://www.showa-u.ac.jp/SUHD/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-h-1411402992800": {
+   "institution": "鶴見大学歯学部附属病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-1411402992800/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.tsurumi-u.ac.jp/img/dental-h/logo.png",
+   "pageUrl": "https://www.tsurumi-u.ac.jp/site/dental-hospital/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".jpg"
+  },
+  "jp-h-1411409478900": {
+   "institution": "神奈川歯科大学附属病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-1411409478900/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.kdu.ac.jp/hospital/image/header_logo.png",
+   "pageUrl": "https://www.kdu.ac.jp/hospital/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-h-2011205901840": {
+   "institution": "松本歯科大学病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-2011205901840/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.mdu.ac.jp/assets/img/hospital/header_logo.png",
+   "pageUrl": "https://www.mdu.ac.jp/hospital/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-h-2111341000120": {
+   "institution": "朝日大学病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-2111341000120/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "http://www.hosp.asahi-u.ac.jp/wp-content/themes/asahi-hosp/images/logo.svg",
+   "pageUrl": "http://www.hosp.asahi-u.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-h-2311232200070": {
+   "institution": "愛知学院大学歯学部附属病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-2311232200070/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://hospital.dent.agu.ac.jp/wp-content/themes/aichi-gakuin/img/common/logo.svg",
+   "pageUrl": "https://hospital.dent.agu.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "background": "dark",
+   "copiedExt": ".svg"
+  },
+  "jp-h-2711270000700": {
+   "institution": "大阪歯科大学附属病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-2711270000700/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.osaka-dent.ac.jp/hospital/common/images/logo.png",
+   "pageUrl": "https://www.osaka-dent.ac.jp/hospital/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-h-4011400000300": {
+   "institution": "福岡歯科大学医科歯科総合病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-4011400000300/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://h.fdcnet.ac.jp/theme/hos_site/images/common/logo.png",
+   "pageUrl": "https://h.fdcnet.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "background": "dark",
+   "copiedExt": ".png"
+  },
+  "jp-ds-f9543e42aa": {
+   "institution": "九州歯科大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-f9543e42aa/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.kyu-dent.ac.jp/wp/wp-content/themes/fv_kyu-dent_2025/assets/images/common/logo.svg",
+   "pageUrl": "https://www.kyu-dent.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-ds-ff302f4231": {
+   "institution": "北海道医療大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-ff302f4231/h1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.hoku-iryo-u.ac.jp/assets/img/common/header_logo.svg",
+   "pageUrl": "https://www.hoku-iryo-u.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-ds-ee482b4b47": {
+   "institution": "奥羽大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-ee482b4b47/h2.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.ohu-u.ac.jp/images/svg/logo_footer.svg",
+   "pageUrl": "https://www.ohu-u.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-ds-502b8d7e80": {
+   "institution": "明海大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-502b8d7e80/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.meikai.ac.jp/common/image/logo001.png",
+   "pageUrl": "https://www.meikai.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "background": "dark",
+   "copiedExt": ".png"
+  },
+  "jp-ds-2f0a6317f1": {
+   "institution": "東京歯科大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-2f0a6317f1/h3.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.tdc.ac.jp/college/images/common/pc-logo.svg",
+   "pageUrl": "https://www.tdc.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-ds-9c6d86cfd0": {
+   "institution": "日本歯科大学生命歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-9c6d86cfd0/h3.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.ndu.ac.jp/img/common/logo04.svg",
+   "pageUrl": "https://www.ndu.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-ds-60bdf12548": {
+   "institution": "鶴見大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-60bdf12548/h2.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.tsurumi-u.ac.jp/img/logo_hd_xs.svg",
+   "pageUrl": "https://www.tsurumi-u.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-ds-89eaf32404": {
+   "institution": "神奈川歯科大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-89eaf32404/h2.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.kdu.ac.jp/corporations/assets/img/common/logo-footer01.svg",
+   "pageUrl": "https://www.kdu.ac.jp/top/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
+  },
+  "jp-ds-8382c662b3": {
+   "institution": "松本歯科大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-8382c662b3/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.mdu.ac.jp/assets/img/common/header_logo.png",
+   "pageUrl": "https://www.mdu.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-ds-5b03d39438": {
+   "institution": "朝日大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-5b03d39438/h2.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.asahi-u.ac.jp/img/logo-asahi-sp.png",
+   "pageUrl": "https://www.asahi-u.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-ds-94e6ca3589": {
+   "institution": "愛知学院大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-94e6ca3589/h1.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.agu.ac.jp/themes/agu2026/assets/img/common/logo.png",
+   "pageUrl": "https://www.agu.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-ds-cf9e1f31d5": {
+   "institution": "大阪歯科大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-cf9e1f31d5/h2.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://www.osaka-dent.ac.jp/common/images/logo.png",
+   "pageUrl": "https://www.osaka-dent.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".png"
+  },
+  "jp-ds-b8c2105d0b": {
+   "institution": "福岡歯科大学歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-b8c2105d0b/h1.jpg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "sourceUrl": "https://d.fdcnet.ac.jp/theme/cl_data/images/common/logo.jpg",
+   "pageUrl": "https://d.fdcnet.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".jpg"
+  },
+  "jp-s-6c1b0a9e3d": {
+   "institution": "和歌山県立医科大学医学部",
+   "sourceDir": "web",
+   "fileName": "jp-s-6c1b0a9e3d/w1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "pageUrl": "https://web.archive.org/web/2025/https://www.wakayama-med.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "note": "누리집이 해외 접속에 응답하지 않아 Internet Archive 에 보존된 원본 SVG(/common/images/logo.svg)를 썼다.",
+   "copiedExt": ".svg"
+  },
+  "jp-h-3011004100000": {
+   "institution": "和歌山県立医科大学附属病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-3011004100000/w1.svg",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "pageUrl": "https://web.archive.org/web/2025/https://www.wakayama-med.ac.jp/hospital/",
+   "retrievedOn": "2026-11-09",
+   "note": "누리집이 해외 접속에 응답하지 않아 Internet Archive 에 보존된 원본 SVG(/hospital/common/images/logo.svg)를 썼다.",
+   "copiedExt": ".svg"
+  },
+  "jp-h-3011005900000": {
+   "institution": "和歌山県立医科大学附属病院紀北分院",
+   "sourceDir": "web",
+   "fileName": "jp-h-3011005900000/w1.gif",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "pageUrl": "https://web.archive.org/web/2025/http://www.wakayama-med.ac.jp/med/bun-in/index.html",
+   "retrievedOn": "2026-11-09",
+   "note": "누리집이 해외 접속에 응답하지 않아 Internet Archive 에 보존된 원본(/med/bun-in/image/common/logo.gif)을 썼다.",
+   "copiedExt": ".png"
+  },
+  "jp-h-1311130300460": {
+   "institution": "聖路加国際病院",
+   "sourceDir": "web",
+   "fileName": "jp-h-1311130300460/h1_page.png",
+   "matchedBy": "manual-review",
+   "manual": true,
+   "pageUrl": "https://hospital.luke.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "crop": [
+    1305,
+    10,
+    1575,
+    175
+   ],
+   "note": "누리집 첫 화면 캡처에서 로고 부분만 잘라 냈다.",
+   "copiedExt": ".jpg"
+  },
+  "jp-ds-917b259cde": {
+   "institution": "日本歯科大学新潟生命歯学部",
+   "sourceDir": "web",
+   "fileName": "jp-ds-9c6d86cfd0/h3.svg",
+   "matchedBy": "same-logo:jp-ds-9c6d86cfd0",
+   "manual": true,
+   "sourceUrl": "https://www.ndu.ac.jp/img/common/logo04.svg",
+   "pageUrl": "https://www.ndu.ac.jp/",
+   "retrievedOn": "2026-11-09",
+   "copiedExt": ".svg"
   }
  }
 }

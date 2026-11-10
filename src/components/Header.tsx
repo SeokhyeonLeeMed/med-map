@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { Institution } from '../types'
-import { isHospital, rankedSearch } from '../lib/domain'
+import { isHospital, kindLabel, rankedSearch } from '../lib/domain'
 import { useStore } from '../store'
 
 const AS_OF_LABEL = '2026-10-29'
@@ -66,7 +66,7 @@ export function Header({
 
       <div className="flex min-w-0 items-baseline gap-2">
         <h1 className="shrink-0 text-[15px] font-semibold tracking-tight text-ink">메디컬 맵</h1>
-        <p className="hidden truncate text-2xs text-ink-mute sm:block">한국·일본 의과대학 · 병원</p>
+        <p className="hidden truncate text-2xs text-ink-mute sm:block">한국·일본 의과·치과대학 · 병원</p>
       </div>
 
       <div ref={boxRef} className="relative order-last w-full min-w-0 flex-1 basis-full md:order-none md:basis-auto">
@@ -115,12 +115,17 @@ export function Header({
                     className={'flex w-full items-center gap-2 px-3 py-1.5 text-left ' + (i === cursor ? 'bg-brand-soft' : '')}
                   >
                     <span
-                      className={'h-2 w-2 shrink-0 ' + (isHospital(r) ? 'rounded-full bg-hosp' : 'rounded-[2px] bg-school')}
+                      className={
+                        'h-2 w-2 shrink-0 ' +
+                        (isHospital(r)
+                          ? r.discipline === 'dental' ? 'rounded-full bg-dental' : 'rounded-full bg-hosp'
+                          : r.discipline === 'dental' ? 'rounded-[2px] bg-dentalSchool' : 'rounded-[2px] bg-school')
+                      }
                       aria-hidden="true"
                     />
                     <span className="min-w-0 flex-1 truncate text-xs">{r.officialName}</span>
                     <span className="shrink-0 text-2xs text-ink-faint">
-                      {isHospital(r) ? '병원' : '의과대학'} · {r.sggName ?? '소재지 미확인'}
+                      {kindLabel(r)} · {r.sggName ?? '소재지 미확인'}
                     </span>
                   </button>
                 </li>

@@ -146,7 +146,7 @@ function Badges({ institution }: { institution: Institution }) {
     return (
       <div className="mt-2 flex flex-wrap gap-1">
         {institution.country === 'JP' && <Badge tone="plain">일본</Badge>}
-        <Badge tone="school">{institution.schoolKind}</Badge>
+        <Badge tone={institution.discipline === 'dental' ? 'dental' : 'school'}>{institution.schoolKind}</Badge>
         {institution.jp?.establishmentType && <Badge tone="plain">{institution.jp.establishmentType}</Badge>}
       </div>
     )
@@ -158,6 +158,8 @@ function Badges({ institution }: { institution: Institution }) {
         <Badge tone="plain">일본</Badge>
         {jp?.tokutei && <Badge tone="brand">特定機能病院{jp.tokutei.category !== 'その他' ? ` ${jp.tokutei.category}` : ''}</Badge>}
         {jp?.role && <Badge tone="plain">{jp.role === '本院' ? '大学病院 本院' : `大学病院 ${jp.role}`}</Badge>}
+        {institution.discipline === 'dental' && <Badge tone="dental">{jp?.roleLabel ?? '歯科 병원'}</Badge>}
+        {institution.discipline === 'both' && <Badge tone="dental">医歯 통합 (歯科 부문)</Badge>}
         {institution.coord.status !== '확인됨' && <Badge tone="warn">좌표 {institution.coord.status}</Badge>}
       </div>
     )
@@ -166,6 +168,7 @@ function Badges({ institution }: { institution: Institution }) {
   const e = activeEmergency(institution)
   return (
     <div className="mt-2 flex flex-wrap gap-1">
+      {institution.discipline === 'dental' && <Badge tone="dental">치과병원</Badge>}
       {t && <Badge tone="brand">상급종합병원</Badge>}
       {e.length > 0 && <Badge tone="alert">권역응급의료센터</Badge>}
       {institution.universityRelations.length > 0 && <Badge tone="plain">대학병원</Badge>}
@@ -175,12 +178,19 @@ function Badges({ institution }: { institution: Institution }) {
   )
 }
 
-function Badge({ tone, children }: { tone: 'brand' | 'alert' | 'plain' | 'school' | 'warn'; children: React.ReactNode }) {
+function Badge({
+  tone,
+  children,
+}: {
+  tone: 'brand' | 'alert' | 'plain' | 'school' | 'dental' | 'warn'
+  children: React.ReactNode
+}) {
   const cls = {
     brand: 'border-brand/30 bg-brand-soft text-brand',
     alert: 'border-alert/25 bg-[#fbeceb] text-alert',
     plain: 'border-line-strong bg-paper-sunk text-ink-soft',
     school: 'border-school/25 bg-[#f5efe4] text-school',
+    dental: 'border-dental/25 bg-[#e9f0f7] text-dental',
     warn: 'border-amber-300 bg-amber-50 text-amber-800',
   }[tone]
   return <span className={`rounded-sm border px-1.5 py-0.5 text-2xs font-medium ${cls}`}>{children}</span>
@@ -481,7 +491,7 @@ function SchoolOverview({ s }: { s: MedicalSchool }) {
         {s.universityUrl ? <a className="text-brand underline" href={s.universityUrl} target="_blank" rel="noreferrer">{s.universityUrl}</a> : <Unknown />}
       </Field>
       {s.country !== 'JP' && (
-        <Field label="의과대학">
+        <Field label={s.discipline === 'dental' ? '치과대학' : '의과대학'}>
           {s.schoolUrl ? <a className="text-brand underline" href={s.schoolUrl} target="_blank" rel="noreferrer">{s.schoolUrl}</a> : <Unknown />}
         </Field>
       )}
@@ -762,6 +772,17 @@ function Organization({ h, data }: { h: Hospital; data: Dataset }) {
               <Stat label="재직 인턴" value={st.internsOnDuty ?? null} unit="명" unknown={st.internsOnDuty == null} />
               <Stat label="재직 레지던트" value={st.residentsOnDuty ?? null} unit="명" unknown={st.residentsOnDuty == null} />
             </div>
+            {st.dental && (
+              <>
+                <p className="mb-1 mt-3 text-2xs font-medium text-ink-mute">치과의사 (의과와 따로 셈)</p>
+                <div className="grid grid-cols-2 gap-2">
+                  <Stat label="치과 전문의" value={st.dental.specialists} unit="명" unknown={st.dental.specialists == null} />
+                  <Stat label="치과 일반의" value={st.dental.general} unit="명" unknown={st.dental.general == null} />
+                  <Stat label="재직 치과 인턴" value={st.dental.interns} unit="명" unknown={st.dental.interns == null} />
+                  <Stat label="재직 치과 레지던트" value={st.dental.residents} unit="명" unknown={st.dental.residents == null} />
+                </div>
+              </>
+            )}
             <p className="mt-1.5 text-2xs leading-relaxed text-ink-faint">{st.note}</p>
           </>
         )}

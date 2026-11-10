@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react'
-import type { Country, Dataset, Filters, HospitalTrait, Institution, MacroRegion } from '../types'
+import type { Country, Dataset, Discipline, Filters, HospitalTrait, Institution, MacroRegion } from '../types'
 import {
   applyFilters,
   COUNTRY_LABEL,
   countryOf,
+  DISCIPLINE_LABEL,
+  disciplinesOf,
   hospitalTraits,
   isHospital,
   macroState,
@@ -15,6 +17,7 @@ import {
 import { useStore } from '../store'
 
 const COUNTRIES: Country[] = ['KR', 'JP']
+const DISCIPLINES: Discipline[] = ['medical', 'dental']
 
 /**
  * 필터 패널.
@@ -30,6 +33,7 @@ export function FilterPanel() {
   const japanState = useStore((s) => s.japanState)
   const setCountries = useStore((s) => s.setCountries)
   const setKinds = useStore((s) => s.setKinds)
+  const setDisciplines = useStore((s) => s.setDisciplines)
   const toggleTrait = useStore((s) => s.toggleTrait)
   const clearFilters = useStore((s) => s.clearFilters)
   const ctx = useMemo(() => ({ trainedIds, searchIndex }), [trainedIds, searchIndex])
@@ -42,6 +46,10 @@ export function FilterPanel() {
     for (const inst of run({ ...filters, countries: COUNTRIES })) {
       const c = countryOf(inst)
       byCountry.set(c, (byCountry.get(c) ?? 0) + 1)
+    }
+    const byDiscipline = new Map<Discipline, number>()
+    for (const inst of run({ ...filters, disciplines: DISCIPLINES })) {
+      for (const d of disciplinesOf(inst)) byDiscipline.set(d, (byDiscipline.get(d) ?? 0) + 1)
     }
     const kindBase = run({ ...filters, kinds: ['hospital', 'medicalSchool'] })
     const byKind = {
@@ -57,13 +65,17 @@ export function FilterPanel() {
     for (const inst of run({ ...filters, subRegions: [] })) {
       if (inst.subRegionId) bySub.set(inst.subRegionId, (bySub.get(inst.subRegionId) ?? 0) + 1)
     }
-    return { byCountry, byKind, byTrait, bySub }
+    return { byCountry, byDiscipline, byKind, byTrait, bySub }
   }, [data, filters, ctx, trainedIds])
 
   if (!data || !counts) return null
   const shownCountries = COUNTRIES.filter((c) => filters.countries.includes(c))
   const both = shownCountries.length > 1
-  const activeCount = filters.subRegions.length + filters.traits.length + (filters.kinds.length < 2 ? 1 : 0)
+  const activeCount =
+    filters.subRegions.length +
+    filters.traits.length +
+    (filters.kinds.length < 2 ? 1 : 0) +
+    (filters.disciplines.length < 2 ? 1 : 0)
 
   return (
     <div className="flex h-full flex-col">
@@ -110,6 +122,28 @@ export function FilterPanel() {
           )}
         </Section>
 
+        <Section title="분야" hint="일본의 医歯 통합 대학병원은 두 분야 모두에 듭니다.">
+          <div className="grid grid-cols-2 gap-1.5" role="group" aria-label="분야">
+            {DISCIPLINES.map((d) => {
+              const on = filters.disciplines.includes(d)
+              const only = on && filters.disciplines.length === 1
+              return (
+                <Toggle
+                  key={d}
+                  on={on}
+                  disabled={only}
+                  title={only ? '하나 이상 켜 두어야 합니다' : undefined}
+                  onClick={() =>
+                    setDisciplines(on ? filters.disciplines.filter((x) => x !== d) : [...filters.disciplines, d])
+                  }
+                  label={DISCIPLINE_LABEL[d]}
+                  count={counts.byDiscipline.get(d) ?? 0}
+                />
+              )
+            })}
+          </div>
+        </Section>
+
         <Section title="기관 종류">
           <div className="grid grid-cols-2 gap-1.5" role="group" aria-label="기관 종류">
             {(['hospital', 'medicalSchool'] as const).map((k) => {
@@ -122,7 +156,7 @@ export function FilterPanel() {
                   disabled={only}
                   title={only ? '하나 이상 켜 두어야 합니다' : undefined}
                   onClick={() => setKinds(on ? filters.kinds.filter((x) => x !== k) : [...filters.kinds, k])}
-                  label={k === 'hospital' ? '병원' : '의과대학'}
+                  label={k === 'hospital' ? '병원' : '대학'}
                   count={counts.byKind[k]}
                 />
               )

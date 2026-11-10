@@ -1,0 +1,43 @@
+{
+ "_note": "일본 歯学部 29곳(27개 대학)과 그 부속 병원. 국립 11곳은 歯学部 附属病院이 의학부 병원과 합쳐진 대학병원(医歯一体)이라 이미 수록된 병원에 잇고, 따로 선 歯科 병원만 새로 넣는다. 병원 ID 는 医療情報ネット オープンデータ ID. 입학정원은 일본어 위키백과 「歯学部」 定員数 표(연도 미표기)라 일부확인으로 싣는다.",
+ "_quotaSource": "src-jp-wikipedia-shigakubu",
+ "schools": [
+  {"university": "北海道大学", "unit": "歯学部", "type": "国立", "quota": 53, "hospitals": [["0111010000420", "integrated"]]},
+  {"university": "東北大学", "unit": "歯学部", "type": "国立", "quota": 53, "hospitals": [["041801848", "integrated"]]},
+  {"university": "東京科学大学", "unit": "歯学部", "type": "国立", "quota": 53, "aliases": ["東京医科歯科大学歯学部"], "hospitals": [["1311131200280", "integrated"]]},
+  {"university": "新潟大学", "unit": "歯学部", "type": "国立", "quota": 45, "hospitals": [["151BYNCX00003", "integrated"]]},
+  {"university": "大阪大学", "unit": "歯学部", "type": "国立", "quota": 53, "hospitals": [["2711270002430", "main"]]},
+  {"university": "岡山大学", "unit": "歯学部", "type": "国立", "quota": 53, "hospitals": [["3311330000790", "integrated"]]},
+  {"university": "広島大学", "unit": "歯学部", "type": "国立", "quota": 53, "hospitals": [["3411340011220", "integrated"]]},
+  {"university": "徳島大学", "unit": "歯学部", "type": "国立", "quota": 43, "hospitals": [["3611365100680", "integrated"]]},
+  {"university": "九州大学", "unit": "歯学部", "type": "国立", "quota": 53, "hospitals": [["4012400100050", "integrated"]]},
+  {"university": "長崎大学", "unit": "歯学部", "type": "国立", "quota": 50, "hospitals": [["421hna0039", "integrated"]]},
+  {"university": "鹿児島大学", "unit": "歯学部", "type": "国立", "quota": 53, "hospitals": [["46110029", "integrated"]]},
+  {"university": "九州歯科大学", "universityUrl": "https://www.kyu-dent.ac.jp/", "unit": "歯学部", "type": "公立", "quota": 95, "hospitals": [["4011400004360", "main"]]},
+  {"university": "北海道医療大学", "universityUrl": "https://www.hoku-iryo-u.ac.jp/", "unit": "歯学部", "type": "私立", "quota": 80, "hospitals": [],
+   "address": "北海道石狩郡当別町金沢1757",
+   "addressNote": "医療情報ネット의 병원 명부에 부속 歯科 병원이 없다(歯科クリニック는 진료소라 병원 명부 밖). 대학 当別キャンパス 주소를 국토지리원 주소 검색으로 좌표화했다."},
+  {"university": "岩手医科大学", "unit": "歯学部", "type": "私立", "quota": 73, "hospitals": [["03103101065", "integrated"]]},
+  {"university": "奥羽大学", "universityUrl": "https://www.ohu-u.ac.jp/", "unit": "歯学部", "type": "私立", "quota": 100, "hospitals": [["0710710000105", "main"]]},
+  {"university": "明海大学", "universityUrl": "https://www.meikai.ac.jp/", "unit": "歯学部", "type": "私立", "quota": 120, "hospitals": [["1111103553600", "main"]]},
+  {"university": "日本大学", "unit": "歯学部", "type": "私立", "quota": 130, "hospitals": [["1311130200980", "main"]]},
+  {"university": "日本大学", "unit": "松戸歯学部", "type": "私立", "quota": 130, "hospitals": [["1211201376500", "main"]]},
+  {"university": "東京歯科大学", "universityUrl": "https://www.tdc.ac.jp/", "unit": "歯学部", "type": "私立", "quota": 140, "hospitals": [["1311130200850", "main"]],
+   "hospitalNote": "市川総合病院은 医療情報ネット(2025-12-01)에 「東京歯科大学市川総合病院」으로 남아 있으나, 병원 누리집이 「国際医療福祉大学 市川総合病院」으로 바뀌어 있어(2026-11-09 확인) 東京歯科大学 부속으로 싣지 않는다."},
+  {"university": "日本歯科大学", "universityUrl": "https://www.ndu.ac.jp/", "unit": "生命歯学部", "type": "私立", "quota": 160, "hospitals": [["1311130101090", "main"]]},
+  {"university": "日本歯科大学", "universityUrl": "https://www.ndu.ac.jp/", "unit": "新潟生命歯学部", "type": "私立", "quota": 120, "hospitals": [["151BYNCX00042", "main"]]},
+  {"university": "昭和医科大学", "unit": "歯学部", "type": "私立", "quota": 105, "aliases": ["昭和大学歯学部"], "hospitals": [["1311132400700", "main"]]},
+  {"university": "鶴見大学", "universityUrl": "https://www.tsurumi-u.ac.jp/", "unit": "歯学部", "type": "私立", "quota": 120, "hospitals": [["1411402992800", "main"]]},
+  {"university": "神奈川歯科大学", "universityUrl": "https://www.kdu.ac.jp/", "unit": "歯学部", "type": "私立", "quota": 120, "hospitals": [["1411409478900", "main"]]},
+  {"university": "松本歯科大学", "universityUrl": "https://www.mdu.ac.jp/", "unit": "歯学部", "type": "私立", "quota": 120, "hospitals": [["2011205901840", "main"]]},
+  {"university": "朝日大学", "universityUrl": "https://www.asahi-u.ac.jp/", "unit": "歯学部", "type": "私立", "quota": 140, "hospitals": [["2111341000120", "main"]]},
+  {"university": "愛知学院大学", "universityUrl": "https://www.agu.ac.jp/", "unit": "歯学部", "type": "私立", "quota": 125, "hospitals": [["2311232200070", "main"]]},
+  {"university": "大阪歯科大学", "universityUrl": "https://www.osaka-dent.ac.jp/", "unit": "歯学部", "type": "私立", "quota": 160, "hospitals": [["2711270000700", "main"]]},
+  {"university": "福岡歯科大学", "universityUrl": "https://www.fdcnet.ac.jp/", "unit": "歯学部", "type": "私立", "quota": 120, "hospitals": [["4011400000300", "main"]]}
+ ],
+ "roles": {
+  "main": "歯学部 附属病院",
+  "branch": "歯科大学 附属病院(분원)",
+  "integrated": "医歯 통합 대학병원(歯科 부문 포함)"
+ }
+}

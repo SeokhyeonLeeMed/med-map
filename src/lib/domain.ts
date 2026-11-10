@@ -4,6 +4,7 @@
 import type {
   Country,
   Dataset,
+  Discipline,
   Filters,
   Hospital,
   HospitalTrait,
@@ -20,7 +21,7 @@ export const AS_OF = '2026-10-29'
 export const TRAIT_LABEL: Record<HospitalTrait, string> = {
   tertiary: '3차병원 (상급종합병원)',
   secondary: '2차병원 (종합병원급 수련병원)',
-  university: '대학병원 (의과대학 부속·협력)',
+  university: '대학병원 (의과·치과대학 부속·협력)',
   emergency: '권역응급의료센터',
   jpTokutei: '特定機能病院',
   jpUnivMain: '大学病院 本院',
@@ -49,6 +50,25 @@ export function countryOf(x: Institution): Country {
   return x.country ?? 'KR'
 }
 
+export const DISCIPLINE_LABEL: Record<Discipline, string> = { medical: '의과', dental: '치과' }
+
+/** 기관이 속한 분야. 일본의 医歯 통합 대학병원은 두 분야 모두에 든다. */
+export function disciplinesOf(x: Institution): Discipline[] {
+  if (x.discipline === 'dental') return ['dental']
+  if (x.discipline === 'both') return ['medical', 'dental']
+  return ['medical']
+}
+
+export function isDental(x: Institution): boolean {
+  return x.discipline === 'dental'
+}
+
+/** 목록·검색 결과에 쓰는 짧은 종류 이름 */
+export function kindLabel(x: Institution): string {
+  if (x.type === 'hospital') return x.discipline === 'dental' ? '치과병원' : '병원'
+  return x.discipline === 'dental' ? '치과대학' : '의과대학'
+}
+
 export function traitCountry(t: HospitalTrait): Country {
   return t.startsWith('jp') ? 'JP' : 'KR'
 }
@@ -60,7 +80,7 @@ export const TRAIT_DEFINITION: Record<HospitalTrait, string> = {
   secondary:
     '상급종합병원으로 지정되지 않은 전공의 수련병원. 종별은 건강보험심사평가원이 공시한 공식 분류(종합병원·병원 등)를 쓰지만, "2차병원"이라는 묶음 자체는 이 사이트가 탐색 편의를 위해 정의한 것이다.',
   university:
-    '의과대학과 부속병원·교육협력병원 관계가 자료로 확인된 병원. 이름이 비슷하거나 같은 법인이라는 이유만으로는 넣지 않는다.',
+    '의과대학·치과대학과 부속병원·교육협력병원 관계가 자료로 확인된 병원. 이름이 비슷하거나 같은 법인이라는 이유만으로는 넣지 않는다.',
   emergency:
     '보건복지부가 지정한 권역응급의료센터. 기관이 있는 지리적 권역이 아니라 공식 관할 응급의료권역을 함께 보여 준다.',
   jpTokutei:
@@ -289,6 +309,7 @@ export function applyFilters(data: Dataset, filters: Filters, ctx: FilterContext
   const selected = new Set(filters.subRegions)
   const kinds = new Set(filters.kinds)
   const countries = new Set(filters.countries)
+  const disciplines = new Set(filters.disciplines)
   // 분류 필터는 나라별로 따로 건다. 한국 분류만 골랐다면 일본 기관은 그대로 둔다.
   const traitsOf: Record<Country, HospitalTrait[]> = { KR: [], JP: [] }
   for (const t of filters.traits) traitsOf[traitCountry(t)].push(t)
@@ -302,6 +323,7 @@ export function applyFilters(data: Dataset, filters: Filters, ctx: FilterContext
     const c = countryOf(inst)
     if (!countries.has(c)) continue
     if (!kinds.has(inst.type)) continue
+    if (!disciplinesOf(inst).some((d) => disciplines.has(d))) continue
     if (regionsOf[c] > 0 && !(inst.subRegionId && selected.has(inst.subRegionId))) continue
     const traits = traitsOf[c]
     if (traits.length > 0) {
@@ -326,6 +348,10 @@ export interface Stats {
   total: number
   hospitals: number
   schools: number
+  /** 치과병원 */
+  dentalHospitals: number
+  /** 치과대학·치의학(전문)대학원·歯学部 */
+  dentalSchools: number
   emergency: number
   tertiary: number
   universityHospitals: number
@@ -346,7 +372,7 @@ export function computeStats(
   const seen = new Set<string>()
   const s: Stats = {
     korea: 0, japan: 0, jpTokutei: 0, jpUnivMain: 0, jpUnivBranch: 0,
-    total: 0, hospitals: 0, schools: 0, emergency: 0, tertiary: 0,
+    total: 0, hospitals: 0, schools: 0, dentalHospitals: 0, dentalSchools: 0, emergency: 0, tertiary: 0,
     universityHospitals: 0, withIntern: 0, withResident: 0, coordUnverified: 0,
   }
   for (const inst of shown) {
@@ -358,9 +384,11 @@ export function computeStats(
     if (inst.coord.status === '미확인') s.coordUnverified += 1
     if (isSchool(inst)) {
       s.schools += 1
+      if (isDental(inst)) s.dentalSchools += 1
       continue
     }
     s.hospitals += 1
+    if (isDental(inst)) s.dentalHospitals += 1
     const traits = hospitalTraits(inst, trainedIds)
     if (traits.includes('jpTokutei')) s.jpTokutei += 1
     if (traits.includes('jpUnivMain')) s.jpUnivMain += 1

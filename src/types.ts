@@ -93,6 +93,8 @@ export interface Staffing {
   totalSpecialists?: number | null
   residentsOnDuty?: number | null
   internsOnDuty?: number | null
+  /** 치과의사 인력(심평원). 치과 인력이 하나라도 있을 때만 있다. */
+  dental?: { general: number | null; specialists: number | null; interns: number | null; residents: number | null }
   note?: string
 }
 
@@ -107,6 +109,15 @@ export interface BedDetail {
 
 export type Country = 'KR' | 'JP'
 
+/** 분야. 의과(기본)와 치과. */
+export type Discipline = 'medical' | 'dental'
+
+/**
+ * 기관의 분야 표시. 없으면 의과다.
+ * 'dental' = 치과대학·치과병원, 'both' = 의과·치과가 한 병원인 대학병원(일본 医歯 통합 대학병원).
+ */
+export type DisciplineMark = 'dental' | 'both'
+
 /** 일본 병원 전용 정보. 한국 필드와 뜻이 다른 값은 섞지 않고 여기 따로 둔다. */
 export interface JapanHospitalInfo {
   openDataId: string
@@ -115,6 +126,8 @@ export interface JapanHospitalInfo {
   roleLabel: string | null
   roleNote?: string | null
   university: string | null
+  /** 歯科大学·歯学部 부속 병원이면 그 대학 */
+  dentalUniversity?: string
   /** 設置主体(病床機能報告 2024-07-01) */
   establisher: string | null
   tokutei: {
@@ -138,6 +151,7 @@ export interface Hospital {
   type: 'hospital'
   /** 없으면 한국 */
   country?: Country
+  discipline?: DisciplineMark
   jp?: JapanHospitalInfo
   officialName: string
   commonName: string
@@ -192,6 +206,8 @@ export interface MedicalSchool {
   type: 'medicalSchool'
   /** 없으면 한국 */
   country?: Country
+  /** 'dental' 이면 치과대학·치의학(전문)대학원·歯学部 */
+  discipline?: DisciplineMark
   jp?: { establishmentType: string | null }
   officialName: string
   universityName: string
@@ -383,6 +399,8 @@ export type HospitalTrait =
 export interface Filters {
   /** 보여 줄 나라. 하나 이상. */
   countries: Country[]
+  /** 보여 줄 분야. 하나 이상. */
+  disciplines: Discipline[]
   subRegions: string[]
   kinds: Array<'hospital' | 'medicalSchool'>
   traits: HospitalTrait[]

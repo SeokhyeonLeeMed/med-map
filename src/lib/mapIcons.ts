@@ -3,7 +3,8 @@
  *
  * 외부 스프라이트나 글리프 서버를 쓰지 않으므로 API 키도, 사용량 제한도 없다.
  * 모양(원/사각)으로 기관 유형을, 바깥 테두리로 상급종합병원을,
- * 오른쪽 위 점으로 권역응급의료센터를 구별한다. 색만으로 구별하지 않는다.
+ * 오른쪽 위 점으로 권역응급의료센터를, 가운데 흰 점으로 치과(치과대학·치과병원)를 구별한다.
+ * 색만으로 구별하지 않는다.
  */
 
 export const ICON_PX = 44 // 아이콘 원본 크기. 지도에서는 icon-size 로 줄여 쓴다.
@@ -12,6 +13,8 @@ export interface IconSpec {
   kind: 'hospital' | 'school'
   tertiary: boolean
   emergency: boolean
+  /** 치과대학·치과병원 */
+  dental: boolean
   selected: boolean
 }
 
@@ -20,6 +23,7 @@ export function iconId(spec: IconSpec): string {
     spec.kind,
     spec.tertiary ? 't' : '-',
     spec.emergency ? 'e' : '-',
+    spec.dental ? 'd' : '-',
     spec.selected ? 's' : '-',
   ].join('')
 }
@@ -29,12 +33,16 @@ export function allIconSpecs(): IconSpec[] {
   for (const kind of ['hospital', 'school'] as const)
     for (const tertiary of [false, true])
       for (const emergency of [false, true])
-        for (const selected of [false, true]) out.push({ kind, tertiary, emergency, selected })
+        for (const dental of [false, true])
+          for (const selected of [false, true]) out.push({ kind, tertiary, emergency, dental, selected })
   return out
 }
 
 const FILL = { hospital: '#1f5f4f', school: '#8a5a1f' }
 const SELECTED_FILL = { hospital: '#0f3b31', school: '#5c3a12' }
+/** 치과는 같은 모양에 푸른 계열로 칠하고, 가운데 흰 점을 더해 색 없이도 구별되게 한다. */
+const DENTAL_FILL = { hospital: '#2b5d8f', school: '#5b4a8f' }
+const DENTAL_SELECTED_FILL = { hospital: '#183d63', school: '#3a2e63' }
 
 function roundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
   ctx.beginPath()
@@ -56,7 +64,9 @@ export function drawIcon(spec: IconSpec): ImageData {
 
   const cx = size / 2
   const core = spec.selected ? 11 : 9
-  const fill = (spec.selected ? SELECTED_FILL : FILL)[spec.kind]
+  const fill = spec.dental
+    ? (spec.selected ? DENTAL_SELECTED_FILL : DENTAL_FILL)[spec.kind]
+    : (spec.selected ? SELECTED_FILL : FILL)[spec.kind]
 
   if (spec.selected) {
     ctx.beginPath()
@@ -91,6 +101,14 @@ export function drawIcon(spec: IconSpec): ImageData {
   ctx.lineWidth = spec.selected ? 2.6 : 2
   ctx.strokeStyle = '#ffffff'
   ctx.stroke()
+
+  // 치과: 가운데 흰 점
+  if (spec.dental) {
+    ctx.beginPath()
+    ctx.arc(cx, cx, core * 0.38, 0, Math.PI * 2)
+    ctx.fillStyle = '#ffffff'
+    ctx.fill()
+  }
 
   // 권역응급의료센터: 오른쪽 위 작은 점
   if (spec.emergency) {

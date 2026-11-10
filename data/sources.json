@@ -246,6 +246,24 @@
    "kind": "기관 공식 누리집",
    "retrievedOn": "2026-11-03",
    "note": "로고와 계열 표기(예: 아산재단)를 확인한 공식 누리집. 기관마다 주소는 data/curation/logo-manifest.json 의 pageUrl 에 있다."
+  },
+  {
+   "id": "src-hanib-dental-2027",
+   "title": "한입신문 「치과의사 되려면? 2027학년 치대 11개교 670명 모집」",
+   "publisher": "한입신문",
+   "kind": "언론 보도 (2차 자료)",
+   "url": "https://www.hanibnews.com/news/articleView.html?idxno=470",
+   "publishedOn": "2026-07-15",
+   "retrievedOn": "2026-11-09",
+   "note": "각 대학 2027학년도 대학입학전형 시행계획의 정원 내 모집인원을 모은 기사. 합계 670명(6년제 590·7년제 80). 정원 외 모집은 빠져 있다. 원문인 대학별 시행계획은 따로 대조하지 않았다."
+  },
+  {
+   "id": "src-dental-curation",
+   "title": "치과대학·부속 치과병원 관계 (프로젝트 정리)",
+   "publisher": "이 프로젝트",
+   "kind": "큐레이션",
+   "retrievedOn": "2026-11-09",
+   "note": "data/curation/dental.json. 치과대학은 위 기사의 11개교, 부속 치과병원은 심평원 명부에서 대학명이 들어간 치과병원(종별 '치과병원')을 골라 대학과 이었다."
   }
  ]
 }

@@ -142,7 +142,7 @@ def main(argv: list[str]) -> int:
                 shutil.copy2(src, os.path.join(OUT_DIR, f"{iid}.svg"))
                 e["copiedExt"] = ".svg"
             else:
-                e["copiedExt"] = shrink_raster(src, os.path.join(OUT_DIR, iid), e.get("crop"))
+                e["copiedExt"] = shrink_raster(src, os.path.join(OUT_DIR, iid), e.get("crop"), e.get("erase"))
             copied += 1
             continue
         if e["sourceDir"] >= len(dirs):
@@ -195,7 +195,7 @@ def _solid(im, color):
     return Image.new(im.mode, im.size, color)
 
 
-def shrink_raster(src: str, dest_base: str, crop: list[int] | None = None) -> str:
+def shrink_raster(src: str, dest_base: str, crop: list[int] | None = None, erase: list[list[int]] | None = None) -> str:
     """래스터 로고를 줄여 사본으로 저장하고, 실제로 쓴 확장자를 돌려준다.
 
     투명도가 있으면 PNG 로 살리고, 없으면 JPEG 로 저장한다. 투명 배경이 없는 사진형
@@ -211,6 +211,10 @@ def shrink_raster(src: str, dest_base: str, crop: list[int] | None = None) -> st
             im = im.crop(tuple(crop))
         has_alpha = im.mode in ("RGBA", "LA") or (im.mode == "P" and "transparency" in im.info)
         im = im.convert("RGBA" if has_alpha else "RGB")
+        for box in erase or []:
+            # 로고에 붙은 안내 문구(예: 채용 사이트 버튼)를 지운다. 투명 이미지는 투명하게, 아니면 배경색으로 칠한다.
+            fill = (0, 0, 0, 0) if has_alpha else im.getpixel((0, 0))
+            im.paste(fill, tuple(box))
         im = trim(im, has_alpha)
         if max(im.size) > MAX_PX:
             im.thumbnail((MAX_PX, MAX_PX), Image.LANCZOS)

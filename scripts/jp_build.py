@@ -53,6 +53,12 @@ SOURCES = [
     {"id": "src-jp-wikipedia", "title": "ウィキペディア日本語版(各大学・病院の記事)", "publisher": "Wikimedia Foundation", "kind": "백과사전 (2차 자료)",
      "url": "https://ja.wikipedia.org/", "license": "CC BY-SA 4.0", "retrievedOn": "2026-11-03",
      "note": "설립·개설 연도만 옮겼다. 기관마다 문서 주소를 note 에 남긴다. 공식 자료로 확인하지 못한 값이라 '일부확인'으로 싣는다."},
+    {"id": "src-jp-wikipedia-shigakubu", "title": "ウィキペディア日本語版「歯学部」定員数 表", "publisher": "Wikimedia Foundation",
+     "kind": "백과사전 (2차 자료)", "url": "https://ja.wikipedia.org/wiki/歯学部", "license": "CC BY-SA 4.0", "retrievedOn": "2026-11-09",
+     "note": "歯学部 29곳의 입학정원. 표에 연도가 적혀 있지 않고 각주도 없어 '일부확인'으로 싣는다. 사립은 괄호 안 募集人員도 함께 있다."},
+    {"id": "src-jp-dental-curation", "title": "歯学部·부속 병원 관계 (프로젝트 정리)", "publisher": "이 프로젝트", "kind": "큐레이션",
+     "retrievedOn": "2026-11-09",
+     "note": "data/jp/dental.json. 병원은 医療情報ネット オープンデータ ID 로 지정했고, 병원 정식 명칭에 대학명이 들어 있다."},
     {"id": "src-gsi-geocode", "title": "国土地理院 住所検索API", "publisher": "国土地理院", "kind": "공공 API",
      "url": "https://msearch.gsi.go.jp/address-search/AddressSearch", "retrievedOn": "2026-11-03",
      "note": "医療情報ネット에 좌표가 없는 병원의 소재지 주소를 좌표로 바꾸는 데만 썼다."},
@@ -99,6 +105,17 @@ def geocode(addr: str, cache: dict) -> tuple[float, float] | None:
     return (lat, lon) if lat else None
 
 
+def nearest_muni(lat: float, lon: float, hospitals: list, muni: dict) -> str | None:
+    """좌표가 든 시구정촌 코드. 부속 병원이 없는 歯学部(北海道医療大学)에만 쓴다."""
+    from shapely.geometry import Point, shape
+
+    pt = Point(lon, lat)
+    for f in read(ROOT, "public", "geo", "jp_muni.json")["features"]:
+        if shape(f["geometry"]).contains(pt):
+            return f["properties"]["code"]
+    return None
+
+
 def era_to_iso(s: str) -> str | None:
     m = re.match(r"([HSR])(\d+)\.(\d+)\.(\d+)", s or "")
     if not m:
@@ -112,6 +129,14 @@ def main() -> int:
     wiki = read(CACHE, "wiki.json") if os.path.exists(os.path.join(CACHE, "wiki.json")) else {"schools": {}, "hospitals": {}}
     osm = read(CACHE, "osm_med.json") if os.path.exists(os.path.join(CACHE, "osm_med.json")) else []
     curated = read(ROOT, "data", "jp", "hospitals.json")["hospitals"]
+    dental = read(ROOT, "data", "jp", "dental.json")
+    # 歯学部 부속 병원 중 아직 없는 것(따로 선 歯科 병원)을 더한다. 의학부 관계와 섞이지 않게 university 는 비운다.
+    have = {c["openDataId"] for c in curated}
+    for ds in dental["schools"]:
+        for oid, kind in ds["hospitals"]:
+            if oid not in have:
+                have.add(oid)
+                curated.append({"openDataId": oid, "university": None, "role": None, "tokutei": None, "discipline": "dental"})
     muni = {f["properties"]["code"]: f["properties"] for f in read(ROOT, "public", "geo", "jp_muni.json")["features"]}
     geo_cache_path = os.path.join(CACHE, "geocode.json")
     geo_cache = read(geo_cache_path) if os.path.exists(geo_cache_path) else {}
@@ -161,6 +186,7 @@ def main() -> int:
         common = name_key(od["name"])
         rec = {
             "id": hid, "type": "hospital", "country": "JP",
+            **({"discipline": c["discipline"]} if c.get("discipline") else {}),
             "officialName": od["name"], "commonName": common,
             "aliases": [a for a in dict.fromkeys([common, od["short"], od["kana"]]) if a and a != od["name"]],
             "coord": ({"lat": round(lat, 6), "lon": round(lon, 6), "sourceId": csrc, "status": VERIFIED, "precision": "exact",
@@ -271,6 +297,58 @@ def main() -> int:
                               "relationType": ROLE_LABEL[role], "sourceId": "src-jp-iryou-opendata", "asOf": OPEN_AS_OF,
                               "status": VERIFIED, "note": h["jp"].get("roleNote") or "병원 정식 명칭에 대학명이 들어 있다."})
 
+    # ---------------------------------------------------------- 歯学部
+    by_od = {h["jp"]["openDataId"]: h for h in hospitals}
+    dental_hosp: dict[str, list[str]] = {}
+    for ds in dental["schools"]:
+        u, unit = ds["university"], ds["unit"]
+        sid = f"jp-ds-{slug(u + unit)}"
+        linked = [(by_od[oid], kind) for oid, kind in ds["hospitals"] if oid in by_od]
+        main = next((h for h, k in linked if k in ("main", "integrated")), None)
+        coord, code = {"status": UNVERIFIED}, None
+        if main and main["coord"].get("lat"):
+            coord = {"lat": main["coord"]["lat"], "lon": main["coord"]["lon"], "sourceId": main["coord"]["sourceId"], "status": PARTIAL,
+                     "precision": "approximate", "asOf": OPEN_AS_OF,
+                     "note": f"歯学部 건물을 따로 찍지 않고 부속 병원({main['officialName']}) 좌표를 썼다."}
+            code = main["sgg"][2:]
+        elif ds.get("address"):
+            got = geocode(ds["address"], geo_cache)
+            if got:
+                coord = {"lat": round(got[0], 6), "lon": round(got[1], 6), "sourceId": "src-gsi-geocode", "status": PARTIAL,
+                         "precision": "approximate", "asOf": "2026-11-09", "note": ds.get("addressNote")}
+                code = nearest_muni(got[0], got[1], hospitals, muni)
+        if code is None:
+            warnings.append(f"歯学部 위치 미확인: {u}{unit}")
+        rec = {
+            "id": sid, "type": "medicalSchool", "country": "JP", "discipline": "dental",
+            "officialName": f"{u}{unit}", "universityName": u, "schoolKind": unit,
+            "aliases": [a for a in dict.fromkeys([u, f"{u} {unit}", *ds.get("aliases", [])])],
+            "sgg": f"jp{code}" if code else None,
+            "sggName": f"{muni.get(code, {}).get('pref', '')} {muni.get(code, {}).get('name', '')}".strip() if code else None,
+            "subRegionId": f"jp-{code}" if code else None, "macroRegionIds": [f"jp-{code[:2]}"] if code else [],
+            "coord": coord, "universityUrl": (wiki.get("univUrls") or {}).get(u) or ds.get("universityUrl"), "schoolUrl": None,
+            "founded": {"status": UNVERIFIED},
+            "quota": [{"admissionYear": 2026, "kind": "入学定員(연도 미표기)", "value": ds["quota"], "sourceId": dental["_quotaSource"],
+                       "asOf": "2026-10-19", "status": PARTIAL,
+                       "note": "일본어 위키백과 「歯学部」 定員数 표의 값이다. 표에 연도가 없어 2026년 확인 시점 기준으로 적었다."}] if ds.get("quota") else [],
+            "logo": logos.get(sid, (None, False))[0], **({"logoOnDark": True} if logos.get(sid, (None, False))[1] else {}),
+            "sourceId": "src-jp-dental-curation", "asOf": "2026-11-09",
+            "jp": {"establishmentType": ds["type"]},
+        }
+        schools.append(rec)
+        for h, kind in linked:
+            label = dental["roles"][kind]
+            if kind == "integrated":
+                h["discipline"] = "both"
+            else:
+                h["jp"]["roleLabel"] = label
+                h["jp"]["dentalUniversity"] = u
+                dental_hosp.setdefault(u, []).append(h["id"])
+            h["universityRelations"].append({"schoolId": sid, "universityName": u, "relationType": label})
+            relations.append({"fromId": sid, "fromType": "medicalSchool", "toId": h["id"], "toType": "hospital",
+                              "relationType": label, "sourceId": "src-jp-dental-curation", "asOf": "2026-11-09",
+                              "status": VERIFIED, "note": "병원 정식 명칭에 대학명이 들어 있다."})
+
     # ---------------------------------------------------------- 병원끼리(같은 대학·같은 법인)
     networks = []
     by_univ: dict[str, list] = {}
@@ -282,6 +360,12 @@ def main() -> int:
             networks.append({"id": f"net-jp-{slug(u)}", "country": "JP", "name": f"{u} 대학병원",
                              "kind": "같은 대학 부속병원", "memberIds": ids, "sourceId": "src-jp-iryou-opendata", "status": VERIFIED,
                              "note": "같은 대학의 본원·분원이다. 병원 정식 명칭과 특정기능병원 승인 명부로 확인했다."})
+    for u, ids in dental_hosp.items():
+        ids = list(dict.fromkeys(ids))
+        if len(ids) > 1:
+            networks.append({"id": f"net-jp-dental-{slug(u)}", "country": "JP", "name": f"{u} 歯科 부속병원",
+                             "kind": "같은 대학 치과병원", "memberIds": ids, "sourceId": "src-jp-dental-curation", "status": VERIFIED,
+                             "note": "같은 歯科大学·歯学部의 부속 병원이다. 병원 정식 명칭에 대학명이 들어 있다."})
     ncc = [h["id"] for h in hospitals if "国立がん研究センター" in h["officialName"]]
     if len(ncc) > 1:
         networks.append({"id": "net-jp-ncc", "country": "JP", "name": "国立がん研究センター", "kind": "같은 법인",
