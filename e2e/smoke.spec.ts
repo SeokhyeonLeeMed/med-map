@@ -257,3 +257,19 @@ test('분야 필터에서 치과만 고르면 치과대학·치과병원이 나�
   await panel.getByRole('tab', { name: '개요' }).click()
   await expect(panel.getByText('치의학 정원 내 모집인원', { exact: false })).toBeVisible()
 })
+
+test('의과·치과대학이 함께 있는 대학은 하나로 보이고 단과대학 탭으로 오간다', async ({ page }) => {
+  await page.goto('/?sel=ms-gyeonghui')
+  await waitForMap(page)
+  const panel = page.getByRole('complementary', { name: '기관 상세 정보' })
+  await expect(panel.getByRole('heading', { level: 2 })).toHaveText('경희대학교')
+  // 같은 캠퍼스라 지도 라벨은 대학 이름 하나다
+  await expect(page.locator('[aria-hidden="true"] > span', { hasText: /^경희대학교$/ })).toHaveCount(1)
+  await expect(page.locator('[aria-hidden="true"] > span', { hasText: '경희대학교 치과대학' })).toHaveCount(0)
+  await panel.getByRole('tablist', { name: '단과대학' }).getByRole('tab', { name: '치과대학' }).click()
+  await expect(page).toHaveURL(/sel=ds-gyeonghui/)
+  await panel.getByRole('tab', { name: '관련기관' }).click()
+  for (const name of ['경희대학교 의과대학', '경희대학교병원', '경희대학교치과병원']) {
+    await expect(panel.getByRole('button', { name: new RegExp(name) }).first()).toBeVisible()
+  }
+})

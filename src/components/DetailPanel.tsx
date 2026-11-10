@@ -4,10 +4,12 @@ import {
   activeEmergency,
   activeTertiary,
   isHospital,
+  collegeLabel,
   networksOf,
   pastEmergency,
   recruitmentFor,
   type RecruitmentSummary,
+  universityGroups,
 } from '../lib/domain'
 import { JP_STAFF_ROWS } from '../lib/japan'
 import { useStore } from '../store'
@@ -50,6 +52,8 @@ export function DetailPanel({ institution }: { institution: Institution }) {
   // 로고 파일을 못 읽으면 머리글자 표식으로 돌아간다. 기관마다 따로 기억한다.
   const [logoFailed, setLogoFailed] = useState<string | null>(null)
   const showLogo = !!institution.logo && logoFailed !== institution.id
+  // 의과·치과대학이 함께 있는 대학은 하나의 대학으로 보이고, 단과대학 탭으로 오간다.
+  const group = hospital ? undefined : universityGroups(data.schools).get(institution.id)
 
   return (
     <aside className="flex h-full flex-col bg-paper-raised" aria-label="기관 상세 정보">
@@ -69,7 +73,9 @@ export function DetailPanel({ institution }: { institution: Institution }) {
                 }
               />
             )}
-            <h2 className="text-[15px] font-semibold leading-snug text-ink">{institution.officialName}</h2>
+            <h2 className="text-[15px] font-semibold leading-snug text-ink">
+              {group ? group.universityName : institution.officialName}
+            </h2>
             <p className="mt-0.5 text-2xs text-ink-mute">
               {institution.sggName ?? '소재지 미확인'}
               {hospital && institution.commonName !== institution.officialName && ` · ${institution.commonName}`}
@@ -85,7 +91,41 @@ export function DetailPanel({ institution }: { institution: Institution }) {
             </svg>
           </button>
         </div>
-        <Badges institution={institution} />
+        <Badges institution={institution} hideKind={!!group} />
+        {group && (
+          <div className="mt-2.5" role="tablist" aria-label="단과대학">
+            <div className="grid gap-1" style={{ gridTemplateColumns: `repeat(${group.members.length}, minmax(0, 1fr))` }}>
+              {group.members.map((m) => {
+                const on = m.id === institution.id
+                const dental = m.discipline === 'dental'
+                return (
+                  <button
+                    key={m.id}
+                    role="tab"
+                    aria-selected={on}
+                    // 탭을 바꾸면 그 단과대학 위치를 지도 가운데로 옮긴다.
+                    onClick={() => !on && select(m.id, true, true)}
+                    className={
+                      'rounded border px-2 py-1.5 text-xs transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand ' +
+                      (on
+                        ? dental
+                          ? 'border-dental bg-dental text-white font-semibold'
+                          : 'border-school bg-school text-white font-semibold'
+                        : 'border-line-strong bg-paper text-ink-soft hover:border-ink-faint')
+                    }
+                  >
+                    {collegeLabel(m)}
+                  </button>
+                )
+              })}
+            </div>
+            <p className="mt-1 text-2xs text-ink-faint">
+              {group.sameCampus
+                ? '같은 캠퍼스에 있어 지도에는 대학 하나로 표시합니다. 탭을 고르면 그 단과대학 위치로 옮깁니다.'
+                : '캠퍼스가 달라 지도에는 단과대학마다 따로 표시합니다. 탭을 고르면 그 캠퍼스로 옮깁니다.'}
+            </p>
+          </div>
+        )}
       </header>
 
       <nav className="flex shrink-0 gap-0.5 border-b border-line px-2" role="tablist">
@@ -141,12 +181,14 @@ function Monogram({ institution }: { institution: Institution }) {
   )
 }
 
-function Badges({ institution }: { institution: Institution }) {
+function Badges({ institution, hideKind = false }: { institution: Institution; hideKind?: boolean }) {
   if (!isHospital(institution)) {
     return (
       <div className="mt-2 flex flex-wrap gap-1">
         {institution.country === 'JP' && <Badge tone="plain">일본</Badge>}
-        <Badge tone={institution.discipline === 'dental' ? 'dental' : 'school'}>{institution.schoolKind}</Badge>
+        {!hideKind && (
+          <Badge tone={institution.discipline === 'dental' ? 'dental' : 'school'}>{institution.schoolKind}</Badge>
+        )}
         {institution.jp?.establishmentType && <Badge tone="plain">{institution.jp.establishmentType}</Badge>}
       </div>
     )
@@ -799,20 +841,125 @@ function Organization({ h, data }: { h: Hospital; data: Dataset }) {
   )
 }
 
+/** 관련기관 목록의 한 줄 */
+interface LinkRow {
+  id: string
+  tag: string
+}
+
+function LinkList({
+  rows,
+  nameOf,
+  select,
+  currentId,
+}: {
+  rows: LinkRow[]
+  nameOf: (id: string) => string
+  select: (id: string | null) => void
+  currentId?: string
+}) {
+  return (
+    <ul className="space-y-1">
+      {rows.map((r) => {
+        const current = r.id === currentId
+        return (
+          <li key={r.id}>
+            <button
+              onClick={() => !current && select(r.id)}
+              aria-current={current ? 'true' : undefined}
+              className={
+                'flex w-full items-start gap-2 rounded border px-2.5 py-2 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand ' +
+                (current ? 'border-brand/40 bg-brand-soft/50' : 'border-line hover:border-brand/40 hover:bg-brand-soft/40')
+              }
+            >
+              <span className="min-w-0 flex-1 text-xs leading-snug">
+                {nameOf(r.id)}
+                {current && <span className="ml-1 text-2xs text-ink-mute">(보는 중)</span>}
+              </span>
+              <span className="shrink-0 rounded-sm border border-line-strong px-1 py-px text-[10px] text-ink-mute">{r.tag}</span>
+            </button>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
 function Related({ institution, data }: { institution: Institution; data: Dataset }) {
   const select = useStore((s) => s.select)
-  const rels = data.relations.filter((r) => r.fromId === institution.id || r.toId === institution.id)
-  const nets = isHospital(institution) ? networksOf(institution.id, data) : []
-  if (rels.length === 0 && nets.length === 0)
-    return <p className="text-xs text-ink-faint">자료로 확인된 관련 기관이 없습니다.</p>
   const nameOf = (id: string) =>
     data.hospitals.find((h) => h.id === id)?.officialName ?? data.schools.find((s) => s.id === id)?.officialName ?? id
+  const groups = universityGroups(data.schools)
+  const relsOf = (id: string) => data.relations.filter((r) => r.fromId === id || r.toId === id)
+  const hospitalRows = (schoolId: string, label?: string): LinkRow[] =>
+    relsOf(schoolId).map((r) => ({
+      id: r.fromId === schoolId ? r.toId : r.fromId,
+      tag: label ? `${label} · ${r.relationType}` : r.relationType,
+    }))
+
+  // 의과·치과대학이 함께 있는 대학: 단과대학 모두와, 단과대학마다의 대학병원·치과병원을 한꺼번에 보여 준다.
+  const group = !isHospital(institution) ? groups.get(institution.id) : undefined
+  if (group) {
+    const colleges: LinkRow[] = group.members.map((m) => ({ id: m.id, tag: collegeLabel(m) }))
+    const seen = new Set<string>()
+    const hospitals = group.members
+      .flatMap((m) => hospitalRows(m.id, collegeLabel(m)))
+      .filter((r) => !seen.has(r.id) && seen.add(r.id))
+    return (
+      <div className="space-y-4">
+        <section>
+          <h4 className="mb-1.5 text-xs font-semibold">{group.universityName} 단과대학</h4>
+          <LinkList rows={colleges} nameOf={nameOf} select={select} currentId={institution.id} />
+        </section>
+        {hospitals.length > 0 && (
+          <section>
+            <h4 className="mb-1.5 text-xs font-semibold">대학병원 · 치과병원</h4>
+            <LinkList rows={hospitals} nameOf={nameOf} select={select} />
+          </section>
+        )}
+      </div>
+    )
+  }
+
+  const rels = relsOf(institution.id)
+  const nets = isHospital(institution) ? networksOf(institution.id, data) : []
+  // 병원: 이 병원의 대학이 의과·치과를 함께 둔 대학이면 같은 대학의 다른 단과대학과 그 병원들도 보여 준다.
+  const sameUniv: LinkRow[] = []
+  if (isHospital(institution)) {
+    const listed = new Set<string>([institution.id, ...rels.map((r) => (r.fromId === institution.id ? r.toId : r.fromId))])
+    const seenGroups = new Set<string>()
+    for (const r of rels) {
+      const g = groups.get(r.fromId === institution.id ? r.toId : r.fromId)
+      if (!g || seenGroups.has(g.key)) continue
+      seenGroups.add(g.key)
+      for (const m of g.members) {
+        if (!listed.has(m.id)) {
+          listed.add(m.id)
+          sameUniv.push({ id: m.id, tag: collegeLabel(m) })
+        }
+        for (const h of hospitalRows(m.id, collegeLabel(m))) {
+          if (!listed.has(h.id)) {
+            listed.add(h.id)
+            sameUniv.push(h)
+          }
+        }
+      }
+    }
+  }
+  if (rels.length === 0 && nets.length === 0 && sameUniv.length === 0)
+    return <p className="text-xs text-ink-faint">자료로 확인된 관련 기관이 없습니다.</p>
   return (
     <div className="space-y-4">
       {rels.length > 0 && (
         <section>
           <h4 className="mb-1.5 text-xs font-semibold">{isHospital(institution) ? '대학' : '부속·교육 병원'}</h4>
           <RelationList rels={rels} institution={institution} nameOf={nameOf} select={select} />
+        </section>
+      )}
+      {sameUniv.length > 0 && (
+        <section>
+          <h4 className="mb-1.5 text-xs font-semibold">같은 대학의 다른 단과대학 · 병원</h4>
+          <LinkList rows={sameUniv} nameOf={nameOf} select={select} />
         </section>
       )}
       {nets.map((n) => (

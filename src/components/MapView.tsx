@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import maplibregl, { type Map as MlMap } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import type { Institution } from '../types'
-import { activeEmergency, activeTertiary, highlightedSgg, isHospital } from '../lib/domain'
+import { activeEmergency, activeTertiary, highlightedSgg, isHospital, universityGroups } from '../lib/domain'
 import { allIconSpecs, drawIcon, iconId } from '../lib/mapIcons'
 import { BOTH_BOUNDS, buildStyle, JAPAN_BOUNDS, KOREA_BOUNDS } from '../lib/mapStyle'
 import { useStore } from '../store'
@@ -121,15 +121,32 @@ export function MapView({ shown }: { shown: Institution[] }) {
   const select = useStore((s) => s.select)
 
   const features = useMemo(() => {
-    const placed = shown.filter((i) => i.coord.lat != null && i.coord.lon != null)
+    // 의과·치과대학이 같은 캠퍼스에 있는 대학은 마커 하나(대학 이름)로 합친다.
+    // 다른 캠퍼스면 단과대학마다 따로 두고 이름에 단과대학을 붙인다.
+    const groups = data ? universityGroups(data.schools) : new Map()
+    const shownIds = new Set(shown.map((i) => i.id))
+    const merged = new Map<string, { name: string; memberIds: string[] }>()
+    const hidden = new Set<string>()
+    for (const g of new Set(groups.values())) {
+      if (!g.sameCampus) continue
+      const visible = g.members.filter((m: Institution) => shownIds.has(m.id))
+      if (visible.length < 2) continue
+      // 지금 고른 단과대학이 있으면 그 마커를 대표로 둔다(선택 표시와 좌표가 맞도록).
+      const lead = visible.find((m: Institution) => m.id === selectedId) ?? visible[0]
+      merged.set(lead.id, { name: g.universityName, memberIds: visible.map((m: Institution) => m.id) })
+      for (const m of visible) if (m.id !== lead.id) hidden.add(m.id)
+    }
+    const placed = shown.filter((i) => i.coord.lat != null && i.coord.lon != null && !hidden.has(i.id))
     const offsets = spreadCoincident(placed)
     return placed
       .map((i) => {
         const hospital = isHospital(i)
+        const group = merged.get(i.id)
         // 일본 特定機能病院은 한국 상급종합병원과 같은 진한 표식으로 그린다(범례에 함께 적는다).
         const tertiary = hospital ? !!activeTertiary(i) || !!i.jp?.tokutei : false
         const emergency = hospital ? activeEmergency(i).length > 0 : false
-        const name = hospital ? i.commonName || i.officialName : `${i.universityName} ${i.schoolKind}`
+        const name = hospital ? i.commonName || i.officialName : group ? group.name : `${i.universityName} ${i.schoolKind}`
+        const selected = group ? group.memberIds.includes(selectedId ?? '') : i.id === selectedId
         // 중요한 기관일수록 작은 값 → 라벨과 아이콘에서 우선권을 갖는다.
         const rank = (tertiary ? 0 : emergency ? 1 : hospital ? 2 : 1.5) * 1000 - (hospital ? i.beds[0]?.value ?? 0 : 0) / 100
         return {
@@ -140,18 +157,20 @@ export function MapView({ shown }: { shown: Institution[] }) {
             name,
             rank,
             sortKey: rank,
+            selected,
             icon: iconId({
               kind: hospital ? 'hospital' : 'school',
               tertiary,
               emergency,
-              dental: i.discipline === 'dental',
-              selected: i.id === selectedId,
+              // 의과·치과를 합친 대학 마커는 의과 표식을 쓴다.
+              dental: i.discipline === 'dental' && !group,
+              selected,
             }),
           },
           geometry: { type: 'Point' as const, coordinates: offsets.get(i.id) ?? [i.coord.lon!, i.coord.lat!] },
         }
       })
-  }, [shown, selectedId])
+  }, [shown, selectedId, data])
 
   // 지도 초기화 (한 번만)
   useEffect(() => {
@@ -319,7 +338,8 @@ export function MapView({ shown }: { shown: Institution[] }) {
     const canvas = map.getCanvas()
     const wide = window.matchMedia('(min-width: 1024px)').matches
     const offset: [number, number] = wide ? [0, 0] : [0, -canvas.clientHeight * 0.22]
-    if (!map.getBounds().contains(point) || map.getZoom() < 9) {
+    // 단과대학 탭을 바꿨을 때는 화면 안에 있어도 그 단과대학을 가운데로 옮긴다.
+    if (useStore.getState().flyCenter || !map.getBounds().contains(point) || map.getZoom() < 9) {
       map.easeTo({ center: point, zoom: Math.max(map.getZoom(), 10.5), offset, duration: 650 })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -343,7 +363,7 @@ export function MapView({ shown }: { shown: Institution[] }) {
           x: p.x,
           y: p.y,
           rank: Number(f.properties.rank),
-          selected: f.properties.id === selectedId,
+          selected: Boolean(f.properties.selected),
         }
       })
       setLabels(placeLabels(cands, w, h, limit))

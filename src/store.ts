@@ -28,6 +28,8 @@ export interface AppState {
   selectedId: string | null
   /** 상세 패널에서 기관을 오갈 때 지도를 그 위치로 옮길지. 목록 클릭은 true, 뒤로 가기는 false. */
   flyToken: number
+  /** 이번 이동은 화면 밖이 아니어도 그 기관을 가운데로 옮긴다(단과대학 탭 전환). */
+  flyCenter: boolean
   /** 전체 모집 기록(큰 파일)을 받아 왔는지 */
   recruitmentState: 'idle' | 'loading' | 'ready' | 'error'
   filterPanelOpen: boolean
@@ -46,7 +48,7 @@ export interface AppState {
   toggleMacroRegion: (id: string) => void
   clearFilters: () => void
   removeSubRegion: (id: string) => void
-  select: (id: string | null, fly?: boolean) => void
+  select: (id: string | null, fly?: boolean, center?: boolean) => void
   setFilterPanelOpen: (v: boolean) => void
   applyUrl: (search: string) => void
 }
@@ -118,6 +120,7 @@ export const useStore = create<AppState>((set, get) => ({
   filters: EMPTY_FILTERS,
   selectedId: null,
   flyToken: 0,
+  flyCenter: false,
   recruitmentState: 'idle',
   filterPanelOpen: WIDE_SCREEN,
   japanState: 'idle',
@@ -263,11 +266,12 @@ export const useStore = create<AppState>((set, get) => ({
     set({ filters })
     syncUrl(filters, get().selectedId)
   },
-  select: (id, fly = true) => {
+  select: (id, fly = true, center = false) => {
     if (id) void get().loadRecruitment()
     set((s) => ({
       selectedId: id,
       flyToken: fly ? s.flyToken + 1 : s.flyToken,
+      flyCenter: fly && center,
       // 좁은 화면에서 상세 시트와 필터 드로어가 함께 열리면 지도가 가려진다.
       filterPanelOpen: id && !WIDE_SCREEN ? false : s.filterPanelOpen,
     }))
@@ -277,7 +281,7 @@ export const useStore = create<AppState>((set, get) => ({
 
   applyUrl: (search) => {
     const { filters, selectedId } = parseUrl(search)
-    set((s) => ({ filters, selectedId, flyToken: s.flyToken + 1 }))
+    set((s) => ({ filters, selectedId, flyToken: s.flyToken + 1, flyCenter: false }))
     // 뒤로·앞으로 가기로 선택 상태에 돌아왔을 때도 수련 탭이 비지 않게 한다.
     if (selectedId) void get().loadRecruitment()
     if (filters.countries.includes('JP')) void get().loadJapan()

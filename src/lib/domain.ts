@@ -502,3 +502,62 @@ export function highlightedSgg(regions: Regions, selected: ReadonlySet<string>):
 export function networksOf(id: string, data: Pick<Dataset, 'networks'>) {
   return data.networks.filter((n) => n.memberIds.includes(id))
 }
+
+// ---------------------------------------------------------------- 같은 대학의 의과·치과대학
+
+/** 의과대학과 치과대학이 이 거리 안에 있으면 같은 캠퍼스로 본다(실제 값: 같은 캠퍼스 0.8 km 이하, 다른 캠퍼스 3.8 km 이상). */
+export const SAME_CAMPUS_KM = 1.5
+
+/**
+ * 한 대학 안의 의과대학·치과대학 묶음.
+ *
+ * 의과와 치과가 함께 있는 대학만 묶는다(치과대학만 둘인 日本歯科大学 등은 묶지 않는다).
+ * 화면에서는 하나의 대학으로 보이고, 상세 패널에서 단과대학 탭으로 오간다.
+ * 같은 캠퍼스면 지도에 대학 이름 하나만, 다른 캠퍼스면 단과대학마다 따로 표시한다.
+ */
+export interface UniversityGroup {
+  key: string
+  universityName: string
+  /** 의과대학이 먼저, 그다음 치과대학 */
+  members: MedicalSchool[]
+  sameCampus: boolean
+}
+
+export function distanceKm(a: { lat?: number; lon?: number }, b: { lat?: number; lon?: number }): number {
+  if (a.lat == null || a.lon == null || b.lat == null || b.lon == null) return Infinity
+  const rad = Math.PI / 180
+  const dLat = (b.lat - a.lat) * rad
+  const dLon = (b.lon - a.lon) * rad
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(dLon / 2) ** 2
+  return 6371 * 2 * Math.asin(Math.min(1, Math.sqrt(h)))
+}
+
+const groupCache = new WeakMap<MedicalSchool[], Map<string, UniversityGroup>>()
+
+/** 학교 ID → 그 학교가 속한 묶음. 묶음이 없는 학교는 들어 있지 않다. */
+export function universityGroups(schools: MedicalSchool[]): Map<string, UniversityGroup> {
+  const cached = groupCache.get(schools)
+  if (cached) return cached
+  const byName = new Map<string, MedicalSchool[]>()
+  for (const s of schools) {
+    const key = `${countryOf(s)}|${s.universityName}`
+    byName.set(key, [...(byName.get(key) ?? []), s])
+  }
+  const out = new Map<string, UniversityGroup>()
+  for (const [key, list] of byName) {
+    const medical = list.filter((s) => s.discipline !== 'dental')
+    const dental = list.filter((s) => s.discipline === 'dental')
+    if (medical.length === 0 || dental.length === 0) continue
+    const members = [...medical, ...dental]
+    const sameCampus = members.every((a) => members.every((b) => distanceKm(a.coord, b.coord) <= SAME_CAMPUS_KM))
+    const group: UniversityGroup = { key, universityName: list[0].universityName, members, sameCampus }
+    for (const m of members) out.set(m.id, group)
+  }
+  groupCache.set(schools, out)
+  return out
+}
+
+/** 단과대학 탭에 쓰는 짧은 이름(의과대학·치의학대학원·歯学部 등) */
+export function collegeLabel(s: MedicalSchool): string {
+  return s.schoolKind
+}

@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import {
+  universityGroups,
   activeEmergency,
   applyFilters,
   buildSearchIndex,
@@ -501,6 +502,26 @@ describe('치과', () => {
     expect(only.every((i) => i.discipline === 'dental' || i.discipline === 'both')).toBe(true)
     const medical = applyFilters(both, { ...ALL, countries: ['KR', 'JP'], disciplines: ['medical'] }, bothCtx)
     expect(medical.some((i) => i.discipline === 'dental')).toBe(false)
+  })
+})
+
+describe('같은 대학의 의과·치과대학', () => {
+  it('한국 11개 대학을 묶고, 캠퍼스가 다른 곳은 강원대·전남대뿐이다', () => {
+    const groups = [...new Set(universityGroups(data.schools).values())]
+    expect(groups).toHaveLength(11)
+    expect(groups.filter((g) => !g.sameCampus).map((g) => g.universityName).sort()).toEqual(['강원대학교', '전남대학교'])
+    const khu = universityGroups(data.schools).get('ds-gyeonghui')!
+    expect(khu.members.map((m) => m.id)).toEqual(['ms-gyeonghui', 'ds-gyeonghui'])
+    expect(khu.sameCampus).toBe(true)
+  })
+
+  it('일본은 의학부·歯学部가 함께 있는 14개 대학을 묶고, 歯学部만 둘인 대학은 묶지 않는다', () => {
+    const groups = [...new Set(universityGroups(jp.schools).values())]
+    expect(groups).toHaveLength(14)
+    const nihon = groups.find((g) => g.universityName === '日本大学')!
+    expect(nihon.members).toHaveLength(3)
+    expect(nihon.sameCampus).toBe(false)
+    expect(groups.some((g) => g.universityName === '日本歯科大学')).toBe(false)
   })
 })
 
